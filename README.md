@@ -1,2 +1,18 @@
-# whizdohan.github.io
-Tarkov Tools &amp; Community
+# Tarkov Document Map
+
+Escape from Tarkov 시즌 배틀패스 문서 위치와 수집 진행도를 관리하는 정적 GitHub Pages 사이트입니다.
+
+## 현재 포함된 기능
+
+- 11개 전장 전환
+- 8종 문서 필터
+- 총 필요량 499개 기준 보유량·잔여량 계산
+- 위치별 발견 체크와 브라우저 저장
+- 반응형 모바일 사이드바
+- 위치 상세 이미지·설명 모달
+
+## 위치 데이터 추가
+
+`data/locations.js`에 검증된 위치를 추가합니다. 좌표는 지도 영역 기준 백분율(`x`, `y`: 0~100)입니다. 실제 지도 이미지는 저작권과 사용 허가를 확인한 뒤 별도로 연결해야 합니다.
+
+이 프로젝트는 비공식 팬 도구이며 Escape from Tarkov 관련 상표와 게임 자산은 Battlestate Games에 귀속됩니다.
