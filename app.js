@@ -8,10 +8,10 @@ const MAPS=[
 ].map(([id,name,ko,code])=>({id,name,ko,code}));
 
 const CATEGORIES={
-  technical:{name:"Technical",required:86,color:"#d3a759"},pmc:{name:"PMC",required:39,color:"#bd7469"},
-  project:{name:"Project",required:55,color:"#70a0a7"},blueprints:{name:"Blueprints",required:81,color:"#738db5"},
-  test:{name:"Test",required:48,color:"#a08ab4"},user:{name:"User",required:40,color:"#8caa70"},
-  medical:{name:"Medical",required:67,color:"#b06c73"},financial:{name:"Financial",required:83,color:"#b99a62"}
+  technical:{name:"Technical Documents",required:61,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:71,color:"#bd7469"},
+  project:{name:"Project Files",required:49,color:"#70a0a7"},blueprints:{name:"Blueprints",required:51,color:"#738db5"},
+  test:{name:"Test Documents",required:61,color:"#a08ab4"},user:{name:"User Documents",required:58,color:"#8caa70"},
+  medical:{name:"Medical Documents",required:47,color:"#b06c73"},financial:{name:"Financial Documents",required:103,color:"#b99a62"}
 };
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
@@ -34,7 +34,7 @@ function renderCategories(){
   els.categoryList.innerHTML=Object.entries(CATEGORIES).map(([key,category])=>`
     <label class="category-row"><input type="checkbox" value="${key}" ${state.filters.includes(key)?"checked":""}/>
     <span><i class="category-swatch" style="--swatch:${category.color}"></i><strong>${category.name}</strong></span>
-    <small>${category.required}개</small></label>`).join("");
+    </label>`).join("");
 }
 
 function updateMap(){
