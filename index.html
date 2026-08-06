@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Escape from Tarkov 시즌 배틀패스 문서 위치와 수집 진행도를 관리하는 비공식 팬 도구" />
+    <title>Tarkov Document Map</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data/locations.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar" id="sidebar">
+      <header class="brand">
+        <p class="eyebrow">SEASON BATTLE PASS</p>
+        <h1>DOCUMENT<br /><span>MAP</span></h1>
+        <p class="brand-copy">문서 위치와 수집 진행도를 한곳에서 관리하세요.</p>
+      </header>
+
+      <section class="control-section">
+        <label class="section-label" for="map-select">전장 선택</label>
+        <select id="map-select"></select>
+      </section>
+
+      <section class="control-section filter-section">
+        <div class="section-heading">
+          <span class="section-label">문서 종류</span>
+          <button class="text-button" id="toggle-all" type="button">전체 해제</button>
+        </div>
+        <div id="category-list" class="category-list"></div>
+      </section>
+
+      <section class="control-section sidebar-footer">
+        <button class="secondary-button" id="reset-progress" type="button">저장된 진행도 초기화</button>
+        <p>진행도는 이 브라우저에만 저장됩니다.</p>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="menu-button" id="menu-button" type="button" aria-label="필터 메뉴 열기" aria-expanded="false">☰</button>
+        <div>
+          <p class="eyebrow">CURRENT MAP</p>
+          <h2 id="current-map-name">Factory · 공장</h2>
+        </div>
+        <div class="topbar-actions">
+          <button class="secondary-button compact" id="progress-button" type="button">수집 현황</button>
+        </div>
+      </header>
+
+      <section class="summary-strip" aria-label="전체 수집 현황">
+        <div class="summary-copy">
+          <span>전체 수집 진행도</span>
+          <strong><b id="total-owned">0</b> / <b id="total-required">499</b></strong>
+        </div>
+        <div class="progress-track"><span id="total-progress-bar"></span></div>
+        <strong class="progress-percent" id="total-progress-percent">0%</strong>
+      </section>
+
+      <section class="map-shell">
+        <div class="map-toolbar">
+          <div class="legend"><span class="legend-dot"></span><span id="visible-count">표시 위치 0개</span></div>
+          <span class="coordinate" id="coordinate">X 000 · Y 000</span>
+        </div>
+        <div id="map-stage" class="map-stage" tabindex="0" aria-label="문서 위치 지도">
+          <div class="map-grid"></div>
+          <div class="map-watermark" aria-hidden="true">
+            <span id="map-code">FCT</span>
+            <small>TACTICAL DOCUMENT GRID</small>
+          </div>
+          <div id="marker-layer" class="marker-layer"></div>
+          <div class="empty-state" id="empty-state">
+            <span class="empty-icon">＋</span>
+            <strong>등록된 위치 데이터가 없습니다</strong>
+            <p>검증된 좌표와 지도 이미지를 추가하면 이곳에 마커가 표시됩니다.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="backdrop" id="sidebar-backdrop"></div>
+
+    <dialog id="progress-dialog" class="dialog">
+      <form method="dialog" class="dialog-card">
+        <header class="dialog-header">
+          <div>
+            <p class="eyebrow">COLLECTION TRACKER</p>
+            <h2>문서 보유량</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="닫기">×</button>
+        </header>
+        <p class="dialog-description">현재 보유 중인 문서 수를 입력하면 필요한 잔여 수량을 자동으로 계산합니다.</p>
+        <div id="progress-editor" class="progress-editor"></div>
+        <button class="primary-button" value="default">저장하고 닫기</button>
+      </form>
+    </dialog>
+
+    <dialog id="detail-dialog" class="dialog">
+      <article class="dialog-card detail-card">
+        <header class="dialog-header">
+          <div>
+            <p class="eyebrow" id="detail-category">DOCUMENT LOCATION</p>
+            <h2 id="detail-title">위치 상세</h2>
+          </div>
+          <button class="icon-button" id="detail-close" type="button" aria-label="닫기">×</button>
+        </header>
+        <div class="detail-image" id="detail-image">이미지 준비 중</div>
+        <p id="detail-description"></p>
+        <button class="primary-button" id="found-button" type="button">발견 완료로 표시</button>
+      </article>
+    </dialog>
+
+    <footer class="legal-note">Unofficial fan-made tool. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
+  </body>
+</html>
