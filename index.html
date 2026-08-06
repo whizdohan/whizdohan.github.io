@@ -17,11 +17,11 @@
       .intro { max-width:580px; margin:24px 0 42px; color:var(--muted); font-size:14px; line-height:1.8; }
       .tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
       .card { position:relative; min-height:260px; display:flex; flex-direction:column; padding:28px; overflow:hidden; color:inherit; text-decoration:none; border:1px solid var(--line); background:rgba(21,25,22,.94); transition:.2s ease; }
-      .card:hover { transform:translateY(-4px); border-color:var(--gold); box-shadow:0 20px 50px #0008; }
+      .card.disabled { opacity:.72; cursor:default; }
       .number { color:#5f675f; font:800 12px ui-monospace,monospace; }
       .card h2 { margin:auto 0 10px; font-size:25px; }
       .card p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.65; }
-      .arrow { position:absolute; top:25px; right:26px; color:var(--gold); font-size:24px; }
+      .status { position:absolute; top:24px; right:25px; padding:6px 9px; border:1px solid #4a4332; color:var(--gold); font:800 9px ui-monospace,monospace; letter-spacing:.12em; }
       .tag { display:inline-flex; align-self:flex-start; margin-top:20px; padding:6px 8px; border:1px solid #3a403a; color:#b8bcb7; font:700 9px ui-monospace,monospace; letter-spacing:.08em; }
       footer { margin-top:24px; color:#646a64; font-size:9px; }
       @media(max-width:680px){ .tools{grid-template-columns:1fr}.card{min-height:220px} }
@@ -33,18 +33,18 @@
       <h1>SEASON<br /><span>TOOLS</span></h1>
       <p class="intro">시즌 배틀패스 문서 위치를 찾고, 필요한 문서 수량과 현재 진행도를 계산하는 비공식 팬 도구입니다.</p>
       <section class="tools" aria-label="타르코프 도구 선택">
-        <a class="card" href="문서지도/">
-          <span class="number">TOOL 01</span><span class="arrow">↗</span>
+        <article class="card disabled">
+          <span class="number">TOOL 01</span><span class="status">준비 중</span>
           <h2>문서 지도</h2>
           <p>맵별 문서 위치를 확인하고 종류별로 필터링합니다. 발견한 위치는 브라우저에 저장됩니다.</p>
           <span class="tag">11 MAPS · 8 CATEGORIES</span>
-        </a>
-        <a class="card" href="배틀패스문서계산/">
-          <span class="number">TOOL 02</span><span class="arrow">↗</span>
+        </article>
+        <article class="card disabled">
+          <span class="number">TOOL 02</span><span class="status">준비 중</span>
           <h2>배틀패스 문서 계산</h2>
           <p>보유 문서 수량을 입력하고 총 499개 기준으로 필요한 잔여 수량과 달성률을 계산합니다.</p>
           <span class="tag">TOTAL 499 DOCUMENTS</span>
-        </a>
+        </article>
       </section>
       <footer>Unofficial fan-made tool. Escape from Tarkov belongs to Battlestate Games.</footer>
     </main>
