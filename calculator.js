@@ -1,0 +1,12 @@
+const CATEGORIES={technical:{name:"Technical",required:86,color:"#d3a759"},pmc:{name:"PMC",required:39,color:"#bd7469"},project:{name:"Project",required:55,color:"#70a0a7"},blueprints:{name:"Blueprints",required:81,color:"#738db5"},test:{name:"Test",required:48,color:"#a08ab4"},user:{name:"User",required:40,color:"#8caa70"},medical:{name:"Medical",required:67,color:"#b06c73"},financial:{name:"Financial",required:83,color:"#b99a62"}};
+const STORAGE_KEY="tarkov-document-map:v1";
+function defaults(){return{map:"factory",filters:Object.keys(CATEGORIES),owned:Object.fromEntries(Object.keys(CATEGORIES).map(key=>[key,0])),found:[]}}
+function load(){try{return{...defaults(),...JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}}catch{return defaults()}}
+const state=load();
+const list=document.querySelector("#document-list");
+function clamp(value,min,max){return Math.min(Math.max(value,min),max)}
+function render(){list.innerHTML=Object.entries(CATEGORIES).map(([key,item])=>{const owned=clamp(Number(state.owned?.[key])||0,0,item.required);return `<label class="document-row"><span class="document-name"><i class="dot" style="--color:${item.color}"></i>${item.name}</span><span class="number required">${item.required}</span><input type="number" data-key="${key}" min="0" max="${item.required}" value="${owned}" aria-label="${item.name} 보유 수량"><output class="number remaining">${item.required-owned}</output></label>`}).join("");updateTotal()}
+function updateTotal(){const required=Object.values(CATEGORIES).reduce((sum,item)=>sum+item.required,0);const owned=Object.entries(CATEGORIES).reduce((sum,[key,item])=>sum+clamp(Number(state.owned?.[key])||0,0,item.required),0);const percent=Math.round(owned/required*100);document.querySelector("#total-owned").textContent=owned;document.querySelector("#total-percent").textContent=`${percent}%`;document.querySelector("#total-bar").style.width=`${percent}%`;localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
+list.addEventListener("input",event=>{const input=event.target.closest("input[data-key]");if(!input)return;const item=CATEGORIES[input.dataset.key];const value=clamp(Number(input.value)||0,0,item.required);state.owned={...(state.owned||{}),[input.dataset.key]:value};input.nextElementSibling.textContent=item.required-value;updateTotal()});
+document.querySelector("#reset-button").addEventListener("click",()=>{if(!confirm("입력한 문서 보유량을 모두 초기화할까요?"))return;state.owned=defaults().owned;render();localStorage.setItem(STORAGE_KEY,JSON.stringify(state))});
+render();
