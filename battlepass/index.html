@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Escape from Tarkov 배틀패스 보상별 문서 계산기" />
+    <meta name="theme-color" content="#0b0d0c" />
+    <title>배틀패스 보상 계산 · Tarkov Tools</title>
+    <link rel="stylesheet" href="../calculator.css" />
+    <script src="../calculator.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../" class="home-link"><span class="brand-mark">W</span><span>WHIZ · TARKOV TOOLS</span></a>
+      <nav>
+        <span class="online-dot"></span><span class="season-label">SEASON · BLACK DIVISION</span>
+        <label class="language-control"><span class="sr-only">Language</span><select id="language-select" aria-label="Language"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option></select></label>
+        <a href="../문서지도/" class="map-link" data-i18n="nav.map">문서 지도 ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="season-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">OPERATIONS / SEASON PASS</p>
+          <h1>BLACK <span>DIVISION</span></h1>
+          <p data-i18n="hero.description">원하는 보상을 선택하면 해금에 필요한 문서 종류와 부족 수량을 계산합니다.</p>
+        </div>
+        <div class="season-progress" aria-label="선택한 보상 진행도">
+          <div class="progress-copy"><span data-i18n="progress.selectedDocuments">선택 문서량</span><strong><b id="selected-total">0</b> <small>/ 501</small></strong></div>
+          <div class="progress-track"><span id="selected-bar"></span></div>
+          <div class="progress-meta"><span id="selected-count">보상 0개</span><span id="selected-percent">0%</span></div>
+        </div>
+      </section>
+
+      <section class="stage-nav" aria-label="배틀패스 페이지 선택">
+        <button id="previous-page" class="arrow-button" type="button" aria-label="Previous page">‹</button>
+        <div id="page-tabs" class="page-tabs"></div>
+        <button id="next-page" class="arrow-button" type="button" aria-label="Next page">›</button>
+      </section>
+
+      <div class="battle-layout">
+        <section class="reward-panel">
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">REWARD TRACK</p>
+              <h2>PAGE <span id="current-page">01</span></h2>
+              <p id="page-summary">페이지 전체 15개 · 누적 15개</p>
+            </div>
+            <div class="page-actions">
+              <button id="select-page" type="button" data-i18n="buttons.currentPage">현재 페이지 전체</button>
+              <button id="select-through" class="primary" type="button" data-i18n="buttons.throughPage">이 페이지까지 전체</button>
+            </div>
+          </header>
+          <div id="reward-track" class="reward-track"></div>
+          <div class="track-footer">
+            <button id="track-previous" type="button">← PREVIOUS</button>
+            <p data-i18n="page.cardHint">보상 카드를 눌러 목표에 추가하거나 제외하세요.</p>
+            <button id="track-next" type="button">NEXT →</button>
+          </div>
+        </section>
+
+        <aside class="calculator-panel">
+          <header class="calculator-header">
+            <div><p class="eyebrow">LOADOUT REQUIREMENTS</p><h2 data-i18n="calculator.title">문서 계산</h2></div>
+            <button id="reset-selection" type="button" data-i18n="buttons.reset">선택 초기화</button>
+          </header>
+          <div class="target-summary">
+            <span data-i18n="calculator.selectedGoal">선택 목표</span>
+            <strong><b id="target-total">0</b> <span data-i18n="calculator.documents">DOCUMENTS</span></strong>
+            <p id="target-status">보상을 선택하세요</p>
+          </div>
+          <div class="document-table-head"><span data-i18n="table.documentType">문서 종류</span><span data-i18n="table.required">필요</span><span data-i18n="table.owned">보유</span><span data-i18n="table.missing">부족</span></div>
+          <div id="document-list" class="document-list"></div>
+          <div class="calculator-note">
+            <span class="save-light"></span>
+            <p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">보유량과 선택 보상은 이 브라우저에 저장됩니다.</span></p>
+          </div>
+        </aside>
+      </div>
+
+      <section class="page-ledger">
+        <header><div><p class="eyebrow">SEASON OVERVIEW</p><h2 data-i18n="overview.title">페이지별 해금 비용</h2></div><p data-i18n="overview.total">전체 12페이지 · 총 501개</p></header>
+        <div id="page-ledger-grid" class="page-ledger-grid"></div>
+      </section>
+    </main>
+
+    <footer data-i18n="footer.text">총 필요량 501개 · 초기 무료 문서 포함 시 추가 확보 500개 · 비공식 팬 제작 도구 · 게임 이미지/에셋 미사용</footer>
+  </body>
+</html>
