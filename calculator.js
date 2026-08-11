@@ -273,7 +273,6 @@ function renderCalculator() {
   const missingTotal = categoryKeys.reduce((sum, key) => sum + Math.max(requirements[key] - (Number(sharedState.owned[key]) || 0), 0), 0);
   const percent = Math.round(total / 501 * 100);
 
-  document.querySelector("#selected-total").textContent = total;
   document.querySelector("#inventory-total").textContent = total;
   document.querySelector("#selected-count").textContent = t("progress.rewardCount", { count: rewards.length });
   document.querySelector("#selected-percent").textContent = `${percent}%`;
