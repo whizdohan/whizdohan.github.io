@@ -54,10 +54,8 @@ button:disabled { cursor: not-allowed; opacity: .28; }
 
 main { width: min(1440px, calc(100% - 40px)); margin: auto; padding: 42px 0 44px; }
 .eyebrow { margin: 0 0 8px; color: var(--gold); font: 800 9px/1.2 ui-monospace, monospace; letter-spacing: .22em; }
-.season-hero { display: grid; grid-template-columns: 1fr minmax(300px, 390px); gap: 44px; align-items: end; margin-bottom: 32px; }
-.hero-copy h1 { margin: 0; font: 900 clamp(52px, 7vw, 104px)/.78 Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; letter-spacing: .035em; text-shadow: 0 2px 0 #000; }
-.hero-copy h1 span { color: transparent; -webkit-text-stroke: 1px var(--gold); }
-.hero-copy > p:last-child { max-width: 650px; margin: 22px 0 0; color: #929890; font-size: 12px; line-height: 1.7; }
+.season-hero { display: grid; grid-template-columns: 1fr minmax(300px, 390px); gap: 44px; align-items: end; margin-bottom: 18px; }
+.hero-copy > p:last-child { max-width: 650px; margin: 10px 0 0; color: #929890; font-size: 12px; line-height: 1.7; }
 .season-progress { padding: 20px 22px; border: 1px solid #3b4038; background: linear-gradient(135deg, rgba(41,46,38,.88), rgba(18,21,18,.92)); box-shadow: inset 3px 0 0 var(--gold); }
 .progress-copy { display: flex; align-items: flex-end; justify-content: space-between; }
 .progress-copy > span { color: #9ca299; font-size: 10px; }
@@ -177,7 +175,6 @@ footer { width: min(1440px, calc(100% - 40px)); margin: 0 auto 28px; color: #565
   .language-control select { width: 75px; padding-left: 6px; }
   main { width: min(100% - 20px, 1440px); padding-top: 28px; }
   .season-hero { grid-template-columns: 1fr; gap: 28px; }
-  .hero-copy h1 { font-size: clamp(50px, 17vw, 82px); }
   .hero-copy > p:last-child { font-size: 11px; }
   .stage-nav { grid-template-columns: 30px minmax(0, 1fr) 30px; }
   .page-tabs { grid-template-columns: repeat(12, 56px); }
