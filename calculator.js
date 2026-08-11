@@ -173,12 +173,13 @@ function loadSelection() {
 
 const sharedState = loadSharedState();
 const selectionState = loadSelection();
+let focusedRewardId = pageByNumber(selectionState.page).rewards[0].id;
 
 const elements = {
   pageTabs: document.querySelector("#page-tabs"),
   rewardTrack: document.querySelector("#reward-track"),
   documentList: document.querySelector("#document-list"),
-  ledger: document.querySelector("#page-ledger-grid")
+  documentBelt: document.querySelector("#document-belt")
 };
 
 function clamp(value, min, max) {
@@ -196,6 +197,14 @@ function pageByNumber(number) {
 
 function selectedRewards() {
   return PAGES.flatMap(page => page.rewards).filter(reward => selectionState.selected.has(reward.id));
+}
+
+function focusedReward() {
+  return PAGES.flatMap(page => page.rewards).find(reward => reward.id === focusedRewardId) || pageByNumber(selectionState.page).rewards[0];
+}
+
+function rewardCode(reward) {
+  return reward.name.split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
 }
 
 function selectedRequirements() {
@@ -217,27 +226,44 @@ function renderTabs() {
 function renderRewards() {
   const page = pageByNumber(selectionState.page);
   document.querySelector("#current-page").textContent = String(page.number).padStart(2, "0");
-  document.querySelector("#page-summary").textContent = t("page.summary", { total: page.total, cumulative: page.cumulative });
-  elements.rewardTrack.innerHTML = page.rewards.map((reward, index) => {
+  elements.rewardTrack.innerHTML = page.rewards.map(reward => {
     const selected = selectionState.selected.has(reward.id);
-    const rewardCode = reward.name.split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
-    return `<button type="button" class="reward-card ${selected ? "selected" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
+    const focused = reward.id === focusedRewardId;
+    return `<button type="button" class="reward-card ${selected ? "selected" : ""} ${focused ? "focused" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
-      <span class="reward-visual"><b>${rewardCode}</b><i>${String(index + 1).padStart(2, "0")}</i></span>
+      <span class="reward-visual"><b>${rewardCode(reward)}</b></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-costs">${costChips(reward.cost)}</span>
-      <span class="reward-total"><small>${t("reward.required")}</small><b>${reward.total}</b></span>
+      <span class="reward-total">${reward.total}</span>
       <span class="selected-mark">✓ TARGET</span>
     </button>`;
   }).join("");
   document.querySelector("#previous-page").disabled = page.number === 1;
-  document.querySelector("#track-previous").disabled = page.number === 1;
   document.querySelector("#next-page").disabled = page.number === PAGES.length;
-  document.querySelector("#track-next").disabled = page.number === PAGES.length;
 }
 
-function renderLedger() {
-  elements.ledger.innerHTML = PAGES.map(page => `<button type="button" data-ledger-page="${page.number}" class="ledger-item ${page.number === selectionState.page ? "active" : ""}"><span>PAGE ${String(page.number).padStart(2, "0")}</span><strong>${page.total}</strong><small>${t("page.cumulative", { count: page.cumulative })}</small></button>`).join("");
+function renderPreview() {
+  const reward = focusedReward();
+  const selected = selectionState.selected.has(reward.id);
+  const firstCategory = Object.keys(reward.cost)[0];
+  document.querySelector("#focused-code").textContent = rewardCode(reward);
+  document.querySelector("#focused-id").textContent = reward.id;
+  document.querySelector("#focused-name").textContent = reward.name;
+  document.querySelector("#focused-detail-name").textContent = reward.name;
+  document.querySelector("#focused-costs").innerHTML = costChips(reward.cost);
+  document.querySelector(".preview-object").style.setProperty("--preview-color", CATEGORIES[firstCategory].color);
+  const toggle = document.querySelector("#focused-toggle");
+  toggle.classList.toggle("selected", selected);
+  toggle.textContent = selected ? t("detail.removeTarget") : t("detail.addTarget");
+}
+
+function renderDocumentBelt(requirements = selectedRequirements()) {
+  elements.documentBelt.innerHTML = categoryKeys.map(key => {
+    const category = CATEGORIES[key];
+    const needed = requirements[key];
+    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, category.total);
+    return `<div class="belt-item ${needed ? "active" : ""}" style="--color:${category.color}"><small>${t(`categories.${key}`)}</small><b>${owned}/${needed}</b></div>`;
+  }).join("");
 }
 
 function renderCalculator() {
@@ -248,6 +274,7 @@ function renderCalculator() {
   const percent = Math.round(total / 501 * 100);
 
   document.querySelector("#selected-total").textContent = total;
+  document.querySelector("#inventory-total").textContent = total;
   document.querySelector("#selected-count").textContent = t("progress.rewardCount", { count: rewards.length });
   document.querySelector("#selected-percent").textContent = `${percent}%`;
   document.querySelector("#selected-bar").style.width = `${percent}%`;
@@ -268,20 +295,21 @@ function renderCalculator() {
       <output class="number missing ${missing ? "short" : ""}">${missing}</output>
     </label>`;
   }).join("");
+  renderDocumentBelt(requirements);
   save();
 }
 
 function renderAll() {
   renderTabs();
   renderRewards();
-  renderLedger();
+  renderPreview();
   renderCalculator();
 }
 
 function goToPage(page) {
   selectionState.page = clamp(page, 1, PAGES.length);
+  focusedRewardId = pageByNumber(selectionState.page).rewards[0].id;
   renderAll();
-  document.querySelector(".reward-panel").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function setPageSelection(mode) {
@@ -297,17 +325,14 @@ elements.pageTabs.addEventListener("click", event => {
   if (button) goToPage(Number(button.dataset.page));
 });
 
-elements.ledger.addEventListener("click", event => {
-  const button = event.target.closest("[data-ledger-page]");
-  if (button) goToPage(Number(button.dataset.ledgerPage));
-});
-
 elements.rewardTrack.addEventListener("click", event => {
   const card = event.target.closest("[data-reward]");
   if (!card) return;
   const id = card.dataset.reward;
+  focusedRewardId = id;
   selectionState.selected.has(id) ? selectionState.selected.delete(id) : selectionState.selected.add(id);
   renderRewards();
+  renderPreview();
   renderCalculator();
 });
 
@@ -326,12 +351,18 @@ document.querySelector("#reset-selection").addEventListener("click", () => {
   renderAll();
 });
 
+document.querySelector("#focused-toggle").addEventListener("click", () => {
+  const id = focusedReward().id;
+  selectionState.selected.has(id) ? selectionState.selected.delete(id) : selectionState.selected.add(id);
+  renderAll();
+});
+
 document.querySelector("#language-select").addEventListener("change", async event => {
   await loadLanguage(event.target.value);
   renderAll();
 });
 
-[["#previous-page", -1], ["#track-previous", -1], ["#next-page", 1], ["#track-next", 1]].forEach(([selector, direction]) => {
+[["#previous-page", -1], ["#next-page", 1]].forEach(([selector, direction]) => {
   document.querySelector(selector).addEventListener("click", () => goToPage(selectionState.page + direction));
 });
 

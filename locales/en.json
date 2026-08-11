@@ -3,7 +3,20 @@
     "title": "Battle Pass Reward Calculator · Tarkov Tools",
     "description": "Document calculator for Escape from Tarkov Battle Pass rewards"
   },
-  "nav": { "map": "DOCUMENT MAP ↗" },
+  "nav": {
+    "battlePass": "BATTLE PASS",
+    "seasonalRewards": "SEASONAL REWARDS",
+    "leagues": "LEAGUES AND RATINGS",
+    "map": "DOCUMENT MAP",
+    "back": "BACK"
+  },
+  "panel": { "rewardList": "REWARD LIST" },
+  "detail": {
+    "collectDocuments": "Collect and submit documents",
+    "addTarget": "ADD TO TARGET",
+    "removeTarget": "REMOVE FROM TARGET"
+  },
+  "documents": { "inventory": "DOCUMENTS" },
   "hero": { "description": "Select the rewards you want to calculate the documents required to unlock them and the amount you are missing." },
   "progress": {
     "selectedDocuments": "SELECTED DOCUMENTS",

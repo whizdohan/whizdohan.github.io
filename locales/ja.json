@@ -3,7 +3,20 @@
     "title": "バトルパス報酬計算 · Tarkov Tools",
     "description": "Escape from Tarkov バトルパス報酬のドキュメント計算ツール"
   },
-  "nav": { "map": "ドキュメントマップ ↗" },
+  "nav": {
+    "battlePass": "バトルパス",
+    "seasonalRewards": "シーズン報酬",
+    "leagues": "リーグとランキング",
+    "map": "ドキュメントマップ",
+    "back": "戻る"
+  },
+  "panel": { "rewardList": "報酬リスト" },
+  "detail": {
+    "collectDocuments": "ドキュメントを収集して提出する",
+    "addTarget": "目標に追加",
+    "removeTarget": "目標から削除"
+  },
+  "documents": { "inventory": "ドキュメント" },
   "hero": { "description": "欲しい報酬を選択すると、解除に必要なドキュメントの種類と不足数を計算します。" },
   "progress": {
     "selectedDocuments": "選択したドキュメント数",

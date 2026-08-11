@@ -3,7 +3,20 @@
     "title": "배틀패스 보상 계산 · Tarkov Tools",
     "description": "Escape from Tarkov 배틀패스 보상별 문서 계산기"
   },
-  "nav": { "map": "문서 지도 ↗" },
+  "nav": {
+    "battlePass": "배틀패스",
+    "seasonalRewards": "시즌 보상",
+    "leagues": "리그 및 랭킹",
+    "map": "문서 지도",
+    "back": "뒤로"
+  },
+  "panel": { "rewardList": "보상 목록" },
+  "detail": {
+    "collectDocuments": "문서를 수집하고 제출하세요",
+    "addTarget": "목표에 추가",
+    "removeTarget": "목표에서 제외"
+  },
+  "documents": { "inventory": "문서" },
   "hero": { "description": "원하는 보상을 선택하면 해금에 필요한 문서 종류와 부족 수량을 계산합니다." },
   "progress": {
     "selectedDocuments": "선택 문서량",
