@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "title": "バトルパス報酬計算 · Tarkov Tools",
+    "description": "Escape from Tarkov バトルパス報酬のドキュメント計算ツール"
+  },
+  "nav": { "map": "ドキュメントマップ ↗" },
+  "hero": { "description": "欲しい報酬を選択すると、解除に必要なドキュメントの種類と不足数を計算します。" },
+  "progress": {
+    "selectedDocuments": "選択したドキュメント数",
+    "rewardCount": "報酬 {count}個"
+  },
+  "page": {
+    "summary": "ページ合計 {total}個 · 累計 {cumulative}個",
+    "cardHint": "報酬カードを押して目標に追加、または目標から削除できます。",
+    "cumulative": "累計 {count}"
+  },
+  "buttons": {
+    "currentPage": "現在のページを全選択",
+    "throughPage": "このページまで全選択",
+    "reset": "選択をリセット"
+  },
+  "calculator": {
+    "title": "ドキュメント計算",
+    "selectedGoal": "選択した目標",
+    "documents": "DOCUMENTS"
+  },
+  "status": {
+    "selectReward": "報酬を選択してください",
+    "ready": "✓ 選択した報酬を解除できます",
+    "missing": "あと {count}個のドキュメントが必要"
+  },
+  "table": {
+    "documentType": "ドキュメント種類",
+    "required": "必要",
+    "owned": "所持",
+    "missing": "不足"
+  },
+  "autosave": {
+    "label": "AUTO SAVE",
+    "text": "所持数と選択した報酬はこのブラウザに保存されます。"
+  },
+  "overview": {
+    "title": "ページ別解除コスト",
+    "total": "全12ページ · 合計501個"
+  },
+  "reward": { "required": "必要" },
+  "categories": {
+    "financial": "財務",
+    "pmc": "PMC人事",
+    "project": "プロジェクト",
+    "blueprints": "設計図",
+    "test": "テスト",
+    "user": "ユーザー",
+    "medical": "医療",
+    "technical": "技術"
+  },
+  "footer": { "text": "必要数501個 · 初回無料分を含め追加獲得500個 · 非公式ファンツール · ゲーム画像・アセット不使用" }
+}
