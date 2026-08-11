@@ -1,12 +1,12 @@
 const CATEGORIES = {
-  financial: { name: "Financial", ko: "재정", total: 100, code: "FIN", color: "#c7a662" },
-  pmc: { name: "PMC Personnel", ko: "PMC", total: 68, code: "PMC", color: "#b97b70" },
-  project: { name: "Project", ko: "프로젝트", total: 68, code: "PRJ", color: "#71a2a3" },
-  blueprints: { name: "Blueprints", ko: "설계", total: 65, code: "BLU", color: "#7892ba" },
-  test: { name: "Test", ko: "테스트", total: 43, code: "TST", color: "#9e8bb2" },
-  user: { name: "User", ko: "사용자", total: 37, code: "USR", color: "#8faa74" },
-  medical: { name: "Medical", ko: "의료", total: 59, code: "MED", color: "#b66f76" },
-  technical: { name: "Technical", ko: "기술", total: 61, code: "TEC", color: "#d1ac61" }
+  financial: { name: "Financial", total: 100, code: "FIN", color: "#c7a662" },
+  pmc: { name: "PMC Personnel", total: 68, code: "PMC", color: "#b97b70" },
+  project: { name: "Project", total: 68, code: "PRJ", color: "#71a2a3" },
+  blueprints: { name: "Blueprints", total: 65, code: "BLU", color: "#7892ba" },
+  test: { name: "Test", total: 43, code: "TST", color: "#9e8bb2" },
+  user: { name: "User", total: 37, code: "USR", color: "#8faa74" },
+  medical: { name: "Medical", total: 59, code: "MED", color: "#b66f76" },
+  technical: { name: "Technical", total: 61, code: "TEC", color: "#d1ac61" }
 };
 
 const PAGES = [
@@ -104,11 +104,8 @@ PAGES.forEach(page => { runningTotal += page.total; page.cumulative = runningTot
 
 const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
-const LANGUAGE_KEY = "tarkov-battle-pass:language:v1";
-const SUPPORTED_LANGUAGES = ["ko", "en", "ja"];
 const categoryKeys = Object.keys(CATEGORIES);
 let messages = {};
-let currentLanguage = "ko";
 
 function nestedValue(object, path) {
   return path.split(".").reduce((value, key) => value?.[key], object);
@@ -119,31 +116,19 @@ function t(key, variables = {}) {
   return Object.entries(variables).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), template);
 }
 
-function detectedLanguage() {
-  const saved = localStorage.getItem(LANGUAGE_KEY);
-  if (SUPPORTED_LANGUAGES.includes(saved)) return saved;
-  const browserLanguage = (navigator.language || "ko").slice(0, 2).toLowerCase();
-  return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : "ko";
-}
-
-async function loadLanguage(language) {
-  const selected = SUPPORTED_LANGUAGES.includes(language) ? language : "ko";
+async function loadLanguage() {
   try {
-    const response = await fetch(`../locales/${selected}.json?v=2`);
+    const response = await fetch("../locales/en.json?v=3");
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
-    currentLanguage = selected;
   } catch (error) {
-    if (selected !== "ko") return loadLanguage("ko");
     console.error(error);
     return;
   }
-  document.documentElement.lang = currentLanguage;
+  document.documentElement.lang = "en";
   document.title = t("meta.title");
   document.querySelector('meta[name="description"]').content = t("meta.description");
-  document.querySelector("#language-select").value = currentLanguage;
   document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = t(element.dataset.i18n); });
-  localStorage.setItem(LANGUAGE_KEY, currentLanguage);
 }
 
 function defaultOwned() {
@@ -356,17 +341,12 @@ document.querySelector("#focused-toggle").addEventListener("click", () => {
   renderAll();
 });
 
-document.querySelector("#language-select").addEventListener("change", async event => {
-  await loadLanguage(event.target.value);
-  renderAll();
-});
-
 [["#previous-page", -1], ["#next-page", 1]].forEach(([selector, direction]) => {
   document.querySelector(selector).addEventListener("click", () => goToPage(selectionState.page + direction));
 });
 
 async function init() {
-  await loadLanguage(detectedLanguage());
+  await loadLanguage();
   renderAll();
 }
 

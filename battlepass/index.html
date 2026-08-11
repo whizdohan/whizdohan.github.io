@@ -1,25 +1,24 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Escape from Tarkov 배틀패스 보상별 문서 계산기" />
+    <meta name="description" content="Document calculator for Escape from Tarkov Battle Pass rewards" />
     <meta name="theme-color" content="#071014" />
-    <title>배틀패스 보상 계산 · Tarkov Tools</title>
+    <title>Battle Pass Reward Calculator · Tarkov Tools</title>
     <link rel="stylesheet" href="../calculator.css?v=4" />
-    <script src="../calculator.js?v=5" defer></script>
+    <script src="../calculator.js?v=6" defer></script>
   </head>
   <body>
     <header class="game-header">
-      <a href="../" class="season-emblem" aria-label="Tarkov Tools 홈"><span>01</span><b>SEASON<br />ONE</b></a>
+      <a href="../" class="season-emblem" aria-label="Tarkov Tools home"><span>01</span><b>SEASON<br />ONE</b></a>
       <nav class="game-tabs" aria-label="Season navigation">
         <span class="active" data-i18n="nav.battlePass">BATTLE PASS</span>
         <span data-i18n="nav.seasonalRewards">SEASONAL REWARDS</span>
         <span class="disabled" data-i18n="nav.leagues">LEAGUES AND RATINGS</span>
       </nav>
       <div class="header-actions">
-        <label class="language-control"><span class="sr-only">Language</span><select id="language-select" aria-label="Language"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option></select></label>
-        <a href="../문서지도/" class="map-link" data-i18n="nav.map">문서 지도</a>
+        <a href="../document-map/" class="map-link" data-i18n="nav.map">DOCUMENT MAP</a>
         <a href="../" class="back-link" data-i18n="nav.back">BACK</a>
       </div>
     </header>
@@ -56,10 +55,10 @@
           </div>
 
           <div class="target-summary">
-            <div><span data-i18n="calculator.selectedGoal">선택 목표</span><strong><b id="target-total">0</b> <small>/ 501</small></strong></div>
-            <p id="target-status">보상을 선택하세요</p>
+            <div><span data-i18n="calculator.selectedGoal">SELECTED TARGET</span><strong><b id="target-total">0</b> <small>/ 501</small></strong></div>
+            <p id="target-status">Select a reward</p>
           </div>
-          <div class="document-table-head"><span data-i18n="table.documentType">문서 종류</span><span data-i18n="table.required">필요</span><span data-i18n="table.owned">보유</span><span data-i18n="table.missing">부족</span></div>
+          <div class="document-table-head"><span data-i18n="table.documentType">DOCUMENT TYPE</span><span data-i18n="table.required">REQ.</span><span data-i18n="table.owned">OWNED</span><span data-i18n="table.missing">SHORT</span></div>
           <div id="document-list" class="document-list"></div>
         </aside>
 
@@ -73,17 +72,17 @@
             <div id="document-belt" class="document-belt"></div>
           </div>
           <div class="selection-actions">
-            <button id="select-page" type="button" data-i18n="buttons.currentPage">현재 페이지 전체</button>
-            <button id="select-through" class="accent" type="button" data-i18n="buttons.throughPage">이 페이지까지 전체</button>
-            <button id="reset-selection" type="button" data-i18n="buttons.reset">선택 초기화</button>
+            <button id="select-page" type="button" data-i18n="buttons.currentPage">SELECT CURRENT PAGE</button>
+            <button id="select-through" class="accent" type="button" data-i18n="buttons.throughPage">SELECT THROUGH THIS PAGE</button>
+            <button id="reset-selection" type="button" data-i18n="buttons.reset">CLEAR SELECTION</button>
           </div>
         </section>
       </section>
 
-      <section class="mobile-calculator-title"><span data-i18n="calculator.title">문서 계산</span><small id="selected-count">보상 0개</small><b id="selected-percent">0%</b></section>
-      <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">보유량과 선택 보상은 이 브라우저에 저장됩니다.</span></p></div>
+      <section class="mobile-calculator-title"><span data-i18n="calculator.title">DOCUMENT CALCULATOR</span><small id="selected-count">0 rewards</small><b id="selected-percent">0%</b></section>
+      <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your inventory and selected rewards are saved in this browser.</span></p></div>
     </main>
 
-    <footer><span>1.1.0.0.46657 | PvE</span><span data-i18n="footer.text">비공식 팬 제작 도구 · 게임 이미지/에셋 미사용</span></footer>
+    <footer><span>1.1.0.0.46657 | PvE</span><span data-i18n="footer.text">Unofficial fan-made tool · No game images or assets used</span></footer>
   </body>
 </html>
