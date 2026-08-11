@@ -59,3 +59,72 @@
   color:#062017;
   box-shadow:0 0 8px rgba(101,219,165,.55)
 }
+
+/* Reward artwork, completion progress, and remaining document summary. */
+.reward-card{background:#081519}
+.reward-card:before{
+  z-index:1;
+  background:linear-gradient(to top,rgba(3,10,12,.98) 0,rgba(5,15,18,.9) 25%,rgba(5,15,18,.2) 52%,transparent 70%)
+}
+.reward-visual{inset:0;z-index:0}
+.reward-sprite{
+  background-image:url(assets/reward-sprite.webp?v=2);
+  filter:saturate(.9) contrast(1.05)
+}
+.reward-index{z-index:3;padding:2px 4px;background:rgba(3,11,13,.7);color:#90a7a3}
+.reward-name{z-index:3;bottom:43px;color:#d1d9d4;font-size:9px}
+.reward-total{display:none}
+.reward-progress-meta{
+  position:absolute;
+  z-index:3;
+  right:7px;
+  bottom:29px;
+  left:7px;
+  display:flex;
+  justify-content:space-between;
+  color:#8ba09c;
+  font:700 7px ui-monospace,monospace
+}
+.reward-progress-meta b{color:#b8c6c1;font-weight:800}
+.reward-progress-meta em{color:#69d5a3;font-style:normal}
+.reward-progress-bar{
+  position:absolute;
+  z-index:3;
+  right:7px;
+  bottom:20px;
+  left:7px;
+  height:4px;
+  overflow:hidden;
+  background:#17292c
+}
+.reward-progress-bar i{display:block;height:100%;background:#65dba5;box-shadow:0 0 7px rgba(101,219,165,.5)}
+.reward-remaining{
+  position:absolute;
+  z-index:3;
+  right:7px;
+  bottom:7px;
+  left:7px;
+  overflow:hidden;
+  color:#708480;
+  font:700 6px ui-monospace,monospace;
+  text-overflow:ellipsis;
+  white-space:nowrap
+}
+.reward-card.selected .selected-mark{
+  position:absolute;
+  z-index:4;
+  top:7px;
+  right:7px;
+  display:block;
+  padding:3px 5px;
+  background:#65dba5;
+  color:#062017;
+  font:900 7px ui-monospace,monospace;
+  box-shadow:0 0 8px rgba(101,219,165,.55)
+}
+.reward-card.selected .reward-visual:after{display:none}
+.claim-button.selected{
+  border-color:#65dba5;
+  background:linear-gradient(#2f8c68,#17513d);
+  color:#e2fff1
+}

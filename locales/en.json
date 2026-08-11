@@ -13,14 +13,14 @@
   "panel": { "rewardList": "REWARD LIST" },
   "detail": {
     "collectDocuments": "Collect and submit documents",
-    "addTarget": "ADD TO TARGET",
-    "removeTarget": "REMOVE FROM TARGET"
+    "markComplete": "MARK COMPLETE",
+    "markIncomplete": "MARK INCOMPLETE"
   },
-  "documents": { "inventory": "DOCUMENTS" },
-  "hero": { "description": "Select the rewards you want to calculate the documents required to unlock them and the amount you are missing." },
+  "documents": { "inventory": "DOCUMENTS", "remaining": "REMAINING DOCUMENTS" },
+  "hero": { "description": "Mark completed rewards to subtract their document costs and track what remains." },
   "progress": {
     "selectedDocuments": "SELECTED DOCUMENTS",
-    "rewardCount": "{count} rewards"
+    "rewardCount": "{count} rewards complete"
   },
   "page": {
     "summary": "Page total {total} · Cumulative {cumulative}",
@@ -28,18 +28,19 @@
     "cumulative": "Total {count}"
   },
   "buttons": {
-    "currentPage": "SELECT CURRENT PAGE",
-    "throughPage": "SELECT THROUGH THIS PAGE",
-    "reset": "CLEAR SELECTION"
+    "completePage": "COMPLETE CURRENT PAGE",
+    "completeThrough": "COMPLETE THROUGH THIS PAGE",
+    "resetCompleted": "RESET COMPLETED REWARDS"
   },
   "calculator": {
     "title": "DOCUMENT CALCULATOR",
     "selectedGoal": "SELECTED TARGET",
+    "remainingDocuments": "REMAINING DOCUMENTS",
     "documents": "DOCUMENTS"
   },
   "status": {
-    "selectReward": "Select a reward",
-    "ready": "✓ Ready to unlock selected rewards",
+    "complete": "✓ All rewards completed",
+    "readyRemaining": "✓ Inventory covers all remaining rewards",
     "missing": "{count} more documents required"
   },
   "table": {
@@ -50,13 +51,13 @@
   },
   "autosave": {
     "label": "AUTO SAVE",
-    "text": "Your inventory and selected rewards are saved in this browser."
+    "text": "Your document inventory and completed rewards are saved in this browser."
   },
   "overview": {
     "title": "PAGE UNLOCK COSTS",
     "total": "12 pages · 501 documents total"
   },
-  "reward": { "required": "REQUIRED" },
+  "reward": { "required": "REQUIRED", "complete": "COMPLETED", "ready": "READY" },
   "categories": {
     "financial": "Financial",
     "pmc": "PMC Personnel",
