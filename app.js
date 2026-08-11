@@ -15,6 +15,7 @@ const CATEGORIES={
 };
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
+if(new URLSearchParams(location.search).get("embedded")==="1")document.body.classList.add("embedded");
 const state={map:"factory",filters:Object.keys(CATEGORIES)};
 const els={
   mapSelect:document.querySelector("#map-select"),currentMapName:document.querySelector("#current-map-name"),

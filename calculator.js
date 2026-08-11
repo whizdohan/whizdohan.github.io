@@ -99,6 +99,21 @@ const PAGES = [
   }))
 }));
 
+const SPRITE_COLUMNS = 8;
+const SPRITE_ROWS = 7;
+const REWARD_SPRITES = Object.fromEntries(PAGES.flatMap(page => page.rewards).map((reward, index) => [reward.id, {
+  x: index % SPRITE_COLUMNS,
+  y: Math.floor(index / SPRITE_COLUMNS)
+}]));
+
+function spriteStyle(rewardId) {
+  const sprite = REWARD_SPRITES[rewardId];
+  if (!sprite) return "";
+  const x = sprite.x / (SPRITE_COLUMNS - 1) * 100;
+  const y = sprite.y / (SPRITE_ROWS - 1) * 100;
+  return `background-position:${x}% ${y}%`;
+}
+
 let runningTotal = 0;
 PAGES.forEach(page => { runningTotal += page.total; page.cumulative = runningTotal; });
 
@@ -167,6 +182,21 @@ const elements = {
   documentBelt: document.querySelector("#document-belt")
 };
 
+function setCenterMode(mode) {
+  const mapMode = mode === "map";
+  const panel = document.querySelector(".reward-preview");
+  const frame = document.querySelector("#document-map-frame");
+  const rewardButton = document.querySelector("#reward-preview-mode");
+  const mapButton = document.querySelector("#document-map-mode");
+  panel.classList.toggle("map-mode", mapMode);
+  rewardButton.classList.toggle("active", !mapMode);
+  mapButton.classList.toggle("active", mapMode);
+  rewardButton.setAttribute("aria-selected", String(!mapMode));
+  mapButton.setAttribute("aria-selected", String(mapMode));
+  frame.hidden = !mapMode;
+  if (mapMode && !frame.getAttribute("src")) frame.src = frame.dataset.src;
+}
+
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
@@ -216,7 +246,7 @@ function renderRewards() {
     const focused = reward.id === focusedRewardId;
     return `<button type="button" class="reward-card ${selected ? "selected" : ""} ${focused ? "focused" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
-      <span class="reward-visual"><b>${rewardCode(reward)}</b></span>
+      <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-costs">${costChips(reward.cost)}</span>
       <span class="reward-total">${reward.total}</span>
@@ -232,11 +262,17 @@ function renderPreview() {
   const selected = selectionState.selected.has(reward.id);
   const firstCategory = Object.keys(reward.cost)[0];
   document.querySelector("#focused-code").textContent = rewardCode(reward);
+  const previewObject = document.querySelector(".preview-object");
+  const sprite = REWARD_SPRITES[reward.id];
+  previewObject.classList.add("has-image");
+  previewObject.style.backgroundImage = "url(../assets/reward-sprite.webp)";
+  previewObject.style.backgroundSize = `${SPRITE_COLUMNS * 100}% ${SPRITE_ROWS * 100}%`;
+  previewObject.style.backgroundPosition = `${sprite.x / (SPRITE_COLUMNS - 1) * 100}% ${sprite.y / (SPRITE_ROWS - 1) * 100}%`;
   document.querySelector("#focused-id").textContent = reward.id;
   document.querySelector("#focused-name").textContent = reward.name;
   document.querySelector("#focused-detail-name").textContent = reward.name;
   document.querySelector("#focused-costs").innerHTML = costChips(reward.cost);
-  document.querySelector(".preview-object").style.setProperty("--preview-color", CATEGORIES[firstCategory].color);
+  previewObject.style.setProperty("--preview-color", CATEGORIES[firstCategory].color);
   const toggle = document.querySelector("#focused-toggle");
   toggle.classList.toggle("selected", selected);
   toggle.textContent = selected ? t("detail.removeTarget") : t("detail.addTarget");
@@ -329,6 +365,8 @@ elements.documentList.addEventListener("change", event => {
 });
 
 document.querySelector("#select-page").addEventListener("click", () => setPageSelection("page"));
+document.querySelector("#reward-preview-mode").addEventListener("click", () => setCenterMode("reward"));
+document.querySelector("#document-map-mode").addEventListener("click", () => setCenterMode("map"));
 document.querySelector("#select-through").addEventListener("click", () => setPageSelection("through"));
 document.querySelector("#reset-selection").addEventListener("click", () => {
   selectionState.selected.clear();

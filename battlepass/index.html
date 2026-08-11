@@ -6,8 +6,8 @@
     <meta name="description" content="Document calculator for Escape from Tarkov Battle Pass rewards" />
     <meta name="theme-color" content="#071014" />
     <title>Battle Pass Reward Calculator · Tarkov Tools</title>
-    <link rel="stylesheet" href="../calculator.css?v=4" />
-    <script src="../calculator.js?v=6" defer></script>
+    <link rel="stylesheet" href="../calculator.css?v=5" />
+    <script src="../calculator.js?v=7" defer></script>
   </head>
   <body>
     <header class="game-header">
@@ -36,6 +36,10 @@
         </aside>
 
         <section class="reward-preview">
+          <div class="preview-mode-tabs" role="tablist" aria-label="Center panel">
+            <button id="reward-preview-mode" class="active" type="button" role="tab" aria-selected="true">REWARD PREVIEW</button>
+            <button id="document-map-mode" type="button" role="tab" aria-selected="false">DOCUMENT MAP</button>
+          </div>
           <div class="preview-grid"></div>
           <div class="preview-glow"></div>
           <div class="preview-object" aria-hidden="true"><span id="focused-code">D</span><i></i></div>
@@ -44,6 +48,7 @@
             <strong id="focused-name">Dogtag</strong>
             <small>USEC / BEAR</small>
           </div>
+          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" data-src="../document-map/?embedded=1" hidden></iframe>
         </section>
 
         <aside class="detail-panel calculator-panel">
