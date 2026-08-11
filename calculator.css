@@ -128,3 +128,35 @@
   background:linear-gradient(#2f8c68,#17513d);
   color:#e2fff1
 }
+
+/* Readability pass: keep the compact game UI while making status text legible. */
+.panel-title,.detail-title{font-size:15px}
+.reward-index{font-size:9px}
+.reward-name{bottom:52px;font-size:11px;line-height:1.2}
+.reward-progress-meta{bottom:35px;font-size:9px}
+.reward-progress-bar{bottom:25px;height:5px}
+.reward-remaining{bottom:8px;font-size:8px}
+.reward-card.selected .selected-mark{padding:4px 6px;font-size:8px}
+.page-mini-nav span{font-size:10px}
+.detail-title h1{font-size:15px}
+.focused-requirements label{font-size:12px}
+.cost-chip{font-size:10px}
+.claim-button{font-size:11px}
+.target-summary>div>span{font-size:10px}
+.target-summary p{font-size:10px}
+.document-table-head{font-size:9px}
+.document-name b{font-size:11px}
+.document-name small{font-size:8px}
+.number,.document-row input{font-size:11px}
+.page-tab{font-size:10px}
+.document-inventory header{font-size:11px}
+.belt-item b{font-size:11px}
+.belt-item small{font-size:8px}
+.selection-actions button{font-size:10px}
+.calculator-note{font-size:10px}
+footer{font-size:9px}
+
+@media(min-width:851px) and (max-width:1400px){
+  .battle-console{grid-template-columns:360px minmax(340px,1fr) 330px}
+  .bottom-console{grid-template-columns:360px minmax(0,1fr) 330px}
+}
