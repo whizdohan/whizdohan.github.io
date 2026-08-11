@@ -1,52 +1,52 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Escape from Tarkov 시즌 배틀패스 문서 위치 지도" />
-    <title>문서 지도 · Tarkov Tools</title>
+    <meta name="description" content="Escape from Tarkov seasonal Battle Pass document location map" />
+    <title>Document Map · Tarkov Tools</title>
     <link rel="stylesheet" href="../styles.css" />
-    <script src="../data/locations.js" defer></script>
-    <script src="../app.js" defer></script>
+    <script src="../data/locations.js?v=2" defer></script>
+    <script src="../app.js?v=2" defer></script>
   </head>
   <body>
     <aside class="sidebar" id="sidebar">
       <header class="brand">
-        <a href="../" style="color:inherit;text-decoration:none" aria-label="도구 홈으로 이동">
+        <a href="../" style="color:inherit;text-decoration:none" aria-label="Open tools home">
           <p class="eyebrow">SEASON BATTLE PASS</p>
           <h1>DOCUMENT<br /><span>MAP</span></h1>
         </a>
-        <p class="brand-copy">문서 위치와 수집 진행도를 한곳에서 관리하세요.</p>
+        <p class="brand-copy">Track document locations and collection progress in one place.</p>
       </header>
       <section class="control-section">
-        <label class="section-label" for="map-select">전장 선택</label>
+        <label class="section-label" for="map-select">SELECT MAP</label>
         <select id="map-select"></select>
       </section>
       <section class="control-section filter-section">
-        <div class="section-heading"><span class="section-label">문서 종류</span><button class="text-button" id="toggle-all" type="button">전체 해제</button></div>
+        <div class="section-heading"><span class="section-label">DOCUMENT TYPE</span><button class="text-button" id="toggle-all" type="button">CLEAR ALL</button></div>
         <div id="category-list" class="category-list"></div>
       </section>
       <section class="control-section sidebar-footer">
-        <a class="secondary-button" href="../배틀패스문서계산/" style="display:block;text-align:center;text-decoration:none">문서 계산기 열기</a>
+        <a class="secondary-button" href="../battlepass/" style="display:block;text-align:center;text-decoration:none">OPEN BATTLE PASS CALCULATOR</a>
       </section>
     </aside>
     <main class="workspace">
       <header class="topbar">
-        <button class="menu-button" id="menu-button" type="button" aria-label="필터 메뉴 열기" aria-expanded="false">☰</button>
-        <div><p class="eyebrow">CURRENT MAP</p><h2 id="current-map-name">Factory · 공장</h2></div>
-        <div class="topbar-actions"><a class="secondary-button compact" href="../" style="display:block;text-decoration:none">도구 홈</a></div>
+        <button class="menu-button" id="menu-button" type="button" aria-label="Open filter menu" aria-expanded="false">☰</button>
+        <div><p class="eyebrow">CURRENT MAP</p><h2 id="current-map-name">Factory</h2></div>
+        <div class="topbar-actions"><a class="secondary-button compact" href="../" style="display:block;text-decoration:none">TOOLS HOME</a></div>
       </header>
       <section class="map-shell">
-        <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">표시 위치 0개</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>
-        <div id="map-stage" class="map-stage" tabindex="0" aria-label="문서 위치 지도">
+        <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">0 LOCATIONS VISIBLE</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>
+        <div id="map-stage" class="map-stage" tabindex="0" aria-label="Document location map">
           <div class="map-grid"></div><div class="map-watermark" aria-hidden="true"><span id="map-code">FCT</span><small>TACTICAL DOCUMENT GRID</small></div>
           <div id="marker-layer" class="marker-layer"></div>
-          <div class="empty-state" id="empty-state"><span class="empty-icon">＋</span><strong>등록된 위치 데이터가 없습니다</strong><p>검증된 좌표와 지도 이미지를 추가하면 이곳에 마커가 표시됩니다.</p></div>
+          <div class="empty-state" id="empty-state"><span class="empty-icon">＋</span><strong>NO LOCATION DATA AVAILABLE</strong><p>Verified coordinates and map images will appear here when added.</p></div>
         </div>
       </section>
     </main>
     <div class="backdrop" id="sidebar-backdrop"></div>
-    <dialog id="detail-dialog" class="dialog"><article class="dialog-card detail-card"><header class="dialog-header"><div><p class="eyebrow" id="detail-category">DOCUMENT LOCATION</p><h2 id="detail-title">위치 상세</h2></div><button class="icon-button" id="detail-close" type="button" aria-label="닫기">×</button></header><div class="detail-image" id="detail-image">이미지 준비 중</div><p id="detail-description"></p></article></dialog>
+    <dialog id="detail-dialog" class="dialog"><article class="dialog-card detail-card"><header class="dialog-header"><div><p class="eyebrow" id="detail-category">DOCUMENT LOCATION</p><h2 id="detail-title">LOCATION DETAILS</h2></div><button class="icon-button" id="detail-close" type="button" aria-label="Close">×</button></header><div class="detail-image" id="detail-image">IMAGE COMING SOON</div><p id="detail-description"></p></article></dialog>
     <footer class="legal-note">Unofficial fan-made tool. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
   </body>
 </html>
