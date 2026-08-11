@@ -36,3 +36,26 @@
   .battle-console{grid-template-columns:1fr;grid-template-rows:330px 360px auto auto}
   .reward-card:last-child:nth-child(odd){grid-column:auto}
 }
+
+/* Uniform reward tiles and clear selected state. */
+.reward-track{grid-auto-rows:auto;align-content:start}
+.reward-card,.reward-card:last-child:nth-child(odd){grid-column:auto;aspect-ratio:1}
+.reward-card.selected{
+  border:2px solid #65dba5;
+  background:radial-gradient(circle at 50% 44%,#205047,#0d241f 68%);
+  box-shadow:inset 0 0 0 1px rgba(132,255,197,.42),0 0 12px rgba(67,215,153,.22)
+}
+.reward-card.selected:after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0;
+  pointer-events:none;
+  background:rgba(53,205,139,.17)
+}
+.reward-card.selected .reward-visual:after{
+  z-index:4;
+  background:#65dba5;
+  color:#062017;
+  box-shadow:0 0 8px rgba(101,219,165,.55)
+}
