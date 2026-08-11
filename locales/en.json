@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "title": "Battle Pass Reward Calculator · Tarkov Tools",
+    "description": "Document calculator for Escape from Tarkov Battle Pass rewards"
+  },
+  "nav": { "map": "DOCUMENT MAP ↗" },
+  "hero": { "description": "Select the rewards you want to calculate the documents required to unlock them and the amount you are missing." },
+  "progress": {
+    "selectedDocuments": "SELECTED DOCUMENTS",
+    "rewardCount": "{count} rewards"
+  },
+  "page": {
+    "summary": "Page total {total} · Cumulative {cumulative}",
+    "cardHint": "Select a reward card to add or remove it from your target.",
+    "cumulative": "Total {count}"
+  },
+  "buttons": {
+    "currentPage": "SELECT CURRENT PAGE",
+    "throughPage": "SELECT THROUGH THIS PAGE",
+    "reset": "CLEAR SELECTION"
+  },
+  "calculator": {
+    "title": "DOCUMENT CALCULATOR",
+    "selectedGoal": "SELECTED TARGET",
+    "documents": "DOCUMENTS"
+  },
+  "status": {
+    "selectReward": "Select a reward",
+    "ready": "✓ Ready to unlock selected rewards",
+    "missing": "{count} more documents required"
+  },
+  "table": {
+    "documentType": "DOCUMENT TYPE",
+    "required": "REQ.",
+    "owned": "OWNED",
+    "missing": "SHORT"
+  },
+  "autosave": {
+    "label": "AUTO SAVE",
+    "text": "Your inventory and selected rewards are saved in this browser."
+  },
+  "overview": {
+    "title": "PAGE UNLOCK COSTS",
+    "total": "12 pages · 501 documents total"
+  },
+  "reward": { "required": "REQUIRED" },
+  "categories": {
+    "financial": "Financial",
+    "pmc": "PMC Personnel",
+    "project": "Project",
+    "blueprints": "Blueprints",
+    "test": "Test",
+    "user": "User",
+    "medical": "Medical",
+    "technical": "Technical"
+  },
+  "footer": { "text": "501 documents total · 500 additional documents after the initial free document · Unofficial fan-made tool · No game images or assets used" }
+}
