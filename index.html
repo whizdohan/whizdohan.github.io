@@ -3,50 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="WHIZ's Escape from Tarkov season tools" />
-    <title>WHIZ · Tarkov Tools</title>
-    <style>
-      :root { color-scheme: dark; --bg:#0b0e0c; --panel:#151916; --line:#303631; --text:#f0eee6; --muted:#989e97; --gold:#c9a45c; }
-      * { box-sizing:border-box; }
-      body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(circle at 70% 10%,#26271d 0,transparent 32%),var(--bg); font-family:Inter,Pretendard,"Noto Sans KR",system-ui,sans-serif; }
-      body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.12; background-image:linear-gradient(#768076 1px,transparent 1px),linear-gradient(90deg,#768076 1px,transparent 1px); background-size:64px 64px; mask-image:linear-gradient(to bottom,black,transparent 75%); }
-      main { position:relative; width:min(1050px,calc(100% - 32px)); margin:auto; padding:clamp(54px,10vh,110px) 0 70px; }
-      .eyebrow { margin:0 0 12px; color:var(--gold); font:800 11px ui-monospace,monospace; letter-spacing:.25em; }
-      h1 { max-width:700px; margin:0; font:900 clamp(48px,9vw,100px)/.82 Impact,Haettenschweiler,sans-serif; letter-spacing:.03em; }
-      h1 span { color:var(--gold); }
-      .intro { max-width:580px; margin:24px 0 42px; color:var(--muted); font-size:14px; line-height:1.8; }
-      .tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-      .card { position:relative; min-height:260px; display:flex; flex-direction:column; padding:28px; overflow:hidden; color:inherit; text-decoration:none; border:1px solid var(--line); background:rgba(21,25,22,.94); transition:.2s ease; }
-      .card.disabled { opacity:.72; cursor:default; }
-      .number { color:#5f675f; font:800 12px ui-monospace,monospace; }
-      .card h2 { margin:auto 0 10px; font-size:25px; }
-      .card p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.65; }
-      .status { position:absolute; top:24px; right:25px; padding:6px 9px; border:1px solid #4a4332; color:var(--gold); font:800 9px ui-monospace,monospace; letter-spacing:.12em; }
-      .tag { display:inline-flex; align-self:flex-start; margin-top:20px; padding:6px 8px; border:1px solid #3a403a; color:#b8bcb7; font:700 9px ui-monospace,monospace; letter-spacing:.08em; }
-      footer { margin-top:24px; color:#646a64; font-size:9px; }
-      @media(max-width:680px){ .tools{grid-template-columns:1fr}.card{min-height:220px} }
-    </style>
+    <meta name="description" content="Escape from Tarkov Battle Pass rewards, document locations, and remaining document calculator" />
+    <meta name="theme-color" content="#071014" />
+    <title>Battle Pass Document Tracker · Tarkov Tools</title>
+    <link rel="stylesheet" href="calculator.css?v=8" />
+    <script src="calculator.js?v=9" defer></script>
   </head>
   <body>
-    <main>
-      <p class="eyebrow">WHIZ · ESCAPE FROM TARKOV</p>
-      <h1>SEASON<br /><span>TOOLS</span></h1>
-      <p class="intro">Unofficial fan-made tools for finding seasonal Battle Pass documents and calculating your required documents and progress.</p>
-      <section class="tools" aria-label="Escape from Tarkov tools">
-        <article class="card disabled">
-          <span class="number">TOOL 01</span><span class="status">COMING SOON</span>
-          <h2>Document Map</h2>
-          <p>Browse document locations by map and filter them by category. Discovered locations are saved in your browser.</p>
-          <span class="tag">11 MAPS · 8 CATEGORIES</span>
-        </article>
-        <article class="card disabled">
-          <span class="number">TOOL 02</span><span class="status">COMING SOON</span>
-          <h2>Battle Pass Calculator</h2>
-          <p>Enter your document inventory to calculate the remaining amount and completion rate out of 501 documents.</p>
-          <span class="tag">TOTAL 501 DOCUMENTS</span>
-        </article>
+    <header class="game-header">
+      <a href="./" class="season-emblem" aria-label="Tarkov Tools home"><span>01</span><b>SEASON<br />ONE</b></a>
+      <nav class="game-tabs" aria-label="Season navigation">
+        <span class="active" data-i18n="nav.battlePass">BATTLE PASS</span>
+        <span data-i18n="nav.seasonalRewards">SEASONAL REWARDS</span>
+        <span class="disabled" data-i18n="nav.leagues">LEAGUES AND RATINGS</span>
+      </nav>
+      <div class="header-actions" aria-hidden="true"></div>
+    </header>
+
+    <main class="battle-screen">
+      <section class="battle-console">
+        <aside class="reward-browser">
+          <header class="panel-title" data-i18n="panel.rewardList">REWARD LIST</header>
+          <div id="reward-track" class="reward-track"></div>
+          <div class="page-mini-nav">
+            <button id="previous-page" type="button" aria-label="Previous page">‹</button>
+            <span>PAGE <b id="current-page">01</b>/12</span>
+            <button id="next-page" type="button" aria-label="Next page">›</button>
+          </div>
+        </aside>
+
+        <section class="reward-preview map-panel" aria-label="Document Map">
+          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" src="document-map/?embedded=1"></iframe>
+        </section>
+
+        <aside class="detail-panel calculator-panel">
+          <header class="detail-title"><h1 id="focused-detail-name">DOGTAG</h1></header>
+          <div class="focused-requirements">
+            <label><span class="check-box"></span><span data-i18n="detail.collectDocuments">Collect and submit documents</span></label>
+            <div id="focused-costs" class="focused-costs"></div>
+            <button id="focused-toggle" class="claim-button" type="button" data-i18n="detail.markComplete">MARK COMPLETE</button>
+          </div>
+
+          <div class="target-summary">
+            <div><span data-i18n="calculator.remainingDocuments">REMAINING DOCUMENTS</span><strong><b id="target-total">501</b> <small>/ 501</small></strong></div>
+            <p id="target-status">501 more documents required</p>
+          </div>
+          <div class="document-table-head"><span data-i18n="table.documentType">DOCUMENT TYPE</span><span data-i18n="table.required">REQ.</span><span data-i18n="table.owned">OWNED</span><span data-i18n="table.missing">SHORT</span></div>
+          <div id="document-list" class="document-list"></div>
+        </aside>
+
+        <section class="bottom-console">
+          <div class="page-rail">
+            <div class="rail-line"><span id="selected-bar"></span></div>
+            <div id="page-tabs" class="page-tabs"></div>
+          </div>
+          <div class="document-inventory">
+            <header><span data-i18n="documents.remaining">REMAINING DOCUMENTS</span><small><b id="inventory-total">501</b> / 501</small></header>
+            <div id="document-belt" class="document-belt"></div>
+          </div>
+          <div class="selection-actions">
+            <button id="select-page" type="button" data-i18n="buttons.completePage">COMPLETE CURRENT PAGE</button>
+            <button id="select-through" class="accent" type="button" data-i18n="buttons.completeThrough">COMPLETE THROUGH THIS PAGE</button>
+            <button id="reset-selection" type="button" data-i18n="buttons.resetCompleted">RESET COMPLETED REWARDS</button>
+          </div>
+        </section>
       </section>
-      <footer>Unofficial fan-made tool. Escape from Tarkov belongs to Battlestate Games.</footer>
+
+      <section class="mobile-calculator-title"><span data-i18n="calculator.title">DOCUMENT CALCULATOR</span><small id="selected-count">0 rewards complete</small><b id="selected-percent">0%</b></section>
+      <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your document inventory and completed rewards are saved in this browser.</span></p></div>
     </main>
+
+    <footer><span>1.1.0.0.46657 | PvE</span><span data-i18n="footer.text">Unofficial fan-made tool · Game screenshots provided by the site owner</span></footer>
   </body>
 </html>

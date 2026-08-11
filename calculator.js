@@ -133,7 +133,7 @@ function t(key, variables = {}) {
 
 async function loadLanguage() {
   try {
-    const response = await fetch("../locales/en.json?v=3");
+    const response = await fetch("locales/en.json?v=4");
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
@@ -195,7 +195,7 @@ function pageByNumber(number) {
   return PAGES[number - 1];
 }
 
-function selectedRewards() {
+function completedRewards() {
   return PAGES.flatMap(page => page.rewards).filter(reward => selectionState.selected.has(reward.id));
 }
 
@@ -203,16 +203,26 @@ function focusedReward() {
   return PAGES.flatMap(page => page.rewards).find(reward => reward.id === focusedRewardId) || pageByNumber(selectionState.page).rewards[0];
 }
 
-function rewardCode(reward) {
-  return reward.name.split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
-}
-
-function selectedRequirements() {
+function remainingRequirements() {
   const requirements = Object.fromEntries(categoryKeys.map(key => [key, 0]));
-  selectedRewards().forEach(reward => {
+  PAGES.flatMap(page => page.rewards).filter(reward => !selectionState.selected.has(reward.id)).forEach(reward => {
     Object.entries(reward.cost).forEach(([key, value]) => { requirements[key] += value; });
   });
   return requirements;
+}
+
+function rewardProgress(reward, completed) {
+  if (completed) return { percent: 100, remaining: t("reward.complete") };
+  const covered = Object.entries(reward.cost).reduce((sum, [key, value]) => {
+    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, CATEGORIES[key].total);
+    return sum + Math.min(value, owned);
+  }, 0);
+  const remaining = Object.entries(reward.cost).map(([key, value]) => {
+    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, CATEGORIES[key].total);
+    const missing = Math.max(value - owned, 0);
+    return missing ? `${CATEGORIES[key].code} ${missing}` : "";
+  }).filter(Boolean).join(" · ") || t("reward.ready");
+  return { percent: Math.round(covered / reward.total * 100), remaining };
 }
 
 function costChips(cost) {
@@ -229,13 +239,16 @@ function renderRewards() {
   elements.rewardTrack.innerHTML = page.rewards.map(reward => {
     const selected = selectionState.selected.has(reward.id);
     const focused = reward.id === focusedRewardId;
+    const progress = rewardProgress(reward, selected);
     return `<button type="button" class="reward-card ${selected ? "selected" : ""} ${focused ? "focused" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-costs">${costChips(reward.cost)}</span>
-      <span class="reward-total">${reward.total}</span>
-      <span class="selected-mark">✓ TARGET</span>
+      <span class="reward-progress-meta"><b>${reward.total} DOCS</b><em>${progress.percent}%</em></span>
+      <span class="reward-progress-bar"><i style="width:${progress.percent}%"></i></span>
+      <span class="reward-remaining">${progress.remaining}</span>
+      <span class="selected-mark">✓ COMPLETE</span>
     </button>`;
   }).join("");
   document.querySelector("#previous-page").disabled = page.number === 1;
@@ -249,10 +262,10 @@ function renderPreview() {
   document.querySelector("#focused-costs").innerHTML = costChips(reward.cost);
   const toggle = document.querySelector("#focused-toggle");
   toggle.classList.toggle("selected", selected);
-  toggle.textContent = selected ? t("detail.removeTarget") : t("detail.addTarget");
+  toggle.textContent = selected ? t("detail.markIncomplete") : t("detail.markComplete");
 }
 
-function renderDocumentBelt(requirements = selectedRequirements()) {
+function renderDocumentBelt(requirements = remainingRequirements()) {
   elements.documentBelt.innerHTML = categoryKeys.map(key => {
     const category = CATEGORIES[key];
     const needed = requirements[key];
@@ -262,11 +275,12 @@ function renderDocumentBelt(requirements = selectedRequirements()) {
 }
 
 function renderCalculator() {
-  const requirements = selectedRequirements();
-  const rewards = selectedRewards();
+  const requirements = remainingRequirements();
+  const rewards = completedRewards();
   const total = Object.values(requirements).reduce((sum, value) => sum + value, 0);
+  const completedTotal = 501 - total;
   const missingTotal = categoryKeys.reduce((sum, key) => sum + Math.max(requirements[key] - (Number(sharedState.owned[key]) || 0), 0), 0);
-  const percent = Math.round(total / 501 * 100);
+  const percent = Math.round(completedTotal / 501 * 100);
 
   document.querySelector("#inventory-total").textContent = total;
   document.querySelector("#selected-count").textContent = t("progress.rewardCount", { count: rewards.length });
@@ -274,8 +288,8 @@ function renderCalculator() {
   document.querySelector("#selected-bar").style.width = `${percent}%`;
   document.querySelector("#target-total").textContent = total;
   const status = document.querySelector("#target-status");
-  status.classList.toggle("ready", rewards.length > 0 && missingTotal === 0);
-  status.textContent = rewards.length === 0 ? t("status.selectReward") : missingTotal === 0 ? t("status.ready") : t("status.missing", { count: missingTotal });
+  status.classList.toggle("ready", total === 0 || missingTotal === 0);
+  status.textContent = total === 0 ? t("status.complete") : missingTotal === 0 ? t("status.readyRemaining") : t("status.missing", { count: missingTotal });
 
   elements.documentList.innerHTML = categoryKeys.map(key => {
     const category = CATEGORIES[key];
@@ -335,6 +349,7 @@ elements.documentList.addEventListener("change", event => {
   if (!input) return;
   const category = CATEGORIES[input.dataset.category];
   sharedState.owned[input.dataset.category] = clamp(Number(input.value) || 0, 0, category.total);
+  renderRewards();
   renderCalculator();
 });
 

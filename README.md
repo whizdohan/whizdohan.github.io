@@ -2,17 +2,18 @@
 
 A static GitHub Pages site for locating Escape from Tarkov season battle pass documents and tracking reward requirements.
 
-## Pages
+## Public page
 
-- `/` — Tool selection hub
-- `/document-map/` — Document location map
-- `/battlepass/` — Battle pass reward and document calculator
+- `/` — Combined Battle Pass reward tracker, document map, and remaining document calculator
+
+The `/document-map/` route is used internally by the embedded map. The legacy `/battlepass/` route redirects to the home page.
 
 ## Features
 
 - Switch between 11 maps
 - Filter eight document categories
-- Calculate owned and missing documents against the current 501-document total
+- Mark completed rewards and subtract their costs from the current 501-document total
+- Show per-reward document totals, completion progress, and missing document types
 - Keep the document map focused on maps, locations, and category filters
 - Use a responsive sidebar on mobile devices
 - Show location images and descriptions in a details dialog
