@@ -129,7 +129,7 @@ function detectedLanguage() {
 async function loadLanguage(language) {
   const selected = SUPPORTED_LANGUAGES.includes(language) ? language : "ko";
   try {
-    const response = await fetch(`../locales/${selected}.json`);
+    const response = await fetch(`../locales/${selected}.json?v=1`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
     currentLanguage = selected;
