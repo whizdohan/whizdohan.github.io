@@ -1,25 +1,25 @@
-# WHIZ Tarkov Tools
+# Tarkov Season Tools
 
-Escape from Tarkov 시즌 배틀패스 문서 위치와 수집 진행도를 관리하는 정적 GitHub Pages 사이트입니다.
+A static GitHub Pages site for locating Escape from Tarkov season battle pass documents and tracking reward requirements.
 
-## 페이지
+## Pages
 
-- `/` — 도구 선택 허브
-- `/문서지도/` — 문서 위치 지도
-- `/배틀패스문서계산/` — 문서 보유량·잔여량 계산기
+- `/` — Tool selection hub
+- `/document-map/` — Document location map
+- `/battlepass/` — Battle pass reward and document calculator
 
-## 현재 포함된 기능
+## Features
 
-- 11개 전장 전환
-- 8종 문서 필터
-- 최신 레딧 집계 총 필요량 501개 기준 보유량·잔여량 계산
-- 문서 지도는 지도·위치·종류 필터에 집중
-- 반응형 모바일 사이드바
-- 위치 상세 이미지·설명 모달
-- 수집량 계산과 브라우저 저장은 계산기 페이지에서만 제공
+- Switch between 11 maps
+- Filter eight document categories
+- Calculate owned and missing documents against the current 501-document total
+- Keep the document map focused on maps, locations, and category filters
+- Use a responsive sidebar on mobile devices
+- Show location images and descriptions in a details dialog
+- Save battle pass selections and document inventory in the browser
 
-## 위치 데이터 추가
+## Adding location data
 
-`data/locations.js`에 검증된 위치를 추가합니다. 좌표는 지도 영역 기준 백분율(`x`, `y`: 0~100)입니다. 실제 지도 이미지는 저작권과 사용 허가를 확인한 뒤 별도로 연결해야 합니다.
+Add verified locations to `data/locations.js`. Coordinates use percentages relative to the map area (`x` and `y` range from 0 to 100). Only connect map images after confirming their copyright status and permission for reuse.
 
-이 프로젝트는 비공식 팬 도구이며 Escape from Tarkov 관련 상표와 게임 자산은 Battlestate Games에 귀속됩니다.
+This is an unofficial fan-made project. Escape from Tarkov trademarks and game assets belong to Battlestate Games.
