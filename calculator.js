@@ -104,7 +104,47 @@ PAGES.forEach(page => { runningTotal += page.total; page.cumulative = runningTot
 
 const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
+const LANGUAGE_KEY = "tarkov-battle-pass:language:v1";
+const SUPPORTED_LANGUAGES = ["ko", "en", "ja"];
 const categoryKeys = Object.keys(CATEGORIES);
+let messages = {};
+let currentLanguage = "ko";
+
+function nestedValue(object, path) {
+  return path.split(".").reduce((value, key) => value?.[key], object);
+}
+
+function t(key, variables = {}) {
+  const template = nestedValue(messages, key) || key;
+  return Object.entries(variables).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), template);
+}
+
+function detectedLanguage() {
+  const saved = localStorage.getItem(LANGUAGE_KEY);
+  if (SUPPORTED_LANGUAGES.includes(saved)) return saved;
+  const browserLanguage = (navigator.language || "ko").slice(0, 2).toLowerCase();
+  return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : "ko";
+}
+
+async function loadLanguage(language) {
+  const selected = SUPPORTED_LANGUAGES.includes(language) ? language : "ko";
+  try {
+    const response = await fetch(`../locales/${selected}.json`);
+    if (!response.ok) throw new Error(`Language file: ${response.status}`);
+    messages = await response.json();
+    currentLanguage = selected;
+  } catch (error) {
+    if (selected !== "ko") return loadLanguage("ko");
+    console.error(error);
+    return;
+  }
+  document.documentElement.lang = currentLanguage;
+  document.title = t("meta.title");
+  document.querySelector('meta[name="description"]').content = t("meta.description");
+  document.querySelector("#language-select").value = currentLanguage;
+  document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = t(element.dataset.i18n); });
+  localStorage.setItem(LANGUAGE_KEY, currentLanguage);
+}
 
 function defaultOwned() {
   return Object.fromEntries(categoryKeys.map(key => [key, 0]));
@@ -167,7 +207,7 @@ function selectedRequirements() {
 }
 
 function costChips(cost) {
-  return Object.entries(cost).map(([key, value]) => `<span class="cost-chip" style="--chip:${CATEGORIES[key].color}"><i></i>${CATEGORIES[key].ko} ${value}</span>`).join("");
+  return Object.entries(cost).map(([key, value]) => `<span class="cost-chip" style="--chip:${CATEGORIES[key].color}"><i></i>${t(`categories.${key}`)} ${value}</span>`).join("");
 }
 
 function renderTabs() {
@@ -177,7 +217,7 @@ function renderTabs() {
 function renderRewards() {
   const page = pageByNumber(selectionState.page);
   document.querySelector("#current-page").textContent = String(page.number).padStart(2, "0");
-  document.querySelector("#page-summary").textContent = `페이지 전체 ${page.total}개 · 누적 ${page.cumulative}개`;
+  document.querySelector("#page-summary").textContent = t("page.summary", { total: page.total, cumulative: page.cumulative });
   elements.rewardTrack.innerHTML = page.rewards.map((reward, index) => {
     const selected = selectionState.selected.has(reward.id);
     const rewardCode = reward.name.split(/\s+/).map(word => word[0]).join("").slice(0, 3).toUpperCase();
@@ -186,7 +226,7 @@ function renderRewards() {
       <span class="reward-visual"><b>${rewardCode}</b><i>${String(index + 1).padStart(2, "0")}</i></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-costs">${costChips(reward.cost)}</span>
-      <span class="reward-total"><small>REQUIRED</small><b>${reward.total}</b></span>
+      <span class="reward-total"><small>${t("reward.required")}</small><b>${reward.total}</b></span>
       <span class="selected-mark">✓ TARGET</span>
     </button>`;
   }).join("");
@@ -197,7 +237,7 @@ function renderRewards() {
 }
 
 function renderLedger() {
-  elements.ledger.innerHTML = PAGES.map(page => `<button type="button" data-ledger-page="${page.number}" class="ledger-item ${page.number === selectionState.page ? "active" : ""}"><span>PAGE ${String(page.number).padStart(2, "0")}</span><strong>${page.total}</strong><small>누적 ${page.cumulative}</small></button>`).join("");
+  elements.ledger.innerHTML = PAGES.map(page => `<button type="button" data-ledger-page="${page.number}" class="ledger-item ${page.number === selectionState.page ? "active" : ""}"><span>PAGE ${String(page.number).padStart(2, "0")}</span><strong>${page.total}</strong><small>${t("page.cumulative", { count: page.cumulative })}</small></button>`).join("");
 }
 
 function renderCalculator() {
@@ -208,13 +248,13 @@ function renderCalculator() {
   const percent = Math.round(total / 501 * 100);
 
   document.querySelector("#selected-total").textContent = total;
-  document.querySelector("#selected-count").textContent = `보상 ${rewards.length}개`;
+  document.querySelector("#selected-count").textContent = t("progress.rewardCount", { count: rewards.length });
   document.querySelector("#selected-percent").textContent = `${percent}%`;
   document.querySelector("#selected-bar").style.width = `${percent}%`;
   document.querySelector("#target-total").textContent = total;
   const status = document.querySelector("#target-status");
   status.classList.toggle("ready", rewards.length > 0 && missingTotal === 0);
-  status.textContent = rewards.length === 0 ? "보상을 선택하세요" : missingTotal === 0 ? "✓ 선택 목표 해금 가능" : `추가로 문서 ${missingTotal}개 필요`;
+  status.textContent = rewards.length === 0 ? t("status.selectReward") : missingTotal === 0 ? t("status.ready") : t("status.missing", { count: missingTotal });
 
   elements.documentList.innerHTML = categoryKeys.map(key => {
     const category = CATEGORIES[key];
@@ -222,9 +262,9 @@ function renderCalculator() {
     const owned = clamp(Number(sharedState.owned[key]) || 0, 0, category.total);
     const missing = Math.max(needed - owned, 0);
     return `<label class="document-row ${needed ? "needed" : ""}">
-      <span class="document-name"><i style="--color:${category.color}"></i><span><b>${category.ko}</b><small>${category.name}</small></span></span>
+      <span class="document-name"><i style="--color:${category.color}"></i><span><b>${t(`categories.${key}`)}</b><small>${category.name}</small></span></span>
       <output class="number required">${needed}</output>
-      <input type="number" data-category="${key}" min="0" max="${category.total}" value="${owned}" aria-label="${category.ko} 문서 보유량" />
+      <input type="number" data-category="${key}" min="0" max="${category.total}" value="${owned}" aria-label="${t(`categories.${key}`)}" />
       <output class="number missing ${missing ? "short" : ""}">${missing}</output>
     </label>`;
   }).join("");
@@ -286,8 +326,18 @@ document.querySelector("#reset-selection").addEventListener("click", () => {
   renderAll();
 });
 
+document.querySelector("#language-select").addEventListener("change", async event => {
+  await loadLanguage(event.target.value);
+  renderAll();
+});
+
 [["#previous-page", -1], ["#track-previous", -1], ["#next-page", 1], ["#track-next", 1]].forEach(([selector, direction]) => {
   document.querySelector(selector).addEventListener("click", () => goToPage(selectionState.page + direction));
 });
 
-renderAll();
+async function init() {
+  await loadLanguage(detectedLanguage());
+  renderAll();
+}
+
+init();
