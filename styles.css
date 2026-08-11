@@ -26,6 +26,11 @@ body {
 }
 
 button, select, input { font: inherit; }
+body.embedded .sidebar, body.embedded .topbar, body.embedded .legal-note { display: none; }
+body.embedded .workspace { margin-left: 0; height: 100vh; display: block; }
+body.embedded .map-shell { height: 100vh; padding: 0; }
+body.embedded .map-toolbar { min-height: 34px; padding: 0 12px; background: #0d1517; }
+body.embedded .map-stage { border: 0; }
 button, select { color: inherit; }
 button { cursor: pointer; }
 
