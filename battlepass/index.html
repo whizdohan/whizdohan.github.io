@@ -6,8 +6,8 @@
     <meta name="description" content="Document calculator for Escape from Tarkov Battle Pass rewards" />
     <meta name="theme-color" content="#071014" />
     <title>Battle Pass Reward Calculator · Tarkov Tools</title>
-    <link rel="stylesheet" href="../calculator.css?v=5" />
-    <script src="../calculator.js?v=7" defer></script>
+    <link rel="stylesheet" href="../calculator.css?v=6" />
+    <script src="../calculator.js?v=8" defer></script>
   </head>
   <body>
     <header class="game-header">
@@ -35,20 +35,8 @@
           </div>
         </aside>
 
-        <section class="reward-preview">
-          <div class="preview-mode-tabs" role="tablist" aria-label="Center panel">
-            <button id="reward-preview-mode" class="active" type="button" role="tab" aria-selected="true">REWARD PREVIEW</button>
-            <button id="document-map-mode" type="button" role="tab" aria-selected="false">DOCUMENT MAP</button>
-          </div>
-          <div class="preview-grid"></div>
-          <div class="preview-glow"></div>
-          <div class="preview-object" aria-hidden="true"><span id="focused-code">D</span><i></i></div>
-          <div class="preview-caption">
-            <span id="focused-id">P1-1</span>
-            <strong id="focused-name">Dogtag</strong>
-            <small>USEC / BEAR</small>
-          </div>
-          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" data-src="../document-map/?embedded=1" hidden></iframe>
+        <section class="reward-preview map-panel" aria-label="Document Map">
+          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" src="../document-map/?embedded=1"></iframe>
         </section>
 
         <aside class="detail-panel calculator-panel">
@@ -88,6 +76,6 @@
       <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your inventory and selected rewards are saved in this browser.</span></p></div>
     </main>
 
-    <footer><span>1.1.0.0.46657 | PvE</span><span data-i18n="footer.text">Unofficial fan-made tool · No game images or assets used</span></footer>
+    <footer><span>1.1.0.0.46657 | PvE</span><span data-i18n="footer.text">Unofficial fan-made tool · Game screenshots provided by the site owner</span></footer>
   </body>
 </html>
