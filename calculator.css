@@ -115,8 +115,9 @@
 .belt-item small{font-size:8px}
 .selection-actions button{font-size:10px}
 .calculator-note{font-size:10px}
-footer{font-size:18px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decoration:none}footer a:hover,footer a:focus-visible{color:#c8ae72;text-decoration:underline}
+footer{font-size:15px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decoration:none}footer a:hover,footer a:focus-visible{color:#c8ae72;text-decoration:underline}
 @media(max-width:850px){footer{font-size:14px}}
+.language-control{display:flex;align-items:center;gap:9px;margin-left:auto;color:#728684;font:800 10px ui-monospace,monospace}.language-control select{width:116px;height:34px;padding:0 28px 0 10px;border:1px solid #31474c;background:#0a171b;color:#c7d2ce;font:700 11px ui-monospace,monospace}
 
 /* Desktop reward rows use flex sizing so square cards cannot overlap the row gap. */
 @media(min-width:851px){

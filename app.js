@@ -1,4 +1,5 @@
-const MAP_ASSET_ROOT="https://raw.githubusercontent.com/TarkovTracker/tarkovdata/master/maps/";
+const MAP_ASSET_ROOT="../assets/maps/";
+const MAP_TRANSLATION_KEYS={"customs":"customs","ground-zero":"groundZero","factory":"factory","woods":"woods","reserve":"reserve","shoreline":"shoreline","interchange":"interchange","lighthouse":"lighthouse","streets":"streets","laboratory":"laboratory"};
 const MAPS=[
   {id:"customs",name:"Customs",code:"CST",file:"Customs.svg",width:1062.4827,height:535.17401},
   {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"GroundZero.svg",width:348.92543,height:488.44792},
@@ -21,6 +22,9 @@ const CATEGORIES={
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
 const query=new URLSearchParams(location.search);
+const supportedLanguages=["en","ko","ja"];
+const currentLanguage=supportedLanguages.includes(query.get("lang"))?query.get("lang"):"en";
+let messages={};
 const embedded=query.get("embedded")==="1";
 if(embedded)document.body.classList.add("embedded");
 else if(window.top===window.self)location.replace("../");
@@ -41,18 +45,25 @@ let imageLayer;
 let markerLayer;
 let activeMap;
 
-function init(){
-  MAPS.forEach(map=>els.mapSelect.add(new Option(map.name,map.id)));
+async function init(){
+  await loadLanguage();
+  MAPS.forEach(map=>els.mapSelect.add(new Option(mapName(map),map.id)));
   els.mapSelect.value=state.map;
   renderCategories();
   bindEvents();
-  if(!window.L){showMapError("INTERACTIVE MAP UNAVAILABLE","Leaflet could not be loaded. Refresh the page to try again.");return}
+  if(!window.L){showMapError(t("mapViewer.unavailable"),t("mapViewer.loadingCopy"));return}
   leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,attributionControl:true});
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
   updateMap();
 }
+
+async function loadLanguage(){
+  try{const response=await fetch(`../locales/${currentLanguage}.json?v=6`);if(!response.ok)throw new Error(String(response.status));messages=await response.json();document.documentElement.lang=currentLanguage}catch(error){console.error("Map language file could not be loaded",error)}
+}
+function t(key){return key.split(".").reduce((value,part)=>value?.[part],messages)||key}
+function mapName(map){return t(`maps.${MAP_TRANSLATION_KEYS[map.id]}`)||map.name}
 
 function renderCategories(){
   els.categoryList.innerHTML=Object.entries(CATEGORIES).map(([key,category])=>`
@@ -64,10 +75,10 @@ function renderCategories(){
 function updateMap(){
   activeMap=MAPS.find(item=>item.id===state.map)||MAPS[2];
   const requested=activeMap;
-  els.currentMapName.textContent=activeMap.name;
+  els.currentMapName.textContent=mapName(activeMap);
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
-  els.mapSource.textContent=`tarkov.dev community data · ${activeMap.name} SVG`;
+  els.mapSource.textContent=`tarkov.dev community data · ${mapName(activeMap)} SVG`;
   els.mapSource.setAttribute("aria-label",`Open the ${activeMap.name} SVG source`);
   showLoading();
   if(imageLayer)leafletMap.removeLayer(imageLayer);
@@ -77,7 +88,7 @@ function updateMap(){
   const bounds=L.latLngBounds([[0,0],[activeMap.height,activeMap.width]]);
   imageLayer=L.imageOverlay(activeMap.image,bounds,{alt:`${activeMap.name} SVG map from tarkov.dev community data`,interactive:false,opacity:1});
   imageLayer.on("load",()=>{if(activeMap.id!==requested.id)return;els.emptyState.hidden=true;leafletMap.invalidateSize();leafletMap.fitBounds(bounds,{padding:[18,18],animate:false});leafletMap.setMaxBounds(bounds.pad(.45))});
-  imageLayer.on("error",()=>{if(activeMap.id!==requested.id)return;showMapError("MAP COULD NOT BE LOADED",`Open the ${requested.name} source map to view it directly.`,requested.source)});
+  imageLayer.on("error",()=>{if(activeMap.id!==requested.id)return;showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
   imageLayer.addTo(leafletMap);
   renderMarkers();
 }
@@ -89,18 +100,18 @@ function renderMarkers(){
   filtered.forEach(item=>{
     const category=CATEGORIES[item.category]||CATEGORIES.technical;
     const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
-    const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||"Document location",keyboard:true});
+    const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||t("mapViewer.location"),keyboard:true});
     marker.bindPopup(buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.addTo(markerLayer);
   });
-  els.visibleCount.textContent=`${filtered.length} LOCATIONS VISIBLE`;
+  els.visibleCount.textContent=`${filtered.length} ${t("mapViewer.locationsVisible")}`;
 }
 
 function buildPhotoPopup(item,category){
   const card=document.createElement("article");
   card.className="location-popup-card";
   const label=document.createElement("small");
-  label.textContent=category.name;
+  label.textContent=t(`categories.${item.category}`)||category.name;
   label.style.setProperty("--popup-color",category.color);
   card.append(label);
   if(item.previewImage){
@@ -113,11 +124,11 @@ function buildPhotoPopup(item,category){
   }else{
     const placeholder=document.createElement("div");
     placeholder.className="location-photo-placeholder";
-    placeholder.textContent="LOCATION PHOTO COMING SOON";
+    placeholder.textContent=t("mapViewer.photoSoon");
     card.append(placeholder);
   }
   const title=document.createElement("strong");
-  title.textContent=item.title||"Document location";
+  title.textContent=item.title||t("mapViewer.location");
   card.append(title);
   if(item.description){const copy=document.createElement("p");copy.textContent=item.description;card.append(copy)}
   return card;
@@ -138,7 +149,7 @@ function updateCoordinate(event){
 
 function showLoading(){
   els.emptyState.hidden=false;
-  els.emptyState.innerHTML='<span class="map-loader" aria-hidden="true"></span><strong>LOADING SVG MAP</strong><p>The interactive map may take a moment to appear.</p>';
+  els.emptyState.innerHTML=`<span class="map-loader" aria-hidden="true"></span><strong>${t("mapViewer.loading")}</strong><p>${t("mapViewer.loadingCopy")}</p>`;
 }
 
 function showMapError(title,copy,source){
@@ -148,20 +159,20 @@ function showMapError(title,copy,source){
   const heading=document.createElement("strong");heading.textContent=title;
   const message=document.createElement("p");message.textContent=copy;
   els.emptyState.append(icon,heading,message);
-  if(source){const link=document.createElement("a");link.href=source;link.target="_blank";link.rel="noopener noreferrer";link.textContent="OPEN SVG SOURCE";els.emptyState.append(link)}
+  if(source){const link=document.createElement("a");link.href=source;link.target="_blank";link.rel="noopener noreferrer";link.textContent=t("mapViewer.openSource");els.emptyState.append(link)}
 }
 
 function openDetail(id){
   const item=locations.find(location=>location.id===id);if(!item)return;
   const category=CATEGORIES[item.category];
-  document.querySelector("#detail-category").textContent=category?.name||"DOCUMENT LOCATION";
-  document.querySelector("#detail-title").textContent=item.title||"LOCATION DETAILS";
-  document.querySelector("#detail-description").textContent=item.description||"No detailed description is available yet.";
+  document.querySelector("#detail-category").textContent=t(`categories.${item.category}`)||category?.name||t("mapViewer.location");
+  document.querySelector("#detail-title").textContent=item.title||t("mapViewer.details");
+  document.querySelector("#detail-description").textContent=item.description||t("mapViewer.noDetails");
   const image=item.detailImage||item.previewImage;
   const container=document.querySelector("#detail-image");
   container.replaceChildren();
   if(image){const photo=document.createElement("img");photo.src=safeImageUrl(image);photo.alt=item.title||"Location details";container.append(photo)}
-  else container.textContent="IMAGE COMING SOON";
+  else container.textContent=t("mapViewer.imageSoon");
   els.detailDialog.showModal();
 }
 

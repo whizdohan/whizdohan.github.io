@@ -119,8 +119,11 @@ PAGES.forEach(page => { runningTotal += page.total; page.cumulative = runningTot
 
 const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
+const LANGUAGE_KEY = "tarkov-tools:language:v1";
+const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
 const categoryKeys = Object.keys(CATEGORIES);
 let messages = {};
+let currentLanguage = "en";
 
 function nestedValue(object, path) {
   return path.split(".").reduce((value, key) => value?.[key], object);
@@ -131,16 +134,19 @@ function t(key, variables = {}) {
   return Object.entries(variables).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), template);
 }
 
-async function loadLanguage() {
+async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
+  currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch("locales/en.json?v=5");
+    const response = await fetch(`locales/${currentLanguage}.json?v=6`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
     console.error(error);
     return;
   }
-  document.documentElement.lang = "en";
+  document.documentElement.lang = currentLanguage;
+  localStorage.setItem(LANGUAGE_KEY, currentLanguage);
+  document.querySelector("#language-select").value = currentLanguage;
   document.title = t("meta.title");
   document.querySelector('meta[name="description"]').content = t("meta.description");
   document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = t(element.dataset.i18n); });
@@ -209,9 +215,9 @@ function rewardCostOverlay(reward) {
       <i></i><b>${t(`categories.${key}`)}</b><strong>${value}</strong>
     </span>`).join("");
   return `<span class="reward-cost-overlay" aria-hidden="true">
-    <span class="reward-cost-title">REQUIRED DOCUMENTS</span>
+    <span class="reward-cost-title">${t("reward.requiredDocuments")}</span>
     <span class="reward-cost-list">${rows}</span>
-    <span class="reward-cost-total">TOTAL <b>${reward.total}</b></span>
+    <span class="reward-cost-total">${t("reward.total")} <b>${reward.total}</b></span>
   </span>`;
 }
 
@@ -227,9 +233,9 @@ function renderRewards() {
       <span class="reward-index">${reward.id}</span>
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
-      <span class="reward-required">REQUIRED DOCS: <b>${reward.total}</b></span>
+      <span class="reward-required">${t("reward.requiredDocs")}: <b>${reward.total}</b></span>
       ${rewardCostOverlay(reward)}
-      <span class="selected-mark">✓ COMPLETE</span>
+      <span class="selected-mark">✓ ${t("reward.complete")}</span>
     </button>`;
   }).join("");
 }
@@ -252,7 +258,7 @@ function renderProgress() {
 
   document.querySelector("#overall-progress-percent").textContent = `${percent}%`;
   document.querySelector("#overall-progress-bar").style.width = `${percent}%`;
-  document.querySelector("#overall-progress-copy").textContent = `${completedTotal} / 501 DOCUMENTS`;
+  document.querySelector("#overall-progress-copy").textContent = `${completedTotal} / 501 ${t("progress.documents")}`;
   renderDocumentBelt(requirements);
   save();
 }
@@ -286,12 +292,20 @@ elements.mapSelector.addEventListener("click", event => {
   const button = event.target.closest("button[data-map]");
   if (!button) return;
   elements.mapSelector.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
-  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(button.dataset.map)}`;
+  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(button.dataset.map)}&lang=${currentLanguage}`;
+});
+
+document.querySelector("#language-select").addEventListener("change", async event => {
+  await loadLanguage(event.target.value);
+  renderAll();
+  const selectedMap = elements.mapSelector.querySelector("button.active")?.dataset.map || "factory";
+  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(selectedMap)}&lang=${currentLanguage}`;
 });
 
 async function init() {
   await loadLanguage();
   renderAll();
+  elements.mapFrame.src = `document-map/?embedded=1&map=factory&lang=${currentLanguage}`;
 }
 
 init();

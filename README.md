@@ -27,6 +27,8 @@ Add verified locations to `data/locations.js`. Coordinates use percentages relat
 
 ## Interactive map source
 
-The interactive viewer uses [Leaflet](https://leafletjs.com/) with SVG map files from the community-maintained [tarkovdata](https://github.com/TarkovTracker/tarkovdata) repository used by [tarkov.dev](https://tarkov.dev/). The files are loaded from their upstream repository rather than copied into this project. Source attribution remains visible inside the viewer and in the site footer.
+The interactive viewer uses Leaflet 1.9.4 with SVG map files from the community-maintained [tarkovdata](https://github.com/TarkovTracker/tarkovdata) repository used by [tarkov.dev](https://tarkov.dev/). Local copies are stored under `assets/` to avoid runtime failures caused by unavailable third-party CDNs. Source attribution remains visible inside the viewer and in the site footer.
+
+The interface supports English, Korean, and Japanese. The selected language is stored in the browser and restored on later visits.
 
 This is an unofficial fan-made project. Escape from Tarkov trademarks and game assets belong to Battlestate Games.
