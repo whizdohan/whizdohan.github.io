@@ -10,7 +10,7 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 
 ## Features
 
-- Switch between 10 tarkov.dev 2D map images, including The Lab
+- Switch between 12 local 2D map images, including the latest Interchange, Icebreaker, The Labyrinth, and The Lab
 - Pan and zoom local map images with Leaflet controls, double-click, touch, and the mouse wheel
 - Show live image-relative percentage coordinates while the pointer moves over the map
 - Save location reports and attached photos in the current browser with IndexedDB
@@ -30,7 +30,7 @@ Add verified locations to `data/locations.js`. Coordinates use percentages relat
 
 ## Interactive map source
 
-The interactive viewer uses Leaflet 1.9.4 with local cached copies of the public 2D JPG map images provided by [tarkov.dev](https://tarkov.dev/). Each map is loaded once as a same-origin image overlay, avoiding browser SVG rendering failures and third-party request blocking while preserving pan, zoom, markers, and photo popups. Source attribution remains visible inside the viewer and in the site footer.
+The interactive viewer uses Leaflet 1.9.4 with local cached copies of public community map images from [tarkov.dev](https://tarkov.dev/) and [RE3MR](https://reemr.se/). Each map is loaded once as a same-origin JPG image overlay, avoiding browser SVG rendering failures and third-party request blocking while preserving pan, zoom, markers, and photo popups. Source attribution remains visible inside the viewer and in the site footer.
 
 ## Credits and original sources
 
@@ -39,6 +39,7 @@ This fan project is possible because of the work shared by the Escape from Tarko
 - **Game and original assets:** *Escape from Tarkov*, its trademarks, names, reward artwork, screenshots, and other game assets belong to [Battlestate Games](https://www.escapefromtarkov.com/). This project is not affiliated with or endorsed by Battlestate Games.
 - **Map distribution and community data:** The local map files were obtained from [tarkov.dev](https://tarkov.dev/) and its open-source project, maintained by [The Hideout](https://github.com/the-hideout). The tarkov.dev source is released under the [MIT License](https://github.com/the-hideout/tarkov-dev/blob/main/LICENSE), with copyright attributed there to Oskar Risberg.
 - **Original vector map project:** The cached JPG files are optimized derivatives of maps from the [Escape from Tarkov SVG Maps Project](https://github.com/the-hideout/tarkov-dev-svg-maps). The map work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) and remains credited to its community creators and contributors.
+- **RE3MR community maps:** The latest Interchange, Icebreaker, and The Labyrinth images are optimized local derivatives of maps created by [RE3MR](https://reemr.se/). These maps remain under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/); their in-image creator and contributor credits are preserved.
 - **Interactive map library:** [Leaflet 1.9.4](https://leafletjs.com/) was created by [Volodymyr Agafonkin](https://agafonkin.com/) and is maintained by the Leaflet contributors. It is used under the [BSD 2-Clause License](https://github.com/Leaflet/Leaflet/blob/main/LICENSE).
 
 ### Map creator credits
@@ -50,7 +51,9 @@ The contributor names below are based on the upstream commit history for each or
 | Customs | [Customs.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Customs.svg) | [Shebuka](https://github.com/Shebuka), [thaddeus](https://github.com/thaddeus) |
 | Factory | [Factory.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Factory.svg) | [Shebuka](https://github.com/Shebuka), [thaddeus](https://github.com/thaddeus), [Hanzik](https://github.com/Hanzik) |
 | Ground Zero | [GroundZero.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/GroundZero.svg) | [Shebuka](https://github.com/Shebuka) |
-| Interchange | [Interchange.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Interchange.svg) | [Shebuka](https://github.com/Shebuka), [Razzmatazzz](https://github.com/Razzmatazzz), [thaddeus](https://github.com/thaddeus) |
+| Interchange | [Latest RE3MR Interchange map](https://reemr.se/interchange/) | [RE3MR](https://reemr.se/) and the contributors credited in the map image |
+| Icebreaker | [RE3MR Icebreaker v1.5](https://reemr.se/icebreaker/) | [RE3MR](https://reemr.se/), Ency, Ereshkigal, MTDV, Malrods, RakTheGoose, Muhawi, and AllHost.io |
+| The Labyrinth | [RE3MR Labyrinth v0.6C](https://reemr.se/labyrinth/) | [RE3MR](https://reemr.se/), Muhawi, RakTheGoose, Ency, Airwingmarine, and AllHost.io |
 | The Lab | [Labs.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Labs.svg) | [Razzmatazzz](https://github.com/Razzmatazzz), [Shebuka](https://github.com/Shebuka) |
 | Lighthouse | [Lighthouse.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Lighthouse.svg) | [Shebuka](https://github.com/Shebuka), [Razzmatazzz](https://github.com/Razzmatazzz), [thaddeus](https://github.com/thaddeus) |
 | Reserve | [Reserve.svg](https://github.com/the-hideout/tarkov-dev-svg-maps/blob/main/Reserve.svg) | [Shebuka](https://github.com/Shebuka), [Razzmatazzz](https://github.com/Razzmatazzz), [thaddeus](https://github.com/thaddeus), [LuccaAnthoine](https://github.com/LuccaAnthoine), [TheGlu3guy](https://github.com/TheGlu3guy) |
