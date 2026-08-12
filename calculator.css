@@ -220,8 +220,8 @@ footer{font-size:9px}
 }
 
 /* Keep adjacent reward cards visually separated, including selected cards. */
-.reward-track{column-gap:8px;row-gap:18px;padding:10px 8px 14px;background:#071317}
-.reward-card{isolation:isolate}
+.reward-track{column-gap:8px;row-gap:8px;padding:6px 8px 12px;background:#071317}
+.reward-card{isolation:isolate;margin-block:6px}
 .reward-card.selected{
   outline:0;
   box-shadow:inset 0 0 0 2px rgba(132,255,197,.48)
