@@ -174,7 +174,7 @@ footer{font-size:9px}
 .season-number{display:grid;width:38px;height:38px;place-items:center;border:2px solid #86aaa5;color:#91b3ae;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);font:800 11px ui-monospace,monospace}
 .season-header h1{margin:0;color:#849794;font-size:17px;font-weight:500;letter-spacing:.08em}
 .season-header h1 b{color:#d6ded8;font-weight:800}
-.reward-browser{grid-template-rows:112px minmax(0,1fr)}
+.reward-browser{grid-template-rows:190px minmax(0,1fr)}
 .battle-progress-header{display:grid;align-content:center;gap:7px;padding:9px 12px;border-bottom:1px solid rgba(72,100,105,.25);background:linear-gradient(90deg,rgba(37,55,60,.82),rgba(26,43,48,.38))}
 .battle-progress-header>div{display:flex;align-items:center;justify-content:space-between;color:#aab9b5;font:800 11px ui-monospace,monospace}
 .battle-progress-header>div b{color:#65dba5;font-size:13px}
@@ -188,24 +188,33 @@ footer{font-size:9px}
 .map-selector-list button{min-height:45px;padding:0 13px;border:1px solid #293f44;background:linear-gradient(90deg,#132429,#0b181c);color:#81928f;text-align:left;font-size:11px;letter-spacing:.04em;cursor:pointer}
 .map-selector-list button:hover{border-color:#557378;color:#bdc9c5}
 .map-selector-list button.active{border-color:#65dba5;background:linear-gradient(90deg,rgba(47,140,104,.52),rgba(23,81,61,.35));color:#e2fff1;box-shadow:inset 3px 0 #65dba5}
-.bottom-console{display:block}
+.battle-console{grid-template-rows:minmax(650px,calc(100vh - 170px))}
+.battle-progress-header>.progress-document-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.progress-document-item{display:grid;grid-template-columns:20px 1fr;align-items:center;gap:5px;min-width:0;height:31px;padding:3px 5px;border:1px solid #294044;background:#0a191d}
+.progress-document-item .document-icon{position:relative;width:17px;height:22px;border-left:4px solid var(--color);background:linear-gradient(135deg,#d8dfda 0 72%,#778783 73%);box-shadow:0 2px 4px rgba(0,0,0,.6)}
+.progress-document-item .document-icon:before{content:"";position:absolute;top:0;right:0;border-top:6px solid #09171a;border-left:6px solid transparent}
+.progress-document-item .document-icon:after{content:"";position:absolute;right:3px;bottom:5px;left:3px;height:1px;background:#65746f;box-shadow:0 -4px #65746f}
+.progress-document-item span{display:grid;min-width:0;line-height:1}
+.progress-document-item small{overflow:hidden;color:#657b77;font:800 7px ui-monospace,monospace;text-overflow:ellipsis;white-space:nowrap}
+.battle-progress-header>.progress-document-grid .progress-document-item b{margin-top:2px;color:#dce5df;font:900 12px ui-monospace,monospace}
+.progress-document-item.complete{opacity:.42}
 .battle-progress-header>.progress-page-tabs{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
 .progress-page-tabs .page-tab{height:28px;font-size:8px}
 .progress-page-tabs .page-tab small{margin-top:1px;font-size:7px}
 
 @media(min-width:851px) and (max-width:1400px){
-  .bottom-console{display:block}
+  .battle-console{grid-template-rows:minmax(650px,calc(100vh - 170px))}
 }
 
 @media(max-width:850px){
+  .battle-console{grid-template-columns:42% 58%;grid-template-rows:420px auto}
   .map-selector-panel{grid-column:1/-1;grid-row:2;max-height:none}
-  .bottom-console{grid-column:1/-1;grid-row:3;grid-template-columns:1fr}
   .map-selector-list{grid-template-columns:repeat(3,1fr)}
 }
 
 @media(max-width:560px){
+  .battle-console{grid-template-columns:1fr;grid-template-rows:430px 360px auto}
   .season-header h1{font-size:14px}
   .map-selector-panel{grid-column:1;grid-row:3}
-  .bottom-console{grid-row:4}
   .map-selector-list{grid-template-columns:repeat(2,1fr)}
 }
