@@ -10,7 +10,7 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 
 ## Features
 
-- Switch between 10 interactive tarkov.dev SVG maps, including The Lab
+- Switch between 10 tarkov.dev 2D map images, including The Lab
 - Pan and zoom maps with Leaflet controls
 - Open location photos and descriptions from document markers
 - Filter eight document categories
@@ -27,7 +27,7 @@ Add verified locations to `data/locations.js`. Coordinates use percentages relat
 
 ## Interactive map source
 
-The interactive viewer uses Leaflet 1.9.4 with SVG map files from the community-maintained [tarkovdata](https://github.com/TarkovTracker/tarkovdata) repository used by [tarkov.dev](https://tarkov.dev/). Local copies are stored under `assets/` to avoid runtime failures caused by unavailable third-party CDNs. Source attribution remains visible inside the viewer and in the site footer.
+The interactive viewer uses Leaflet 1.9.4 with the public 2D JPG map images served by [tarkov.dev](https://tarkov.dev/). Each map is loaded as one image overlay, avoiding browser SVG rendering failures while preserving pan, zoom, markers, and photo popups. Source attribution remains visible inside the viewer and in the site footer.
 
 The interface supports English, Korean, and Japanese. The selected language is stored in the browser and restored on later visits.
 

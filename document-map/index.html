@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles.css?v=5" />
     <script src="../assets/vendor/leaflet.js?v=1" defer></script>
     <script src="../data/locations.js?v=3" defer></script>
-    <script src="../app.js?v=9" defer></script>
+    <script src="../app.js?v=10" defer></script>
   </head>
   <body>
     <aside class="sidebar" id="sidebar">
@@ -41,16 +41,16 @@
       <section class="map-shell">
         <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">0 LOCATIONS VISIBLE</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>
         <div id="map-stage" class="map-stage" tabindex="0" aria-label="Document location map">
-          <div id="leaflet-map" class="leaflet-map" aria-label="Interactive SVG map"></div>
+          <div id="leaflet-map" class="leaflet-map" aria-label="Interactive map image"></div>
           <div class="empty-state" id="empty-state"><span class="map-loader" aria-hidden="true"></span><strong>LOADING MAP</strong><p>The high-resolution map may take a moment to appear.</p></div>
           <div class="map-attribution" id="map-attribution">
-            SVG map data: <a id="map-source" href="https://tarkov.dev/" target="_blank" rel="noopener noreferrer">tarkov.dev community data</a>
+            Map image: <a id="map-source" href="https://tarkov.dev/" target="_blank" rel="noopener noreferrer">tarkov.dev</a>
           </div>
         </div>
       </section>
     </main>
     <div class="backdrop" id="sidebar-backdrop"></div>
     <dialog id="detail-dialog" class="dialog"><article class="dialog-card detail-card"><header class="dialog-header"><div><p class="eyebrow" id="detail-category">DOCUMENT LOCATION</p><h2 id="detail-title">LOCATION DETAILS</h2></div><button class="icon-button" id="detail-close" type="button" aria-label="Close">×</button></header><div class="detail-image" id="detail-image">IMAGE COMING SOON</div><p id="detail-description"></p></article></dialog>
-    <footer class="legal-note">Unofficial fan-made tool. SVG map data provided by the tarkov.dev community. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
+    <footer class="legal-note">Unofficial fan-made tool. Map images are provided by tarkov.dev and their credited community authors. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
   </body>
 </html>
