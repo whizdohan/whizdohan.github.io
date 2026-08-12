@@ -38,13 +38,16 @@ const els={
   visibleCount:document.querySelector("#visible-count"),coordinate:document.querySelector("#coordinate"),
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
-  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback")
+  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback"),
+  coordinateToast:document.querySelector("#coordinate-toast")
 };
 
 let leafletMap;
 let imageLayer;
 let markerLayer;
 let activeMap;
+let selectedCoordinateMarker;
+let coordinateToastTimer;
 
 async function init(){
   await loadLanguage();
@@ -54,10 +57,12 @@ async function init(){
   bindEvents();
   prepareStaticMap();
   if(!window.L)return;
-  leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,attributionControl:true});
+  leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:60,scrollWheelZoom:true,boxZoom:true,doubleClickZoom:true,touchZoom:true,attributionControl:true});
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
+  leafletMap.on("click",selectCoordinate);
+  leafletMap.scrollWheelZoom.enable();
   updateMap();
 }
 
@@ -101,6 +106,7 @@ function updateMap(){
   leafletMap.closePopup();
   leafletMap.setMaxBounds(null);
   markerLayer.clearLayers();
+  selectedCoordinateMarker=null;
   const bounds=L.latLngBounds([[0,0],[requested.height,requested.width]]);
   imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from tarkov.dev`,interactive:false,opacity:1});
   imageLayer.on("load",()=>{
@@ -167,6 +173,32 @@ function updateCoordinate(event){
   const x=clamp(event.latlng.lng/activeMap.width*100,0,100);
   const y=clamp((1-event.latlng.lat/activeMap.height)*100,0,100);
   els.coordinate.textContent=`X ${x.toFixed(1).padStart(5,"0")} · Y ${y.toFixed(1).padStart(5,"0")}`;
+}
+
+function coordinateFromLatLng(latlng){
+  return {x:clamp(latlng.lng/activeMap.width*100,0,100),y:clamp((1-latlng.lat/activeMap.height)*100,0,100)};
+}
+
+async function selectCoordinate(event){
+  if(!activeMap)return;
+  const point=coordinateFromLatLng(event.latlng);
+  const x=Number(point.x.toFixed(1));
+  const y=Number(point.y.toFixed(1));
+  const coordinate=`X ${x.toFixed(1)} · Y ${y.toFixed(1)}`;
+  els.coordinate.textContent=coordinate;
+  if(selectedCoordinateMarker)leafletMap.removeLayer(selectedCoordinateMarker);
+  const icon=L.divIcon({className:"selected-coordinate-shell",html:'<span class="selected-coordinate-pin"></span>',iconSize:[28,28],iconAnchor:[14,14]});
+  selectedCoordinateMarker=L.marker(event.latlng,{icon,interactive:false}).addTo(leafletMap);
+  try{await navigator.clipboard.writeText(coordinate)}catch{}
+  showCoordinateToast(t("mapViewer.coordinateCopied"));
+  window.parent.postMessage({type:"map-coordinate",map:activeMap.id,x,y,coordinate},location.origin);
+}
+
+function showCoordinateToast(copy){
+  clearTimeout(coordinateToastTimer);
+  els.coordinateToast.textContent=copy;
+  els.coordinateToast.classList.add("visible");
+  coordinateToastTimer=setTimeout(()=>els.coordinateToast.classList.remove("visible"),1800);
 }
 
 function showLoading(){
