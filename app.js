@@ -62,6 +62,7 @@ async function init(){
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
+  leafletMap.on("zoomend",keepMapTopAligned);
   leafletMap.scrollWheelZoom.enable();
   updateMap();
 }
@@ -117,8 +118,8 @@ function updateMap(){
     leafletMap.invalidateSize();
     const minimumZoom=minimumWidthZoom(requested);
     leafletMap.setMinZoom(minimumZoom);
+    constrainMapToTop(requested,minimumZoom);
     alignMapTopLeft(bounds,minimumZoom);
-    leafletMap.setMaxBounds(bounds);
     renderMarkers();
   });
   imageLayer.on("error",()=>{if(activeMap.id===requested.id)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
@@ -135,6 +136,23 @@ function alignMapTopLeft(bounds,zoom){
   const topLeft=leafletMap.project(bounds.getNorthWest(),zoom);
   const centerPoint=topLeft.add(leafletMap.getSize().divideBy(2));
   leafletMap.setView(leafletMap.unproject(centerPoint,zoom),zoom,{animate:false});
+}
+
+function constrainMapToTop(map,zoom){
+  const scale=leafletMap.options.crs.scale(zoom);
+  const viewport=leafletMap.getSize();
+  const visibleWidth=viewport.x/scale;
+  const visibleHeight=viewport.y/scale;
+  const south=Math.min(0,map.height-visibleHeight);
+  const east=Math.max(map.width,visibleWidth);
+  leafletMap.setMaxBounds([[south,0],[map.height,east]]);
+}
+
+function keepMapTopAligned(){
+  if(!activeBounds||!activeMap)return;
+  const zoom=leafletMap.getZoom();
+  constrainMapToTop(activeMap,zoom);
+  if(Math.abs(zoom-leafletMap.getMinZoom())<.001)alignMapTopLeft(activeBounds,zoom);
 }
 
 function renderMarkers(){
@@ -233,8 +251,9 @@ function bindEvents(){
     if(!activeBounds||!activeMap)return;
     const minimumZoom=minimumWidthZoom(activeMap);
     leafletMap.setMinZoom(minimumZoom);
-    if(leafletMap.getZoom()<minimumZoom)alignMapTopLeft(activeBounds,minimumZoom);
-    leafletMap.setMaxBounds(activeBounds);
+    const targetZoom=Math.max(leafletMap.getZoom(),minimumZoom);
+    constrainMapToTop(activeMap,targetZoom);
+    if(targetZoom===minimumZoom)alignMapTopLeft(activeBounds,minimumZoom);
   });
   window.addEventListener("message",event=>{
     if(event.origin!==location.origin||event.source!==window.parent)return;
