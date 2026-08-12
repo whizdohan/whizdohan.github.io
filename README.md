@@ -35,5 +35,6 @@ The interactive viewer uses Leaflet 1.9.4 with local cached copies of the public
 The interface supports English, Korean, and Japanese. The selected language is stored in the browser and restored on later visits.
 
 Location reports are private browser data. GitHub Pages has no report backend, so reports and photos are not uploaded or shared between devices.
+The report interface is currently hidden from the header while its browser-local implementation remains available in the source.
 
 This is an unofficial fan-made project. Escape from Tarkov trademarks and game assets belong to Battlestate Games.
