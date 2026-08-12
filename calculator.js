@@ -121,7 +121,7 @@ const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
 const LANGUAGE_KEY = "tarkov-tools:language:v1";
 const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
-const MAP_VIEWER_VERSION = "12";
+const MAP_VIEWER_VERSION = "13";
 const REPORT_DB_NAME = "tarkov-location-reports";
 const REPORT_STORE_NAME = "reports";
 const REPORT_PHOTO_LIMIT = 10 * 1024 * 1024;
@@ -142,7 +142,7 @@ function t(key, variables = {}) {
 async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=8`);
+    const response = await fetch(`locales/${currentLanguage}.json?v=9`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {

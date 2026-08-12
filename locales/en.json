@@ -77,7 +77,7 @@
   },
   "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING LOCAL MAP IMAGE", "loadingCopy": "The local interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP SOURCE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON", "coordinateCopied": "COORDINATES COPIED" },
   "footer": {
-    "prefix": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by",
-    "text": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by whizs"
+    "prefix": "Unofficial fan site · Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by",
+    "text": "Unofficial fan site · Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by whizs"
   }
 }
