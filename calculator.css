@@ -136,12 +136,43 @@ footer{font-size:9px}
 }
 .reward-required b{color:#e1e9e4;font-size:13px}
 
+/* Document breakdown shown when a reward card is inspected. */
+.reward-cost-overlay{
+  position:absolute;
+  z-index:6;
+  inset:0;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  gap:6px;
+  padding:12px;
+  pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  background:linear-gradient(145deg,rgba(8,25,28,.97),rgba(5,14,17,.98));
+  color:#c7d3cf;
+  transform:translateY(5px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s
+}
+.reward-card:hover .reward-cost-overlay,.reward-card:focus-visible .reward-cost-overlay{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0)
+}
+.reward-cost-title{padding-bottom:6px;border-bottom:1px solid #32494d;color:#78d3ad;font:900 9px ui-monospace,monospace;letter-spacing:.06em}
+.reward-cost-list{display:grid;align-content:center;gap:3px}
+.reward-cost-row{display:grid;grid-template-columns:6px minmax(0,1fr) auto;align-items:center;gap:6px;min-height:16px;font:700 9px ui-monospace,monospace}
+.reward-cost-row i{width:5px;height:10px;background:var(--cost-color)}
+.reward-cost-row b{overflow:hidden;color:#aebdb9;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.reward-cost-row strong{color:#eef5f1;font-size:10px}
+.reward-cost-total{display:flex;align-items:end;justify-content:space-between;padding-top:6px;border-top:1px solid #32494d;color:#829590;font:800 9px ui-monospace,monospace}
+.reward-cost-total b{color:#65dba5;font-size:14px}
+
 /* Single-title header and overall Battle Pass progress. */
 .season-header{display:flex;align-items:center;justify-content:flex-start;gap:14px}
 .season-number{display:grid;width:38px;height:38px;place-items:center;border:2px solid #86aaa5;color:#91b3ae;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);font:800 11px ui-monospace,monospace}
 .season-header h1{margin:0;color:#849794;font-size:17px;font-weight:500;letter-spacing:.08em}
 .season-header h1 b{color:#d6ded8;font-weight:800}
-.reward-browser{grid-template-rows:76px minmax(0,1fr) 42px}
+.reward-browser{grid-template-rows:112px minmax(0,1fr)}
 .battle-progress-header{display:grid;align-content:center;gap:7px;padding:9px 12px;border-bottom:1px solid rgba(72,100,105,.25);background:linear-gradient(90deg,rgba(37,55,60,.82),rgba(26,43,48,.38))}
 .battle-progress-header>div{display:flex;align-items:center;justify-content:space-between;color:#aab9b5;font:800 11px ui-monospace,monospace}
 .battle-progress-header>div b{color:#65dba5;font-size:13px}
@@ -155,10 +186,13 @@ footer{font-size:9px}
 .map-selector-list button{min-height:45px;padding:0 13px;border:1px solid #293f44;background:linear-gradient(90deg,#132429,#0b181c);color:#81928f;text-align:left;font-size:11px;letter-spacing:.04em;cursor:pointer}
 .map-selector-list button:hover{border-color:#557378;color:#bdc9c5}
 .map-selector-list button.active{border-color:#65dba5;background:linear-gradient(90deg,rgba(47,140,104,.52),rgba(23,81,61,.35));color:#e2fff1;box-shadow:inset 3px 0 #65dba5}
-.bottom-console{grid-template-columns:420px minmax(0,1fr)}
+.bottom-console{display:block}
+.battle-progress-header>.progress-page-tabs{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.progress-page-tabs .page-tab{height:28px;font-size:8px}
+.progress-page-tabs .page-tab small{margin-top:1px;font-size:7px}
 
 @media(min-width:851px) and (max-width:1400px){
-  .bottom-console{grid-template-columns:360px minmax(0,1fr)}
+  .bottom-console{display:block}
 }
 
 @media(max-width:850px){
