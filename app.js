@@ -68,6 +68,12 @@ function bindEvents(){
   document.querySelector("#map-stage").addEventListener("pointermove",event=>{const rect=event.currentTarget.getBoundingClientRect();const x=Math.round((event.clientX-rect.left)/rect.width*1000);const y=Math.round((event.clientY-rect.top)/rect.height*1000);els.coordinate.textContent=`X ${String(x).padStart(3,"0")} · Y ${String(y).padStart(3,"0")}`});
   els.menuButton.addEventListener("click",()=>{const open=!els.sidebar.classList.contains("open");els.sidebar.classList.toggle("open",open);els.backdrop.classList.toggle("open",open);els.menuButton.setAttribute("aria-expanded",String(open))});
   els.backdrop.addEventListener("click",closeSidebar);
+  window.addEventListener("message",event=>{
+    if(event.origin!==location.origin||event.source!==window.parent)return;
+    const map=MAPS.find(item=>item.id===event.data?.map);
+    if(event.data?.type!=="select-map"||!map)return;
+    state.map=map.id;updateMap();closeSidebar();
+  });
 }
 
 function closeSidebar(){els.sidebar.classList.remove("open");els.backdrop.classList.remove("open");els.menuButton.setAttribute("aria-expanded","false")}
