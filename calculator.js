@@ -274,7 +274,7 @@ elements.mapSelector.addEventListener("click", event => {
   const button = event.target.closest("button[data-map]");
   if (!button) return;
   elements.mapSelector.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
-  elements.mapFrame.contentWindow?.postMessage({ type: "select-map", map: button.dataset.map }, location.origin);
+  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(button.dataset.map)}`;
 });
 
 async function init() {
