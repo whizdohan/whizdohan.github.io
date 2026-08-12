@@ -234,3 +234,40 @@ footer{font-size:15px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decora
   outline:0;
   box-shadow:inset 0 0 0 2px rgba(132,255,197,.48)
 }
+
+/* Larger desktop typography for the document summary and reward cards. */
+@media(min-width:851px){
+  .reward-browser{grid-template-rows:220px minmax(0,1fr)}
+  .battle-progress-header{gap:8px;padding:11px 12px}
+  .battle-progress-header>div{font-size:14px}
+  .battle-progress-header>div b{font-size:17px}
+  .battle-progress-header small{font-size:11px}
+  .progress-document-item{grid-template-columns:23px 1fr;gap:7px;height:38px;padding:4px 6px}
+  .progress-document-item .document-icon{width:19px;height:25px}
+  .progress-document-item small{font-size:10px}
+  .battle-progress-header>.progress-document-grid .progress-document-item b{font-size:15px}
+  .progress-page-tabs .page-tab{font-size:10px}
+  .progress-page-tabs .page-tab small{font-size:9px}
+
+  .reward-index{font-size:11px}
+  .reward-name{bottom:40px;font-size:14px;line-height:1.25}
+  .reward-required{bottom:10px;font-size:12px}
+  .reward-required b{font-size:16px}
+  .reward-cost-title{font-size:11px}
+  .reward-cost-row{grid-template-columns:17px minmax(0,1fr) auto;gap:7px;min-height:20px;font-size:10px}
+  .reward-cost-row i{width:14px;height:18px}
+  .reward-cost-row strong{font-size:13px}
+  .reward-cost-total{font-size:10px}
+  .reward-cost-total b{font-size:17px}
+  .reward-card.selected .selected-mark{font-size:10px}
+}
+
+/* Use the native Windows Korean UI font whenever Korean is selected. */
+html[lang="ko"] body,
+html[lang="ko"] button,
+html[lang="ko"] input,
+html[lang="ko"] select,
+html[lang="ko"] .reward-browser,
+html[lang="ko"] .reward-browser *{
+  font-family:"Malgun Gothic","맑은 고딕",sans-serif!important
+}
