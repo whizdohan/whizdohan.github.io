@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Escape from Tarkov seasonal Battle Pass document location map" />
     <title>Document Map · Tarkov Tools</title>
-    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="stylesheet" href="../styles.css?v=3" />
     <script src="../data/locations.js?v=2" defer></script>
-    <script src="../app.js?v=6" defer></script>
+    <script src="../app.js?v=7" defer></script>
   </head>
   <body>
     <aside class="sidebar" id="sidebar">
@@ -39,14 +39,20 @@
       <section class="map-shell">
         <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">0 LOCATIONS VISIBLE</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>
         <div id="map-stage" class="map-stage" tabindex="0" aria-label="Document location map">
+          <img id="map-image" class="map-image" alt="" />
           <div class="map-grid"></div><div class="map-watermark" aria-hidden="true"><span id="map-code">FCT</span><small>TACTICAL DOCUMENT GRID</small></div>
           <div id="marker-layer" class="marker-layer"></div>
-          <div class="empty-state" id="empty-state"><span class="empty-icon">＋</span><strong>NO LOCATION DATA AVAILABLE</strong><p>Verified coordinates and map images will appear here when added.</p></div>
+          <div class="empty-state" id="empty-state"><span class="map-loader" aria-hidden="true"></span><strong>LOADING MAP</strong><p>The high-resolution map may take a moment to appear.</p></div>
+          <div class="map-attribution" id="map-attribution">
+            Map artwork © <a id="map-source" href="https://reemr.se/" target="_blank" rel="noopener noreferrer">re3mr</a>
+            · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-NC-SA 4.0</a>
+            · resized for web display
+          </div>
         </div>
       </section>
     </main>
     <div class="backdrop" id="sidebar-backdrop"></div>
     <dialog id="detail-dialog" class="dialog"><article class="dialog-card detail-card"><header class="dialog-header"><div><p class="eyebrow" id="detail-category">DOCUMENT LOCATION</p><h2 id="detail-title">LOCATION DETAILS</h2></div><button class="icon-button" id="detail-close" type="button" aria-label="Close">×</button></header><div class="detail-image" id="detail-image">IMAGE COMING SOON</div><p id="detail-description"></p></article></dialog>
-    <footer class="legal-note">Unofficial fan-made tool. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
+    <footer class="legal-note">Unofficial fan-made tool. Map artwork © re3mr under CC BY-NC-SA 4.0. Escape from Tarkov and related assets belong to Battlestate Games.</footer>
   </body>
 </html>
