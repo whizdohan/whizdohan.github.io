@@ -113,12 +113,19 @@ function updateMap(){
     if(activeMap.id!==requested.id)return;
     els.emptyState.hidden=true;
     leafletMap.invalidateSize();
-    leafletMap.fitBounds(bounds,{padding:[18,18],animate:false});
+    alignMapTopLeft(bounds);
     leafletMap.setMaxBounds(bounds.pad(.45));
     renderMarkers();
   });
   imageLayer.on("error",()=>{if(activeMap.id===requested.id)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
   imageLayer.addTo(leafletMap);
+}
+
+function alignMapTopLeft(bounds){
+  const zoom=leafletMap.getBoundsZoom(bounds,false,L.point(0,0));
+  const topLeft=leafletMap.project(bounds.getNorthWest(),zoom);
+  const centerPoint=topLeft.add(leafletMap.getSize().divideBy(2));
+  leafletMap.setView(leafletMap.unproject(centerPoint,zoom),zoom,{animate:false});
 }
 
 function renderMarkers(){
