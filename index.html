@@ -6,8 +6,8 @@
     <meta name="description" content="Escape from Tarkov Battle Pass rewards, document locations, and remaining document calculator" />
     <meta name="theme-color" content="#071014" />
     <title>Battle Pass Document Tracker · Tarkov Tools</title>
-    <link rel="stylesheet" href="calculator.css?v=13" />
-    <script src="calculator.js?v=13" defer></script>
+    <link rel="stylesheet" href="calculator.css?v=14" />
+    <script src="calculator.js?v=14" defer></script>
   </head>
   <body>
     <header class="game-header season-header"><span class="season-number">01</span><h1>SEASON 1 <b>BATTLE PASS</b></h1></header>
@@ -19,6 +19,7 @@
             <div><span>BATTLE PASS PROGRESS</span><b id="overall-progress-percent">0%</b></div>
             <span class="overall-progress-track"><i id="overall-progress-bar"></i></span>
             <small id="overall-progress-copy">0 / 501 DOCUMENTS</small>
+            <div id="document-belt" class="progress-document-grid"></div>
             <div id="page-tabs" class="page-tabs progress-page-tabs"></div>
           </header>
           <div id="reward-track" class="reward-track"></div>
@@ -45,12 +46,6 @@
           </div>
         </aside>
 
-        <section class="bottom-console">
-          <div class="document-inventory">
-            <header><span data-i18n="documents.remaining">REMAINING DOCUMENTS</span><small><b id="inventory-total">501</b> / 501</small></header>
-            <div id="document-belt" class="document-belt"></div>
-          </div>
-        </section>
       </section>
       <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your document inventory and completed rewards are saved in this browser.</span></p></div>
     </main>
