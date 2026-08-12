@@ -173,13 +173,13 @@ function loadSelection() {
 
 const sharedState = loadSharedState();
 const selectionState = loadSelection();
-let focusedRewardId = pageByNumber(selectionState.page).rewards[0].id;
 
 const elements = {
   pageTabs: document.querySelector("#page-tabs"),
   rewardTrack: document.querySelector("#reward-track"),
-  documentList: document.querySelector("#document-list"),
-  documentBelt: document.querySelector("#document-belt")
+  documentBelt: document.querySelector("#document-belt"),
+  mapFrame: document.querySelector("#document-map-frame"),
+  mapSelector: document.querySelector("#map-selector-list")
 };
 
 function clamp(value, min, max) {
@@ -195,24 +195,12 @@ function pageByNumber(number) {
   return PAGES[number - 1];
 }
 
-function completedRewards() {
-  return PAGES.flatMap(page => page.rewards).filter(reward => selectionState.selected.has(reward.id));
-}
-
-function focusedReward() {
-  return PAGES.flatMap(page => page.rewards).find(reward => reward.id === focusedRewardId) || pageByNumber(selectionState.page).rewards[0];
-}
-
 function remainingRequirements() {
   const requirements = Object.fromEntries(categoryKeys.map(key => [key, 0]));
   PAGES.flatMap(page => page.rewards).filter(reward => !selectionState.selected.has(reward.id)).forEach(reward => {
     Object.entries(reward.cost).forEach(([key, value]) => { requirements[key] += value; });
   });
   return requirements;
-}
-
-function costChips(cost) {
-  return Object.entries(cost).map(([key, value]) => `<span class="cost-chip" style="--chip:${CATEGORIES[key].color}"><i></i>${t(`categories.${key}`)} ${value}</span>`).join("");
 }
 
 function renderTabs() {
@@ -224,26 +212,14 @@ function renderRewards() {
   document.querySelector("#current-page").textContent = String(page.number).padStart(2, "0");
   elements.rewardTrack.innerHTML = page.rewards.map(reward => {
     const selected = selectionState.selected.has(reward.id);
-    const focused = reward.id === focusedRewardId;
-    return `<button type="button" class="reward-card ${selected ? "selected" : ""} ${focused ? "focused" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
+    return `<button type="button" class="reward-card ${selected ? "selected" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
-      <span class="reward-costs">${costChips(reward.cost)}</span>
       <span class="reward-required">REQUIRED DOCS: <b>${reward.total}</b></span>
       <span class="selected-mark">✓ COMPLETE</span>
     </button>`;
   }).join("");
-}
-
-function renderPreview() {
-  const reward = focusedReward();
-  const selected = selectionState.selected.has(reward.id);
-  document.querySelector("#focused-detail-name").textContent = reward.name;
-  document.querySelector("#focused-costs").innerHTML = costChips(reward.cost);
-  const toggle = document.querySelector("#focused-toggle");
-  toggle.classList.toggle("selected", selected);
-  toggle.textContent = selected ? t("detail.markIncomplete") : t("detail.markComplete");
 }
 
 function renderDocumentBelt(requirements = remainingRequirements()) {
@@ -255,35 +231,16 @@ function renderDocumentBelt(requirements = remainingRequirements()) {
   }).join("");
 }
 
-function renderCalculator() {
+function renderProgress() {
   const requirements = remainingRequirements();
-  const rewards = completedRewards();
   const total = Object.values(requirements).reduce((sum, value) => sum + value, 0);
   const completedTotal = 501 - total;
-  const missingTotal = categoryKeys.reduce((sum, key) => sum + Math.max(requirements[key] - (Number(sharedState.owned[key]) || 0), 0), 0);
   const percent = Math.round(completedTotal / 501 * 100);
 
   document.querySelector("#inventory-total").textContent = total;
-  document.querySelector("#selected-count").textContent = t("progress.rewardCount", { count: rewards.length });
-  document.querySelector("#selected-percent").textContent = `${percent}%`;
-  document.querySelector("#selected-bar").style.width = `${percent}%`;
-  document.querySelector("#target-total").textContent = total;
-  const status = document.querySelector("#target-status");
-  status.classList.toggle("ready", total === 0 || missingTotal === 0);
-  status.textContent = total === 0 ? t("status.complete") : missingTotal === 0 ? t("status.readyRemaining") : t("status.missing", { count: missingTotal });
-
-  elements.documentList.innerHTML = categoryKeys.map(key => {
-    const category = CATEGORIES[key];
-    const needed = requirements[key];
-    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, category.total);
-    const missing = Math.max(needed - owned, 0);
-    return `<label class="document-row ${needed ? "needed" : ""}">
-      <span class="document-name"><i style="--color:${category.color}"></i><span><b>${t(`categories.${key}`)}</b><small>${category.name}</small></span></span>
-      <output class="number required">${needed}</output>
-      <input type="number" data-category="${key}" min="0" max="${category.total}" value="${owned}" aria-label="${t(`categories.${key}`)}" />
-      <output class="number missing ${missing ? "short" : ""}">${missing}</output>
-    </label>`;
-  }).join("");
+  document.querySelector("#overall-progress-percent").textContent = `${percent}%`;
+  document.querySelector("#overall-progress-bar").style.width = `${percent}%`;
+  document.querySelector("#overall-progress-copy").textContent = `${completedTotal} / 501 DOCUMENTS`;
   renderDocumentBelt(requirements);
   save();
 }
@@ -291,21 +248,11 @@ function renderCalculator() {
 function renderAll() {
   renderTabs();
   renderRewards();
-  renderPreview();
-  renderCalculator();
+  renderProgress();
 }
 
 function goToPage(page) {
   selectionState.page = clamp(page, 1, PAGES.length);
-  focusedRewardId = pageByNumber(selectionState.page).rewards[0].id;
-  renderAll();
-}
-
-function setPageSelection(mode) {
-  const pages = mode === "through" ? PAGES.filter(page => page.number <= selectionState.page) : [pageByNumber(selectionState.page)];
-  const ids = pages.flatMap(page => page.rewards.map(reward => reward.id));
-  const allSelected = ids.every(id => selectionState.selected.has(id));
-  ids.forEach(id => allSelected ? selectionState.selected.delete(id) : selectionState.selected.add(id));
   renderAll();
 }
 
@@ -318,33 +265,16 @@ elements.rewardTrack.addEventListener("click", event => {
   const card = event.target.closest("[data-reward]");
   if (!card) return;
   const id = card.dataset.reward;
-  focusedRewardId = id;
   selectionState.selected.has(id) ? selectionState.selected.delete(id) : selectionState.selected.add(id);
   renderRewards();
-  renderPreview();
-  renderCalculator();
+  renderProgress();
 });
 
-elements.documentList.addEventListener("change", event => {
-  const input = event.target.closest("input[data-category]");
-  if (!input) return;
-  const category = CATEGORIES[input.dataset.category];
-  sharedState.owned[input.dataset.category] = clamp(Number(input.value) || 0, 0, category.total);
-  renderRewards();
-  renderCalculator();
-});
-
-document.querySelector("#select-page").addEventListener("click", () => setPageSelection("page"));
-document.querySelector("#select-through").addEventListener("click", () => setPageSelection("through"));
-document.querySelector("#reset-selection").addEventListener("click", () => {
-  selectionState.selected.clear();
-  renderAll();
-});
-
-document.querySelector("#focused-toggle").addEventListener("click", () => {
-  const id = focusedReward().id;
-  selectionState.selected.has(id) ? selectionState.selected.delete(id) : selectionState.selected.add(id);
-  renderAll();
+elements.mapSelector.addEventListener("click", event => {
+  const button = event.target.closest("button[data-map]");
+  if (!button) return;
+  elements.mapSelector.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
+  elements.mapFrame.contentWindow?.postMessage({ type: "select-map", map: button.dataset.map }, location.origin);
 });
 
 async function init() {
