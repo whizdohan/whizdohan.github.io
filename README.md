@@ -11,7 +11,10 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 ## Features
 
 - Switch between 10 tarkov.dev 2D map images, including The Lab
-- Pan and zoom maps with Leaflet controls
+- Pan and zoom local map images with Leaflet controls, double-click, touch, and the mouse wheel
+- Click the map to copy percentage coordinates and prefill a location report
+- Save location reports and attached photos in the current browser with IndexedDB
+- Review and delete locally saved reports from the report list
 - Open location photos and descriptions from document markers
 - Filter eight document categories
 - Mark completed rewards and subtract their costs from the current 501-document total
@@ -30,5 +33,8 @@ Add verified locations to `data/locations.js`. Coordinates use percentages relat
 The interactive viewer uses Leaflet 1.9.4 with local cached copies of the public 2D JPG map images provided by [tarkov.dev](https://tarkov.dev/). Each map is loaded once as a same-origin image overlay, avoiding browser SVG rendering failures and third-party request blocking while preserving pan, zoom, markers, and photo popups. Source attribution remains visible inside the viewer and in the site footer.
 
 The interface supports English, Korean, and Japanese. The selected language is stored in the browser and restored on later visits.
+
+Location reports are private browser data. GitHub Pages has no report backend, so reports and photos are not uploaded or shared between devices.
+The report interface is currently hidden from the header while its browser-local implementation remains available in the source.
 
 This is an unofficial fan-made project. Escape from Tarkov trademarks and game assets belong to Battlestate Games.

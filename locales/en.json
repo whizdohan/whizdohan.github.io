@@ -5,6 +5,7 @@
   },
   "header": { "season": "SEASON 1", "battlePass": "BATTLE PASS" },
   "language": { "label": "LANGUAGE" },
+  "reports": { "button": "REPORT LOCATION", "eyebrow": "COMMUNITY MAP", "title": "LOCATION REPORTS", "intro": "Click the map to copy coordinates and fill them here automatically. Reports and photos are saved only in this browser.", "map": "MAP", "coordinate": "COORDINATES", "coordinatePlaceholder": "Click a position on the map", "copy": "COPY", "photo": "LOCATION PHOTO", "note": "NOTE (OPTIONAL)", "notePlaceholder": "Describe the document location or landmark", "save": "SAVE REPORT", "list": "REPORT LIST", "empty": "No saved reports in this browser yet.", "delete": "Delete report", "deleteConfirm": "Delete this local report?", "deleted": "Report deleted.", "saved": "Report saved in this browser.", "saveFailed": "The report could not be saved.", "photoRequired": "Please attach a location photo.", "photoTooLarge": "Photos must be 10 MB or smaller.", "clickMapFirst": "Click a location on the map first.", "copied": "Coordinates copied.", "coordinateReady": "Coordinates copied and added to the report." },
   "map": { "select": "SELECT MAP" },
   "maps": { "customs": "Customs", "groundZero": "Ground Zero", "factory": "Factory", "woods": "Woods", "reserve": "Reserve", "shoreline": "Shoreline", "interchange": "Interchange", "lighthouse": "Lighthouse", "streets": "Streets of Tarkov", "laboratory": "The Lab" },
   "nav": {
@@ -74,7 +75,7 @@
     "medical": "Medical",
     "technical": "Technical"
   },
-  "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING MAP IMAGE", "loadingCopy": "The interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP IMAGE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON" },
+  "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING LOCAL MAP IMAGE", "loadingCopy": "The local interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP SOURCE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON", "coordinateCopied": "COORDINATES COPIED" },
   "footer": {
     "prefix": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by",
     "text": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by whizs"

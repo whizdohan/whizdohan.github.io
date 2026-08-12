@@ -121,7 +121,11 @@ const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
 const LANGUAGE_KEY = "tarkov-tools:language:v1";
 const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
-const MAP_VIEWER_VERSION = "9";
+const MAP_VIEWER_VERSION = "11";
+const REPORT_DB_NAME = "tarkov-location-reports";
+const REPORT_STORE_NAME = "reports";
+const REPORT_PHOTO_LIMIT = 10 * 1024 * 1024;
+const MAP_TRANSLATION_KEYS = { customs: "customs", "ground-zero": "groundZero", factory: "factory", woods: "woods", reserve: "reserve", shoreline: "shoreline", interchange: "interchange", lighthouse: "lighthouse", streets: "streets", laboratory: "laboratory" };
 const categoryKeys = Object.keys(CATEGORIES);
 let messages = {};
 let currentLanguage = "en";
@@ -138,7 +142,7 @@ function t(key, variables = {}) {
 async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=7`);
+    const response = await fetch(`locales/${currentLanguage}.json?v=8`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
@@ -151,6 +155,9 @@ async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || nav
   document.title = t("meta.title");
   document.querySelector('meta[name="description"]').content = t("meta.description");
   document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = t(element.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => { element.placeholder = t(element.dataset.i18nPlaceholder); });
+  refreshReportMapOptions();
+  if (elements.reportList) await renderReports();
 }
 
 function defaultOwned() {
@@ -186,8 +193,26 @@ const elements = {
   rewardTrack: document.querySelector("#reward-track"),
   documentBelt: document.querySelector("#document-belt"),
   mapFrame: document.querySelector("#document-map-frame"),
-  mapSelector: document.querySelector("#map-selector-list")
+  mapSelector: document.querySelector("#map-selector-list"),
+  reportButton: document.querySelector("#report-button"),
+  reportDialog: document.querySelector("#report-dialog"),
+  reportClose: document.querySelector("#report-close"),
+  reportForm: document.querySelector("#report-form"),
+  reportMap: document.querySelector("#report-map"),
+  reportCoordinate: document.querySelector("#report-coordinate"),
+  coordinateCopy: document.querySelector("#coordinate-copy"),
+  reportPhoto: document.querySelector("#report-photo"),
+  reportPhotoPreview: document.querySelector("#report-photo-preview"),
+  reportNote: document.querySelector("#report-note"),
+  reportList: document.querySelector("#report-list"),
+  reportCount: document.querySelector("#report-count"),
+  siteToast: document.querySelector("#site-toast")
 };
+
+let reportDbPromise;
+let reportPreviewUrl;
+let reportObjectUrls = [];
+let siteToastTimer;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -279,6 +304,128 @@ function goToPage(page) {
   renderAll();
 }
 
+function activeMapId() {
+  return elements.mapSelector.querySelector("button.active")?.dataset.map || "factory";
+}
+
+function refreshReportMapOptions() {
+  if (!elements?.reportMap) return;
+  const selected = elements.reportMap.value || activeMapId();
+  elements.reportMap.innerHTML = Object.entries(MAP_TRANSLATION_KEYS).map(([id, key]) => `<option value="${id}">${t(`maps.${key}`)}</option>`).join("");
+  elements.reportMap.value = selected;
+}
+
+function openReportDatabase() {
+  if (!reportDbPromise) reportDbPromise = new Promise((resolve, reject) => {
+    const request = indexedDB.open(REPORT_DB_NAME, 1);
+    request.onupgradeneeded = () => {
+      const database = request.result;
+      if (!database.objectStoreNames.contains(REPORT_STORE_NAME)) {
+        const store = database.createObjectStore(REPORT_STORE_NAME, { keyPath: "id", autoIncrement: true });
+        store.createIndex("createdAt", "createdAt");
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+  return reportDbPromise;
+}
+
+async function reportTransaction(mode, action) {
+  const database = await openReportDatabase();
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(REPORT_STORE_NAME, mode);
+    const store = transaction.objectStore(REPORT_STORE_NAME);
+    const request = action(store);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+function saveReport(report) { return reportTransaction("readwrite", store => store.add(report)); }
+function deleteReport(id) { return reportTransaction("readwrite", store => store.delete(id)); }
+function getReports() { return reportTransaction("readonly", store => store.getAll()); }
+
+function mapLabel(mapId) {
+  return t(`maps.${MAP_TRANSLATION_KEYS[mapId] || "factory"}`);
+}
+
+function showSiteToast(copy) {
+  clearTimeout(siteToastTimer);
+  elements.siteToast.textContent = copy;
+  elements.siteToast.classList.add("visible");
+  siteToastTimer = setTimeout(() => elements.siteToast.classList.remove("visible"), 2200);
+}
+
+function setReportCoordinate(data) {
+  elements.reportMap.value = data.map || activeMapId();
+  elements.reportCoordinate.value = data.coordinate || `X ${Number(data.x).toFixed(1)} · Y ${Number(data.y).toFixed(1)}`;
+  elements.reportCoordinate.dataset.x = String(data.x);
+  elements.reportCoordinate.dataset.y = String(data.y);
+}
+
+async function copyReportCoordinate() {
+  if (!elements.reportCoordinate.value) return showSiteToast(t("reports.clickMapFirst"));
+  try {
+    await navigator.clipboard.writeText(elements.reportCoordinate.value);
+    showSiteToast(t("reports.copied"));
+  } catch {
+    elements.reportCoordinate.select();
+    document.execCommand("copy");
+    showSiteToast(t("reports.copied"));
+  }
+}
+
+function clearReportPhotoPreview() {
+  if (reportPreviewUrl) URL.revokeObjectURL(reportPreviewUrl);
+  reportPreviewUrl = "";
+  elements.reportPhotoPreview.removeAttribute("src");
+  elements.reportPhotoPreview.hidden = true;
+}
+
+function resetReportForm() {
+  elements.reportForm.reset();
+  elements.reportMap.value = activeMapId();
+  elements.reportCoordinate.value = "";
+  delete elements.reportCoordinate.dataset.x;
+  delete elements.reportCoordinate.dataset.y;
+  clearReportPhotoPreview();
+}
+
+function reportDate(value) {
+  try { return new Intl.DateTimeFormat(currentLanguage, { dateStyle: "medium", timeStyle: "short" }).format(new Date(value)); }
+  catch { return new Date(value).toLocaleString(); }
+}
+
+async function renderReports() {
+  if (!elements.reportList || !window.indexedDB) return;
+  reportObjectUrls.forEach(url => URL.revokeObjectURL(url));
+  reportObjectUrls = [];
+  let reports = [];
+  try { reports = (await getReports()).sort((a, b) => b.createdAt - a.createdAt); }
+  catch (error) { console.error("Local reports could not be loaded", error); }
+  elements.reportCount.textContent = String(reports.length);
+  if (!reports.length) {
+    elements.reportList.innerHTML = `<p class="report-empty">${t("reports.empty")}</p>`;
+    return;
+  }
+  elements.reportList.innerHTML = reports.map(report => {
+    const photoUrl = URL.createObjectURL(report.photo);
+    reportObjectUrls.push(photoUrl);
+    return `<article class="saved-report" data-report-id="${report.id}">
+      <img src="${photoUrl}" alt="${mapLabel(report.map)}" />
+      <div><strong>${mapLabel(report.map)}</strong><b>${report.coordinate}</b><small>${reportDate(report.createdAt)}</small>${report.note ? `<p>${escapeHtml(report.note)}</p>` : ""}</div>
+      <button type="button" data-delete-report="${report.id}" aria-label="${t("reports.delete")}">×</button>
+    </article>`;
+  }).join("");
+}
+
+function escapeHtml(value) {
+  const node = document.createElement("span");
+  node.textContent = value;
+  return node.innerHTML;
+}
+
 elements.pageTabs.addEventListener("click", event => {
   const button = event.target.closest("[data-page]");
   if (button) goToPage(Number(button.dataset.page));
@@ -298,6 +445,85 @@ elements.mapSelector.addEventListener("click", event => {
   if (!button) return;
   elements.mapSelector.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
   elements.mapFrame.src = mapViewerUrl(button.dataset.map);
+  if (elements.reportMap) elements.reportMap.value = button.dataset.map;
+  if (elements.reportCoordinate.dataset.map && elements.reportCoordinate.dataset.map !== button.dataset.map) {
+    elements.reportCoordinate.value = "";
+    delete elements.reportCoordinate.dataset.x;
+    delete elements.reportCoordinate.dataset.y;
+    delete elements.reportCoordinate.dataset.map;
+  }
+});
+
+elements.reportButton.addEventListener("click", async () => {
+  refreshReportMapOptions();
+  elements.reportMap.value = activeMapId();
+  await renderReports();
+  elements.reportDialog.showModal();
+});
+
+elements.reportClose.addEventListener("click", () => elements.reportDialog.close());
+elements.reportDialog.addEventListener("click", event => { if (event.target === elements.reportDialog) elements.reportDialog.close(); });
+elements.coordinateCopy.addEventListener("click", copyReportCoordinate);
+elements.reportMap.addEventListener("change", event => {
+  const mapButton = elements.mapSelector.querySelector(`[data-map="${event.target.value}"]`);
+  mapButton?.click();
+});
+
+elements.reportPhoto.addEventListener("change", () => {
+  clearReportPhotoPreview();
+  const photo = elements.reportPhoto.files[0];
+  if (!photo) return;
+  if (photo.size > REPORT_PHOTO_LIMIT) {
+    elements.reportPhoto.value = "";
+    showSiteToast(t("reports.photoTooLarge"));
+    return;
+  }
+  reportPreviewUrl = URL.createObjectURL(photo);
+  elements.reportPhotoPreview.src = reportPreviewUrl;
+  elements.reportPhotoPreview.hidden = false;
+});
+
+elements.reportForm.addEventListener("submit", async event => {
+  event.preventDefault();
+  const photo = elements.reportPhoto.files[0];
+  const x = Number(elements.reportCoordinate.dataset.x);
+  const y = Number(elements.reportCoordinate.dataset.y);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return showSiteToast(t("reports.clickMapFirst"));
+  if (!photo) return showSiteToast(t("reports.photoRequired"));
+  if (photo.size > REPORT_PHOTO_LIMIT) return showSiteToast(t("reports.photoTooLarge"));
+  try {
+    await saveReport({
+      map: elements.reportMap.value,
+      x,
+      y,
+      coordinate: elements.reportCoordinate.value,
+      note: elements.reportNote.value.trim(),
+      photo,
+      photoName: photo.name,
+      createdAt: Date.now()
+    });
+    resetReportForm();
+    await renderReports();
+    showSiteToast(t("reports.saved"));
+  } catch (error) {
+    console.error("Report could not be saved", error);
+    showSiteToast(t("reports.saveFailed"));
+  }
+});
+
+elements.reportList.addEventListener("click", async event => {
+  const button = event.target.closest("[data-delete-report]");
+  if (!button || !confirm(t("reports.deleteConfirm"))) return;
+  await deleteReport(Number(button.dataset.deleteReport));
+  await renderReports();
+  showSiteToast(t("reports.deleted"));
+});
+
+window.addEventListener("message", event => {
+  if (event.origin !== location.origin || event.source !== elements.mapFrame.contentWindow || event.data?.type !== "map-coordinate") return;
+  setReportCoordinate(event.data);
+  elements.reportCoordinate.dataset.map = event.data.map;
+  showSiteToast(t("reports.coordinateReady"));
 });
 
 document.querySelector("#language-select").addEventListener("change", async event => {

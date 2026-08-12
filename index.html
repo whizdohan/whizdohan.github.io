@@ -6,11 +6,11 @@
     <meta name="description" content="Escape from Tarkov Battle Pass rewards, document locations, and remaining document calculator" />
     <meta name="theme-color" content="#071014" />
     <title>Tarkov Battle Pass Information</title>
-    <link rel="stylesheet" href="calculator.css?v=26" />
-    <script src="calculator.js?v=17" defer></script>
+    <link rel="stylesheet" href="calculator.css?v=28" />
+    <script src="calculator.js?v=19" defer></script>
   </head>
   <body>
-    <header class="game-header season-header"><span class="season-number">01</span><h1><span data-i18n="header.season">SEASON 1</span> <b data-i18n="header.battlePass">BATTLE PASS</b></h1><label class="language-control"><span data-i18n="language.label">LANGUAGE</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="ja">日本語</option></select></label></header>
+    <header class="game-header season-header"><span class="season-number">01</span><h1><span data-i18n="header.season">SEASON 1</span> <b data-i18n="header.battlePass">BATTLE PASS</b></h1><div class="header-tools"><label class="language-control"><span data-i18n="language.label">LANGUAGE</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="ja">日本語</option></select></label><button id="report-button" class="report-button" type="button" data-i18n="reports.button" hidden>REPORT LOCATION</button></div></header>
 
     <main class="battle-screen">
       <section class="battle-console">
@@ -26,7 +26,7 @@
         </aside>
 
         <section class="reward-preview map-panel" aria-label="Document Map">
-          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" src="document-map/?embedded=1&amp;v=9"></iframe>
+          <iframe id="document-map-frame" class="document-map-frame" title="Document Map" src="document-map/?embedded=1&amp;v=11" allow="clipboard-write"></iframe>
         </section>
 
         <aside class="map-selector-panel">
@@ -48,6 +48,25 @@
       </section>
       <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your document inventory and completed rewards are saved in this browser.</span></p></div>
     </main>
+
+    <dialog id="report-dialog" class="report-dialog">
+      <article class="report-card">
+        <header class="report-dialog-header"><div><small data-i18n="reports.eyebrow">COMMUNITY MAP</small><h2 data-i18n="reports.title">LOCATION REPORTS</h2></div><button id="report-close" class="report-close" type="button" aria-label="Close">×</button></header>
+        <p class="report-intro" data-i18n="reports.intro">Click the map to copy coordinates and fill them here automatically. Reports are saved in this browser.</p>
+        <div class="report-layout">
+          <form id="report-form" class="report-form">
+            <label><span data-i18n="reports.map">MAP</span><select id="report-map" required></select></label>
+            <label><span data-i18n="reports.coordinate">COORDINATES</span><div class="coordinate-field"><input id="report-coordinate" type="text" readonly required data-i18n-placeholder="reports.coordinatePlaceholder" placeholder="Click a position on the map" /><button id="coordinate-copy" type="button" data-i18n="reports.copy">COPY</button></div></label>
+            <label><span data-i18n="reports.photo">LOCATION PHOTO</span><input id="report-photo" type="file" accept="image/*" required /></label>
+            <img id="report-photo-preview" class="report-photo-preview" alt="Selected location preview" hidden />
+            <label><span data-i18n="reports.note">NOTE (OPTIONAL)</span><textarea id="report-note" maxlength="500" rows="4" data-i18n-placeholder="reports.notePlaceholder" placeholder="Describe the document location or landmark"></textarea></label>
+            <button class="report-submit" type="submit" data-i18n="reports.save">SAVE REPORT</button>
+          </form>
+          <section class="report-list-panel"><header><h3 data-i18n="reports.list">REPORT LIST</h3><span id="report-count">0</span></header><div id="report-list" class="report-list"></div></section>
+        </div>
+      </article>
+    </dialog>
+    <div id="site-toast" class="site-toast" role="status" aria-live="polite"></div>
 
     <footer><span class="site-credit"><span data-i18n="footer.prefix">Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by</span> <a href="https://discord.com/users/299382568560885761" target="_blank" rel="noopener noreferrer">whizs</a></span><span class="map-license">Interactive maps use <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> and 2D images provided by <a href="https://tarkov.dev/" target="_blank" rel="noopener noreferrer">tarkov.dev</a></span></footer>
   </body>
