@@ -6,10 +6,10 @@
     <meta name="description" content="Escape from Tarkov seasonal Battle Pass document location map" />
     <title>Document Map · Tarkov Tools</title>
     <link rel="stylesheet" href="../assets/vendor/leaflet.css?v=1" />
-    <link rel="stylesheet" href="../styles.css?v=5" />
+    <link rel="stylesheet" href="../styles.css?v=6" />
     <script src="../assets/vendor/leaflet.js?v=1" defer></script>
     <script src="../data/locations.js?v=3" defer></script>
-    <script src="../app.js?v=11" defer></script>
+    <script src="../app.js?v=12" defer></script>
   </head>
   <body>
     <aside class="sidebar" id="sidebar">
@@ -41,6 +41,7 @@
       <section class="map-shell">
         <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">0 LOCATIONS VISIBLE</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>
         <div id="map-stage" class="map-stage" tabindex="0" aria-label="Document location map">
+          <img id="map-image-fallback" class="map-image-fallback" src="../assets/maps-jpg/factory-2d.jpg?v=2" alt="Factory 2D map" />
           <div id="leaflet-map" class="leaflet-map" aria-label="Interactive map image"></div>
           <div class="empty-state" id="empty-state"><span class="map-loader" aria-hidden="true"></span><strong>LOADING MAP</strong><p>The high-resolution map may take a moment to appear.</p></div>
           <div class="map-attribution" id="map-attribution">
