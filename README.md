@@ -10,7 +10,9 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 
 ## Features
 
-- Switch between 10 RE3MR maps
+- Switch between 10 interactive tarkov.dev SVG maps, including The Lab
+- Pan and zoom maps with Leaflet controls
+- Open location photos and descriptions from document markers
 - Filter eight document categories
 - Mark completed rewards and subtract their costs from the current 501-document total
 - Show per-reward document totals, completion progress, and missing document types
@@ -23,10 +25,8 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 
 Add verified locations to `data/locations.js`. Coordinates use percentages relative to the map area (`x` and `y` range from 0 to 100).
 
-## Map artwork and license
+## Interactive map source
 
-The map artwork is created by [re3mr](https://reemr.se/) and loaded from the creator's map servers. It is displayed at a reduced size for web use under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/). Individual map source pages are linked from the attribution overlay inside the map viewer.
-
-This site must remain noncommercial while it uses this map artwork. Any adapted map artwork must be distributed under the same license, with attribution and a description of changes.
+The interactive viewer uses [Leaflet](https://leafletjs.com/) with SVG map files from the community-maintained [tarkovdata](https://github.com/TarkovTracker/tarkovdata) repository used by [tarkov.dev](https://tarkov.dev/). The files are loaded from their upstream repository rather than copied into this project. Source attribution remains visible inside the viewer and in the site footer.
 
 This is an unofficial fan-made project. Escape from Tarkov trademarks and game assets belong to Battlestate Games.
