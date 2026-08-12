@@ -203,13 +203,24 @@ function remainingRequirements() {
   return requirements;
 }
 
+function rewardCostOverlay(reward) {
+  const rows = Object.entries(reward.cost).map(([key, value]) => `
+    <span class="reward-cost-row" style="--cost-color:${CATEGORIES[key].color}">
+      <i></i><b>${t(`categories.${key}`)}</b><strong>${value}</strong>
+    </span>`).join("");
+  return `<span class="reward-cost-overlay" aria-hidden="true">
+    <span class="reward-cost-title">REQUIRED DOCUMENTS</span>
+    <span class="reward-cost-list">${rows}</span>
+    <span class="reward-cost-total">TOTAL <b>${reward.total}</b></span>
+  </span>`;
+}
+
 function renderTabs() {
   elements.pageTabs.innerHTML = PAGES.map(page => `<button type="button" data-page="${page.number}" class="page-tab ${page.number === selectionState.page ? "active" : ""}" aria-current="${page.number === selectionState.page ? "page" : "false"}"><span>${String(page.number).padStart(2, "0")}</span><small>${page.total}</small></button>`).join("");
 }
 
 function renderRewards() {
   const page = pageByNumber(selectionState.page);
-  document.querySelector("#current-page").textContent = String(page.number).padStart(2, "0");
   elements.rewardTrack.innerHTML = page.rewards.map(reward => {
     const selected = selectionState.selected.has(reward.id);
     return `<button type="button" class="reward-card ${selected ? "selected" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
@@ -217,6 +228,7 @@ function renderRewards() {
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-required">REQUIRED DOCS: <b>${reward.total}</b></span>
+      ${rewardCostOverlay(reward)}
       <span class="selected-mark">✓ COMPLETE</span>
     </button>`;
   }).join("");
