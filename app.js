@@ -1,17 +1,18 @@
-const MAP_ASSET_ROOT="https://tarkov.dev/maps/";
+const MAP_ASSET_ROOT="../assets/maps-jpg/";
+const MAP_SOURCE_ROOT="https://tarkov.dev/maps/";
 const MAP_TRANSLATION_KEYS={"customs":"customs","ground-zero":"groundZero","factory":"factory","woods":"woods","reserve":"reserve","shoreline":"shoreline","interchange":"interchange","lighthouse":"lighthouse","streets":"streets","laboratory":"laboratory"};
 const MAPS=[
-  {id:"customs",name:"Customs",code:"CST",file:"customs-2d.jpg"},
-  {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"ground-zero-2d.jpg"},
-  {id:"factory",name:"Factory",code:"FCT",file:"factory-2d.jpg"},
-  {id:"woods",name:"Woods",code:"WDS",file:"woods-2d.jpg"},
-  {id:"reserve",name:"Reserve",code:"RSV",file:"reserve-2d.jpg"},
-  {id:"shoreline",name:"Shoreline",code:"SHR",file:"shoreline-2d.jpg"},
-  {id:"interchange",name:"Interchange",code:"INT",file:"interchange-2d.jpg"},
-  {id:"lighthouse",name:"Lighthouse",code:"LHT",file:"lighthouse-2d.jpg"},
-  {id:"streets",name:"Streets of Tarkov",code:"SOT",file:"streets-2d.jpg"},
-  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg"}
-].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:`${MAP_ASSET_ROOT}${map.file}`,width:1,height:1}));
+  {id:"customs",name:"Customs",code:"CST",file:"customs-2d.jpg",width:2200,height:1153},
+  {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"ground-zero-2d.jpg",width:2200,height:2200},
+  {id:"factory",name:"Factory",code:"FCT",file:"factory-2d.jpg",width:2200,height:1090},
+  {id:"woods",name:"Woods",code:"WDS",file:"woods-2d.jpg",width:2200,height:2153},
+  {id:"reserve",name:"Reserve",code:"RSV",file:"reserve-2d.jpg",width:2200,height:1304},
+  {id:"shoreline",name:"Shoreline",code:"SHR",file:"shoreline-2d.jpg",width:2200,height:1507},
+  {id:"interchange",name:"Interchange",code:"INT",file:"interchange-2d.jpg",width:2000,height:1106},
+  {id:"lighthouse",name:"Lighthouse",code:"LHT",file:"lighthouse-2d.jpg",width:1267,height:2200},
+  {id:"streets",name:"Streets of Tarkov",code:"SOT",file:"streets-2d.jpg",width:2200,height:1697},
+  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg",width:2200,height:1140}
+].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:`${MAP_SOURCE_ROOT}${map.file}`}));
 
 const CATEGORIES={
   technical:{name:"Technical Documents",required:61,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:71,color:"#bd7469"},
@@ -44,7 +45,6 @@ let leafletMap;
 let imageLayer;
 let markerLayer;
 let activeMap;
-let mapLoadSequence=0;
 
 async function init(){
   await loadLanguage();
@@ -76,7 +76,6 @@ function renderCategories(){
 function updateMap(){
   activeMap=MAPS.find(item=>item.id===state.map)||MAPS[2];
   const requested=activeMap;
-  const requestId=++mapLoadSequence;
   els.currentMapName.textContent=mapName(activeMap);
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
@@ -87,27 +86,18 @@ function updateMap(){
   leafletMap.closePopup();
   leafletMap.setMaxBounds(null);
   markerLayer.clearLayers();
-  const probe=new Image();
-  probe.decoding="async";
-  probe.onload=()=>{
-    if(requestId!==mapLoadSequence||activeMap.id!==requested.id)return;
-    requested.width=probe.naturalWidth||1;
-    requested.height=probe.naturalHeight||1;
-    const bounds=L.latLngBounds([[0,0],[requested.height,requested.width]]);
-    imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from tarkov.dev`,interactive:false,opacity:1});
-    imageLayer.on("load",()=>{
-      if(requestId!==mapLoadSequence||activeMap.id!==requested.id)return;
-      els.emptyState.hidden=true;
-      leafletMap.invalidateSize();
-      leafletMap.fitBounds(bounds,{padding:[18,18],animate:false});
-      leafletMap.setMaxBounds(bounds.pad(.45));
-      renderMarkers();
-    });
-    imageLayer.on("error",()=>{if(requestId===mapLoadSequence)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
-    imageLayer.addTo(leafletMap);
-  };
-  probe.onerror=()=>{if(requestId===mapLoadSequence)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)};
-  probe.src=requested.image;
+  const bounds=L.latLngBounds([[0,0],[requested.height,requested.width]]);
+  imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from tarkov.dev`,interactive:false,opacity:1});
+  imageLayer.on("load",()=>{
+    if(activeMap.id!==requested.id)return;
+    els.emptyState.hidden=true;
+    leafletMap.invalidateSize();
+    leafletMap.fitBounds(bounds,{padding:[18,18],animate:false});
+    leafletMap.setMaxBounds(bounds.pad(.45));
+    renderMarkers();
+  });
+  imageLayer.on("error",()=>{if(activeMap.id===requested.id)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
+  imageLayer.addTo(leafletMap);
 }
 
 function renderMarkers(){
