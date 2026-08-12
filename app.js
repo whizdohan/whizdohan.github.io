@@ -38,7 +38,7 @@ const els={
   visibleCount:document.querySelector("#visible-count"),coordinate:document.querySelector("#coordinate"),
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
-  mapSource:document.querySelector("#map-source")
+  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback")
 };
 
 let leafletMap;
@@ -52,7 +52,8 @@ async function init(){
   els.mapSelect.value=state.map;
   renderCategories();
   bindEvents();
-  if(!window.L){showMapError(t("mapViewer.unavailable"),t("mapViewer.loadingCopy"));return}
+  prepareStaticMap();
+  if(!window.L)return;
   leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,attributionControl:true});
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
@@ -66,6 +67,19 @@ async function loadLanguage(){
 function t(key){return key.split(".").reduce((value,part)=>value?.[part],messages)||key}
 function mapName(map){return t(`maps.${MAP_TRANSLATION_KEYS[map.id]}`)||map.name}
 
+function prepareStaticMap(){
+  activeMap=MAPS.find(item=>item.id===state.map)||MAPS[2];
+  els.currentMapName.textContent=mapName(activeMap);
+  els.mapSelect.value=activeMap.id;
+  els.mapSource.href=activeMap.source;
+  els.mapSource.textContent=`tarkov.dev · ${mapName(activeMap)} 2D JPG`;
+  els.fallbackImage.alt=`${activeMap.name} 2D map`;
+  els.fallbackImage.onload=()=>{if(els.fallbackImage.dataset.map===activeMap.id)els.emptyState.hidden=true};
+  els.fallbackImage.onerror=()=>{if(els.fallbackImage.dataset.map===activeMap.id)showMapError(t("mapViewer.loadFailed"),mapName(activeMap),activeMap.source)};
+  els.fallbackImage.dataset.map=activeMap.id;
+  els.fallbackImage.src=`${activeMap.image}?v=2`;
+}
+
 function renderCategories(){
   els.categoryList.innerHTML=Object.entries(CATEGORIES).map(([key,category])=>`
     <label class="category-row"><input type="checkbox" value="${key}" ${state.filters.includes(key)?"checked":""}/>
@@ -76,6 +90,7 @@ function renderCategories(){
 function updateMap(){
   activeMap=MAPS.find(item=>item.id===state.map)||MAPS[2];
   const requested=activeMap;
+  prepareStaticMap();
   els.currentMapName.textContent=mapName(activeMap);
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
