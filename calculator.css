@@ -74,42 +74,6 @@
 .reward-index{z-index:3;padding:2px 4px;background:rgba(3,11,13,.7);color:#90a7a3}
 .reward-name{z-index:3;bottom:43px;color:#d1d9d4;font-size:9px}
 .reward-total{display:none}
-.reward-progress-meta{
-  position:absolute;
-  z-index:3;
-  right:7px;
-  bottom:29px;
-  left:7px;
-  display:flex;
-  justify-content:space-between;
-  color:#8ba09c;
-  font:700 7px ui-monospace,monospace
-}
-.reward-progress-meta b{color:#b8c6c1;font-weight:800}
-.reward-progress-meta em{color:#69d5a3;font-style:normal}
-.reward-progress-bar{
-  position:absolute;
-  z-index:3;
-  right:7px;
-  bottom:20px;
-  left:7px;
-  height:4px;
-  overflow:hidden;
-  background:#17292c
-}
-.reward-progress-bar i{display:block;height:100%;background:#65dba5;box-shadow:0 0 7px rgba(101,219,165,.5)}
-.reward-remaining{
-  position:absolute;
-  z-index:3;
-  right:7px;
-  bottom:7px;
-  left:7px;
-  overflow:hidden;
-  color:#708480;
-  font:700 6px ui-monospace,monospace;
-  text-overflow:ellipsis;
-  white-space:nowrap
-}
 .reward-card.selected .selected-mark{
   position:absolute;
   z-index:4;
@@ -133,9 +97,6 @@
 .panel-title,.detail-title{font-size:15px}
 .reward-index{font-size:9px}
 .reward-name{bottom:52px;font-size:11px;line-height:1.2}
-.reward-progress-meta{bottom:35px;font-size:9px}
-.reward-progress-bar{bottom:25px;height:5px}
-.reward-remaining{bottom:8px;font-size:8px}
 .reward-card.selected .selected-mark{padding:4px 6px;font-size:8px}
 .page-mini-nav span{font-size:10px}
 .detail-title h1{font-size:15px}
@@ -160,3 +121,17 @@ footer{font-size:9px}
   .battle-console{grid-template-columns:360px minmax(340px,1fr) 330px}
   .bottom-console{grid-template-columns:360px minmax(0,1fr) 330px}
 }
+
+/* Simplified reward cards and page indicator. */
+.page-mini-nav{display:flex;align-items:center;justify-content:center}
+.reward-name{bottom:34px}
+.reward-required{
+  position:absolute;
+  z-index:3;
+  right:7px;
+  bottom:9px;
+  left:7px;
+  color:#9db0ac;
+  font:800 10px ui-monospace,monospace
+}
+.reward-required b{color:#e1e9e4;font-size:13px}
