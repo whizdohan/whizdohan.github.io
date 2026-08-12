@@ -1,6 +1,6 @@
 const MAP_ASSET_ROOT="../assets/maps-jpg/";
 const MAP_SOURCE_ROOT="https://tarkov.dev/maps/";
-const MAP_TRANSLATION_KEYS={"customs":"customs","ground-zero":"groundZero","factory":"factory","woods":"woods","reserve":"reserve","shoreline":"shoreline","interchange":"interchange","lighthouse":"lighthouse","streets":"streets","laboratory":"laboratory"};
+const MAP_TRANSLATION_KEYS={"customs":"customs","ground-zero":"groundZero","factory":"factory","woods":"woods","reserve":"reserve","shoreline":"shoreline","interchange":"interchange","lighthouse":"lighthouse","streets":"streets","laboratory":"laboratory","icebreaker":"icebreaker","labyrinth":"labyrinth"};
 const MAPS=[
   {id:"customs",name:"Customs",code:"CST",file:"customs-2d.jpg",width:2200,height:1153},
   {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"ground-zero-2d.jpg",width:2200,height:2200},
@@ -8,11 +8,13 @@ const MAPS=[
   {id:"woods",name:"Woods",code:"WDS",file:"woods-2d.jpg",width:2200,height:2153},
   {id:"reserve",name:"Reserve",code:"RSV",file:"reserve-2d.jpg",width:2200,height:1304},
   {id:"shoreline",name:"Shoreline",code:"SHR",file:"shoreline-2d.jpg",width:2200,height:1507},
-  {id:"interchange",name:"Interchange",code:"INT",file:"interchange-2d.jpg",width:2000,height:1106},
+  {id:"interchange",name:"Interchange",code:"INT",file:"interchange-2d.jpg",width:2400,height:1350,source:"https://reemr.se/interchange/",sourceLabel:"RE3MR"},
   {id:"lighthouse",name:"Lighthouse",code:"LHT",file:"lighthouse-2d.jpg",width:1267,height:2200},
   {id:"streets",name:"Streets of Tarkov",code:"SOT",file:"streets-2d.jpg",width:2200,height:1697},
-  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg",width:2200,height:1140}
-].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:`${MAP_SOURCE_ROOT}${map.file}`}));
+  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg",width:2200,height:1140},
+  {id:"icebreaker",name:"Icebreaker",code:"ICE",file:"icebreaker-2d.jpg",width:2400,height:1350,source:"https://reemr.se/icebreaker/",sourceLabel:"RE3MR"},
+  {id:"labyrinth",name:"The Labyrinth",code:"LBY",file:"labyrinth-2d.jpg",width:2400,height:2160,source:"https://reemr.se/labyrinth/",sourceLabel:"RE3MR"}
+].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:map.source||`${MAP_SOURCE_ROOT}${map.file}`,sourceLabel:map.sourceLabel||"tarkov.dev"}));
 
 const CATEGORIES={
   technical:{name:"Technical Documents",required:61,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:71,color:"#bd7469"},
@@ -75,13 +77,13 @@ function prepareStaticMap(){
   els.currentMapName.textContent=mapName(activeMap);
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
-  els.mapSource.textContent=`tarkov.dev · ${mapName(activeMap)} 2D JPG`;
+  els.mapSource.textContent=`${activeMap.sourceLabel} · ${mapName(activeMap)} 2D JPG`;
   els.fallbackImage.alt=`${activeMap.name} 2D map`;
   els.fallbackImage.hidden=false;
   els.fallbackImage.onload=()=>{if(els.fallbackImage.dataset.map===activeMap.id)els.emptyState.hidden=true};
   els.fallbackImage.onerror=()=>{if(els.fallbackImage.dataset.map===activeMap.id)showMapError(t("mapViewer.loadFailed"),mapName(activeMap),activeMap.source)};
   els.fallbackImage.dataset.map=activeMap.id;
-  els.fallbackImage.src=`${activeMap.image}?v=2`;
+  els.fallbackImage.src=`${activeMap.image}?v=3`;
 }
 
 function renderCategories(){
@@ -98,7 +100,7 @@ function updateMap(){
   els.currentMapName.textContent=mapName(activeMap);
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
-  els.mapSource.textContent=`tarkov.dev · ${mapName(activeMap)} 2D JPG`;
+  els.mapSource.textContent=`${activeMap.sourceLabel} · ${mapName(activeMap)} 2D JPG`;
   els.mapSource.setAttribute("aria-label",`Open the ${activeMap.name} map image`);
   showLoading();
   if(imageLayer)leafletMap.removeLayer(imageLayer);
@@ -107,7 +109,7 @@ function updateMap(){
   markerLayer.clearLayers();
   const bounds=L.latLngBounds([[0,0],[requested.height,requested.width]]);
   activeBounds=bounds;
-  imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from tarkov.dev`,interactive:false,opacity:1});
+  imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from ${requested.sourceLabel}`,interactive:false,opacity:1});
   imageLayer.on("load",()=>{
     if(activeMap.id!==requested.id)return;
     els.emptyState.hidden=true;

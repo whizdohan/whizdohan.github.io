@@ -7,7 +7,7 @@
   "language": { "label": "LANGUAGE" },
   "reports": { "button": "REPORT LOCATION", "eyebrow": "COMMUNITY MAP", "title": "LOCATION REPORTS", "intro": "Click the map to copy coordinates and fill them here automatically. Reports and photos are saved only in this browser.", "map": "MAP", "coordinate": "COORDINATES", "coordinatePlaceholder": "Click a position on the map", "copy": "COPY", "photo": "LOCATION PHOTO", "note": "NOTE (OPTIONAL)", "notePlaceholder": "Describe the document location or landmark", "save": "SAVE REPORT", "list": "REPORT LIST", "empty": "No saved reports in this browser yet.", "delete": "Delete report", "deleteConfirm": "Delete this local report?", "deleted": "Report deleted.", "saved": "Report saved in this browser.", "saveFailed": "The report could not be saved.", "photoRequired": "Please attach a location photo.", "photoTooLarge": "Photos must be 10 MB or smaller.", "clickMapFirst": "Click a location on the map first.", "copied": "Coordinates copied.", "coordinateReady": "Coordinates copied and added to the report." },
   "map": { "select": "SELECT MAP" },
-  "maps": { "customs": "Customs", "groundZero": "Ground Zero", "factory": "Factory", "woods": "Woods", "reserve": "Reserve", "shoreline": "Shoreline", "interchange": "Interchange", "lighthouse": "Lighthouse", "streets": "Streets of Tarkov", "laboratory": "The Lab" },
+  "maps": { "customs": "Customs", "groundZero": "Ground Zero", "factory": "Factory", "woods": "Woods", "reserve": "Reserve", "shoreline": "Shoreline", "interchange": "Interchange", "lighthouse": "Lighthouse", "streets": "Streets of Tarkov", "laboratory": "The Lab", "icebreaker": "Icebreaker", "labyrinth": "The Labyrinth" },
   "nav": {
     "battlePass": "BATTLE PASS",
     "seasonalRewards": "SEASONAL REWARDS",
