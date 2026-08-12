@@ -114,6 +114,7 @@ select:focus { border-color: var(--accent); }
 
 .map-shell { min-height: 0; display: grid; grid-template-rows: auto 1fr; padding: 18px 24px 24px; }
 .map-toolbar { display: flex; justify-content: space-between; align-items: center; min-height: 30px; color: var(--muted); font: 700 10px ui-monospace, monospace; letter-spacing: .04em; }
+.coordinate{min-width:150px;color:#c5d9d4;font-size:12px;text-align:right;font-variant-numeric:tabular-nums;text-shadow:0 0 8px rgba(101,219,165,.28)}
 .legend { display: flex; gap: 8px; align-items: center; }
 .legend-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 
