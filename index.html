@@ -6,24 +6,20 @@
     <meta name="description" content="Escape from Tarkov Battle Pass rewards, document locations, and remaining document calculator" />
     <meta name="theme-color" content="#071014" />
     <title>Battle Pass Document Tracker · Tarkov Tools</title>
-    <link rel="stylesheet" href="calculator.css?v=10" />
-    <script src="calculator.js?v=10" defer></script>
+    <link rel="stylesheet" href="calculator.css?v=11" />
+    <script src="calculator.js?v=11" defer></script>
   </head>
   <body>
-    <header class="game-header">
-      <a href="./" class="season-emblem" aria-label="Tarkov Tools home"><span>01</span><b>SEASON<br />ONE</b></a>
-      <nav class="game-tabs" aria-label="Season navigation">
-        <span class="active" data-i18n="nav.battlePass">BATTLE PASS</span>
-        <span data-i18n="nav.seasonalRewards">SEASONAL REWARDS</span>
-        <span class="disabled" data-i18n="nav.leagues">LEAGUES AND RATINGS</span>
-      </nav>
-      <div class="header-actions" aria-hidden="true"></div>
-    </header>
+    <header class="game-header season-header"><span class="season-number">01</span><h1>SEASON 1 <b>BATTLE PASS</b></h1></header>
 
     <main class="battle-screen">
       <section class="battle-console">
         <aside class="reward-browser">
-          <header class="panel-title" data-i18n="panel.rewardList">REWARD LIST</header>
+          <header class="battle-progress-header">
+            <div><span>BATTLE PASS PROGRESS</span><b id="overall-progress-percent">0%</b></div>
+            <span class="overall-progress-track"><i id="overall-progress-bar"></i></span>
+            <small id="overall-progress-copy">0 / 501 DOCUMENTS</small>
+          </header>
           <div id="reward-track" class="reward-track"></div>
           <div class="page-mini-nav">
             <span>PAGE <b id="current-page">01</b>/12</span>
@@ -34,40 +30,33 @@
           <iframe id="document-map-frame" class="document-map-frame" title="Document Map" src="document-map/?embedded=1"></iframe>
         </section>
 
-        <aside class="detail-panel calculator-panel">
-          <header class="detail-title"><h1 id="focused-detail-name">DOGTAG</h1></header>
-          <div class="focused-requirements">
-            <label><span class="check-box"></span><span data-i18n="detail.collectDocuments">Collect and submit documents</span></label>
-            <div id="focused-costs" class="focused-costs"></div>
-            <button id="focused-toggle" class="claim-button" type="button" data-i18n="detail.markComplete">MARK COMPLETE</button>
+        <aside class="map-selector-panel">
+          <header class="detail-title"><h1>SELECT MAP</h1></header>
+          <div id="map-selector-list" class="map-selector-list">
+            <button type="button" data-map="customs">Customs</button>
+            <button type="button" data-map="ground-zero">Ground Zero</button>
+            <button type="button" data-map="factory" class="active">Factory</button>
+            <button type="button" data-map="woods">Woods</button>
+            <button type="button" data-map="reserve">Reserve</button>
+            <button type="button" data-map="shoreline">Shoreline</button>
+            <button type="button" data-map="interchange">Interchange</button>
+            <button type="button" data-map="lighthouse">Lighthouse</button>
+            <button type="button" data-map="streets">Streets of Tarkov</button>
+            <button type="button" data-map="laboratory">The Lab</button>
+            <button type="button" data-map="labyrinth">The Labyrinth</button>
           </div>
-
-          <div class="target-summary">
-            <div><span data-i18n="calculator.remainingDocuments">REMAINING DOCUMENTS</span><strong><b id="target-total">501</b> <small>/ 501</small></strong></div>
-            <p id="target-status">501 more documents required</p>
-          </div>
-          <div class="document-table-head"><span data-i18n="table.documentType">DOCUMENT TYPE</span><span data-i18n="table.required">REQ.</span><span data-i18n="table.owned">OWNED</span><span data-i18n="table.missing">SHORT</span></div>
-          <div id="document-list" class="document-list"></div>
         </aside>
 
         <section class="bottom-console">
           <div class="page-rail">
-            <div class="rail-line"><span id="selected-bar"></span></div>
             <div id="page-tabs" class="page-tabs"></div>
           </div>
           <div class="document-inventory">
             <header><span data-i18n="documents.remaining">REMAINING DOCUMENTS</span><small><b id="inventory-total">501</b> / 501</small></header>
             <div id="document-belt" class="document-belt"></div>
           </div>
-          <div class="selection-actions">
-            <button id="select-page" type="button" data-i18n="buttons.completePage">COMPLETE CURRENT PAGE</button>
-            <button id="select-through" class="accent" type="button" data-i18n="buttons.completeThrough">COMPLETE THROUGH THIS PAGE</button>
-            <button id="reset-selection" type="button" data-i18n="buttons.resetCompleted">RESET COMPLETED REWARDS</button>
-          </div>
         </section>
       </section>
-
-      <section class="mobile-calculator-title"><span data-i18n="calculator.title">DOCUMENT CALCULATOR</span><small id="selected-count">0 rewards complete</small><b id="selected-percent">0%</b></section>
       <div class="calculator-note"><span class="save-light"></span><p><strong data-i18n="autosave.label">AUTO SAVE</strong> <span data-i18n="autosave.text">Your document inventory and completed rewards are saved in this browser.</span></p></div>
     </main>
 
