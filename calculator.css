@@ -118,6 +118,12 @@
 footer{font-size:24px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decoration:none}footer a:hover,footer a:focus-visible{color:#c8ae72;text-decoration:underline}
 @media(max-width:850px){footer{font-size:14px}}
 
+/* Desktop reward rows use flex sizing so square cards cannot overlap the row gap. */
+@media(min-width:851px){
+  .reward-track{display:flex;flex-wrap:wrap;align-content:flex-start;gap:18px 10px;padding:10px}
+  .reward-card{flex:0 0 calc(50% - 5px);width:calc(50% - 5px);height:auto;margin:0;aspect-ratio:1}
+}
+
 @media(min-width:851px) and (max-width:1400px){
   .battle-console{grid-template-columns:360px minmax(340px,1fr) 330px}
   .bottom-console{grid-template-columns:360px minmax(0,1fr) 330px}
