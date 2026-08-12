@@ -133,7 +133,7 @@ function t(key, variables = {}) {
 
 async function loadLanguage() {
   try {
-    const response = await fetch("locales/en.json?v=4");
+    const response = await fetch("locales/en.json?v=5");
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
@@ -211,20 +211,6 @@ function remainingRequirements() {
   return requirements;
 }
 
-function rewardProgress(reward, completed) {
-  if (completed) return { percent: 100, remaining: t("reward.complete") };
-  const covered = Object.entries(reward.cost).reduce((sum, [key, value]) => {
-    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, CATEGORIES[key].total);
-    return sum + Math.min(value, owned);
-  }, 0);
-  const remaining = Object.entries(reward.cost).map(([key, value]) => {
-    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, CATEGORIES[key].total);
-    const missing = Math.max(value - owned, 0);
-    return missing ? `${CATEGORIES[key].code} ${missing}` : "";
-  }).filter(Boolean).join(" · ") || t("reward.ready");
-  return { percent: Math.round(covered / reward.total * 100), remaining };
-}
-
 function costChips(cost) {
   return Object.entries(cost).map(([key, value]) => `<span class="cost-chip" style="--chip:${CATEGORIES[key].color}"><i></i>${t(`categories.${key}`)} ${value}</span>`).join("");
 }
@@ -239,20 +225,15 @@ function renderRewards() {
   elements.rewardTrack.innerHTML = page.rewards.map(reward => {
     const selected = selectionState.selected.has(reward.id);
     const focused = reward.id === focusedRewardId;
-    const progress = rewardProgress(reward, selected);
     return `<button type="button" class="reward-card ${selected ? "selected" : ""} ${focused ? "focused" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
       <span class="reward-name">${reward.name}</span>
       <span class="reward-costs">${costChips(reward.cost)}</span>
-      <span class="reward-progress-meta"><b>${reward.total} DOCS</b><em>${progress.percent}%</em></span>
-      <span class="reward-progress-bar"><i style="width:${progress.percent}%"></i></span>
-      <span class="reward-remaining">${progress.remaining}</span>
+      <span class="reward-required">REQUIRED DOCS: <b>${reward.total}</b></span>
       <span class="selected-mark">✓ COMPLETE</span>
     </button>`;
   }).join("");
-  document.querySelector("#previous-page").disabled = page.number === 1;
-  document.querySelector("#next-page").disabled = page.number === PAGES.length;
 }
 
 function renderPreview() {
@@ -364,10 +345,6 @@ document.querySelector("#focused-toggle").addEventListener("click", () => {
   const id = focusedReward().id;
   selectionState.selected.has(id) ? selectionState.selected.delete(id) : selectionState.selected.add(id);
   renderAll();
-});
-
-[["#previous-page", -1], ["#next-page", 1]].forEach(([selector, direction]) => {
-  document.querySelector(selector).addEventListener("click", () => goToPage(selectionState.page + direction));
 });
 
 async function init() {
