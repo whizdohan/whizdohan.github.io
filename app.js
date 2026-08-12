@@ -38,16 +38,14 @@ const els={
   visibleCount:document.querySelector("#visible-count"),coordinate:document.querySelector("#coordinate"),
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
-  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback"),
-  coordinateToast:document.querySelector("#coordinate-toast")
+  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback")
 };
 
 let leafletMap;
 let imageLayer;
 let markerLayer;
 let activeMap;
-let selectedCoordinateMarker;
-let coordinateToastTimer;
+let activeBounds;
 
 async function init(){
   await loadLanguage();
@@ -57,12 +55,11 @@ async function init(){
   bindEvents();
   prepareStaticMap();
   if(!window.L)return;
-  leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:60,scrollWheelZoom:true,boxZoom:true,doubleClickZoom:true,touchZoom:true,attributionControl:true});
+  leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:60,scrollWheelZoom:true,boxZoom:true,doubleClickZoom:true,touchZoom:true,maxBoundsViscosity:1,attributionControl:true});
   leafletMap.setView([activeMap.height/2,activeMap.width/2],-2,{animate:false});
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
-  leafletMap.on("click",selectCoordinate);
   leafletMap.scrollWheelZoom.enable();
   updateMap();
 }
@@ -80,6 +77,7 @@ function prepareStaticMap(){
   els.mapSource.href=activeMap.source;
   els.mapSource.textContent=`tarkov.dev · ${mapName(activeMap)} 2D JPG`;
   els.fallbackImage.alt=`${activeMap.name} 2D map`;
+  els.fallbackImage.hidden=false;
   els.fallbackImage.onload=()=>{if(els.fallbackImage.dataset.map===activeMap.id)els.emptyState.hidden=true};
   els.fallbackImage.onerror=()=>{if(els.fallbackImage.dataset.map===activeMap.id)showMapError(t("mapViewer.loadFailed"),mapName(activeMap),activeMap.source)};
   els.fallbackImage.dataset.map=activeMap.id;
@@ -107,23 +105,31 @@ function updateMap(){
   leafletMap.closePopup();
   leafletMap.setMaxBounds(null);
   markerLayer.clearLayers();
-  selectedCoordinateMarker=null;
   const bounds=L.latLngBounds([[0,0],[requested.height,requested.width]]);
+  activeBounds=bounds;
   imageLayer=L.imageOverlay(requested.image,bounds,{alt:`${requested.name} 2D map from tarkov.dev`,interactive:false,opacity:1});
   imageLayer.on("load",()=>{
     if(activeMap.id!==requested.id)return;
     els.emptyState.hidden=true;
+    els.fallbackImage.hidden=true;
     leafletMap.invalidateSize();
-    alignMapTopLeft(bounds);
-    leafletMap.setMaxBounds(bounds.pad(.45));
+    const minimumZoom=minimumWidthZoom(requested);
+    leafletMap.setMinZoom(minimumZoom);
+    alignMapTopLeft(bounds,minimumZoom);
+    leafletMap.setMaxBounds(bounds);
     renderMarkers();
   });
   imageLayer.on("error",()=>{if(activeMap.id===requested.id)showMapError(t("mapViewer.loadFailed"),mapName(requested),requested.source)});
   imageLayer.addTo(leafletMap);
 }
 
-function alignMapTopLeft(bounds){
-  const zoom=leafletMap.getBoundsZoom(bounds,false,L.point(0,0));
+function minimumWidthZoom(map){
+  const width=Math.max(leafletMap.getSize().x,1);
+  const rawZoom=Math.log2(width/map.width);
+  return Math.ceil(rawZoom/leafletMap.options.zoomSnap)*leafletMap.options.zoomSnap;
+}
+
+function alignMapTopLeft(bounds,zoom){
   const topLeft=leafletMap.project(bounds.getNorthWest(),zoom);
   const centerPoint=topLeft.add(leafletMap.getSize().divideBy(2));
   leafletMap.setView(leafletMap.unproject(centerPoint,zoom),zoom,{animate:false});
@@ -183,32 +189,6 @@ function updateCoordinate(event){
   els.coordinate.textContent=`X ${x.toFixed(1).padStart(5,"0")} · Y ${y.toFixed(1).padStart(5,"0")}`;
 }
 
-function coordinateFromLatLng(latlng){
-  return {x:clamp(latlng.lng/activeMap.width*100,0,100),y:clamp((1-latlng.lat/activeMap.height)*100,0,100)};
-}
-
-async function selectCoordinate(event){
-  if(!activeMap)return;
-  const point=coordinateFromLatLng(event.latlng);
-  const x=Number(point.x.toFixed(1));
-  const y=Number(point.y.toFixed(1));
-  const coordinate=`X ${x.toFixed(1)} · Y ${y.toFixed(1)}`;
-  els.coordinate.textContent=coordinate;
-  if(selectedCoordinateMarker)leafletMap.removeLayer(selectedCoordinateMarker);
-  const icon=L.divIcon({className:"selected-coordinate-shell",html:'<span class="selected-coordinate-pin"></span>',iconSize:[28,28],iconAnchor:[14,14]});
-  selectedCoordinateMarker=L.marker(event.latlng,{icon,interactive:false}).addTo(leafletMap);
-  try{await navigator.clipboard.writeText(coordinate)}catch{}
-  showCoordinateToast(t("mapViewer.coordinateCopied"));
-  window.parent.postMessage({type:"map-coordinate",map:activeMap.id,x,y,coordinate},location.origin);
-}
-
-function showCoordinateToast(copy){
-  clearTimeout(coordinateToastTimer);
-  els.coordinateToast.textContent=copy;
-  els.coordinateToast.classList.add("visible");
-  coordinateToastTimer=setTimeout(()=>els.coordinateToast.classList.remove("visible"),1800);
-}
-
 function showLoading(){
   els.emptyState.hidden=false;
   els.emptyState.innerHTML=`<span class="map-loader" aria-hidden="true"></span><strong>${t("mapViewer.loading")}</strong><p>${t("mapViewer.loadingCopy")}</p>`;
@@ -245,7 +225,15 @@ function bindEvents(){
   document.querySelector("#detail-close").addEventListener("click",()=>els.detailDialog.close());
   els.menuButton.addEventListener("click",()=>{const open=!els.sidebar.classList.contains("open");els.sidebar.classList.toggle("open",open);els.backdrop.classList.toggle("open",open);els.menuButton.setAttribute("aria-expanded",String(open))});
   els.backdrop.addEventListener("click",closeSidebar);
-  window.addEventListener("resize",()=>leafletMap?.invalidateSize());
+  window.addEventListener("resize",()=>{
+    if(!leafletMap)return;
+    leafletMap.invalidateSize();
+    if(!activeBounds||!activeMap)return;
+    const minimumZoom=minimumWidthZoom(activeMap);
+    leafletMap.setMinZoom(minimumZoom);
+    if(leafletMap.getZoom()<minimumZoom)alignMapTopLeft(activeBounds,minimumZoom);
+    leafletMap.setMaxBounds(activeBounds);
+  });
   window.addEventListener("message",event=>{
     if(event.origin!==location.origin||event.source!==window.parent)return;
     const map=MAPS.find(item=>item.id===event.data?.map);
