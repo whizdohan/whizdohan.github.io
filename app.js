@@ -58,6 +58,7 @@ async function init(){
   prepareStaticMap();
   if(!window.L)return;
   leafletMap=L.map("leaflet-map",{crs:L.CRS.Simple,minZoom:-3,maxZoom:4,zoomSnap:.25,zoomDelta:.5,wheelPxPerZoomLevel:60,scrollWheelZoom:true,boxZoom:true,doubleClickZoom:true,touchZoom:true,attributionControl:true});
+  leafletMap.setView([activeMap.height/2,activeMap.width/2],-2,{animate:false});
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
