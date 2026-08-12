@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Battle Pass Reward Calculator · Tarkov Tools",
+    "title": "Tarkov Battle Pass Information",
     "description": "Document calculator for Escape from Tarkov Battle Pass rewards"
   },
   "header": { "season": "SEASON 1", "battlePass": "BATTLE PASS" },
@@ -76,7 +76,7 @@
   },
   "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING MAP IMAGE", "loadingCopy": "The interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP IMAGE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON" },
   "footer": {
-    "prefix": "Unofficial fan site · Not affiliated with Battlestate Games · Site provided by",
-    "text": "Unofficial fan site · Not affiliated with Battlestate Games · Site provided by whizs"
+    "prefix": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by",
+    "text": "Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by whizs"
   }
 }

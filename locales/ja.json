@@ -1,5 +1,5 @@
 {
-  "meta": { "title": "バトルパス報酬計算機 · Tarkov Tools", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
   "header": { "season": "シーズン1", "battlePass": "バトルパス" },
   "language": { "label": "言語" },
   "map": { "select": "マップ選択" },
@@ -10,7 +10,7 @@
   "categories": { "financial": "財務", "pmc": "PMC人事", "project": "プロジェクト", "blueprints": "設計図", "test": "テスト", "user": "ユーザー", "medical": "医療", "technical": "技術" },
   "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "マップ画像を読み込み中", "loadingCopy": "インタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ画像を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中" },
   "footer": {
-    "prefix": "非公式ファンサイト · Battlestate Gamesとは関係ありません · サイト提供",
-    "text": "非公式ファンサイト · Battlestate Gamesとは無関係 · whizs提供"
+    "prefix": "Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· サイト提供",
+    "text": "Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· whizs提供"
   }
 }
