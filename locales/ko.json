@@ -1,0 +1,16 @@
+{
+  "meta": { "title": "배틀패스 보상 계산기 · 타르코프 도구", "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기" },
+  "header": { "season": "시즌 1", "battlePass": "배틀패스" },
+  "language": { "label": "언어" },
+  "map": { "select": "지도 선택" },
+  "maps": { "customs": "세관", "groundZero": "그라운드 제로", "factory": "공장", "woods": "삼림", "reserve": "리저브", "shoreline": "해안선", "interchange": "인터체인지", "lighthouse": "등대", "streets": "타르코프 시내", "laboratory": "연구소" },
+  "progress": { "title": "배틀패스 진행도", "documents": "문서", "selectedDocuments": "선택한 문서", "rewardCount": "보상 {count}개 완료" },
+  "autosave": { "label": "자동 저장", "text": "문서 보유량과 완료한 보상은 이 브라우저에 저장됩니다." },
+  "reward": { "required": "필요", "requiredDocuments": "필요한 문서", "requiredDocs": "필요 문서", "total": "합계", "complete": "완료", "ready": "준비됨" },
+  "categories": { "financial": "재정", "pmc": "PMC 인사", "project": "프로젝트", "blueprints": "설계", "test": "테스트", "user": "사용자", "medical": "의료", "technical": "기술" },
+  "mapViewer": { "locationsVisible": "개 위치 표시", "loading": "SVG 지도 불러오는 중", "loadingCopy": "인터랙티브 지도를 불러오는 데 시간이 걸릴 수 있습니다.", "unavailable": "인터랙티브 지도 사용 불가", "loadFailed": "지도를 불러오지 못했습니다", "openSource": "SVG 원본 열기", "photoSoon": "위치 사진 준비 중", "location": "문서 위치", "details": "위치 상세 정보", "noDetails": "상세 설명이 아직 없습니다.", "imageSoon": "이미지 준비 중" },
+  "footer": {
+    "prefix": "비공식 팬 사이트 · Battlestate Games와 관련이 없습니다 · 사이트 제공",
+    "text": "비공식 팬사이트 · Battlestate Games와 관련 없음 · whizs 제공"
+  }
+}
