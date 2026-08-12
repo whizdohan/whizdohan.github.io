@@ -218,3 +218,12 @@ footer{font-size:9px}
   .map-selector-panel{grid-column:1;grid-row:3}
   .map-selector-list{grid-template-columns:repeat(2,1fr)}
 }
+
+/* Keep adjacent reward cards visually separated, including selected cards. */
+.reward-track{column-gap:6px;row-gap:10px;padding:8px 6px 10px}
+.reward-card{isolation:isolate}
+.reward-card.selected{
+  outline:1px solid rgba(101,219,165,.34);
+  outline-offset:2px;
+  box-shadow:inset 0 0 0 1px rgba(132,255,197,.42),0 0 9px rgba(67,215,153,.28)
+}
