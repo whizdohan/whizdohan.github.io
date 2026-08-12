@@ -238,8 +238,9 @@ function renderDocumentBelt(requirements = remainingRequirements()) {
   elements.documentBelt.innerHTML = categoryKeys.map(key => {
     const category = CATEGORIES[key];
     const needed = requirements[key];
-    const owned = clamp(Number(sharedState.owned[key]) || 0, 0, category.total);
-    return `<div class="belt-item ${needed ? "active" : ""}" style="--color:${category.color}"><small>${t(`categories.${key}`)}</small><b>${owned}/${needed}</b></div>`;
+    return `<div class="progress-document-item ${needed ? "active" : "complete"}" style="--color:${category.color}" title="${t(`categories.${key}`)}: ${needed}">
+      <i class="document-icon"></i><span><small>${category.code}</small><b>${needed}</b></span>
+    </div>`;
   }).join("");
 }
 
@@ -249,7 +250,6 @@ function renderProgress() {
   const completedTotal = 501 - total;
   const percent = Math.round(completedTotal / 501 * 100);
 
-  document.querySelector("#inventory-total").textContent = total;
   document.querySelector("#overall-progress-percent").textContent = `${percent}%`;
   document.querySelector("#overall-progress-bar").style.width = `${percent}%`;
   document.querySelector("#overall-progress-copy").textContent = `${completedTotal} / 501 DOCUMENTS`;
