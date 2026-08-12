@@ -121,6 +121,7 @@ const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
 const LANGUAGE_KEY = "tarkov-tools:language:v1";
 const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
+const MAP_VIEWER_VERSION = "8";
 const categoryKeys = Object.keys(CATEGORIES);
 let messages = {};
 let currentLanguage = "en";
@@ -137,7 +138,7 @@ function t(key, variables = {}) {
 async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=6`);
+    const response = await fetch(`locales/${currentLanguage}.json?v=7`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
@@ -190,6 +191,10 @@ const elements = {
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function mapViewerUrl(map) {
+  return `document-map/?embedded=1&v=${MAP_VIEWER_VERSION}&map=${encodeURIComponent(map)}&lang=${currentLanguage}`;
 }
 
 function save() {
@@ -292,20 +297,20 @@ elements.mapSelector.addEventListener("click", event => {
   const button = event.target.closest("button[data-map]");
   if (!button) return;
   elements.mapSelector.querySelectorAll("button").forEach(item => item.classList.toggle("active", item === button));
-  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(button.dataset.map)}&lang=${currentLanguage}`;
+  elements.mapFrame.src = mapViewerUrl(button.dataset.map);
 });
 
 document.querySelector("#language-select").addEventListener("change", async event => {
   await loadLanguage(event.target.value);
   renderAll();
   const selectedMap = elements.mapSelector.querySelector("button.active")?.dataset.map || "factory";
-  elements.mapFrame.src = `document-map/?embedded=1&map=${encodeURIComponent(selectedMap)}&lang=${currentLanguage}`;
+  elements.mapFrame.src = mapViewerUrl(selectedMap);
 });
 
 async function init() {
   await loadLanguage();
   renderAll();
-  elements.mapFrame.src = `document-map/?embedded=1&map=factory&lang=${currentLanguage}`;
+  elements.mapFrame.src = mapViewerUrl("factory");
 }
 
 init();
