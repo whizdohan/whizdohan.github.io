@@ -12,7 +12,7 @@ The `/document-map/` route is used internally by the embedded map. The legacy `/
 
 - Switch between 10 tarkov.dev 2D map images, including The Lab
 - Pan and zoom local map images with Leaflet controls, double-click, touch, and the mouse wheel
-- Click the map to copy percentage coordinates and prefill a location report
+- Show live image-relative percentage coordinates while the pointer moves over the map
 - Save location reports and attached photos in the current browser with IndexedDB
 - Review and delete locally saved reports from the report list
 - Open location photos and descriptions from document markers
