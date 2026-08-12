@@ -1,5 +1,5 @@
 {
-  "meta": { "title": "バトルパス報酬計算機 · Tarkov Tools", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
   "header": { "season": "シーズン1", "battlePass": "バトルパス" },
   "language": { "label": "言語" },
   "map": { "select": "マップ選択" },

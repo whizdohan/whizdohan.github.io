@@ -1,5 +1,5 @@
 {
-  "meta": { "title": "배틀패스 보상 계산기 · 타르코프 도구", "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기" },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기" },
   "header": { "season": "시즌 1", "battlePass": "배틀패스" },
   "language": { "label": "언어" },
   "map": { "select": "지도 선택" },
