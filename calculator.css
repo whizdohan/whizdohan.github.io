@@ -115,7 +115,8 @@
 .belt-item small{font-size:8px}
 .selection-actions button{font-size:10px}
 .calculator-note{font-size:10px}
-footer{font-size:18px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decoration:none}footer a:hover,footer a:focus-visible{color:#c8ae72;text-decoration:underline}
+footer{font-size:24px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decoration:none}footer a:hover,footer a:focus-visible{color:#c8ae72;text-decoration:underline}
+@media(max-width:850px){footer{font-size:14px}}
 
 @media(min-width:851px) and (max-width:1400px){
   .battle-console{grid-template-columns:360px minmax(340px,1fr) 330px}
