@@ -256,10 +256,10 @@ function remainingRequirements() {
 
 function rewardCostOverlay(reward) {
   const rows = Object.entries(reward.cost).map(([key, value]) => `
-    <span class="reward-cost-row" style="--cost-color:${CATEGORIES[key].color};--document-index:${categoryKeys.indexOf(key)}">
+    <span class="reward-cost-row" data-document="${key}" style="--cost-color:${CATEGORIES[key].color}">
       <i></i><b>${t(`categories.${key}`)}</b><strong>${value}</strong>
     </span>`).join("");
-  return `<span class="reward-cost-overlay" aria-hidden="true" style="--document-index:${categoryKeys.indexOf(Object.keys(reward.cost)[0])}">
+  return `<span class="reward-cost-overlay" aria-hidden="true">
     <span class="reward-cost-title">${t("reward.requiredDocuments")}</span>
     <span class="reward-cost-list">${rows}</span>
     <span class="reward-cost-total">${t("reward.total")} <b>${reward.total}</b></span>
@@ -289,7 +289,7 @@ function renderDocumentBelt(requirements = remainingRequirements()) {
   elements.documentBelt.innerHTML = categoryKeys.map(key => {
     const category = CATEGORIES[key];
     const needed = requirements[key];
-    return `<div class="progress-document-item ${needed ? "active" : "complete"}" style="--color:${category.color};--document-index:${categoryKeys.indexOf(key)}" title="${t(`categories.${key}`)}: ${needed}">
+    return `<div class="progress-document-item ${needed ? "active" : "complete"}" data-document="${key}" style="--color:${category.color}" title="${t(`categories.${key}`)}: ${needed}">
       <i class="document-icon"></i><span><small>${category.code}</small><b>${needed}</b></span>
     </div>`;
   }).join("");

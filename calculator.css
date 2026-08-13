@@ -291,37 +291,28 @@ html[lang="ko"] .reward-browser *{
 @media(max-width:850px){.visitor-widget{right:10px;bottom:10px}}
 
 
-/* In-game document artwork: accounting, PMC, project, blueprints, test, user, medical, equipment. */
+/* Separate in-game document images: accounting, PMC, project, blueprints/technical, test, user, medical, equipment. */
 .progress-document-item .document-icon,.reward-cost-row i{
   border:0;
   background-color:#10231f;
-  background-image:url(assets/document-icons.webp?v=1);
   background-repeat:no-repeat;
-  background-size:800% 100%;
+  background-position:center;
+  background-size:cover;
   box-shadow:0 2px 5px rgba(0,0,0,.7)
 }
 .progress-document-item .document-icon:before,.progress-document-item .document-icon:after,
 .reward-cost-row i:before,.reward-cost-row i:after{display:none}
-.progress-document-item .document-icon{width:24px;height:24px;background-size:800% 100%}
-.reward-cost-row i{width:18px;height:18px;background-size:800% 100%}
+.progress-document-item .document-icon{width:24px;height:24px}
+.reward-cost-row i{width:18px;height:18px}
+[data-document="financial"] .document-icon,[data-document="financial"].reward-cost-row i{background-image:url(assets/document-icons/accounting.webp?v=1)}
+[data-document="pmc"] .document-icon,[data-document="pmc"].reward-cost-row i{background-image:url(assets/document-icons/pmc-personnel.webp?v=1)}
+[data-document="project"] .document-icon,[data-document="project"].reward-cost-row i{background-image:url(assets/document-icons/project.webp?v=1)}
+[data-document="blueprints"] .document-icon,[data-document="blueprints"].reward-cost-row i{background-image:url(assets/document-icons/blueprints-technical.webp?v=1)}
+[data-document="test"] .document-icon,[data-document="test"].reward-cost-row i{background-image:url(assets/document-icons/test.webp?v=1)}
+[data-document="user"] .document-icon,[data-document="user"].reward-cost-row i{background-image:url(assets/document-icons/user.webp?v=1)}
+[data-document="medical"] .document-icon,[data-document="medical"].reward-cost-row i{background-image:url(assets/document-icons/medical.webp?v=1)}
+[data-document="technical"] .document-icon,[data-document="technical"].reward-cost-row i{background-image:url(assets/document-icons/equipment.webp?v=1)}
 @media(min-width:851px){
   .progress-document-item{grid-template-columns:25px 1fr}
   .progress-document-item .document-icon{width:25px;height:25px}
 }
-
-.progress-document-item:nth-child(1) .document-icon{background-position:0 center}
-.progress-document-item:nth-child(2) .document-icon{background-position:14.2857% center}
-.progress-document-item:nth-child(3) .document-icon{background-position:28.5714% center}
-.progress-document-item:nth-child(4) .document-icon{background-position:42.8571% center}
-.progress-document-item:nth-child(5) .document-icon{background-position:57.1429% center}
-.progress-document-item:nth-child(6) .document-icon{background-position:71.4286% center}
-.progress-document-item:nth-child(7) .document-icon{background-position:85.7143% center}
-.progress-document-item:nth-child(8) .document-icon{background-position:100% center}
-.reward-cost-row[style*="--document-index:0"] i{background-position:0 center}
-.reward-cost-row[style*="--document-index:1"] i{background-position:14.2857% center}
-.reward-cost-row[style*="--document-index:2"] i{background-position:28.5714% center}
-.reward-cost-row[style*="--document-index:3"] i{background-position:42.8571% center}
-.reward-cost-row[style*="--document-index:4"] i{background-position:57.1429% center}
-.reward-cost-row[style*="--document-index:5"] i{background-position:71.4286% center}
-.reward-cost-row[style*="--document-index:6"] i{background-position:85.7143% center}
-.reward-cost-row[style*="--document-index:7"] i{background-position:100% center}
