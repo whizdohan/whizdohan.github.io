@@ -142,7 +142,7 @@ function t(key, variables = {}) {
 async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=11`);
+    const response = await fetch(`locales/${currentLanguage}.json?v=12`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
@@ -156,8 +156,23 @@ async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || nav
   document.querySelector('meta[name="description"]').content = t("meta.description");
   document.querySelectorAll("[data-i18n]").forEach(element => { element.textContent = t(element.dataset.i18n); });
   document.querySelectorAll("[data-i18n-placeholder]").forEach(element => { element.placeholder = t(element.dataset.i18nPlaceholder); });
+  renderSeasonCountdown();
   refreshReportMapOptions();
   if (elements.reportList) await renderReports();
+}
+
+const SEASON_END_DATE = new Date(2026, 11, 7);
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function renderSeasonCountdown() {
+  const element = document.querySelector("#season-countdown");
+  if (!element) return;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const days = Math.ceil((SEASON_END_DATE - today) / DAY_MS);
+  element.textContent = days >= 0 ? t("seasonCountdown.active", { days }) : t("seasonCountdown.ended");
+  element.classList.toggle("urgent", days >= 0 && days <= 7);
+  element.classList.toggle("ended", days < 0);
 }
 
 function defaultOwned() {
@@ -537,6 +552,7 @@ async function init() {
   await loadLanguage();
   renderAll();
   elements.mapFrame.src = mapViewerUrl("factory");
+  setInterval(renderSeasonCountdown, 60 * 60 * 1000);
 }
 
 init();
