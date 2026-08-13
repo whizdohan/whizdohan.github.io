@@ -142,7 +142,7 @@ function t(key, variables = {}) {
 async function loadLanguage(language = localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=10`);
+    const response = await fetch(`locales/${currentLanguage}.json?v=11`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
