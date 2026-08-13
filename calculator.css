@@ -298,7 +298,6 @@ html[lang="ko"] .reward-browser *{
   background-image:url(assets/document-icons.webp?v=1);
   background-repeat:no-repeat;
   background-size:800% 100%;
-  background-position:calc(var(--document-index) * 100% / 7) center;
   box-shadow:0 2px 5px rgba(0,0,0,.7)
 }
 .progress-document-item .document-icon:before,.progress-document-item .document-icon:after,
@@ -309,3 +308,20 @@ html[lang="ko"] .reward-browser *{
   .progress-document-item{grid-template-columns:25px 1fr}
   .progress-document-item .document-icon{width:25px;height:25px}
 }
+
+.progress-document-item:nth-child(1) .document-icon{background-position:0 center}
+.progress-document-item:nth-child(2) .document-icon{background-position:14.2857% center}
+.progress-document-item:nth-child(3) .document-icon{background-position:28.5714% center}
+.progress-document-item:nth-child(4) .document-icon{background-position:42.8571% center}
+.progress-document-item:nth-child(5) .document-icon{background-position:57.1429% center}
+.progress-document-item:nth-child(6) .document-icon{background-position:71.4286% center}
+.progress-document-item:nth-child(7) .document-icon{background-position:85.7143% center}
+.progress-document-item:nth-child(8) .document-icon{background-position:100% center}
+.reward-cost-row[style*="--document-index:0"] i{background-position:0 center}
+.reward-cost-row[style*="--document-index:1"] i{background-position:14.2857% center}
+.reward-cost-row[style*="--document-index:2"] i{background-position:28.5714% center}
+.reward-cost-row[style*="--document-index:3"] i{background-position:42.8571% center}
+.reward-cost-row[style*="--document-index:4"] i{background-position:57.1429% center}
+.reward-cost-row[style*="--document-index:5"] i{background-position:71.4286% center}
+.reward-cost-row[style*="--document-index:6"] i{background-position:85.7143% center}
+.reward-cost-row[style*="--document-index:7"] i{background-position:100% center}
