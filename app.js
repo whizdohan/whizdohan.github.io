@@ -17,10 +17,10 @@ const MAPS=[
 ].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:map.source||`${MAP_SOURCE_ROOT}${map.file}`,sourceLabel:map.sourceLabel||"tarkov.dev"}));
 
 const CATEGORIES={
-  technical:{name:"Technical Documents",required:61,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:71,color:"#bd7469"},
-  project:{name:"Project Files",required:49,color:"#70a0a7"},blueprints:{name:"Blueprints",required:51,color:"#738db5"},
-  test:{name:"Test Documents",required:61,color:"#a08ab4"},user:{name:"User Documents",required:58,color:"#8caa70"},
-  medical:{name:"Medical Documents",required:47,color:"#b06c73"},financial:{name:"Financial Documents",required:103,color:"#b99a62"}
+  technical:{name:"Technical Documents",required:56,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:47,color:"#bd7469"},
+  project:{name:"Project Files",required:49,color:"#70a0a7"},blueprints:{name:"Blueprints",required:54,color:"#738db5"},
+  test:{name:"Test Documents",required:78,color:"#a08ab4"},user:{name:"User Documents",required:59,color:"#8caa70"},
+  medical:{name:"Medical Documents",required:60,color:"#b06c73"},financial:{name:"Financial Documents",required:98,color:"#b99a62"}
 };
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
