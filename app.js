@@ -62,6 +62,7 @@ async function init(){
   leafletMap.attributionControl.setPrefix('<a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>');
   markerLayer=L.layerGroup().addTo(leafletMap);
   leafletMap.on("mousemove",updateCoordinate);
+  leafletMap.on("click",copyCoordinate);
   leafletMap.on("zoomend",keepMapTopAligned);
   leafletMap.scrollWheelZoom.enable();
   updateMap();
@@ -208,11 +209,39 @@ function percentToLatLng(x,y){
   return [activeMap.height*(1-safeY/100),activeMap.width*(safeX/100)];
 }
 
+function coordinateFromLatLng(latlng){
+  const x=clamp(latlng.lng/activeMap.width*100,0,100);
+  const y=clamp((1-latlng.lat/activeMap.height)*100,0,100);
+  return {x,y,coordinate:`X ${x.toFixed(1).padStart(5,"0")} · Y ${y.toFixed(1).padStart(5,"0")}`};
+}
+
 function updateCoordinate(event){
   if(!activeMap)return;
-  const x=clamp(event.latlng.lng/activeMap.width*100,0,100);
-  const y=clamp((1-event.latlng.lat/activeMap.height)*100,0,100);
-  els.coordinate.textContent=`X ${x.toFixed(1).padStart(5,"0")} · Y ${y.toFixed(1).padStart(5,"0")}`;
+  els.coordinate.textContent=coordinateFromLatLng(event.latlng).coordinate;
+}
+
+function fallbackCopy(value){
+  const field=document.createElement("textarea");
+  field.value=value;
+  field.setAttribute("readonly","");
+  field.style.position="fixed";
+  field.style.left="-9999px";
+  document.body.append(field);
+  field.select();
+  const copied=document.execCommand("copy");
+  field.remove();
+  return copied;
+}
+
+async function copyCoordinate(event){
+  if(!activeMap)return;
+  const data=coordinateFromLatLng(event.latlng);
+  els.coordinate.textContent=data.coordinate;
+  try{await navigator.clipboard.writeText(data.coordinate)}
+  catch{fallbackCopy(data.coordinate)}
+  if(embedded)window.parent.postMessage({type:"map-coordinate",map:activeMap.id,...data},location.origin);
+  els.coordinate.textContent=`${data.coordinate} · ${t("mapViewer.coordinateCopied")}`;
+  window.setTimeout(()=>{if(els.coordinate.textContent.includes(t("mapViewer.coordinateCopied")))els.coordinate.textContent=data.coordinate},1600);
 }
 
 function showLoading(){

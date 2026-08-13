@@ -121,7 +121,7 @@ const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
 const LANGUAGE_KEY = "tarkov-tools:language:v1";
 const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
-const MAP_VIEWER_VERSION = "15";
+const MAP_VIEWER_VERSION = "16";
 const REPORT_DB_NAME = "tarkov-location-reports";
 const REPORT_STORE_NAME = "reports";
 const REPORT_PHOTO_LIMIT = 10 * 1024 * 1024;
@@ -538,7 +538,7 @@ window.addEventListener("message", event => {
   if (event.origin !== location.origin || event.source !== elements.mapFrame.contentWindow || event.data?.type !== "map-coordinate") return;
   setReportCoordinate(event.data);
   elements.reportCoordinate.dataset.map = event.data.map;
-  showSiteToast(t("reports.coordinateReady"));
+  copyReportCoordinate();
 });
 
 document.querySelector("#language-select").addEventListener("change", async event => {
