@@ -1,12 +1,12 @@
 const CATEGORIES = {
-  financial: { name: "Financial", total: 98, code: "FIN", color: "#c7a662" },
-  pmc: { name: "PMC Personnel", total: 47, code: "PMC", color: "#b97b70" },
-  project: { name: "Project", total: 49, code: "PRJ", color: "#71a2a3" },
-  blueprints: { name: "Blueprints", total: 54, code: "BLU", color: "#7892ba" },
-  test: { name: "Test", total: 78, code: "TST", color: "#9e8bb2" },
-  user: { name: "User", total: 59, code: "USR", color: "#8faa74" },
-  medical: { name: "Medical", total: 60, code: "MED", color: "#b66f76" },
-  technical: { name: "Technical", total: 56, code: "TEC", color: "#d1ac61" }
+  financial: { name: "Financial", total: 56, code: "FIN", color: "#c7a662" },
+  pmc: { name: "PMC Personnel", total: 57, code: "PMC", color: "#b97b70" },
+  project: { name: "Project", total: 61, code: "PRJ", color: "#71a2a3" },
+  blueprints: { name: "Blueprints", total: 56, code: "BLU", color: "#7892ba" },
+  test: { name: "Test", total: 54, code: "TST", color: "#9e8bb2" },
+  user: { name: "User", total: 87, code: "USR", color: "#8faa74" },
+  medical: { name: "Medical", total: 67, code: "MED", color: "#b66f76" },
+  technical: { name: "Technical", total: 63, code: "TEC", color: "#d1ac61" }
 };
 
 const PAGES = [
@@ -42,50 +42,50 @@ const PAGES = [
     ["Orange Hawaii", { financial: 3, project: 2, blueprints: 1, medical: 2, technical: 2 }],
     ["TarCoins 50", { financial: 1, blueprints: 4, user: 1, technical: 1 }],
     ["Black Division Target", { pmc: 2, user: 1, medical: 2 }],
-    ["Black Division Gear Crate", { test: 3, medical: 1, technical: 2 }],
+    ["Black Division Gear Crate", { test: 3, user: 1, technical: 2 }],
     ["Ferro Concepts FCPC V5 (Black Division)", { project: 3, user: 2, technical: 2 }]
   ]},
   { total: 36, rewards: [
     ["Knyazev", { pmc: 4, test: 2, medical: 3, technical: 4 }],
-    ["O'Connor", { financial: 4, pmc: 3, blueprints: 3, technical: 2 }],
-    ["Howa Type 20 5.56x45", { financial: 6, pmc: 2, project: 2, user: 1 }]
+    ["O'Connor", { pmc: 3, blueprints: 3, user: 4, technical: 2 }],
+    ["Howa Type 20 5.56x45", { pmc: 2, project: 2, user: 1, technical: 6 }]
   ]},
   { total: 45, rewards: [
-    ["Dogtag", { project: 2, user: 5, medical: 3 }],
+    ["Dogtag", { financial: 2, project: 5, user: 3 }],
     ["TarCoins 50", { financial: 4, test: 3, medical: 2 }],
-    ["Scorpion Upper", { financial: 3, blueprints: 3, test: 5, technical: 2 }],
-    ["Scorpion Lower", { pmc: 3, project: 2, test: 5, user: 3 }]
+    ["Scorpion Upper", { financial: 3, blueprints: 3, user: 5, technical: 2 }],
+    ["Scorpion Lower", { pmc: 3, project: 2, blueprints: 5, user: 3 }]
   ]},
   { total: 43, rewards: [
-    ["Black Division Gear Crate", { financial: 2, test: 2, user: 2 }],
-    ["TarCoins 50", { financial: 4, blueprints: 4, test: 5, medical: 1 }],
-    ["White Accent Walls", { pmc: 3, test: 6, user: 2, technical: 2 }],
-    ["Arch", { test: 3, user: 1, medical: 2 }],
-    ["Dome", { project: 1, blueprints: 2, medical: 1 }]
+    ["Black Division Gear Crate", { test: 2, user: 2, medical: 2 }],
+    ["TarCoins 50", { financial: 4, project: 4, test: 5, technical: 1 }],
+    ["White Accent Walls", { pmc: 3, blueprints: 6, user: 2, technical: 2 }],
+    ["Arch", { pmc: 1, project: 3, medical: 2 }],
+    ["Dome", { project: 1, blueprints: 2, test: 1 }]
   ]},
   { total: 50, rewards: [
-    ["Spiritus Systems LV-119 (Black Division V2)", { financial: 4, blueprints: 2, test: 2, medical: 4 }],
-    ["TarCoins 50", { project: 1, user: 3, technical: 2 }],
-    ["Tasmanian Tiger Modular Pack 45 Plus", { financial: 2, project: 2, technical: 5 }],
-    ["Black Division Gear Crate", { project: 2, user: 1, medical: 2 }],
-    ["Server Room", { pmc: 4, blueprints: 2, test: 4, user: 2, technical: 6 }]
+    ["Spiritus Systems LV-119 (Black Division V2)", { blueprints: 2, test: 2, medical: 4, technical: 4 }],
+    ["TarCoins 50", { project: 2, blueprints: 3, technical: 1 }],
+    ["Tasmanian Tiger Modular Pack 45 Plus", { financial: 2, project: 2, user: 5 }],
+    ["Black Division Gear Crate", { project: 1, test: 2, medical: 2 }],
+    ["Server Room", { financial: 4, pmc: 4, blueprints: 2, user: 2, technical: 6 }]
   ]},
   { total: 60, rewards: [
-    ["Anton", { financial: 2, pmc: 6, blueprints: 5, test: 5, medical: 2 }],
-    ["Garrett", { project: 2, test: 6, user: 2, medical: 5, technical: 5 }],
-    ["Black Division Gear Crate", { blueprints: 3, test: 3, technical: 1 }],
-    ["TarCoins 100", { project: 5, user: 2, medical: 4, technical: 2 }]
+    ["Anton", { financial: 2, pmc: 5, test: 6, user: 5, medical: 2 }],
+    ["Garrett", { project: 2, blueprints: 5, test: 6, user: 2, technical: 5 }],
+    ["Black Division Gear Crate", { financial: 3, medical: 3, technical: 1 }],
+    ["TarCoins 100", { pmc: 2, project: 2, user: 5, medical: 4 }]
   ]},
   { total: 65, rewards: [
-    ["Dogtag", { financial: 2, blueprints: 3, test: 2, technical: 4 }],
-    ["TarCoins 150", { financial: 5, project: 3, user: 5, medical: 3 }],
-    ["Knyazev (After Battle)", { financial: 3, pmc: 5, blueprints: 5, test: 3, medical: 3 }],
-    ["O'Connor (After Battle)", { financial: 5, pmc: 3, test: 5, user: 3, medical: 3 }]
+    ["Dogtag", { financial: 2, pmc: 4, test: 2, user: 3 }],
+    ["TarCoins 150", { financial: 5, test: 3, user: 3, medical: 5 }],
+    ["Knyazev (After Battle)", { financial: 3, blueprints: 3, user: 5, medical: 5, technical: 3 }],
+    ["O'Connor (After Battle)", { pmc: 3, test: 5, user: 3, medical: 5, technical: 3 }]
   ]},
   { total: 77, rewards: [
-    ["Norinco QBZ-191 5.8x42", { financial: 29 }],
-    ["Nocturnal Upper", { financial: 2, pmc: 4, project: 5, test: 3, user: 6, medical: 5 }],
-    ["Nocturnal Lower", { financial: 3, project: 5, blueprints: 5, medical: 4, technical: 6 }]
+    ["Norinco QBZ-191 5.8x42", { pmc: 5, project: 7, blueprints: 5, user: 6, medical: 6 }],
+    ["Nocturnal Upper", { financial: 4, pmc: 3, project: 5, test: 1, user: 1, medical: 6, technical: 5 }],
+    ["Nocturnal Lower", { pmc: 5, project: 6, user: 5, medical: 4, technical: 3 }]
   ]}
 ].map((page, pageIndex) => ({
   ...page,
