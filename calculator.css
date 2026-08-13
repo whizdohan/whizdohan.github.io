@@ -289,3 +289,30 @@ html[lang="ko"] .reward-browser *{
 .visitor-widget{position:fixed;right:18px;bottom:18px;z-index:100;display:flex;min-width:80px;min-height:30px;align-items:center;justify-content:flex-end;filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))}
 .visitor-widget a,.visitor-widget img,.visitor-widget iframe{display:block!important;visibility:visible!important;opacity:1!important;max-width:none!important}
 @media(max-width:850px){.visitor-widget{right:10px;bottom:10px}}
+
+
+/* Separate in-game document images: accounting, PMC, project, blueprints/technical, test, user, medical, equipment. */
+.progress-document-item .document-icon,.reward-cost-row i{
+  border:0;
+  background-color:#10231f;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  box-shadow:0 2px 5px rgba(0,0,0,.7)
+}
+.progress-document-item .document-icon:before,.progress-document-item .document-icon:after,
+.reward-cost-row i:before,.reward-cost-row i:after{display:none}
+.progress-document-item .document-icon{width:24px;height:24px}
+.reward-cost-row i{width:18px;height:18px}
+[data-document="financial"] .document-icon,[data-document="financial"].reward-cost-row i{background-image:url(assets/document-icons/accounting.webp?v=1)}
+[data-document="pmc"] .document-icon,[data-document="pmc"].reward-cost-row i{background-image:url(assets/document-icons/pmc-personnel.webp?v=1)}
+[data-document="project"] .document-icon,[data-document="project"].reward-cost-row i{background-image:url(assets/document-icons/project.webp?v=1)}
+[data-document="blueprints"] .document-icon,[data-document="blueprints"].reward-cost-row i{background-image:url(assets/document-icons/blueprints-technical.webp?v=1)}
+[data-document="test"] .document-icon,[data-document="test"].reward-cost-row i{background-image:url(assets/document-icons/test.webp?v=1)}
+[data-document="user"] .document-icon,[data-document="user"].reward-cost-row i{background-image:url(assets/document-icons/user.webp?v=1)}
+[data-document="medical"] .document-icon,[data-document="medical"].reward-cost-row i{background-image:url(assets/document-icons/medical.webp?v=1)}
+[data-document="technical"] .document-icon,[data-document="technical"].reward-cost-row i{background-image:url(assets/document-icons/equipment.webp?v=1)}
+@media(min-width:851px){
+  .progress-document-item{grid-template-columns:25px 1fr}
+  .progress-document-item .document-icon{width:25px;height:25px}
+}
