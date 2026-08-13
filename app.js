@@ -148,11 +148,17 @@ function constrainMapToTop(map,zoom){
   leafletMap.setMaxBounds([[south,0],[map.height,east]]);
 }
 
+function mapFitsVertically(map,zoom){
+  const top=leafletMap.project([map.height,0],zoom);
+  const bottom=leafletMap.project([0,0],zoom);
+  return Math.abs(bottom.y-top.y)<=leafletMap.getSize().y+1;
+}
+
 function keepMapTopAligned(){
   if(!activeBounds||!activeMap)return;
   const zoom=leafletMap.getZoom();
   constrainMapToTop(activeMap,zoom);
-  if(Math.abs(zoom-leafletMap.getMinZoom())<.001)alignMapTopLeft(activeBounds,zoom);
+  if(Math.abs(zoom-leafletMap.getMinZoom())<.001&&mapFitsVertically(activeMap,zoom))alignMapTopLeft(activeBounds,zoom);
 }
 
 function renderMarkers(){
@@ -253,7 +259,7 @@ function bindEvents(){
     leafletMap.setMinZoom(minimumZoom);
     const targetZoom=Math.max(leafletMap.getZoom(),minimumZoom);
     constrainMapToTop(activeMap,targetZoom);
-    if(targetZoom===minimumZoom)alignMapTopLeft(activeBounds,minimumZoom);
+    if(targetZoom===minimumZoom&&mapFitsVertically(activeMap,minimumZoom))alignMapTopLeft(activeBounds,minimumZoom);
   });
   window.addEventListener("message",event=>{
     if(event.origin!==location.origin||event.source!==window.parent)return;
