@@ -289,3 +289,23 @@ html[lang="ko"] .reward-browser *{
 .visitor-widget{position:fixed;right:18px;bottom:18px;z-index:100;display:flex;min-width:80px;min-height:30px;align-items:center;justify-content:flex-end;filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))}
 .visitor-widget a,.visitor-widget img,.visitor-widget iframe{display:block!important;visibility:visible!important;opacity:1!important;max-width:none!important}
 @media(max-width:850px){.visitor-widget{right:10px;bottom:10px}}
+
+
+/* In-game document artwork: accounting, PMC, project, blueprints, test, user, medical, equipment. */
+.progress-document-item .document-icon,.reward-cost-row i{
+  border:0;
+  background-color:#10231f;
+  background-image:url(assets/document-icons.webp?v=1);
+  background-repeat:no-repeat;
+  background-size:800% 100%;
+  background-position:calc(var(--document-index) * 100% / 7) center;
+  box-shadow:0 2px 5px rgba(0,0,0,.7)
+}
+.progress-document-item .document-icon:before,.progress-document-item .document-icon:after,
+.reward-cost-row i:before,.reward-cost-row i:after{display:none}
+.progress-document-item .document-icon{width:24px;height:24px;background-size:800% 100%}
+.reward-cost-row i{width:18px;height:18px;background-size:800% 100%}
+@media(min-width:851px){
+  .progress-document-item{grid-template-columns:25px 1fr}
+  .progress-document-item .document-icon{width:25px;height:25px}
+}
