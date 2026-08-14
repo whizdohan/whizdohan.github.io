@@ -21,8 +21,31 @@
 .contributor-card strong{overflow:hidden;color:#e1e8e4;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
 .contributor-card small{overflow:hidden;color:#798d88;font:700 9px ui-monospace,monospace;text-overflow:ellipsis;white-space:nowrap}
 
-/* The whos.amung.us Tab widget owns its fixed bottom-right placement. */
-.visitor-widget{position:static!important;display:contents!important;min-width:0!important;min-height:0!important;filter:none!important}
+/* Use one identical 81x29 colored visitor widget on desktop and mobile. */
+.visitor-widget{
+  position:fixed!important;
+  right:12px!important;
+  bottom:12px!important;
+  z-index:1000!important;
+  display:flex!important;
+  width:81px!important;
+  min-width:81px!important;
+  height:29px!important;
+  min-height:29px!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))!important
+}
+.visitor-widget a,.visitor-widget img,.visitor-widget iframe{
+  display:block!important;
+  width:81px!important;
+  max-width:81px!important;
+  height:29px!important;
+  max-height:29px!important;
+  visibility:visible!important;
+  opacity:1!important
+}
 
 @media(max-width:850px){
   .contributors-section{width:calc(100% - 16px);padding:13px 12px 14px}
