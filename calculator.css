@@ -196,10 +196,10 @@ footer{font-size:15px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decora
 .map-selector-panel .detail-title{height:24px;min-height:24px;padding:0 8px}
 .map-selector-panel .detail-title h1{font-size:9px;letter-spacing:.06em}
 .map-selector-list{display:grid;gap:5px;padding:10px}
-.map-selector-list button{display:flex;min-height:45px;align-items:center;gap:8px;padding:0 13px;border:1px solid #293f44;background:linear-gradient(90deg,#132429,#0b181c);color:#81928f;text-align:left;font-size:11px;letter-spacing:.04em;cursor:pointer}
+.map-selector-list button{display:flex;min-height:45px;align-items:center;gap:8px;padding:0 10px;border:1px solid #293f44;background:linear-gradient(90deg,#132429,#0b181c);color:#81928f;text-align:left;font-size:11px;letter-spacing:.04em;cursor:pointer}
 .map-choice-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.map-choice-documents{display:inline-flex;flex:0 0 auto;align-items:center;gap:3px;margin-left:auto}
-.map-choice-document-icon{display:block;width:25px;height:25px;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.72))}
+.map-choice-documents{display:inline-flex;flex:0 0 auto;align-items:center;gap:2px;margin-left:0}
+.map-choice-document-icon{display:block;width:17px;height:17px;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.72))}
 .map-selector-list button:hover{border-color:#557378;color:#bdc9c5}
 .map-selector-list button.active{border-color:#65dba5;background:linear-gradient(90deg,rgba(47,140,104,.52),rgba(23,81,61,.35));color:#e2fff1;box-shadow:inset 3px 0 #65dba5}
 .battle-console{grid-template-rows:minmax(650px,calc(100vh - 170px))}
@@ -233,6 +233,8 @@ footer{font-size:15px;gap:14px;flex-wrap:wrap}footer a{color:#8d9e9a;text-decora
   .season-header h1{font-size:14px}
   .map-selector-panel{grid-column:1;grid-row:3}
   .map-selector-list{grid-template-columns:repeat(2,1fr)}
+  .map-choice-document-icon{width:14px;height:14px}
+  .map-choice-documents{gap:1px}
 }
 
 /* Keep adjacent reward cards visually separated, including selected cards. */
