@@ -1,108 +1,16 @@
 {
-  "meta": {
-    "title": "Tarkov Battle Pass Information",
-    "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機"
-  },
-  "header": {
-    "game": "タルコフ",
-    "season": "シーズン1",
-    "battlePass": "バトルパス"
-  },
-  "language": {
-    "label": "言語"
-  },
-  "seasonCountdown": {
-    "active": "終了予定まで D-{days} · 2026.12.07",
-    "ended": "シーズン終了 · 2026.12.07"
-  },
-  "reports": {
-    "externalButton": "お問い合わせ・報告",
-    "button": "位置を報告",
-    "eyebrow": "コミュニティマップ",
-    "title": "報告一覧",
-    "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。",
-    "map": "マップ",
-    "coordinate": "座標",
-    "coordinatePlaceholder": "マップ上の位置をクリック",
-    "copy": "コピー",
-    "photo": "位置画像",
-    "note": "説明（任意）",
-    "notePlaceholder": "ドキュメント位置や目印を説明してください",
-    "save": "報告を保存",
-    "list": "報告一覧",
-    "empty": "このブラウザに保存された報告はありません。",
-    "delete": "報告を削除",
-    "deleteConfirm": "このローカル報告を削除しますか？",
-    "deleted": "報告を削除しました。",
-    "saved": "このブラウザに報告を保存しました。",
-    "saveFailed": "報告を保存できませんでした。",
-    "photoRequired": "位置画像を添付してください。",
-    "photoTooLarge": "画像は10MB以下にしてください。",
-    "clickMapFirst": "先にマップ上の位置をクリックしてください。",
-    "copied": "座標をコピーしました。",
-    "coordinateReady": "座標をコピーして報告に入力しました。"
-  },
-  "map": {
-    "select": "マップ選択"
-  },
-  "maps": {
-    "customs": "カスタム",
-    "groundZero": "グラウンドゼロ",
-    "factory": "ファクトリー",
-    "woods": "ウッズ",
-    "reserve": "リザーブ",
-    "shoreline": "ショアライン",
-    "interchange": "インターチェンジ",
-    "lighthouse": "ライトハウス",
-    "streets": "ストリート・オブ・タルコフ",
-    "laboratory": "ラボ",
-    "icebreaker": "アイスブレーカー",
-    "labyrinth": "ラビリンス"
-  },
-  "progress": {
-    "title": "バトルパス進行度",
-    "documents": "ドキュメント",
-    "selectedDocuments": "選択したドキュメント",
-    "rewardCount": "報酬を{count}個完了"
-  },
-  "autosave": {
-    "label": "自動保存",
-    "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。"
-  },
-  "reward": {
-    "required": "必要",
-    "requiredDocuments": "必要なドキュメント",
-    "requiredDocs": "必要数",
-    "total": "合計",
-    "complete": "完了",
-    "ready": "準備完了"
-  },
-  "categories": {
-    "financial": "財務",
-    "pmc": "PMC人事",
-    "project": "プロジェクト",
-    "blueprints": "設計図",
-    "test": "テスト",
-    "user": "ユーザー",
-    "medical": "医療",
-    "technical": "技術"
-  },
-  "mapViewer": {
-    "locationsVisible": "件の位置を表示",
-    "loading": "ローカルマップ画像を読み込み中",
-    "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。",
-    "unavailable": "インタラクティブマップを利用できません",
-    "loadFailed": "マップを読み込めませんでした",
-    "openSource": "マップ出典を開く",
-    "photoSoon": "位置画像を準備中",
-    "location": "ドキュメント位置",
-    "details": "位置の詳細",
-    "noDetails": "詳細な説明はまだありません。",
-    "imageSoon": "画像を準備中",
-    "coordinateCopied": "座標をコピーしました",
-    "provider": "提供者",
-    "comment": "コメント"
-  },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
+  "header": { "game": "タルコフ", "season": "シーズン1", "battlePass": "バトルパス" },
+  "language": { "label": "言語" },
+  "seasonCountdown": { "active": "終了予定まで D-{days} · 2026.12.07", "ended": "シーズン終了 · 2026.12.07" },
+  "reports": { "externalButton": "お問い合わせ・報告", "button": "位置を報告", "eyebrow": "コミュニティマップ", "title": "報告一覧", "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。", "map": "マップ", "coordinate": "座標", "coordinatePlaceholder": "マップ上の位置をクリック", "copy": "コピー", "photo": "位置画像", "note": "説明（任意）", "notePlaceholder": "ドキュメント位置や目印を説明してください", "save": "報告を保存", "list": "報告一覧", "empty": "このブラウザに保存された報告はありません。", "delete": "報告を削除", "deleteConfirm": "このローカル報告を削除しますか？", "deleted": "報告を削除しました。", "saved": "このブラウザに報告を保存しました。", "saveFailed": "報告を保存できませんでした。", "photoRequired": "位置画像を添付してください。", "photoTooLarge": "画像は10MB以下にしてください。", "clickMapFirst": "先にマップ上の位置をクリックしてください。", "copied": "座標をコピーしました。", "coordinateReady": "座標をコピーして報告に入力しました。" },
+  "map": { "select": "マップ選択" },
+  "maps": { "customs": "カスタム", "groundZero": "グラウンドゼロ", "factory": "ファクトリー", "woods": "ウッズ", "reserve": "リザーブ", "shoreline": "ショアライン", "interchange": "インターチェンジ", "lighthouse": "ライトハウス", "streets": "ストリート・オブ・タルコフ", "laboratory": "ラボ", "icebreaker": "アイスブレーカー", "labyrinth": "ラビリンス" },
+  "progress": { "title": "バトルパス進行度", "documents": "ドキュメント", "selectedDocuments": "選択したドキュメント", "rewardCount": "報酬を{count}個完了" },
+  "autosave": { "label": "自動保存", "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。" },
+  "reward": { "required": "必要", "requiredDocuments": "必要なドキュメント", "requiredDocs": "必要数", "total": "合計", "complete": "完了", "ready": "準備完了" },
+  "categories": { "financial": "財務", "pmc": "PMC人事", "project": "プロジェクト", "blueprints": "設計図", "test": "テスト", "user": "ユーザー", "medical": "医療", "technical": "技術" },
+  "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "ローカルマップ画像を読み込み中", "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ出典を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中", "coordinateCopied": "座標をコピーしました", "provider": "提供者", "comment": "コメント" },
   "footer": {
     "prefix": "非公式ファンサイト · Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· サイト提供",
     "text": "非公式ファンサイト · Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· whizs提供"
