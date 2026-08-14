@@ -190,6 +190,7 @@ function renderMarkers(){
     const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"><img src="${documentIconUrl(item.category)}" alt="" /></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
     const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||label,keyboard:true});
     marker.bindPopup(()=>buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
+    marker.on("mouseover",()=>marker.openPopup());
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
@@ -219,11 +220,19 @@ function buildPhotoPopup(item,category){
   card.append(title);
   const provider=document.createElement("p");
   provider.className="location-popup-provider";
-  provider.innerHTML=`<b>${escapeHtml(t("mapViewer.provider"))}</b><span>${escapeHtml(item.provider||"-")}</span>`;
+  const providerLabel=document.createElement("b");
+  providerLabel.textContent=t("mapViewer.provider");
+  const providerValue=document.createElement("span");
+  providerValue.textContent=item.provider||"-";
+  provider.append(providerLabel,providerValue);
   card.append(provider);
   const comment=document.createElement("p");
   comment.className="location-popup-comment";
-  comment.innerHTML=`<b>${escapeHtml(t("mapViewer.comment"))}</b><span>${escapeHtml(item.comment||"-")}</span>`;
+  const commentLabel=document.createElement("b");
+  commentLabel.textContent=t("mapViewer.comment");
+  const commentValue=document.createElement("span");
+  commentValue.textContent=item.comment||"-";
+  comment.append(commentLabel,commentValue);
   card.append(comment);
   return card;
 }
