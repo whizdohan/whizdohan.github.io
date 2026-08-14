@@ -9,6 +9,17 @@ const CATEGORIES = {
   technical: { name: "Technical", total: 63, code: "TEC", color: "#d1ac61" }
 };
 
+const DOCUMENT_ICON_FILES = {
+  financial: "accounting.webp",
+  pmc: "pmc-personnel.webp",
+  project: "project.webp",
+  blueprints: "blueprints-technical.webp",
+  test: "test.webp",
+  user: "user.webp",
+  medical: "medical.webp",
+  technical: "equipment.webp"
+};
+
 const PAGES = [
   { total: 15, rewards: [
     ["Dogtag", { financial: 1 }],
@@ -235,6 +246,33 @@ function clamp(value, min, max) {
 
 function mapViewerUrl(map) {
   return `document-map/?embedded=1&v=${MAP_VIEWER_VERSION}&map=${encodeURIComponent(map)}&lang=${currentLanguage}`;
+}
+
+function renderMapDocumentSymbols() {
+  const locations = Array.isArray(window.DOCUMENT_LOCATIONS) ? window.DOCUMENT_LOCATIONS : [];
+  elements.mapSelector.querySelectorAll("button[data-map]").forEach(button => {
+    const label = button.textContent.trim();
+    const categories = [...new Set(locations.filter(item => item.map === button.dataset.map).map(item => item.category))];
+    const labelElement = document.createElement("span");
+    labelElement.className = "map-choice-label";
+    labelElement.textContent = label;
+    button.replaceChildren(labelElement);
+    if (!categories.length) return;
+    const symbols = document.createElement("span");
+    symbols.className = "map-choice-documents";
+    symbols.setAttribute("aria-label", categories.map(key => t(`categories.${key}`)).join(", "));
+    categories.forEach(key => {
+      const image = document.createElement("img");
+      image.className = "map-choice-document-icon";
+      image.src = `assets/document-icons/${DOCUMENT_ICON_FILES[key] || DOCUMENT_ICON_FILES.technical}?v=1`;
+      image.alt = "";
+      image.title = t(`categories.${key}`);
+      image.loading = "lazy";
+      image.decoding = "async";
+      symbols.append(image);
+    });
+    button.append(symbols);
+  });
 }
 
 function save() {
@@ -543,6 +581,7 @@ window.addEventListener("message", event => {
 
 document.querySelector("#language-select").addEventListener("change", async event => {
   await loadLanguage(event.target.value);
+  renderMapDocumentSymbols();
   renderAll();
   const selectedMap = elements.mapSelector.querySelector("button.active")?.dataset.map || "factory";
   elements.mapFrame.src = mapViewerUrl(selectedMap);
@@ -550,6 +589,7 @@ document.querySelector("#language-select").addEventListener("change", async even
 
 async function init() {
   await loadLanguage();
+  renderMapDocumentSymbols();
   renderAll();
   elements.mapFrame.src = mapViewerUrl("factory");
   setInterval(renderSeasonCountdown, 60 * 60 * 1000);
