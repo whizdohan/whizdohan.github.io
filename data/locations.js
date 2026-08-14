@@ -32,7 +32,7 @@ window.DOCUMENT_LOCATIONS = [
     title: "기술 문서",
     provider: "위즈",
     comment: "천막 아래 나무 상자 위에 놓여 있습니다.",
-    previewImage: "../assets/locations/woods-technical-0611-0817-thumb.webp",
+    previewImage: "../assets/locations/woods-technical-0611-0817.webp",
     detailImage: "../assets/locations/woods-technical-0611-0817.webp"
   },
   {
@@ -44,7 +44,7 @@ window.DOCUMENT_LOCATIONS = [
     title: "설계도",
     provider: "위즈",
     comment: "금속 캐비닛 위에 놓여 있습니다.",
-    previewImage: "../assets/locations/factory-blueprints-0688-0461-thumb.webp",
+    previewImage: "../assets/locations/factory-blueprints-0688-0461.webp",
     detailImage: "../assets/locations/factory-blueprints-0688-0461.webp"
   },
   {
