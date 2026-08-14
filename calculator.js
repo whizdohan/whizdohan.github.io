@@ -249,29 +249,27 @@ function mapViewerUrl(map) {
 }
 
 function renderMapDocumentSymbols() {
-  const locations = Array.isArray(window.DOCUMENT_LOCATIONS) ? window.DOCUMENT_LOCATIONS : [];
   elements.mapSelector.querySelectorAll("button[data-map]").forEach(button => {
-    const label = button.textContent.trim();
-    const categories = [...new Set(locations.filter(item => item.map === button.dataset.map).map(item => item.category))];
+    const label = button.querySelector(".map-choice-label")?.textContent.trim() || button.textContent.trim();
     const labelElement = document.createElement("span");
     labelElement.className = "map-choice-label";
     labelElement.textContent = label;
-    button.replaceChildren(labelElement);
-    if (!categories.length) return;
+
     const symbols = document.createElement("span");
     symbols.className = "map-choice-documents";
-    symbols.setAttribute("aria-label", categories.map(key => t(`categories.${key}`)).join(", "));
-    categories.forEach(key => {
+    symbols.setAttribute("aria-label", categoryKeys.map(key => t(`categories.${key}`)).join(", "));
+    categoryKeys.forEach(key => {
       const image = document.createElement("img");
       image.className = "map-choice-document-icon";
-      image.src = `assets/document-icons/${DOCUMENT_ICON_FILES[key] || DOCUMENT_ICON_FILES.technical}?v=1`;
+      image.src = `assets/document-icons/${DOCUMENT_ICON_FILES[key]}?v=1`;
       image.alt = "";
       image.title = t(`categories.${key}`);
       image.loading = "lazy";
       image.decoding = "async";
       symbols.append(image);
     });
-    button.append(symbols);
+
+    button.replaceChildren(symbols, labelElement);
   });
 }
 
