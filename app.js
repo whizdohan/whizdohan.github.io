@@ -16,11 +16,12 @@ const MAPS=[
   {id:"labyrinth",name:"The Labyrinth",code:"LBY",file:"labyrinth-2d.jpg",width:2400,height:2160,source:"https://reemr.se/labyrinth/",sourceLabel:"RE3MR"}
 ].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:map.source||`${MAP_SOURCE_ROOT}${map.file}`,sourceLabel:map.sourceLabel||"tarkov.dev"}));
 
+const DOCUMENT_ICON_ROOT="../assets/document-icons/";
 const CATEGORIES={
-  technical:{name:"Technical Documents",required:56,color:"#d3a759"},pmc:{name:"PMC Personnel Files",required:47,color:"#bd7469"},
-  project:{name:"Project Files",required:49,color:"#70a0a7"},blueprints:{name:"Blueprints",required:54,color:"#738db5"},
-  test:{name:"Test Documents",required:78,color:"#a08ab4"},user:{name:"User Documents",required:59,color:"#8caa70"},
-  medical:{name:"Medical Documents",required:60,color:"#b06c73"},financial:{name:"Financial Documents",required:98,color:"#b99a62"}
+  technical:{name:"Technical Documents",required:56,color:"#d3a759",icon:"equipment.webp"},pmc:{name:"PMC Personnel Files",required:47,color:"#bd7469",icon:"pmc-personnel.webp"},
+  project:{name:"Project Files",required:49,color:"#70a0a7",icon:"project.webp"},blueprints:{name:"Blueprints",required:54,color:"#738db5",icon:"blueprints-technical.webp"},
+  test:{name:"Test Documents",required:78,color:"#a08ab4",icon:"test.webp"},user:{name:"User Documents",required:59,color:"#8caa70",icon:"user.webp"},
+  medical:{name:"Medical Documents",required:60,color:"#b06c73",icon:"medical.webp"},financial:{name:"Financial Documents",required:98,color:"#b99a62",icon:"accounting.webp"}
 };
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
@@ -40,7 +41,8 @@ const els={
   visibleCount:document.querySelector("#visible-count"),coordinate:document.querySelector("#coordinate"),
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
-  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback")
+  mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback"),
+  mapDocumentFilters:document.querySelector("#map-document-filters")
 };
 
 let leafletMap;
@@ -162,17 +164,35 @@ function keepMapTopAligned(){
   if(Math.abs(zoom-leafletMap.getMinZoom())<.001&&mapFitsVertically(activeMap,zoom))alignMapTopLeft(activeBounds,zoom);
 }
 
+function documentIconUrl(categoryKey){
+  return `${DOCUMENT_ICON_ROOT}${(CATEGORIES[categoryKey]||CATEGORIES.technical).icon}?v=1`;
+}
+
+function renderMapDocumentFilters(){
+  if(!els.mapDocumentFilters||!activeMap)return;
+  const available=Object.keys(CATEGORIES).filter(key=>locations.some(item=>item.map===activeMap.id&&item.category===key));
+  els.mapDocumentFilters.hidden=!available.length;
+  els.mapDocumentFilters.innerHTML=available.map(key=>{
+    const category=CATEGORIES[key];
+    const enabled=state.filters.includes(key);
+    const label=t(`categories.${key}`)||category.name;
+    return `<button type="button" class="map-document-filter ${enabled?"active":""}" data-map-filter="${key}" aria-pressed="${enabled}" title="${label}"><img src="${documentIconUrl(key)}" alt="" /><span>${label}</span></button>`;
+  }).join("");
+}
+
 function renderMarkers(){
   if(!markerLayer||!activeMap)return;
   markerLayer.clearLayers();
   const filtered=locations.filter(item=>item.map===activeMap.id&&state.filters.includes(item.category));
   filtered.forEach(item=>{
     const category=CATEGORIES[item.category]||CATEGORIES.technical;
-    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
-    const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||t("mapViewer.location"),keyboard:true});
+    const label=t(`categories.${item.category}`)||category.name;
+    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"><img src="${documentIconUrl(item.category)}" alt="" /></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
+    const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||label,keyboard:true});
     marker.bindPopup(buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.addTo(markerLayer);
   });
+  renderMapDocumentFilters();
   els.visibleCount.textContent=`${filtered.length} ${t("mapViewer.locationsVisible")}`;
 }
 
@@ -264,7 +284,9 @@ function openDetail(id){
   const category=CATEGORIES[item.category];
   document.querySelector("#detail-category").textContent=t(`categories.${item.category}`)||category?.name||t("mapViewer.location");
   document.querySelector("#detail-title").textContent=item.title||t("mapViewer.details");
-  document.querySelector("#detail-description").textContent=item.description||t("mapViewer.noDetails");
+  const detailDescription=document.querySelector("#detail-description");
+  detailDescription.textContent=item.description||"";
+  detailDescription.hidden=!item.description;
   const image=item.detailImage||item.previewImage;
   const container=document.querySelector("#detail-image");
   container.replaceChildren();
@@ -276,6 +298,7 @@ function openDetail(id){
 function bindEvents(){
   els.mapSelect.addEventListener("change",event=>{state.map=event.target.value;updateMap();closeSidebar()});
   els.categoryList.addEventListener("change",event=>{const key=event.target.value;state.filters=event.target.checked?[...new Set([...state.filters,key])]:state.filters.filter(item=>item!==key);renderMarkers()});
+  els.mapDocumentFilters.addEventListener("click",event=>{const button=event.target.closest("[data-map-filter]");if(!button)return;const key=button.dataset.mapFilter;state.filters=state.filters.includes(key)?state.filters.filter(item=>item!==key):[...state.filters,key];renderCategories();renderMarkers()});
   document.querySelector("#toggle-all").addEventListener("click",event=>{const allEnabled=state.filters.length===Object.keys(CATEGORIES).length;state.filters=allEnabled?[]:Object.keys(CATEGORIES);renderCategories();renderMarkers();event.currentTarget.textContent=allEnabled?"SELECT ALL":"CLEAR ALL"});
   document.querySelector("#detail-close").addEventListener("click",()=>els.detailDialog.close());
   els.menuButton.addEventListener("click",()=>{const open=!els.sidebar.classList.contains("open");els.sidebar.classList.toggle("open",open);els.backdrop.classList.toggle("open",open);els.menuButton.setAttribute("aria-expanded",String(open))});

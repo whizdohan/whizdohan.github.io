@@ -18,7 +18,6 @@ window.DOCUMENT_LOCATIONS = [
     x: 60.0,
     y: 80.8,
     title: "재정 문서",
-    description: "삼림 X 060.0 · Y 080.8",
     previewImage: "../assets/locations/woods-financial-060-081.webp",
     detailImage: "../assets/locations/woods-financial-060-081.webp"
   }
