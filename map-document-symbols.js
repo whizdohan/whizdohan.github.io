@@ -8,9 +8,9 @@ const MAP_DOCUMENT_CATEGORIES = {
   interchange: ["financial", "blueprints"],
   lighthouse: ["pmc", "technical"],
   streets: ["user", "financial"],
-  laboratory: ["user", "medical"],
+  laboratory: ["medical", "user"],
   icebreaker: ["pmc", "test"],
-  labyrinth: ["blueprints", "medical"]
+  labyrinth: ["medical", "blueprints"]
 };
 
 renderMapDocumentSymbols = function renderMapDocumentSymbolsByMap() {
