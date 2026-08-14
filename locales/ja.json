@@ -10,7 +10,7 @@
   "autosave": { "label": "自動保存", "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。" },
   "reward": { "required": "必要", "requiredDocuments": "必要なドキュメント", "requiredDocs": "必要数", "total": "合計", "complete": "完了", "ready": "準備完了" },
   "categories": { "financial": "財務", "pmc": "PMC人事", "project": "プロジェクト", "blueprints": "設計図", "test": "テスト", "user": "ユーザー", "medical": "医療", "technical": "技術" },
-  "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "ローカルマップ画像を読み込み中", "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ出典を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中", "coordinateCopied": "座標をコピーしました" },
+  "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "ローカルマップ画像を読み込み中", "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ出典を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中", "coordinateCopied": "座標をコピーしました", "provider": "提供者", "comment": "コメント" },
   "footer": {
     "prefix": "非公式ファンサイト · Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· サイト提供",
     "text": "非公式ファンサイト · Battlestate Gamesとは関係ありません（Escape from Tarkovの商標およびゲーム資産はBattlestate Gamesに帰属します）· whizs提供"
