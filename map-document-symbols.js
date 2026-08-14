@@ -3,11 +3,11 @@ const MAP_DOCUMENT_CATEGORIES = {
   "ground-zero": ["user", "medical"],
   factory: ["project", "blueprints"],
   woods: ["test", "technical"],
-  reserve: ["pmc", "project"],
+  reserve: ["project", "pmc"],
   shoreline: ["test", "technical"],
   interchange: ["financial", "blueprints"],
   lighthouse: ["pmc", "technical"],
-  streets: ["financial", "user"],
+  streets: ["user", "financial"],
   laboratory: ["user", "medical"],
   icebreaker: ["pmc", "test"],
   labyrinth: ["blueprints", "medical"]
