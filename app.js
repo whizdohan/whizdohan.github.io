@@ -189,7 +189,7 @@ function renderMarkers(){
     const label=t(`categories.${item.category}`)||category.name;
     const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"><img src="${documentIconUrl(item.category)}" alt="" /></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
     const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||label,keyboard:true});
-    marker.bindPopup(buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
+    marker.bindPopup(()=>buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
@@ -199,15 +199,12 @@ function renderMarkers(){
 function buildPhotoPopup(item,category){
   const card=document.createElement("article");
   card.className="location-popup-card";
-  const label=document.createElement("small");
-  label.textContent=t(`categories.${item.category}`)||category.name;
-  label.style.setProperty("--popup-color",category.color);
-  card.append(label);
   if(item.previewImage){
     const image=document.createElement("img");
     image.src=safeImageUrl(item.previewImage);
     image.alt=item.title?`${item.title} location`:"Document location";
     image.loading="lazy";
+    image.decoding="async";
     image.addEventListener("click",()=>openDetail(item.id));
     card.append(image);
   }else{
@@ -217,9 +214,17 @@ function buildPhotoPopup(item,category){
     card.append(placeholder);
   }
   const title=document.createElement("strong");
+  title.className="location-popup-title";
   title.textContent=item.title||t("mapViewer.location");
   card.append(title);
-  if(item.description){const copy=document.createElement("p");copy.textContent=item.description;card.append(copy)}
+  const provider=document.createElement("p");
+  provider.className="location-popup-provider";
+  provider.innerHTML=`<b>${escapeHtml(t("mapViewer.provider"))}</b><span>${escapeHtml(item.provider||"-")}</span>`;
+  card.append(provider);
+  const comment=document.createElement("p");
+  comment.className="location-popup-comment";
+  comment.innerHTML=`<b>${escapeHtml(t("mapViewer.comment"))}</b><span>${escapeHtml(item.comment||"-")}</span>`;
+  card.append(comment);
   return card;
 }
 

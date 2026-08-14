@@ -1,9 +1,9 @@
 /*
  * Add only verified locations to the array below.
  * x and y are percentage coordinates from 0 to 100 across the map.
- * previewImage and detailImage may be omitted when no image is available.
- * Clicking a marker opens previewImage in a Leaflet photo overlay. The larger
- * detailImage is used by the optional details dialog.
+ * provider and comment are displayed with the document name in the marker popup.
+ * previewImage should be a small thumbnail for fast popup loading. detailImage
+ * is the larger image used by the optional details dialog.
  *
  * Example:
  * { id: "factory-001", map: "factory", category: "technical", x: 42.5, y: 61.2,
@@ -18,7 +18,9 @@ window.DOCUMENT_LOCATIONS = [
     x: 60.0,
     y: 80.8,
     title: "재정 문서",
-    previewImage: "../assets/locations/woods-financial-060-081.webp",
+    provider: "위즈",
+    comment: "캠프 내부 바닥에 놓여 있습니다.",
+    previewImage: "../assets/locations/woods-financial-060-081-thumb.webp",
     detailImage: "../assets/locations/woods-financial-060-081.webp"
   }
 ];

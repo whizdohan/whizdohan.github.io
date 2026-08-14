@@ -3,12 +3,62 @@
     "title": "Tarkov Battle Pass Information",
     "description": "Document calculator for Escape from Tarkov Battle Pass rewards"
   },
-  "header": { "game": "TARKOV", "season": "SEASON 1", "battlePass": "BATTLE PASS" },
-  "language": { "label": "LANGUAGE" },
-  "seasonCountdown": { "active": "EST. END D-{days} · 2026.12.07", "ended": "SEASON ENDED · 2026.12.07" },
-  "reports": { "externalButton": "CONTACT & REPORT", "button": "REPORT LOCATION", "eyebrow": "COMMUNITY MAP", "title": "LOCATION REPORTS", "intro": "Click the map to copy coordinates and fill them here automatically. Reports and photos are saved only in this browser.", "map": "MAP", "coordinate": "COORDINATES", "coordinatePlaceholder": "Click a position on the map", "copy": "COPY", "photo": "LOCATION PHOTO", "note": "NOTE (OPTIONAL)", "notePlaceholder": "Describe the document location or landmark", "save": "SAVE REPORT", "list": "REPORT LIST", "empty": "No saved reports in this browser yet.", "delete": "Delete report", "deleteConfirm": "Delete this local report?", "deleted": "Report deleted.", "saved": "Report saved in this browser.", "saveFailed": "The report could not be saved.", "photoRequired": "Please attach a location photo.", "photoTooLarge": "Photos must be 10 MB or smaller.", "clickMapFirst": "Click a location on the map first.", "copied": "Coordinates copied.", "coordinateReady": "Coordinates copied and added to the report." },
-  "map": { "select": "SELECT MAP" },
-  "maps": { "customs": "Customs", "groundZero": "Ground Zero", "factory": "Factory", "woods": "Woods", "reserve": "Reserve", "shoreline": "Shoreline", "interchange": "Interchange", "lighthouse": "Lighthouse", "streets": "Streets of Tarkov", "laboratory": "The Lab", "icebreaker": "Icebreaker", "labyrinth": "The Labyrinth" },
+  "header": {
+    "game": "TARKOV",
+    "season": "SEASON 1",
+    "battlePass": "BATTLE PASS"
+  },
+  "language": {
+    "label": "LANGUAGE"
+  },
+  "seasonCountdown": {
+    "active": "EST. END D-{days} · 2026.12.07",
+    "ended": "SEASON ENDED · 2026.12.07"
+  },
+  "reports": {
+    "externalButton": "CONTACT & REPORT",
+    "button": "REPORT LOCATION",
+    "eyebrow": "COMMUNITY MAP",
+    "title": "LOCATION REPORTS",
+    "intro": "Click the map to copy coordinates and fill them here automatically. Reports and photos are saved only in this browser.",
+    "map": "MAP",
+    "coordinate": "COORDINATES",
+    "coordinatePlaceholder": "Click a position on the map",
+    "copy": "COPY",
+    "photo": "LOCATION PHOTO",
+    "note": "NOTE (OPTIONAL)",
+    "notePlaceholder": "Describe the document location or landmark",
+    "save": "SAVE REPORT",
+    "list": "REPORT LIST",
+    "empty": "No saved reports in this browser yet.",
+    "delete": "Delete report",
+    "deleteConfirm": "Delete this local report?",
+    "deleted": "Report deleted.",
+    "saved": "Report saved in this browser.",
+    "saveFailed": "The report could not be saved.",
+    "photoRequired": "Please attach a location photo.",
+    "photoTooLarge": "Photos must be 10 MB or smaller.",
+    "clickMapFirst": "Click a location on the map first.",
+    "copied": "Coordinates copied.",
+    "coordinateReady": "Coordinates copied and added to the report."
+  },
+  "map": {
+    "select": "SELECT MAP"
+  },
+  "maps": {
+    "customs": "Customs",
+    "groundZero": "Ground Zero",
+    "factory": "Factory",
+    "woods": "Woods",
+    "reserve": "Reserve",
+    "shoreline": "Shoreline",
+    "interchange": "Interchange",
+    "lighthouse": "Lighthouse",
+    "streets": "Streets of Tarkov",
+    "laboratory": "The Lab",
+    "icebreaker": "Icebreaker",
+    "labyrinth": "The Labyrinth"
+  },
   "nav": {
     "battlePass": "BATTLE PASS",
     "seasonalRewards": "SEASONAL REWARDS",
@@ -16,14 +66,21 @@
     "map": "DOCUMENT MAP",
     "back": "BACK"
   },
-  "panel": { "rewardList": "REWARD LIST" },
+  "panel": {
+    "rewardList": "REWARD LIST"
+  },
   "detail": {
     "collectDocuments": "Collect and submit documents",
     "markComplete": "MARK COMPLETE",
     "markIncomplete": "MARK INCOMPLETE"
   },
-  "documents": { "inventory": "DOCUMENTS", "remaining": "REMAINING DOCUMENTS" },
-  "hero": { "description": "Mark completed rewards to subtract their document costs and track what remains." },
+  "documents": {
+    "inventory": "DOCUMENTS",
+    "remaining": "REMAINING DOCUMENTS"
+  },
+  "hero": {
+    "description": "Mark completed rewards to subtract their document costs and track what remains."
+  },
   "progress": {
     "title": "BATTLE PASS PROGRESS",
     "documents": "DOCUMENTS",
@@ -65,7 +122,14 @@
     "title": "PAGE UNLOCK COSTS",
     "total": "12 pages · 501 documents total"
   },
-  "reward": { "required": "REQUIRED", "requiredDocuments": "REQUIRED DOCUMENTS", "requiredDocs": "REQUIRED DOCS", "total": "TOTAL", "complete": "COMPLETE", "ready": "READY" },
+  "reward": {
+    "required": "REQUIRED",
+    "requiredDocuments": "REQUIRED DOCUMENTS",
+    "requiredDocs": "REQUIRED DOCS",
+    "total": "TOTAL",
+    "complete": "COMPLETE",
+    "ready": "READY"
+  },
   "categories": {
     "financial": "Financial",
     "pmc": "PMC Personnel",
@@ -76,7 +140,22 @@
     "medical": "Medical",
     "technical": "Technical"
   },
-  "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING LOCAL MAP IMAGE", "loadingCopy": "The local interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP SOURCE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON", "coordinateCopied": "COORDINATES COPIED" },
+  "mapViewer": {
+    "locationsVisible": "LOCATIONS VISIBLE",
+    "loading": "LOADING LOCAL MAP IMAGE",
+    "loadingCopy": "The local interactive map may take a moment to appear.",
+    "unavailable": "INTERACTIVE MAP UNAVAILABLE",
+    "loadFailed": "MAP COULD NOT BE LOADED",
+    "openSource": "OPEN MAP SOURCE",
+    "photoSoon": "LOCATION PHOTO COMING SOON",
+    "location": "Document location",
+    "details": "LOCATION DETAILS",
+    "noDetails": "No detailed description is available yet.",
+    "imageSoon": "IMAGE COMING SOON",
+    "coordinateCopied": "COORDINATES COPIED",
+    "provider": "Provider",
+    "comment": "Comment"
+  },
   "footer": {
     "prefix": "Unofficial fan site · Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by",
     "text": "Unofficial fan site · Not affiliated with Battlestate Games (Escape from Tarkov trademarks and game assets belong to Battlestate Games) · Site provided by whizs"
