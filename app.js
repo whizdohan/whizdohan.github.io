@@ -42,7 +42,7 @@ const els={
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
   mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback"),
-  mapDocumentFilters:document.querySelector("#map-document-filters"),mapDocumentCount:document.querySelector("#map-document-count")
+  mapDocumentFilters:document.querySelector("#map-document-filters")
 };
 
 let leafletMap;
@@ -176,15 +176,9 @@ function renderMapDocumentFilters(){
     const category=CATEGORIES[key];
     const enabled=state.filters.includes(key);
     const label=t(`categories.${key}`)||category.name;
-    return `<button type="button" class="map-document-filter ${enabled?"active":""}" data-map-filter="${key}" aria-pressed="${enabled}" title="${label}"><img src="${documentIconUrl(key)}" alt="" /><span>${label}</span></button>`;
+    const markerCount=new Set(locations.filter(item=>item.map===activeMap.id&&item.category===key).map(item=>`${Number(item.x).toFixed(3)}:${Number(item.y).toFixed(3)}`)).size;
+    return `<button type="button" class="map-document-filter ${enabled?"active":""}" data-map-filter="${key}" aria-pressed="${enabled}" title="${label}: ${markerCount}"><img src="${documentIconUrl(key)}" alt="" /><span>${label}</span><b>${markerCount}</b></button>`;
   }).join("");
-}
-
-function renderMapDocumentCount(){
-  if(!els.mapDocumentCount||!activeMap)return;
-  const count=locations.filter(item=>item.map===activeMap.id).length;
-  els.mapDocumentCount.hidden=!count;
-  els.mapDocumentCount.textContent=`${t("progress.documents")}: ${count}`;
 }
 
 function renderMarkers(){
@@ -217,7 +211,6 @@ function renderMarkers(){
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
-  renderMapDocumentCount();
   els.visibleCount.textContent=`${visibleLocationCount} ${t("mapViewer.locationsVisible")}`;
 }
 
