@@ -102,5 +102,17 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/woods-documents-0778-0408-thumb.webp",
     detailImage: "../assets/locations/woods-documents-0778-0408.webp"
+  },
+  {
+    id: "woods-test-0815-0390",
+    map: "woods",
+    category: "test",
+    x: 81.5,
+    y: 39.0,
+    title: "시험 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0815-0390-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0815-0390.webp"
   }
 ];
