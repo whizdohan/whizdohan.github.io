@@ -826,5 +826,77 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/woods-technical-0566-0468-thumb.webp",
     detailImage: "../assets/locations/woods-technical-0566-0468.webp"
+  },
+  {
+    id: "factory-project-0642-0253",
+    map: "factory",
+    category: "project",
+    x: 64.2,
+    y: 25.3,
+    title: "Project Files",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0642-0253-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0642-0253.webp"
+  },
+  {
+    id: "factory-project-0678-0268",
+    map: "factory",
+    category: "project",
+    x: 67.8,
+    y: 26.8,
+    title: "Project Files",
+    provider: "whizs",
+    comment: "",
+    previewImage: "",
+    detailImage: ""
+  },
+  {
+    id: "factory-project-0060-0326",
+    map: "factory",
+    category: "project",
+    x: 6.0,
+    y: 32.6,
+    title: "Project Files",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0060-0326-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0060-0326.webp"
+  },
+  {
+    id: "woods-technical-0510-0301",
+    map: "woods",
+    category: "technical",
+    x: 51.0,
+    y: 30.1,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0510-0301-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0510-0301.webp"
+  },
+  {
+    id: "woods-test-0276-0358",
+    map: "woods",
+    category: "test",
+    x: 27.6,
+    y: 35.8,
+    title: "Test Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0276-0358-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0276-0358.webp"
+  },
+  {
+    id: "woods-test-0281-0353",
+    map: "woods",
+    category: "test",
+    x: 28.1,
+    y: 35.3,
+    title: "Test Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "",
+    detailImage: ""
   }
 ];
