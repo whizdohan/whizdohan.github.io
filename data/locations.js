@@ -164,5 +164,25 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/factory-documents-0536-0304-thumb.webp",
     detailImage: "../assets/locations/factory-documents-0536-0304.webp"
+  },
+  {
+    id: "woods-test-0779-0805",
+    map: "woods",
+    category: "test",
+    x: 77.9,
+    y: 80.5,
+    title: "시험 문서",
+    provider: "위즈",
+    comment: ""
+  },
+  {
+    id: "woods-technical-0779-0805",
+    map: "woods",
+    category: "technical",
+    x: 77.9,
+    y: 80.5,
+    title: "기술 문서",
+    provider: "위즈",
+    comment: ""
   }
 ];
