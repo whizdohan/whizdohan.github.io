@@ -12,14 +12,14 @@
  */
 window.DOCUMENT_LOCATIONS = [
   {
-    id: "woods-financial-060-081",
+    id: "woods-test-060-081",
     map: "woods",
-    category: "financial",
+    category: "test",
     x: 60.0,
     y: 80.8,
-    title: "재정 문서",
+    title: "시험 문서",
     provider: "위즈",
-    comment: "캠프 내부 바닥에 놓여 있습니다.",
+    comment: "",
     previewImage: "../assets/locations/woods-financial-060-081-thumb.webp",
     detailImage: "../assets/locations/woods-financial-060-081.webp"
   },
@@ -31,7 +31,7 @@ window.DOCUMENT_LOCATIONS = [
     y: 81.7,
     title: "기술 문서",
     provider: "위즈",
-    comment: "천막 아래 나무 상자 위에 놓여 있습니다.",
+    comment: "",
     previewImage: "../assets/locations/woods-technical-0611-0817.webp",
     detailImage: "../assets/locations/woods-technical-0611-0817.webp"
   },
@@ -43,9 +43,21 @@ window.DOCUMENT_LOCATIONS = [
     y: 46.1,
     title: "설계도",
     provider: "위즈",
-    comment: "금속 캐비닛 위에 놓여 있습니다.",
+    comment: "",
     previewImage: "../assets/locations/factory-blueprints-0688-0461.webp",
     detailImage: "../assets/locations/factory-blueprints-0688-0461.webp"
+  },
+  {
+    id: "factory-blueprints-0056-0326",
+    map: "factory",
+    category: "blueprints",
+    x: 5.6,
+    y: 32.6,
+    title: "설계도",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-blueprints-0056-0326-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0056-0326.webp"
   },
   {
     id: "factory-project-0055-0361",
@@ -55,16 +67,52 @@ window.DOCUMENT_LOCATIONS = [
     y: 36.1,
     title: "프로젝트 문서",
     provider: "위즈",
-    comment: "지게차 옆 창가 턱 위에 놓여 있습니다."
+    comment: ""
   },
   {
-    id: "reserve-pmc-0296-0323",
+    id: "reserve-pmc-0328-0364",
     map: "reserve",
     category: "pmc",
-    x: 29.6,
-    y: 32.3,
+    x: 32.8,
+    y: 36.4,
     title: "PMC 인사 문서",
     provider: "위즈",
-    comment: "콘크리트 방벽 옆 상자 위에 놓여 있습니다."
+    comment: ""
+  },
+  {
+    id: "woods-test-0778-0408",
+    map: "woods",
+    category: "test",
+    x: 77.8,
+    y: 40.8,
+    title: "시험 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-documents-0778-0408-thumb.webp",
+    detailImage: "../assets/locations/woods-documents-0778-0408.webp"
+  },
+  {
+    id: "woods-technical-0778-0408",
+    map: "woods",
+    category: "technical",
+    x: 77.8,
+    y: 40.8,
+    title: "기술 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-documents-0778-0408-thumb.webp",
+    detailImage: "../assets/locations/woods-documents-0778-0408.webp"
+  },
+  {
+    id: "woods-test-0815-0390",
+    map: "woods",
+    category: "test",
+    x: 81.5,
+    y: 39.0,
+    title: "시험 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0815-0390-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0815-0390.webp"
   }
 ];
