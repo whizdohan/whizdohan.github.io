@@ -231,7 +231,7 @@ function buildPhotoPopup(item,category){
   const commentLabel=document.createElement("b");
   commentLabel.textContent=t("mapViewer.comment");
   const commentValue=document.createElement("span");
-  commentValue.textContent=item.comment||"-";
+  commentValue.textContent=item.comment||"";
   comment.append(commentLabel,commentValue);
   card.append(comment);
   return card;
