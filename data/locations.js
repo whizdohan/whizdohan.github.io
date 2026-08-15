@@ -60,12 +60,12 @@ window.DOCUMENT_LOCATIONS = [
     detailImage: "../assets/locations/factory-blueprints-0055-0326.webp"
   },
   {
-    id: "factory-project-0060-0361",
+    id: "factory-blueprints-0060-0361",
     map: "factory",
-    category: "project",
+    category: "blueprints",
     x: 6.0,
     y: 36.1,
-    title: "프로젝트 문서",
+    title: "설계도",
     provider: "whizs",
     comment: "",
     previewImage: "../assets/locations/factory-project-0054-0361-thumb.webp",
