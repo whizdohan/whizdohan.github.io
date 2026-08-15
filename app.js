@@ -42,7 +42,7 @@ const els={
   detailDialog:document.querySelector("#detail-dialog"),sidebar:document.querySelector("#sidebar"),
   backdrop:document.querySelector("#sidebar-backdrop"),menuButton:document.querySelector("#menu-button"),
   mapSource:document.querySelector("#map-source"),fallbackImage:document.querySelector("#map-image-fallback"),
-  mapDocumentFilters:document.querySelector("#map-document-filters")
+  mapDocumentFilters:document.querySelector("#map-document-filters"),mapDocumentCount:document.querySelector("#map-document-count")
 };
 
 let leafletMap;
@@ -180,6 +180,13 @@ function renderMapDocumentFilters(){
   }).join("");
 }
 
+function renderMapDocumentCount(){
+  if(!els.mapDocumentCount||!activeMap)return;
+  const count=locations.filter(item=>item.map===activeMap.id).length;
+  els.mapDocumentCount.hidden=!count;
+  els.mapDocumentCount.textContent=`${t("progress.documents")}: ${count}`;
+}
+
 function renderMarkers(){
   if(!markerLayer||!activeMap)return;
   markerLayer.clearLayers();
@@ -210,6 +217,7 @@ function renderMarkers(){
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
+  renderMapDocumentCount();
   els.visibleCount.textContent=`${visibleLocationCount} ${t("mapViewer.locationsVisible")}`;
 }
 
