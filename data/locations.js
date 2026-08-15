@@ -48,26 +48,28 @@ window.DOCUMENT_LOCATIONS = [
     detailImage: "../assets/locations/factory-blueprints-0688-0461.webp"
   },
   {
-    id: "factory-blueprints-0056-0326",
+    id: "factory-blueprints-0055-0326",
     map: "factory",
     category: "blueprints",
-    x: 5.6,
+    x: 5.5,
     y: 32.6,
     title: "설계도",
     provider: "위즈",
     comment: "",
-    previewImage: "../assets/locations/factory-blueprints-0056-0326-thumb.webp",
-    detailImage: "../assets/locations/factory-blueprints-0056-0326.webp"
+    previewImage: "../assets/locations/factory-blueprints-0055-0326-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0055-0326.webp"
   },
   {
-    id: "factory-project-0055-0361",
+    id: "factory-blueprints-0059-0361",
     map: "factory",
-    category: "project",
-    x: 5.5,
+    category: "blueprints",
+    x: 5.9,
     y: 36.1,
-    title: "프로젝트 문서",
+    title: "설계도",
     provider: "위즈",
-    comment: ""
+    comment: "",
+    previewImage: "../assets/locations/factory-blueprints-0059-0361-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0059-0361.webp"
   },
   {
     id: "reserve-pmc-0328-0364",
