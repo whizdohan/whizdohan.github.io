@@ -190,13 +190,16 @@ function documentIconUrl(categoryKey){
 
 function renderMapDocumentFilters(){
   if(!els.mapDocumentFilters||!activeMap)return;
-  const available=Object.keys(CATEGORIES).filter(key=>locations.some(item=>item.map===activeMap.id&&item.category===key));
+  const mapLocations=locations.filter(item=>item.map===activeMap.id);
+  const markerKeysByCategory=new Map(Object.keys(CATEGORIES).map(key=>[key,new Set()]));
+  mapLocations.forEach(item=>markerKeysByCategory.get(item.category)?.add(`${Number(item.x).toFixed(3)}:${Number(item.y).toFixed(3)}`));
+  const available=Object.keys(CATEGORIES).filter(key=>markerKeysByCategory.get(key)?.size);
   els.mapDocumentFilters.hidden=!available.length;
   els.mapDocumentFilters.innerHTML=available.map(key=>{
     const category=CATEGORIES[key];
     const enabled=state.filters.includes(key);
     const label=t(`categories.${key}`)||category.name;
-    const markerCount=new Set(locations.filter(item=>item.map===activeMap.id&&item.category===key).map(item=>`${Number(item.x).toFixed(3)}:${Number(item.y).toFixed(3)}`)).size;
+    const markerCount=markerKeysByCategory.get(key).size;
     return `<button type="button" class="map-document-filter ${enabled?"active":""}" data-map-filter="${key}" aria-pressed="${enabled}" title="${label}: ${markerCount}"><img src="${documentIconUrl(key)}" alt="" /><span>${label}</span><b>${markerCount}</b></button>`;
   }).join("");
 }
