@@ -763,5 +763,31 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/factory-project-0770-0409-thumb.webp",
     detailImage: "../assets/locations/factory-project-0770-0409.webp"
+  },
+  {
+    id: "factory-blueprints-0767-0486",
+    map: "factory",
+    category: "blueprints",
+    x: 76.7,
+    y: 48.6,
+    title: "Blueprints",
+    provider: "whizs",
+    comment: "Polikhim keycard required",
+    commentKey: "polikhimKeycardRequired",
+    requiresKey: true,
+    previewImage: "../assets/locations/factory-blueprints-0767-0486-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0767-0486.webp"
+  },
+  {
+    id: "factory-blueprints-0897-0336",
+    map: "factory",
+    category: "blueprints",
+    x: 89.7,
+    y: 33.6,
+    title: "Blueprints",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/factory-blueprints-0897-0336-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0897-0336.webp"
   }
 ];
