@@ -60,10 +60,10 @@ window.DOCUMENT_LOCATIONS = [
     detailImage: "../assets/locations/factory-blueprints-0055-0326.webp"
   },
   {
-    id: "factory-project-0054-0361",
+    id: "factory-project-0060-0361",
     map: "factory",
     category: "project",
-    x: 5.4,
+    x: 6.0,
     y: 36.1,
     title: "프로젝트 문서",
     provider: "whizs",
@@ -224,5 +224,77 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/factory-blueprints-0542-0359-thumb.webp",
     detailImage: "../assets/locations/factory-blueprints-0542-0359.webp"
+  },
+  {
+    id: "factory-project-0058-0317",
+    map: "factory",
+    category: "project",
+    x: 5.8,
+    y: 31.7,
+    title: "프로젝트 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0058-0317-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0058-0317.webp"
+  },
+  {
+    id: "woods-test-0465-0690",
+    map: "woods",
+    category: "test",
+    x: 46.5,
+    y: 69.0,
+    title: "시험 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0465-0690-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0465-0690.webp"
+  },
+  {
+    id: "woods-test-0300-0614",
+    map: "woods",
+    category: "test",
+    x: 30.0,
+    y: 61.4,
+    title: "시험 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0300-0614-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0300-0614.webp"
+  },
+  {
+    id: "woods-test-0301-0611",
+    map: "woods",
+    category: "test",
+    x: 30.1,
+    y: 61.1,
+    title: "시험 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0301-0611-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0301-0611.webp"
+  },
+  {
+    id: "woods-test-0255-0340",
+    map: "woods",
+    category: "test",
+    x: 25.5,
+    y: 34.0,
+    title: "시험 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-test-0255-0340-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0255-0340.webp"
+  },
+  {
+    id: "woods-technical-0264-0308",
+    map: "woods",
+    category: "technical",
+    x: 26.4,
+    y: 30.8,
+    title: "기술 문서",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0264-0308-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0264-0308.webp"
   }
 ];
