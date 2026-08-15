@@ -58,11 +58,11 @@ window.DOCUMENT_LOCATIONS = [
     comment: "지게차 옆 창가 턱 위에 놓여 있습니다."
   },
   {
-    id: "reserve-pmc-0296-0323",
+    id: "reserve-pmc-0328-0364",
     map: "reserve",
     category: "pmc",
-    x: 29.6,
-    y: 32.3,
+    x: 32.8,
+    y: 36.4,
     title: "PMC 인사 문서",
     provider: "위즈",
     comment: "콘크리트 방벽 옆 상자 위에 놓여 있습니다."
