@@ -751,5 +751,17 @@ window.DOCUMENT_LOCATIONS = [
     commentKey: "containerCenterFloor",
     previewImage: "../assets/locations/woods-test-0603-0823-thumb.webp",
     detailImage: "../assets/locations/woods-test-0603-0823.webp"
+  },
+  {
+    id: "factory-project-0770-0409",
+    map: "factory",
+    category: "project",
+    x: 77.0,
+    y: 40.9,
+    title: "Project Files",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0770-0409-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0770-0409.webp"
   }
 ];
