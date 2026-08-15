@@ -114,5 +114,17 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/woods-test-0815-0390-thumb.webp",
     detailImage: "../assets/locations/woods-test-0815-0390.webp"
+  },
+  {
+    id: "woods-technical-0636-0645",
+    map: "woods",
+    category: "technical",
+    x: 63.6,
+    y: 64.5,
+    title: "기술 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0636-0645-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0636-0645.webp"
   }
 ];
