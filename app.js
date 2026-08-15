@@ -202,14 +202,39 @@ function renderMarkers(){
     const popupItem={...primaryItem,title:categoryTitles};
     const iconImages=visibleItems.map(item=>`<img src="${documentIconUrl(item.category)}" alt="" />`).join("");
     const stackedClass=visibleItems.length>1?" stacked":"";
-    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}</span><span class="document-marker-label">${markerLabel}</span>`,iconSize:[110,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
+    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
     const marker=L.marker(percentToLatLng(primaryItem.x,primaryItem.y),{icon,title:`${markerLabel} · ${categoryTitles}`,keyboard:true});
     marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.on("mouseover",()=>marker.openPopup());
+    marker.on("popupopen",()=>fitPopupInsideMap(marker));
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
   els.visibleCount.textContent=`${visibleLocationCount} ${t("mapViewer.locationsVisible")}`;
+}
+
+function fitPopupInsideMap(marker){
+  const popup=marker.getPopup();
+  if(!popup)return;
+  popup.options.offset=L.point(0,0);
+  popup.update();
+  requestAnimationFrame(()=>{
+    const popupElement=popup.getElement();
+    const mapElement=leafletMap?.getContainer();
+    if(!popupElement||!mapElement)return;
+    const popupRect=popupElement.getBoundingClientRect();
+    const mapRect=mapElement.getBoundingClientRect();
+    const padding=12;
+    let offsetX=0;
+    let offsetY=0;
+    if(popupRect.left<mapRect.left+padding)offsetX=mapRect.left+padding-popupRect.left;
+    else if(popupRect.right>mapRect.right-padding)offsetX=mapRect.right-padding-popupRect.right;
+    if(popupRect.top<mapRect.top+padding)offsetY=mapRect.top+padding-popupRect.top;
+    else if(popupRect.bottom>mapRect.bottom-padding)offsetY=mapRect.bottom-padding-popupRect.bottom;
+    if(!offsetX&&!offsetY)return;
+    popup.options.offset=L.point(offsetX,offsetY);
+    popup.update();
+  });
 }
 
 function buildPhotoPopup(item,category,markerLabel){
