@@ -6,37 +6,37 @@
     <meta name="description" content="Escape from Tarkov seasonal Battle Pass document location map" />
     <title>Document Map · Tarkov Tools</title>
     <link rel="stylesheet" href="../assets/vendor/leaflet.css?v=1" />
-    <link rel="stylesheet" href="../styles.css?v=17" />
+    <link rel="stylesheet" href="../styles.css?v=19" />
     <script src="../assets/vendor/leaflet.js?v=1" defer></script>
-    <script src="../data/locations.js?v=23" defer></script>
-    <script src="../app.js?v=29" defer></script>
+    <script src="../data/locations.js?v=28" defer></script>
+    <script src="../app.js?v=31" defer></script>
   </head>
   <body>
     <aside class="sidebar" id="sidebar">
       <header class="brand">
         <a href="../" style="color:inherit;text-decoration:none" aria-label="Open tools home">
-          <p class="eyebrow">SEASON BATTLE PASS</p>
+          <p class="eyebrow" id="brand-eyebrow">SEASON BATTLE PASS</p>
           <h1>DOCUMENT<br /><span>MAP</span></h1>
         </a>
-        <p class="brand-copy">Track document locations and collection progress in one place.</p>
+        <p class="brand-copy" id="brand-copy">Track document locations and collection progress in one place.</p>
       </header>
       <section class="control-section">
-        <label class="section-label" for="map-select">SELECT MAP</label>
+        <label class="section-label" id="map-select-label" for="map-select">SELECT MAP</label>
         <select id="map-select"></select>
       </section>
       <section class="control-section filter-section">
-        <div class="section-heading"><span class="section-label">DOCUMENT TYPE</span><button class="text-button" id="toggle-all" type="button">CLEAR ALL</button></div>
+        <div class="section-heading"><span class="section-label" id="document-type-label">DOCUMENT TYPE</span><button class="text-button" id="toggle-all" type="button">CLEAR ALL</button></div>
         <div id="category-list" class="category-list"></div>
       </section>
       <section class="control-section sidebar-footer">
-        <a class="secondary-button" href="../" style="display:block;text-align:center;text-decoration:none">OPEN BATTLE PASS TRACKER</a>
+        <a class="secondary-button" id="open-tracker" href="../" style="display:block;text-align:center;text-decoration:none">OPEN BATTLE PASS TRACKER</a>
       </section>
     </aside>
     <main class="workspace">
       <header class="topbar">
         <button class="menu-button" id="menu-button" type="button" aria-label="Open filter menu" aria-expanded="false">☰</button>
-        <div><p class="eyebrow">CURRENT MAP</p><h2 id="current-map-name">Factory</h2></div>
-        <div class="topbar-actions"><a class="secondary-button compact" href="../" style="display:block;text-decoration:none">TOOLS HOME</a></div>
+        <div><p class="eyebrow" id="current-map-label">CURRENT MAP</p><h2 id="current-map-name">Factory</h2></div>
+        <div class="topbar-actions"><a class="secondary-button compact" id="tools-home" href="../" style="display:block;text-decoration:none">TOOLS HOME</a></div>
       </header>
       <section class="map-shell">
         <div class="map-toolbar"><div class="legend"><span class="legend-dot"></span><span id="visible-count">0 LOCATIONS VISIBLE</span></div><span class="coordinate" id="coordinate">X 000 · Y 000</span></div>

@@ -53,6 +53,7 @@ let activeBounds;
 
 async function init(){
   await loadLanguage();
+  applyTranslations();
   MAPS.forEach(map=>els.mapSelect.add(new Option(mapName(map),map.id)));
   els.mapSelect.value=state.map;
   renderCategories();
@@ -71,10 +72,29 @@ async function init(){
 }
 
 async function loadLanguage(){
-  try{const response=await fetch(`../locales/${currentLanguage}.json?v=7`);if(!response.ok)throw new Error(String(response.status));messages=await response.json();document.documentElement.lang=currentLanguage}catch(error){console.error("Map language file could not be loaded",error)}
+  try{const response=await fetch(`../locales/${currentLanguage}.json?v=8`);if(!response.ok)throw new Error(String(response.status));messages=await response.json();document.documentElement.lang=currentLanguage}catch(error){console.error("Map language file could not be loaded",error)}
 }
 function t(key){return key.split(".").reduce((value,part)=>value?.[part],messages)||key}
 function mapName(map){return t(`maps.${MAP_TRANSLATION_KEYS[map.id]}`)||map.name}
+function documentTitle(categoryKey){return t(`documentTitles.${categoryKey}`)||CATEGORIES[categoryKey]?.name||t("mapViewer.location")}
+function locationComment(item){return item.commentKey?t(`locationComments.${item.commentKey}`):(item.comment||"")}
+
+function applyTranslations(){
+  const textById={
+    "brand-eyebrow":"mapControls.seasonBattlePass",
+    "brand-copy":"mapControls.brandCopy",
+    "map-select-label":"mapControls.selectMap",
+    "document-type-label":"mapControls.documentType",
+    "open-tracker":"mapControls.openTracker",
+    "current-map-label":"mapControls.currentMap",
+    "tools-home":"mapControls.toolsHome"
+  };
+  Object.entries(textById).forEach(([id,key])=>{const element=document.getElementById(id);if(element)element.textContent=t(key)});
+  document.querySelector("#toggle-all").textContent=t("mapControls.clearAll");
+  els.menuButton.setAttribute("aria-label",t("mapControls.openFilterMenu"));
+  els.mapDocumentFilters.setAttribute("aria-label",t("mapControls.markerFilters"));
+  document.querySelector("#detail-close").setAttribute("aria-label",t("mapControls.close"));
+}
 
 function prepareStaticMap(){
   activeMap=MAPS.find(item=>item.id===state.map)||MAPS[2];
@@ -93,7 +113,7 @@ function prepareStaticMap(){
 function renderCategories(){
   els.categoryList.innerHTML=Object.entries(CATEGORIES).map(([key,category])=>`
     <label class="category-row"><input type="checkbox" value="${key}" ${state.filters.includes(key)?"checked":""}/>
-    <span><i class="category-swatch" style="--swatch:${category.color}"></i><strong>${category.name}</strong></span>
+    <span><i class="category-swatch" style="--swatch:${category.color}"></i><strong>${t(`categories.${key}`)}</strong></span>
     </label>`).join("");
 }
 
@@ -199,13 +219,14 @@ function renderMarkers(){
     const primaryItem=visibleItems.find(item=>item.previewImage)||visibleItems[0];
     const category=CATEGORIES[primaryItem.category]||CATEGORIES.technical;
     const markerLabel=`${mapName(activeMap)}${index+1}`;
-    const categoryTitles=visibleItems.map(item=>item.title||(t(`categories.${item.category}`)||CATEGORIES[item.category]?.name)).join(" / ");
+    const categoryTitles=visibleItems.map(item=>documentTitle(item.category)).join(" / ");
     const popupItem={...primaryItem,title:categoryTitles};
     const iconImages=visibleItems.map(item=>`<img src="${documentIconUrl(item.category)}" alt="" />`).join("");
     const stackedClass=visibleItems.length>1?" stacked":"";
-    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
+    const keyBadge=visibleItems.some(item=>item.commentKey==="factoryKeyRequired")?'<span class="document-marker-key" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h9m-3 0v3m-3-3v3"></path></svg></span>':"";
+    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}${keyBadge}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
     const marker=L.marker(percentToLatLng(primaryItem.x,primaryItem.y),{icon,title:`${markerLabel} · ${categoryTitles}`,keyboard:true});
-    marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
+    marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:420,minWidth:300,closeButton:true});
     marker.on("mouseover",()=>marker.openPopup());
     marker.on("popupopen",()=>fitPopupInsideMap(marker));
     marker.addTo(markerLayer);
@@ -244,7 +265,7 @@ function buildPhotoPopup(item,category,markerLabel){
   if(item.previewImage){
     const image=document.createElement("img");
     image.src=safeImageUrl(item.previewImage);
-    image.alt=item.title?`${item.title} location`:"Document location";
+    image.alt=`${documentTitle(item.category)} · ${t("mapViewer.location")}`;
     image.loading="lazy";
     image.decoding="async";
     image.addEventListener("click",()=>openDetail(item.id));
@@ -272,7 +293,7 @@ function buildPhotoPopup(item,category,markerLabel){
   const commentLabel=document.createElement("b");
   commentLabel.textContent=t("mapViewer.comment");
   const commentValue=document.createElement("span");
-  commentValue.textContent=item.comment||"";
+  commentValue.textContent=locationComment(item);
   comment.append(commentLabel,commentValue);
   card.append(comment);
   return card;
@@ -338,14 +359,14 @@ function openDetail(id){
   const item=locations.find(location=>location.id===id);if(!item)return;
   const category=CATEGORIES[item.category];
   document.querySelector("#detail-category").textContent=t(`categories.${item.category}`)||category?.name||t("mapViewer.location");
-  document.querySelector("#detail-title").textContent=item.title||t("mapViewer.details");
+  document.querySelector("#detail-title").textContent=documentTitle(item.category);
   const detailDescription=document.querySelector("#detail-description");
   detailDescription.textContent=item.description||"";
   detailDescription.hidden=!item.description;
   const image=item.detailImage||item.previewImage;
   const container=document.querySelector("#detail-image");
   container.replaceChildren();
-  if(image){const photo=document.createElement("img");photo.src=safeImageUrl(image);photo.alt=item.title||"Location details";container.append(photo)}
+  if(image){const photo=document.createElement("img");photo.src=safeImageUrl(image);photo.alt=documentTitle(item.category);container.append(photo)}
   else container.textContent=t("mapViewer.imageSoon");
   els.detailDialog.showModal();
 }
@@ -354,7 +375,7 @@ function bindEvents(){
   els.mapSelect.addEventListener("change",event=>{state.map=event.target.value;updateMap();closeSidebar()});
   els.categoryList.addEventListener("change",event=>{const key=event.target.value;state.filters=event.target.checked?[...new Set([...state.filters,key])]:state.filters.filter(item=>item!==key);renderMarkers()});
   els.mapDocumentFilters.addEventListener("click",event=>{const button=event.target.closest("[data-map-filter]");if(!button)return;const key=button.dataset.mapFilter;state.filters=state.filters.includes(key)?state.filters.filter(item=>item!==key):[...state.filters,key];renderCategories();renderMarkers()});
-  document.querySelector("#toggle-all").addEventListener("click",event=>{const allEnabled=state.filters.length===Object.keys(CATEGORIES).length;state.filters=allEnabled?[]:Object.keys(CATEGORIES);renderCategories();renderMarkers();event.currentTarget.textContent=allEnabled?"SELECT ALL":"CLEAR ALL"});
+  document.querySelector("#toggle-all").addEventListener("click",event=>{const allEnabled=state.filters.length===Object.keys(CATEGORIES).length;state.filters=allEnabled?[]:Object.keys(CATEGORIES);renderCategories();renderMarkers();event.currentTarget.textContent=t(allEnabled?"mapControls.selectAll":"mapControls.clearAll")});
   document.querySelector("#detail-close").addEventListener("click",()=>els.detailDialog.close());
   els.menuButton.addEventListener("click",()=>{const open=!els.sidebar.classList.contains("open");els.sidebar.classList.toggle("open",open);els.backdrop.classList.toggle("open",open);els.menuButton.setAttribute("aria-expanded",String(open))});
   els.backdrop.addEventListener("click",closeSidebar);

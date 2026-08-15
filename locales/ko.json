@@ -11,6 +11,9 @@
   "reward": { "required": "필요", "requiredDocuments": "필요한 문서", "requiredDocs": "필요 문서", "total": "합계", "complete": "완료", "ready": "준비됨" },
   "categories": { "financial": "재정", "pmc": "PMC 인사", "project": "프로젝트", "blueprints": "설계", "test": "테스트", "user": "사용자", "medical": "의료", "technical": "기술" },
   "mapViewer": { "locationsVisible": "개 위치 표시", "loading": "로컬 지도 이미지 불러오는 중", "loadingCopy": "로컬 인터랙티브 지도를 표시하는 데 시간이 걸릴 수 있습니다.", "unavailable": "인터랙티브 지도 사용 불가", "loadFailed": "지도를 불러오지 못했습니다", "openSource": "지도 출처 열기", "photoSoon": "위치 사진 준비 중", "location": "문서 위치", "details": "위치 상세 정보", "noDetails": "상세 설명이 아직 없습니다.", "imageSoon": "이미지 준비 중", "coordinateCopied": "좌표 복사 완료", "provider": "제공자", "comment": "멘트" },
+  "documentTitles": { "financial": "재정 문서", "pmc": "PMC 인사 문서", "project": "프로젝트 문서", "blueprints": "설계도", "test": "테스트 문서", "user": "사용자 문서", "medical": "의료 문서", "technical": "기술 문서" },
+  "locationComments": { "containerSecondFloor": "컨테이너 2층", "factoryKeyRequired": "팩토리 열쇠 필요", "secondFloorSafeChair": "2층 중앙" },
+  "mapControls": { "seasonBattlePass": "시즌 배틀패스", "brandCopy": "문서 위치와 수집 진행도를 한곳에서 확인하세요.", "selectMap": "지도 선택", "documentType": "문서 종류", "clearAll": "전체 해제", "selectAll": "전체 선택", "openTracker": "배틀패스 추적기 열기", "currentMap": "현재 지도", "toolsHome": "도구 홈", "openFilterMenu": "필터 메뉴 열기", "markerFilters": "문서 마커 필터", "close": "닫기" },
   "footer": {
     "prefix": "비공식 팬사이트 · Battlestate Games와 관련이 없습니다 (Escape from Tarkov 상표 및 게임 자산의 권리는 Battlestate Games에 있습니다) · 사이트 제공",
     "text": "비공식 팬사이트 · Battlestate Games와 관련이 없습니다 (Escape from Tarkov 상표 및 게임 자산의 권리는 Battlestate Games에 있습니다) · whizs 제공"
