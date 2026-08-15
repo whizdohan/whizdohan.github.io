@@ -442,6 +442,7 @@ window.DOCUMENT_LOCATIONS = [
     provider: "whizs",
     comment: "Factory key required",
     commentKey: "factoryKeyRequired",
+    requiresKey: true,
     previewImage: "../assets/locations/factory-blueprints-0054-0301-thumb.webp",
     detailImage: "../assets/locations/factory-blueprints-0054-0301.webp"
   },
@@ -455,6 +456,7 @@ window.DOCUMENT_LOCATIONS = [
     provider: "whizs",
     comment: "Factory key required",
     commentKey: "factoryKeyRequired",
+    requiresKey: true,
     previewImage: "../assets/locations/factory-project-0060-0301-thumb.webp",
     detailImage: "../assets/locations/factory-project-0060-0301.webp"
   },
@@ -698,5 +700,56 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/ground-zero-user-0456-0476-thumb.webp",
     detailImage: "../assets/locations/ground-zero-user-0456-0476.webp"
+  },
+  {
+    id: "woods-technical-0212-0747",
+    map: "woods",
+    category: "technical",
+    x: 21.2,
+    y: 74.7,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0212-0747-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0212-0747.webp"
+  },
+  {
+    id: "woods-technical-0491-0549",
+    map: "woods",
+    category: "technical",
+    x: 49.1,
+    y: 54.9,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0491-0549-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0491-0549.webp"
+  },
+  {
+    id: "factory-project-0770-0475",
+    map: "factory",
+    category: "project",
+    x: 77.0,
+    y: 47.5,
+    title: "Project Files",
+    provider: "whizs",
+    comment: "Polikhim keycard required",
+    commentKey: "polikhimKeycardRequired",
+    requiresKey: true,
+    previewImage: "../assets/locations/factory-project-0770-0475-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0770-0475.webp"
+  },
+  {
+    id: "woods-test-0603-0823",
+    map: "woods",
+    category: "test",
+    x: 60.3,
+    y: 82.3,
+    title: "Test Documents",
+    provider: "whizs",
+    comment: "Center floor inside the container",
+    commentKey: "containerCenterFloor",
+    previewImage: "../assets/locations/woods-test-0603-0823-thumb.webp",
+    detailImage: "../assets/locations/woods-test-0603-0823.webp"
   }
 ];
