@@ -184,5 +184,17 @@ window.DOCUMENT_LOCATIONS = [
     title: "기술 문서",
     provider: "위즈",
     comment: ""
+  },
+  {
+    id: "factory-project-0535-0359",
+    map: "factory",
+    category: "project",
+    x: 53.5,
+    y: 35.9,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0535-0359-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0535-0359.webp"
   }
 ];
