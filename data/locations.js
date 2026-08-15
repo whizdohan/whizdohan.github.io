@@ -48,26 +48,28 @@ window.DOCUMENT_LOCATIONS = [
     detailImage: "../assets/locations/factory-blueprints-0688-0461.webp"
   },
   {
-    id: "factory-blueprints-0056-0326",
+    id: "factory-blueprints-0055-0326",
     map: "factory",
     category: "blueprints",
-    x: 5.6,
+    x: 5.5,
     y: 32.6,
     title: "설계도",
     provider: "위즈",
     comment: "",
-    previewImage: "../assets/locations/factory-blueprints-0056-0326-thumb.webp",
-    detailImage: "../assets/locations/factory-blueprints-0056-0326.webp"
+    previewImage: "../assets/locations/factory-blueprints-0055-0326-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0055-0326.webp"
   },
   {
-    id: "factory-project-0055-0361",
+    id: "factory-blueprints-0059-0361",
     map: "factory",
-    category: "project",
-    x: 5.5,
+    category: "blueprints",
+    x: 5.9,
     y: 36.1,
-    title: "프로젝트 문서",
+    title: "설계도",
     provider: "위즈",
-    comment: ""
+    comment: "",
+    previewImage: "../assets/locations/factory-blueprints-0059-0361-thumb.webp",
+    detailImage: "../assets/locations/factory-blueprints-0059-0361.webp"
   },
   {
     id: "reserve-pmc-0328-0364",
@@ -114,5 +116,85 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/woods-test-0815-0390-thumb.webp",
     detailImage: "../assets/locations/woods-test-0815-0390.webp"
+  },
+  {
+    id: "woods-technical-0636-0645",
+    map: "woods",
+    category: "technical",
+    x: 63.6,
+    y: 64.5,
+    title: "기술 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0636-0645-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0636-0645.webp"
+  },
+  {
+    id: "factory-project-0681-0134",
+    map: "factory",
+    category: "project",
+    x: 68.1,
+    y: 13.4,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0681-0134-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0681-0134.webp"
+  },
+  {
+    id: "factory-project-0536-0304",
+    map: "factory",
+    category: "project",
+    x: 53.6,
+    y: 30.4,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-documents-0536-0304-thumb.webp",
+    detailImage: "../assets/locations/factory-documents-0536-0304.webp"
+  },
+  {
+    id: "factory-blueprints-0536-0304",
+    map: "factory",
+    category: "blueprints",
+    x: 53.6,
+    y: 30.4,
+    title: "설계도",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-documents-0536-0304-thumb.webp",
+    detailImage: "../assets/locations/factory-documents-0536-0304.webp"
+  },
+  {
+    id: "woods-test-0779-0805",
+    map: "woods",
+    category: "test",
+    x: 77.9,
+    y: 80.5,
+    title: "시험 문서",
+    provider: "위즈",
+    comment: ""
+  },
+  {
+    id: "woods-technical-0779-0805",
+    map: "woods",
+    category: "technical",
+    x: 77.9,
+    y: 80.5,
+    title: "기술 문서",
+    provider: "위즈",
+    comment: ""
+  },
+  {
+    id: "factory-project-0535-0359",
+    map: "factory",
+    category: "project",
+    x: 53.5,
+    y: 35.9,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0535-0359-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0535-0359.webp"
   }
 ];
