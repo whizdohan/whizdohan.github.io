@@ -223,10 +223,10 @@ function renderMarkers(){
     const popupItem={...primaryItem,title:categoryTitles};
     const iconImages=visibleItems.map(item=>`<img src="${documentIconUrl(item.category)}" alt="" />`).join("");
     const stackedClass=visibleItems.length>1?" stacked":"";
-    const keyBadge=visibleItems.some(item=>item.commentKey==="factoryKeyRequired")?'<span class="document-marker-key" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h9m-3 0v3m-3-3v3"></path></svg></span>':"";
-    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}${keyBadge}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
+    const keyBadge=visibleItems.some(item=>item.requiresKey)?'<span class="document-marker-key" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="4"></circle><path d="M12 12h9m-3 0v3m-3-3v3"></path></svg></span>':"";
+    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker-wrap"><span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}</span>${keyBadge}</span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
     const marker=L.marker(percentToLatLng(primaryItem.x,primaryItem.y),{icon,title:`${markerLabel} · ${categoryTitles}`,keyboard:true});
-    marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:420,minWidth:300,closeButton:true});
+    marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.on("mouseover",()=>marker.openPopup());
     marker.on("popupopen",()=>fitPopupInsideMap(marker));
     marker.addTo(markerLayer);
