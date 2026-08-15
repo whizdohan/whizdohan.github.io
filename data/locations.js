@@ -12,12 +12,12 @@
  */
 window.DOCUMENT_LOCATIONS = [
   {
-    id: "woods-financial-060-081",
+    id: "woods-test-060-081",
     map: "woods",
-    category: "financial",
+    category: "test",
     x: 60.0,
     y: 80.8,
-    title: "재정 문서",
+    title: "시험 문서",
     provider: "위즈",
     comment: "",
     previewImage: "../assets/locations/woods-financial-060-081-thumb.webp",
