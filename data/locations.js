@@ -126,5 +126,17 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/woods-technical-0636-0645-thumb.webp",
     detailImage: "../assets/locations/woods-technical-0636-0645.webp"
+  },
+  {
+    id: "factory-project-0681-0134",
+    map: "factory",
+    category: "project",
+    x: 68.1,
+    y: 13.4,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-project-0681-0134-thumb.webp",
+    detailImage: "../assets/locations/factory-project-0681-0134.webp"
   }
 ];
