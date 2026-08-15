@@ -138,5 +138,29 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/factory-project-0681-0134-thumb.webp",
     detailImage: "../assets/locations/factory-project-0681-0134.webp"
+  },
+  {
+    id: "factory-project-0536-0304",
+    map: "factory",
+    category: "project",
+    x: 53.6,
+    y: 30.4,
+    title: "프로젝트 문서",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-documents-0536-0304-thumb.webp",
+    detailImage: "../assets/locations/factory-documents-0536-0304.webp"
+  },
+  {
+    id: "factory-blueprints-0536-0304",
+    map: "factory",
+    category: "blueprints",
+    x: 53.6,
+    y: 30.4,
+    title: "설계도",
+    provider: "위즈",
+    comment: "",
+    previewImage: "../assets/locations/factory-documents-0536-0304-thumb.webp",
+    detailImage: "../assets/locations/factory-documents-0536-0304.webp"
   }
 ];
