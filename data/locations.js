@@ -789,5 +789,42 @@ window.DOCUMENT_LOCATIONS = [
     comment: "",
     previewImage: "../assets/locations/factory-blueprints-0897-0336-thumb.webp",
     detailImage: "../assets/locations/factory-blueprints-0897-0336.webp"
+  },
+  {
+    id: "woods-technical-0930-0756",
+    map: "woods",
+    category: "technical",
+    x: 93.0,
+    y: 75.6,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "At the very back of the train container",
+    commentKey: "deepInsideTrainContainer",
+    previewImage: "../assets/locations/woods-technical-0930-0756-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0930-0756.webp"
+  },
+  {
+    id: "woods-technical-0791-0537",
+    map: "woods",
+    category: "technical",
+    x: 79.1,
+    y: 53.7,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0791-0537-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0791-0537.webp"
+  },
+  {
+    id: "woods-technical-0566-0468",
+    map: "woods",
+    category: "technical",
+    x: 56.6,
+    y: 46.8,
+    title: "Technical Documents",
+    provider: "whizs",
+    comment: "",
+    previewImage: "../assets/locations/woods-technical-0566-0468-thumb.webp",
+    detailImage: "../assets/locations/woods-technical-0566-0468.webp"
   }
 ];
