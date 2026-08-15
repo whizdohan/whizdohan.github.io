@@ -183,21 +183,36 @@ function renderMapDocumentFilters(){
 function renderMarkers(){
   if(!markerLayer||!activeMap)return;
   markerLayer.clearLayers();
-  const filtered=locations.filter(item=>item.map===activeMap.id&&state.filters.includes(item.category));
-  filtered.forEach(item=>{
-    const category=CATEGORIES[item.category]||CATEGORIES.technical;
-    const label=t(`categories.${item.category}`)||category.name;
-    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker" style="--marker:${category.color}"><img src="${documentIconUrl(item.category)}" alt="" /></span>`,iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
-    const marker=L.marker(percentToLatLng(item.x,item.y),{icon,title:item.title||label,keyboard:true});
-    marker.bindPopup(()=>buildPhotoPopup(item,category),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
+  const mapLocations=locations.filter(item=>item.map===activeMap.id);
+  const coordinateGroups=new Map();
+  mapLocations.forEach(item=>{
+    const key=`${Number(item.x).toFixed(3)}:${Number(item.y).toFixed(3)}`;
+    if(!coordinateGroups.has(key))coordinateGroups.set(key,[]);
+    coordinateGroups.get(key).push(item);
+  });
+  let visibleLocationCount=0;
+  [...coordinateGroups.values()].forEach((coordinateGroup,index)=>{
+    const visibleItems=coordinateGroup.filter(item=>state.filters.includes(item.category));
+    if(!visibleItems.length)return;
+    visibleLocationCount+=1;
+    const primaryItem=visibleItems.find(item=>item.previewImage)||visibleItems[0];
+    const category=CATEGORIES[primaryItem.category]||CATEGORIES.technical;
+    const markerLabel=`${mapName(activeMap)}${index+1}`;
+    const categoryTitles=visibleItems.map(item=>item.title||(t(`categories.${item.category}`)||CATEGORIES[item.category]?.name)).join(" / ");
+    const popupItem={...primaryItem,title:categoryTitles};
+    const iconImages=visibleItems.map(item=>`<img src="${documentIconUrl(item.category)}" alt="" />`).join("");
+    const stackedClass=visibleItems.length>1?" stacked":"";
+    const icon=L.divIcon({className:"document-marker-shell",html:`<span class="document-marker${stackedClass}" style="--marker:${category.color}">${iconImages}</span><span class="document-marker-label">${markerLabel}</span>`,iconSize:[110,30],iconAnchor:[15,15],popupAnchor:[0,-13]});
+    const marker=L.marker(percentToLatLng(primaryItem.x,primaryItem.y),{icon,title:`${markerLabel} · ${categoryTitles}`,keyboard:true});
+    marker.bindPopup(()=>buildPhotoPopup(popupItem,category,markerLabel),{className:"document-photo-popup",maxWidth:300,minWidth:220,closeButton:true});
     marker.on("mouseover",()=>marker.openPopup());
     marker.addTo(markerLayer);
   });
   renderMapDocumentFilters();
-  els.visibleCount.textContent=`${filtered.length} ${t("mapViewer.locationsVisible")}`;
+  els.visibleCount.textContent=`${visibleLocationCount} ${t("mapViewer.locationsVisible")}`;
 }
 
-function buildPhotoPopup(item,category){
+function buildPhotoPopup(item,category,markerLabel){
   const card=document.createElement("article");
   card.className="location-popup-card";
   if(item.previewImage){
@@ -216,7 +231,7 @@ function buildPhotoPopup(item,category){
   }
   const title=document.createElement("strong");
   title.className="location-popup-title";
-  title.textContent=item.title||t("mapViewer.location");
+  title.textContent=`${markerLabel} · ${item.title||t("mapViewer.location")}`;
   card.append(title);
   const provider=document.createElement("p");
   provider.className="location-popup-provider";
