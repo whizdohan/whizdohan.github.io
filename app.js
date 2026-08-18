@@ -2,16 +2,16 @@ const MAP_ASSET_ROOT="../assets/maps-jpg/";
 const MAP_SOURCE_ROOT="https://tarkov.dev/maps/";
 const MAP_TRANSLATION_KEYS={"customs":"customs","ground-zero":"groundZero","factory":"factory","woods":"woods","reserve":"reserve","shoreline":"shoreline","interchange":"interchange","lighthouse":"lighthouse","streets":"streets","laboratory":"laboratory","icebreaker":"icebreaker","labyrinth":"labyrinth"};
 const MAPS=[
-  {id:"customs",name:"Customs",code:"CST",file:"customs-2d.jpg",width:2200,height:1153},
-  {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"ground-zero-2d.jpg",width:2200,height:2200},
-  {id:"factory",name:"Factory",code:"FCT",file:"factory-2d.jpg",width:2200,height:1090},
-  {id:"woods",name:"Woods",code:"WDS",file:"woods-2d.jpg",width:2200,height:2153},
-  {id:"reserve",name:"Reserve",code:"RSV",file:"reserve-2d.jpg",width:2200,height:1304},
-  {id:"shoreline",name:"Shoreline",code:"SHR",file:"shoreline-2d.jpg",width:2200,height:1507},
+  {id:"customs",name:"Customs",code:"CST",file:"customs-2d.jpg",width:7680,height:4025},
+  {id:"ground-zero",name:"Ground Zero",code:"GZ",file:"ground-zero-2d.jpg",width:6920,height:6920},
+  {id:"factory",name:"Factory",code:"FCT",file:"factory-2d.jpg",width:6720,height:3328},
+  {id:"woods",name:"Woods",code:"WDS",file:"woods-2d.jpg",width:6994,height:6843},
+  {id:"reserve",name:"Reserve",code:"RSV",file:"reserve-2d.jpg",width:4701,height:2785},
+  {id:"shoreline",name:"Shoreline",code:"SHR",file:"shoreline-2d.jpg",width:6668,height:4567},
   {id:"interchange",name:"Interchange",code:"INT",file:"interchange-2d.jpg",width:2400,height:1350,source:"https://reemr.se/interchange/",sourceLabel:"RE3MR"},
-  {id:"lighthouse",name:"Lighthouse",code:"LHT",file:"lighthouse-2d.jpg",width:1267,height:2200},
-  {id:"streets",name:"Streets of Tarkov",code:"SOT",file:"streets-2d.jpg",width:2200,height:1697},
-  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg",width:2200,height:1140},
+  {id:"lighthouse",name:"Lighthouse",code:"LHT",file:"lighthouse-2d.jpg",width:2242,height:3892},
+  {id:"streets",name:"Streets of Tarkov",code:"SOT",file:"streets-2d.jpg",width:7620,height:5877},
+  {id:"laboratory",name:"The Lab",code:"LAB",file:"labs-2d.jpg",width:3820,height:1980},
   {id:"icebreaker",name:"Icebreaker",code:"ICE",file:"icebreaker-2d.jpg",width:2400,height:1350,source:"https://reemr.se/icebreaker/",sourceLabel:"RE3MR"},
   {id:"labyrinth",name:"The Labyrinth",code:"LBY",file:"labyrinth-2d.jpg",width:2400,height:2160,source:"https://reemr.se/labyrinth/",sourceLabel:"RE3MR"}
 ].map(map=>({...map,image:`${MAP_ASSET_ROOT}${map.file}`,source:map.source||`${MAP_SOURCE_ROOT}${map.file}`,sourceLabel:map.sourceLabel||"tarkov.dev"}));
