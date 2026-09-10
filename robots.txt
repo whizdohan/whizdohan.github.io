@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://whizdohan.github.io/sitemap.xml

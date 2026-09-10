@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Tarkov Battle Pass Information",
+    "description": "Document calculator for Escape from Tarkov Battle Pass rewards"
+  },
+  "header": { "game": "TARKOV", "season": "SEASON 1", "battlePass": "BATTLE PASS" },
+  "language": { "label": "LANGUAGE" },
+  "seasonCountdown": { "active": "ENDS IN D-{days} · SCHEDULED END 2026.12.07", "ended": "SEASON ENDED · SCHEDULED END 2026.12.07" },
+  "reports": { "externalButton": "CONTACT & REPORT", "button": "REPORT LOCATION", "eyebrow": "COMMUNITY MAP", "title": "LOCATION REPORTS", "intro": "Click the map to copy coordinates and fill them here automatically. Reports and photos are saved only in this browser.", "map": "MAP", "coordinate": "COORDINATES", "coordinatePlaceholder": "Click a position on the map", "copy": "COPY", "photo": "LOCATION PHOTO", "note": "NOTE (OPTIONAL)", "notePlaceholder": "Describe the document location or landmark", "save": "SAVE REPORT", "list": "REPORT LIST", "empty": "No saved reports in this browser yet.", "delete": "Delete report", "deleteConfirm": "Delete this local report?", "deleted": "Report deleted.", "saved": "Report saved in this browser.", "saveFailed": "The report could not be saved.", "photoRequired": "Please attach a location photo.", "photoTooLarge": "Photos must be 10 MB or smaller.", "clickMapFirst": "Click a location on the map first.", "copied": "Coordinates copied.", "coordinateReady": "Coordinates copied and added to the report." },
+  "map": { "select": "SELECT MAP" },
+  "maps": { "customs": "Customs", "groundZero": "Ground Zero", "factory": "Factory", "woods": "Woods", "reserve": "Reserve", "shoreline": "Shoreline", "interchange": "Interchange", "lighthouse": "Lighthouse", "streets": "Streets of Tarkov", "laboratory": "The Lab", "icebreaker": "Icebreaker", "labyrinth": "The Labyrinth" },
+  "nav": {
+    "battlePass": "BATTLE PASS",
+    "seasonalRewards": "SEASONAL REWARDS",
+    "leagues": "LEAGUES AND RATINGS",
+    "map": "DOCUMENT MAP",
+    "back": "BACK"
+  },
+  "panel": { "rewardList": "REWARD LIST" },
+  "detail": {
+    "collectDocuments": "Collect and submit documents",
+    "markComplete": "MARK COMPLETE",
+    "markIncomplete": "MARK INCOMPLETE"
+  },
+  "documents": { "inventory": "DOCUMENTS", "remaining": "REMAINING DOCUMENTS" },
+  "hero": { "description": "Mark completed rewards to subtract their document costs and track what remains." },
+  "progress": {
+    "title": "BATTLE PASS PROGRESS",
+    "page": "PAGE",
+    "pageNumber": "PAGE {number}",
+    "pageRequired": "REQUIRED {count}",
+    "documents": "DOCUMENTS",
+    "selectedDocuments": "SELECTED DOCUMENTS",
+    "rewardCount": "{count} rewards complete"
+  },
+  "exchange": { "title": "DOCUMENT EXCHANGE", "fiveCost": "5 DOCUMENTS", "fiveReward": "1 DOCUMENT OF YOUR CHOICE", "tenCost": "10 DOCUMENTS", "tenReward": "1 BLACK DIVISION CRATE", "crateName": "BLACK DIVISION CRATE", "lootExamples": "RANDOM REWARD EXAMPLES", "lootNotice": "Random rewards · not the complete drop pool" },
+  "page": {
+    "summary": "Page total {total} · Cumulative {cumulative}",
+    "cardHint": "Select a reward card to add or remove it from your target.",
+    "cumulative": "Total {count}"
+  },
+  "buttons": {
+    "completePage": "COMPLETE CURRENT PAGE",
+    "completeThrough": "COMPLETE THROUGH THIS PAGE",
+    "resetCompleted": "RESET COMPLETED REWARDS"
+  },
+  "calculator": {
+    "title": "DOCUMENT CALCULATOR",
+    "selectedGoal": "SELECTED TARGET",
+    "remainingDocuments": "REMAINING DOCUMENTS",
+    "documents": "DOCUMENTS"
+  },
+  "status": {
+    "complete": "✓ All rewards completed",
+    "readyRemaining": "✓ Inventory covers all remaining rewards",
+    "missing": "{count} more documents required"
+  },
+  "table": {
+    "documentType": "DOCUMENT TYPE",
+    "required": "REQ.",
+    "owned": "OWNED",
+    "missing": "SHORT"
+  },
+  "autosave": {
+    "label": "AUTO SAVE",
+    "text": "Your document inventory and completed rewards are saved in this browser."
+  },
+  "overview": {
+    "title": "PAGE UNLOCK COSTS",
+    "total": "12 pages · 501 documents total"
+  },
+  "reward": { "required": "REQUIRED", "requiredDocuments": "REQUIRED DOCUMENTS", "requiredDocs": "REQUIRED DOCS", "total": "TOTAL", "complete": "COMPLETE", "ready": "READY" },
+  "categories": {
+    "financial": "Financial",
+    "pmc": "PMC Personnel",
+    "project": "Project",
+    "blueprints": "Blueprints",
+    "test": "Test",
+    "user": "User",
+    "medical": "Medical",
+    "technical": "Technical"
+  },
+  "mapViewer": { "locationsVisible": "LOCATIONS VISIBLE", "loading": "LOADING LOCAL MAP IMAGE", "loadingCopy": "The local interactive map may take a moment to appear.", "unavailable": "INTERACTIVE MAP UNAVAILABLE", "loadFailed": "MAP COULD NOT BE LOADED", "openSource": "OPEN MAP SOURCE", "photoSoon": "LOCATION PHOTO COMING SOON", "location": "Document location", "details": "LOCATION DETAILS", "noDetails": "No detailed description is available yet.", "imageSoon": "IMAGE COMING SOON", "coordinateCopied": "COORDINATES COPIED", "provider": "Provider", "comment": "Comment" },
+  "documentTitles": { "financial": "Financial Documents", "pmc": "PMC Personnel Files", "project": "Project Files", "blueprints": "Blueprints", "test": "Test Documents", "user": "User Documents", "medical": "Medical Documents", "technical": "Technical Documents" },
+  "locationComments": { "containerSecondFloor": "Second floor of the container", "factoryKeyRequired": "Factory key required", "secondFloorSafeChair": "Center of the second floor", "polikhimKeycardRequired": "Polikhim keycard required", "containerCenterFloor": "Center floor inside the container", "deepInsideTrainContainer": "At the very back of the train container", "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office key required", "companyDirectorRoomKeyRequired": "Company director's room key required", "dormGuardDeskKeyRequired": "Dorm guard desk key required" },
+  "mapControls": { "seasonBattlePass": "SEASON BATTLE PASS", "brandCopy": "Track document locations and collection progress in one place.", "selectMap": "SELECT MAP", "documentType": "DOCUMENT TYPE", "clearAll": "CLEAR ALL", "selectAll": "SELECT ALL", "openTracker": "OPEN BATTLE PASS TRACKER", "currentMap": "CURRENT MAP", "toolsHome": "TOOLS HOME", "openFilterMenu": "Open filter menu", "markerFilters": "Document marker filters", "close": "Close" },
+  "footer": {
+    "prefix": "This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by",
+    "text": "This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by whizs"
+  }
+}
