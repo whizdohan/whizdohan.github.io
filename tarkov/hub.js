@@ -206,9 +206,9 @@ const ADDITIONAL_SEASON_QUESTS=[
       "ja": "ゲーム内時間22:00～08:00にCustoms・Woods・Streets of TarkovでPMCを各3人排除し、各指定地点にPMCドッグタグを3個ずつ設置（合計9人・9個）"
     },
     "guides": {
-      "ko": "설치할 PMC 인식표는 인레이드(Found in Raid) 상태이면 됩니다. 퀘스트는 여러 레이드에 걸쳐 진행할 수 있으며, 한 번의 레이드에서 모두 완료할 필요는 없습니다. 설치 장소: 세관 마크방, 우드 버려진 마을 마크 서클, 타르코프 시내 Nikitskaya St. 8 건물 2층 아파트 마크 서클. 설치 목표에는 별도 시간 제한이 표기돼 있지 않습니다.",
-      "en": "PMC dogtags to be stashed must have Found in Raid status. You can progress across multiple raids; the quest does not have to be completed in a single raid. Stash locations: the marked room on Customs; the abandoned village marked circle on Woods; the marked circle in the second-floor apartment at Nikitskaya St. 8 on Streets. The stash objectives do not list a time restriction.",
-      "ja": "設置するPMCドッグタグはFound in Raid状態であれば使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
+      "ko": "설치할 PMC 인식표는 인레이드(Found in Raid) 상태가 아니어도 됩니다. 퀘스트는 여러 레이드에 걸쳐 진행할 수 있으며, 한 번의 레이드에서 모두 완료할 필요는 없습니다. 설치 장소: 세관 마크방, 우드 버려진 마을 마크 서클, 타르코프 시내 Nikitskaya St. 8 건물 2층 아파트 마크 서클. 설치 목표에는 별도 시간 제한이 표기돼 있지 않습니다.",
+      "en": "PMC dogtags do not need Found in Raid status. You can progress across multiple raids; the quest does not have to be completed in a single raid. Stash locations: the marked room on Customs; the abandoned village marked circle on Woods; the marked circle in the second-floor apartment at Nikitskaya St. 8 on Streets. The stash objectives do not list a time restriction.",
+      "ja": "設置するPMCドッグタグはFound in Raid状態でなくても使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
     }
   }
 ];
