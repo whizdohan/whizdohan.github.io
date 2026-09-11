@@ -1,210 +1,31 @@
 {
-  "meta": {
-    "title": "Tarkov Battle Pass Information",
-    "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기"
-  },
-  "header": {
-    "game": "타르코프",
-    "season": "시즌 1",
-    "battlePass": "배틀패스"
-  },
-  "language": {
-    "label": "언어"
-  },
-  "seasonCountdown": {
-    "active": "종료 예정까지 D-{days} · 종료 예정일 2026.12.07",
-    "ended": "시즌 종료 · 종료 예정일 2026.12.07"
-  },
-  "reports": {
-    "externalButton": "문의 & 제보",
-    "button": "위치 제보",
-    "eyebrow": "커뮤니티 지도",
-    "title": "제보 목록",
-    "intro": "지도를 클릭하면 좌표가 복사되고 자동으로 입력됩니다. 제보와 사진은 이 브라우저에만 저장됩니다.",
-    "map": "지도 선택",
-    "coordinate": "좌표",
-    "coordinatePlaceholder": "지도에서 위치를 클릭하세요",
-    "copy": "복사",
-    "photo": "위치 사진",
-    "note": "설명 (선택)",
-    "notePlaceholder": "문서 위치 또는 주변 지형을 설명해 주세요",
-    "save": "제보 저장",
-    "list": "제보 목록",
-    "empty": "이 브라우저에 저장된 제보가 없습니다.",
-    "delete": "제보 삭제",
-    "deleteConfirm": "이 로컬 제보를 삭제할까요?",
-    "deleted": "제보를 삭제했습니다.",
-    "saved": "이 브라우저에 제보를 저장했습니다.",
-    "saveFailed": "제보를 저장하지 못했습니다.",
-    "photoRequired": "위치 사진을 첨부해 주세요.",
-    "photoTooLarge": "사진은 10MB 이하여야 합니다.",
-    "clickMapFirst": "먼저 지도에서 위치를 클릭하세요.",
-    "copied": "좌표를 복사했습니다.",
-    "coordinateReady": "좌표를 복사하고 제보에 입력했습니다."
-  },
-  "map": {
-    "select": "지도 선택"
-  },
-  "maps": {
-    "customs": "세관",
-    "groundZero": "그라운드 제로",
-    "factory": "공장",
-    "woods": "삼림",
-    "reserve": "리저브",
-    "shoreline": "해안선",
-    "interchange": "인터체인지",
-    "lighthouse": "등대",
-    "streets": "타르코프 시내",
-    "laboratory": "연구소",
-    "icebreaker": "쇄빙선",
-    "labyrinth": "미궁"
-  },
-  "nav": {
-    "battlePass": "배틀패스",
-    "seasonalRewards": "시즌 보상",
-    "leagues": "리그 및 등급",
-    "map": "문서 지도",
-    "back": "뒤로"
-  },
-  "panel": {
-    "rewardList": "보상 목록"
-  },
-  "detail": {
-    "collectDocuments": "문서를 수집해 제출하세요",
-    "markComplete": "완료 표시",
-    "markIncomplete": "완료 취소"
-  },
-  "documents": {
-    "inventory": "보유 문서",
-    "remaining": "남은 문서"
-  },
-  "hero": {
-    "description": "완료한 보상을 표시하면 필요한 문서 수에서 자동으로 차감됩니다."
-  },
-  "progress": {
-    "title": "배틀패스 진행도",
-    "page": "페이지",
-    "pageNumber": "{number}페이지",
-    "pageRequired": "필요 문서 {count}",
-    "documents": "문서",
-    "selectedDocuments": "선택한 문서",
-    "rewardCount": "보상 {count}개 완료",
-    "documentNotice": "배틀패스 필요 문서는 패치에 따라 종류가 바뀔 수 있으니 인게임에서 꼭 확인해 주세요."
-  },
-  "exchange": {
-    "title": "문서 교환",
-    "fiveCost": "문서 5개",
-    "fiveReward": "원하는 문서 1개",
-    "tenCost": "문서 10개",
-    "tenReward": "블랙 디비전 상자 1개",
-    "crateName": "블랙 디비전 상자",
-    "lootExamples": "랜덤 보상 예시",
-    "lootNotice": "무작위 보상 · 전체 드롭 목록 아님"
-  },
-  "page": {
-    "summary": "페이지 합계 {total} · 누적 {cumulative}",
-    "cardHint": "보상 카드를 선택해 목표에 추가하거나 제거하세요.",
-    "cumulative": "누적 {count}"
-  },
-  "buttons": {
-    "completePage": "현재 페이지 완료",
-    "completeThrough": "이 페이지까지 완료",
-    "resetCompleted": "완료한 보상 초기화"
-  },
-  "calculator": {
-    "title": "문서 계산기",
-    "selectedGoal": "선택한 목표",
-    "remainingDocuments": "남은 문서",
-    "documents": "문서"
-  },
-  "status": {
-    "complete": "✓ 모든 보상 완료",
-    "readyRemaining": "✓ 보유 문서로 남은 보상을 모두 해금할 수 있습니다",
-    "missing": "문서 {count}개가 더 필요합니다"
-  },
-  "table": {
-    "documentType": "문서 종류",
-    "required": "필요",
-    "owned": "보유",
-    "missing": "부족"
-  },
-  "autosave": {
-    "label": "자동 저장",
-    "text": "문서 보유량과 완료한 보상은 이 브라우저에 저장됩니다."
-  },
-  "overview": {
-    "title": "페이지 해금 비용",
-    "total": "총 12페이지 · 문서 501개"
-  },
-  "reward": {
-    "required": "필요",
-    "requiredDocuments": "필요한 문서",
-    "requiredDocs": "필요 문서",
-    "total": "합계",
-    "complete": "완료",
-    "ready": "준비됨"
-  },
-  "categories": {
-    "financial": "재정",
-    "pmc": "PMC 인사",
-    "project": "프로젝트",
-    "blueprints": "설계",
-    "test": "테스트",
-    "user": "사용자",
-    "medical": "의료",
-    "technical": "기술"
-  },
-  "mapViewer": {
-    "locationsVisible": "개 위치 표시",
-    "loading": "로컬 지도 이미지 불러오는 중",
-    "loadingCopy": "로컬 인터랙티브 지도를 표시하는 데 시간이 걸릴 수 있습니다.",
-    "unavailable": "인터랙티브 지도 사용 불가",
-    "loadFailed": "지도를 불러오지 못했습니다",
-    "openSource": "지도 출처 열기",
-    "photoSoon": "위치 사진 준비 중",
-    "location": "문서 위치",
-    "details": "위치 상세 정보",
-    "noDetails": "상세 설명이 아직 없습니다.",
-    "imageSoon": "이미지 준비 중",
-    "coordinateCopied": "좌표 복사 완료",
-    "provider": "제공자",
-    "comment": "멘트"
-  },
-  "documentTitles": {
-    "financial": "재정 문서",
-    "pmc": "PMC 인사 문서",
-    "project": "프로젝트 문서",
-    "blueprints": "설계도",
-    "test": "테스트 문서",
-    "user": "사용자 문서",
-    "medical": "의료 문서",
-    "technical": "기술 문서"
-  },
-  "locationComments": {
-    "containerSecondFloor": "컨테이너 2층",
-    "factoryKeyRequired": "팩토리 열쇠 필요",
-    "secondFloorSafeChair": "2층 중앙",
-    "polikhimKeycardRequired": "폴리킴 키카드 필요",
-    "containerCenterFloor": "컨테이너 안쪽 중앙 바닥",
-    "deepInsideTrainContainer": "기차 컨테이너 제일 안쪽",
-    "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office key 필요",
-    "companyDirectorRoomKeyRequired": "Company director's room key 필요",
-    "dormGuardDeskKeyRequired": "Dorm guard desk key 필요"
-  },
-  "mapControls": {
-    "seasonBattlePass": "시즌 배틀패스",
-    "brandCopy": "문서 위치와 수집 진행도를 한곳에서 확인하세요.",
-    "selectMap": "지도 선택",
-    "documentType": "문서 종류",
-    "clearAll": "전체 해제",
-    "selectAll": "전체 선택",
-    "openTracker": "배틀패스 추적기 열기",
-    "currentMap": "현재 지도",
-    "toolsHome": "도구 홈",
-    "openFilterMenu": "필터 메뉴 열기",
-    "markerFilters": "문서 마커 필터",
-    "close": "닫기"
-  },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기" },
+  "header": { "game": "타르코프", "season": "시즌 1", "battlePass": "배틀패스" },
+  "language": { "label": "언어" },
+  "seasonCountdown": { "active": "종료 예정까지 D-{days} · 종료 예정일 2026.12.07", "ended": "시즌 종료 · 종료 예정일 2026.12.07" },
+  "reports": { "externalButton": "문의 & 제보", "button": "위치 제보", "eyebrow": "커뮤니티 지도", "title": "제보 목록", "intro": "지도를 클릭하면 좌표가 복사되고 자동으로 입력됩니다. 제보와 사진은 이 브라우저에만 저장됩니다.", "map": "지도 선택", "coordinate": "좌표", "coordinatePlaceholder": "지도에서 위치를 클릭하세요", "copy": "복사", "photo": "위치 사진", "note": "설명 (선택)", "notePlaceholder": "문서 위치 또는 주변 지형을 설명해 주세요", "save": "제보 저장", "list": "제보 목록", "empty": "이 브라우저에 저장된 제보가 없습니다.", "delete": "제보 삭제", "deleteConfirm": "이 로컬 제보를 삭제할까요?", "deleted": "제보를 삭제했습니다.", "saved": "이 브라우저에 제보를 저장했습니다.", "saveFailed": "제보를 저장하지 못했습니다.", "photoRequired": "위치 사진을 첨부해 주세요.", "photoTooLarge": "사진은 10MB 이하여야 합니다.", "clickMapFirst": "먼저 지도에서 위치를 클릭하세요.", "copied": "좌표를 복사했습니다.", "coordinateReady": "좌표를 복사하고 제보에 입력했습니다." },
+  "map": { "select": "지도 선택" },
+  "maps": { "customs": "세관", "groundZero": "그라운드 제로", "factory": "공장", "woods": "삼림", "reserve": "리저브", "shoreline": "해안선", "interchange": "인터체인지", "lighthouse": "등대", "streets": "타르코프 시내", "laboratory": "연구소", "icebreaker": "쇄빙선", "labyrinth": "미궁" },
+  "nav": { "battlePass": "배틀패스", "seasonalRewards": "시즌 보상", "leagues": "리그 및 등급", "map": "문서 지도", "back": "뒤로" },
+  "panel": { "rewardList": "보상 목록" },
+  "detail": { "collectDocuments": "문서를 수집해 제출하세요", "markComplete": "완료 표시", "markIncomplete": "완료 취소" },
+  "documents": { "inventory": "보유 문서", "remaining": "남은 문서" },
+  "hero": { "description": "완료한 보상을 표시하면 필요한 문서 수에서 자동으로 차감됩니다." },
+  "progress": { "title": "배틀패스 진행도", "page": "페이지", "pageNumber": "{number}페이지", "pageRequired": "필요 문서 {count}", "documents": "문서", "selectedDocuments": "선택한 문서", "rewardCount": "보상 {count}개 완료", "documentNotice": "배틀패스 필요 문서는 패치에 따라 종류가 바뀔 수 있으니 인게임에서 꼭 확인해 주세요." },
+  "exchange": { "title": "문서 교환", "fiveCost": "문서 5개", "fiveReward": "원하는 문서 1개", "tenCost": "문서 10개", "tenReward": "블랙 디비전 상자 1개", "crateName": "블랙 디비전 상자", "lootExamples": "랜덤 보상 예시", "lootNotice": "무작위 보상 · 전체 드롭 목록 아님" },
+  "page": { "summary": "페이지 합계 {total} · 누적 {cumulative}", "cardHint": "보상 카드를 선택해 목표에 추가하거나 제거하세요.", "cumulative": "누적 {count}" },
+  "buttons": { "completePage": "현재 페이지 완료", "completeThrough": "이 페이지까지 완료", "resetCompleted": "완료한 보상 초기화" },
+  "calculator": { "title": "문서 계산기", "selectedGoal": "선택한 목표", "remainingDocuments": "남은 문서", "documents": "문서" },
+  "status": { "complete": "✓ 모든 보상 완료", "readyRemaining": "✓ 보유 문서로 남은 보상을 모두 해금할 수 있습니다", "missing": "문서 {count}개가 더 필요합니다" },
+  "table": { "documentType": "문서 종류", "required": "필요", "owned": "보유", "missing": "부족" },
+  "autosave": { "label": "자동 저장", "text": "문서 보유량과 완료한 보상은 이 브라우저에 저장됩니다." },
+  "overview": { "title": "페이지 해금 비용", "total": "총 12페이지 · 문서 501개" },
+  "reward": { "required": "필요", "requiredDocuments": "필요한 문서", "requiredDocs": "필요 문서", "total": "합계", "complete": "완료", "ready": "준비됨" },
+  "categories": { "financial": "재정", "pmc": "PMC 인사", "project": "프로젝트", "blueprints": "설계", "test": "테스트", "user": "사용자", "medical": "의료", "technical": "기술" },
+  "mapViewer": { "locationsVisible": "개 위치 표시", "loading": "로컬 지도 이미지 불러오는 중", "loadingCopy": "로컬 인터랙티브 지도를 표시하는 데 시간이 걸릴 수 있습니다.", "unavailable": "인터랙티브 지도 사용 불가", "loadFailed": "지도를 불러오지 못했습니다", "openSource": "지도 출처 열기", "photoSoon": "위치 사진 준비 중", "location": "문서 위치", "details": "위치 상세 정보", "noDetails": "상세 설명이 아직 없습니다.", "imageSoon": "이미지 준비 중", "coordinateCopied": "좌표 복사 완료", "provider": "제공자", "comment": "멘트" },
+  "documentTitles": { "financial": "재정 문서", "pmc": "PMC 인사 문서", "project": "프로젝트 문서", "blueprints": "설계도", "test": "테스트 문서", "user": "사용자 문서", "medical": "의료 문서", "technical": "기술 문서" },
+  "locationComments": { "containerSecondFloor": "컨테이너 2층", "factoryKeyRequired": "팩토리 열쇠 필요", "secondFloorSafeChair": "2층 중앙", "polikhimKeycardRequired": "폴리킴 키카드 필요", "containerCenterFloor": "컨테이너 안쪽 중앙 바닥", "deepInsideTrainContainer": "기차 컨테이너 제일 안쪽", "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office key 필요", "companyDirectorRoomKeyRequired": "Company director's room key 필요", "dormGuardDeskKeyRequired": "Dorm guard desk key 필요" },
+  "mapControls": { "seasonBattlePass": "시즌 배틀패스", "brandCopy": "문서 위치와 수집 진행도를 한곳에서 확인하세요.", "selectMap": "지도 선택", "documentType": "문서 종류", "clearAll": "전체 해제", "selectAll": "전체 선택", "openTracker": "배틀패스 추적기 열기", "currentMap": "현재 지도", "toolsHome": "도구 홈", "openFilterMenu": "필터 메뉴 열기", "markerFilters": "문서 마커 필터", "close": "닫기" },
   "footer": {
     "prefix": "본 사이트는 Battlestate Games와 관련 없는 비공식 팬사이트입니다. 게임 콘텐츠, 스크린샷, 아이템 이미지, 상표 및 관련 자료의 권리는 Battlestate Games와 각 권리자에게 있습니다. 사이트 제공",
     "text": "본 사이트는 Battlestate Games와 관련 없는 비공식 팬사이트입니다. 게임 콘텐츠, 스크린샷, 아이템 이미지, 상표 및 관련 자료의 권리는 Battlestate Games와 각 권리자에게 있습니다. whizs 제공"
