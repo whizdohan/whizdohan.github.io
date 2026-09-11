@@ -186,6 +186,7 @@ const ADDITIONAL_SEASON_QUESTS=[
   {
     "name": "Price for Information",
     "area": "Shoreline → Lighthouse → Reserve → Woods",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Price_for_Information",
     "goals": {
       "ko": "한 번의 연속 레이드에서 해안선 → 등대 → 리저브 → 우드로 트랜짓하고, 다른 목표 진행 중 블랙디비전을 제외한 대상 총 10명 처치",
       "en": "Transit Shoreline → Lighthouse → Reserve → Woods in one continuous raid, and eliminate 10 targets other than Black Division while completing the other objectives",
@@ -201,6 +202,10 @@ const ADDITIONAL_SEASON_QUESTS=[
     "name": "In the Name of Humanity...",
     "area": "Interchange → Streets of Tarkov",
     "wiki": "https://escapefromtarkov.fandom.com/wiki/In_the_Name_of_Humanity...",
+    "items": [
+      {"name":"Object #11SR keycard","icon":"https://assets.tarkov.dev/5e42c81886f7742a01529f57-icon.webp","qty":1},
+      {"name":"RSP-30 reactive signal cartridge (Yellow)","icon":"https://assets.tarkov.dev/624c0b3340357b5f566e8766-icon.webp","qty":1}
+    ],
     "goals": {
       "ko": "한 번의 레이드에서 인터체인지의 지정 절차를 완료하고 타르코프 시내로 트랜짓한 뒤 케이스를 설치하고 생존 탈출",
       "en": "Complete the required Interchange sequence in one raid, transit to Streets of Tarkov, plant the case, and survive the raid",
@@ -215,15 +220,19 @@ const ADDITIONAL_SEASON_QUESTS=[
   {
     "name": "Historical Prospects",
     "area": "Customs · Woods · Streets of Tarkov",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/Historical_Prospects",
+    "items": [
+      {"name":"Dorm room 314 marked key","icon":"https://assets.tarkov.dev/5780cf7f2459777de4559322-icon.webp","qty":1}
+    ],
     "goals": {
       "ko": "게임 시간 22:00~08:00에 세관·우드·타르코프 시내에서 PMC를 각각 3명 처치하고, 각 지역 지정 장소에 PMC 인식표 3개씩 설치 (총 9명·9개)",
       "en": "Eliminate 3 PMCs each on Customs, Woods and Streets of Tarkov during 22:00–08:00 in-game, and stash 3 PMC dogtags at each designated site (9 kills and 9 dogtags total)",
       "ja": "ゲーム内時間22:00～08:00にCustoms・Woods・Streets of TarkovでPMCを各3人排除し、各指定地点にPMCドッグタグを3個ずつ設置（合計9人・9個）"
     },
     "guides": {
-      "ko": "설치할 PMC 인식표는 인레이드(Found in Raid) 상태가 아니어도 됩니다. 퀘스트는 여러 레이드에 걸쳐 진행할 수 있으며, 한 번의 레이드에서 모두 완료할 필요는 없습니다. 설치 장소: 세관 마크방, 우드 버려진 마을 마크 서클, 타르코프 시내 Nikitskaya St. 8 건물 2층 아파트 마크 서클. 설치 목표에는 별도 시간 제한이 표기돼 있지 않습니다.",
-      "en": "PMC dogtags do not need Found in Raid status. You can progress across multiple raids; the quest does not have to be completed in a single raid. Stash locations: the marked room on Customs; the abandoned village marked circle on Woods; the marked circle in the second-floor apartment at Nikitskaya St. 8 on Streets. The stash objectives do not list a time restriction.",
-      "ja": "設置するPMCドッグタグはFound in Raid状態でなくても使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
+      "ko": "세관 기숙사 3층 마크방에 들어가려면 Dorm room 314 marked key가 필요합니다. 설치할 PMC 인식표는 인레이드(Found in Raid) 상태가 아니어도 됩니다. 퀘스트는 여러 레이드에 걸쳐 진행할 수 있으며, 한 번의 레이드에서 모두 완료할 필요는 없습니다. 설치 장소: 세관 마크방, 우드 버려진 마을 마크 서클, 타르코프 시내 Nikitskaya St. 8 건물 2층 아파트 마크 서클. 설치 목표에는 별도 시간 제한이 표기돼 있지 않습니다.",
+      "en": "A Dorm room 314 marked key is required to enter the third-floor marked room on Customs. PMC dogtags do not need Found in Raid status. You can progress across multiple raids; the quest does not have to be completed in a single raid. Stash locations: the marked room on Customs; the abandoned village marked circle on Woods; the marked circle in the second-floor apartment at Nikitskaya St. 8 on Streets. The stash objectives do not list a time restriction.",
+      "ja": "Customsの寮3階にあるマークド部屋へ入るにはDorm room 314 marked keyが必要です。設置するPMCドッグタグはFound in Raid状態でなくても使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
     }
   }
 ];
@@ -232,7 +241,7 @@ for(const quest of ADDITIONAL_SEASON_QUESTS){
   const index=QUESTS.length;
   QUESTS.push([quest.name,"등대지기",quest.goals.ko]);
   QUEST_AREAS.push(quest.area);
-  QUEST_ITEMS.push([]);
+  QUEST_ITEMS.push(quest.items||[]);
   QUEST_WIKI.push(quest.wiki||"");
   for(const lang of LANGUAGES){
     if(lang!=="ko")QUEST_GOALS[lang].push(quest.goals[lang]);
