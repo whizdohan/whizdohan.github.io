@@ -1,210 +1,31 @@
 {
-  "meta": {
-    "title": "Tarkov Battle Pass Information",
-    "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機"
-  },
-  "header": {
-    "game": "タルコフ",
-    "season": "シーズン1",
-    "battlePass": "バトルパス"
-  },
-  "language": {
-    "label": "言語"
-  },
-  "seasonCountdown": {
-    "active": "終了まで D-{days} · 終了予定日 2026.12.07",
-    "ended": "シーズン終了 · 終了予定日 2026.12.07"
-  },
-  "reports": {
-    "externalButton": "お問い合わせ・報告",
-    "button": "位置を報告",
-    "eyebrow": "コミュニティマップ",
-    "title": "報告一覧",
-    "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。",
-    "map": "マップ",
-    "coordinate": "座標",
-    "coordinatePlaceholder": "マップ上の位置をクリック",
-    "copy": "コピー",
-    "photo": "位置画像",
-    "note": "説明（任意）",
-    "notePlaceholder": "ドキュメント位置や目印を説明してください",
-    "save": "報告を保存",
-    "list": "報告一覧",
-    "empty": "このブラウザに保存された報告はありません。",
-    "delete": "報告を削除",
-    "deleteConfirm": "このローカル報告を削除しますか？",
-    "deleted": "報告を削除しました。",
-    "saved": "このブラウザに報告を保存しました。",
-    "saveFailed": "報告を保存できませんでした。",
-    "photoRequired": "位置画像を添付してください。",
-    "photoTooLarge": "画像は10MB以下にしてください。",
-    "clickMapFirst": "先にマップ上の位置をクリックしてください。",
-    "copied": "座標をコピーしました。",
-    "coordinateReady": "座標をコピーして報告に入力しました。"
-  },
-  "map": {
-    "select": "マップ選択"
-  },
-  "maps": {
-    "customs": "カスタム",
-    "groundZero": "グラウンドゼロ",
-    "factory": "ファクトリー",
-    "woods": "ウッズ",
-    "reserve": "リザーブ",
-    "shoreline": "ショアライン",
-    "interchange": "インターチェンジ",
-    "lighthouse": "ライトハウス",
-    "streets": "ストリート・オブ・タルコフ",
-    "laboratory": "ラボ",
-    "icebreaker": "アイスブレーカー",
-    "labyrinth": "ラビリンス"
-  },
-  "nav": {
-    "battlePass": "バトルパス",
-    "seasonalRewards": "シーズン報酬",
-    "leagues": "リーグ・レーティング",
-    "map": "文書マップ",
-    "back": "戻る"
-  },
-  "panel": {
-    "rewardList": "報酬一覧"
-  },
-  "detail": {
-    "collectDocuments": "文書を集めて提出してください",
-    "markComplete": "完了にする",
-    "markIncomplete": "完了を取り消す"
-  },
-  "documents": {
-    "inventory": "所持文書",
-    "remaining": "残り文書"
-  },
-  "hero": {
-    "description": "完了した報酬を選ぶと、必要な文書数から自動的に差し引かれます。"
-  },
-  "progress": {
-    "title": "バトルパス進行度",
-    "page": "ページ",
-    "pageNumber": "{number}ページ",
-    "pageRequired": "必要文書 {count}",
-    "documents": "ドキュメント",
-    "selectedDocuments": "選択したドキュメント",
-    "rewardCount": "報酬を{count}個完了",
-    "documentNotice": "バトルパスの必要文書はパッチによって種類が変わる場合があります。ゲーム内で必ず確認してください。"
-  },
-  "exchange": {
-    "title": "文書交換",
-    "fiveCost": "文書5個",
-    "fiveReward": "好きな文書1個",
-    "tenCost": "文書10個",
-    "tenReward": "ブラックディビジョン箱1個",
-    "crateName": "ブラックディビジョン箱",
-    "lootExamples": "ランダム報酬例",
-    "lootNotice": "ランダム報酬 · 全ドロップ一覧ではありません"
-  },
-  "page": {
-    "summary": "ページ合計 {total} · 累計 {cumulative}",
-    "cardHint": "報酬カードを選択して目標に追加・削除できます。",
-    "cumulative": "累計 {count}"
-  },
-  "buttons": {
-    "completePage": "現在のページを完了",
-    "completeThrough": "このページまで完了",
-    "resetCompleted": "完了報酬をリセット"
-  },
-  "calculator": {
-    "title": "文書計算機",
-    "selectedGoal": "選択中の目標",
-    "remainingDocuments": "残り文書",
-    "documents": "文書"
-  },
-  "status": {
-    "complete": "✓ すべての報酬を完了",
-    "readyRemaining": "✓ 所持文書で残りの報酬をすべて解除できます",
-    "missing": "文書があと{count}個必要です"
-  },
-  "table": {
-    "documentType": "文書タイプ",
-    "required": "必要",
-    "owned": "所持",
-    "missing": "不足"
-  },
-  "autosave": {
-    "label": "自動保存",
-    "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。"
-  },
-  "overview": {
-    "title": "ページ解除コスト",
-    "total": "全12ページ · 文書501個"
-  },
-  "reward": {
-    "required": "必要",
-    "requiredDocuments": "必要なドキュメント",
-    "requiredDocs": "必要数",
-    "total": "合計",
-    "complete": "完了",
-    "ready": "準備完了"
-  },
-  "categories": {
-    "financial": "財務",
-    "pmc": "PMC人事",
-    "project": "プロジェクト",
-    "blueprints": "設計図",
-    "test": "テスト",
-    "user": "ユーザー",
-    "medical": "医療",
-    "technical": "技術"
-  },
-  "mapViewer": {
-    "locationsVisible": "件の位置を表示",
-    "loading": "ローカルマップ画像を読み込み中",
-    "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。",
-    "unavailable": "インタラクティブマップを利用できません",
-    "loadFailed": "マップを読み込めませんでした",
-    "openSource": "マップ出典を開く",
-    "photoSoon": "位置画像を準備中",
-    "location": "ドキュメント位置",
-    "details": "位置の詳細",
-    "noDetails": "詳細な説明はまだありません。",
-    "imageSoon": "画像を準備中",
-    "coordinateCopied": "座標をコピーしました",
-    "provider": "提供者",
-    "comment": "コメント"
-  },
-  "documentTitles": {
-    "financial": "財務文書",
-    "pmc": "PMC人事ファイル",
-    "project": "プロジェクトファイル",
-    "blueprints": "設計図",
-    "test": "テスト文書",
-    "user": "ユーザー文書",
-    "medical": "医療文書",
-    "technical": "技術文書"
-  },
-  "locationComments": {
-    "containerSecondFloor": "コンテナの2階",
-    "factoryKeyRequired": "Factoryキーが必要",
-    "secondFloorSafeChair": "2階中央",
-    "polikhimKeycardRequired": "ポリヒムキーカードが必要",
-    "containerCenterFloor": "コンテナ内部の中央床",
-    "deepInsideTrainContainer": "列車コンテナの最奥",
-    "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office keyが必要",
-    "companyDirectorRoomKeyRequired": "Company director's room keyが必要",
-    "dormGuardDeskKeyRequired": "Dorm guard desk keyが必要"
-  },
-  "mapControls": {
-    "seasonBattlePass": "シーズンバトルパス",
-    "brandCopy": "文書の場所と収集進捗を一か所で確認できます。",
-    "selectMap": "マップ選択",
-    "documentType": "文書タイプ",
-    "clearAll": "すべて解除",
-    "selectAll": "すべて選択",
-    "openTracker": "バトルパストラッカーを開く",
-    "currentMap": "現在のマップ",
-    "toolsHome": "ツールホーム",
-    "openFilterMenu": "フィルターメニューを開く",
-    "markerFilters": "文書マーカーフィルター",
-    "close": "閉じる"
-  },
+  "meta": { "title": "Tarkov Battle Pass Information", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
+  "header": { "game": "タルコフ", "season": "シーズン1", "battlePass": "バトルパス" },
+  "language": { "label": "言語" },
+  "seasonCountdown": { "active": "終了まで D-{days} · 終了予定日 2026.12.07", "ended": "シーズン終了 · 終了予定日 2026.12.07" },
+  "reports": { "externalButton": "お問い合わせ・報告", "button": "位置を報告", "eyebrow": "コミュニティマップ", "title": "報告一覧", "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。", "map": "マップ", "coordinate": "座標", "coordinatePlaceholder": "マップ上の位置をクリック", "copy": "コピー", "photo": "位置画像", "note": "説明（任意）", "notePlaceholder": "ドキュメント位置や目印を説明してください", "save": "報告を保存", "list": "報告一覧", "empty": "このブラウザに保存された報告はありません。", "delete": "報告を削除", "deleteConfirm": "このローカル報告を削除しますか？", "deleted": "報告を削除しました。", "saved": "このブラウザに報告を保存しました。", "saveFailed": "報告を保存できませんでした。", "photoRequired": "位置画像を添付してください。", "photoTooLarge": "画像は10MB以下にしてください。", "clickMapFirst": "先にマップ上の位置をクリックしてください。", "copied": "座標をコピーしました。", "coordinateReady": "座標をコピーして報告に入力しました。" },
+  "map": { "select": "マップ選択" },
+  "maps": { "customs": "カスタム", "groundZero": "グラウンドゼロ", "factory": "ファクトリー", "woods": "ウッズ", "reserve": "リザーブ", "shoreline": "ショアライン", "interchange": "インターチェンジ", "lighthouse": "ライトハウス", "streets": "ストリート・オブ・タルコフ", "laboratory": "ラボ", "icebreaker": "アイスブレーカー", "labyrinth": "ラビリンス" },
+  "nav": { "battlePass": "バトルパス", "seasonalRewards": "シーズン報酬", "leagues": "リーグ・レーティング", "map": "文書マップ", "back": "戻る" },
+  "panel": { "rewardList": "報酬一覧" },
+  "detail": { "collectDocuments": "文書を集めて提出してください", "markComplete": "完了にする", "markIncomplete": "完了を取り消す" },
+  "documents": { "inventory": "所持文書", "remaining": "残り文書" },
+  "hero": { "description": "完了した報酬を選ぶと、必要な文書数から自動的に差し引かれます。" },
+  "progress": { "title": "バトルパス進行度", "page": "ページ", "pageNumber": "{number}ページ", "pageRequired": "必要文書 {count}", "documents": "ドキュメント", "selectedDocuments": "選択したドキュメント", "rewardCount": "報酬を{count}個完了", "documentNotice": "バトルパスの必要文書はパッチによって種類が変わる場合があります。ゲーム内で必ず確認してください。" },
+  "exchange": { "title": "文書交換", "fiveCost": "文書5個", "fiveReward": "好きな文書1個", "tenCost": "文書10個", "tenReward": "ブラックディビジョン箱1個", "crateName": "ブラックディビジョン箱", "lootExamples": "ランダム報酬例", "lootNotice": "ランダム報酬 · 全ドロップ一覧ではありません" },
+  "page": { "summary": "ページ合計 {total} · 累計 {cumulative}", "cardHint": "報酬カードを選択して目標に追加・削除できます。", "cumulative": "累計 {count}" },
+  "buttons": { "completePage": "現在のページを完了", "completeThrough": "このページまで完了", "resetCompleted": "完了報酬をリセット" },
+  "calculator": { "title": "文書計算機", "selectedGoal": "選択中の目標", "remainingDocuments": "残り文書", "documents": "文書" },
+  "status": { "complete": "✓ すべての報酬を完了", "readyRemaining": "✓ 所持文書で残りの報酬をすべて解除できます", "missing": "文書があと{count}個必要です" },
+  "table": { "documentType": "文書タイプ", "required": "必要", "owned": "所持", "missing": "不足" },
+  "autosave": { "label": "自動保存", "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。" },
+  "overview": { "title": "ページ解除コスト", "total": "全12ページ · 文書501個" },
+  "reward": { "required": "必要", "requiredDocuments": "必要なドキュメント", "requiredDocs": "必要数", "total": "合計", "complete": "完了", "ready": "準備完了" },
+  "categories": { "financial": "財務", "pmc": "PMC人事", "project": "プロジェクト", "blueprints": "設計図", "test": "テスト", "user": "ユーザー", "medical": "医療", "technical": "技術" },
+  "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "ローカルマップ画像を読み込み中", "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ出典を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中", "coordinateCopied": "座標をコピーしました", "provider": "提供者", "comment": "コメント" },
+  "documentTitles": { "financial": "財務文書", "pmc": "PMC人事ファイル", "project": "プロジェクトファイル", "blueprints": "設計図", "test": "テスト文書", "user": "ユーザー文書", "medical": "医療文書", "technical": "技術文書" },
+  "locationComments": { "containerSecondFloor": "コンテナの2階", "factoryKeyRequired": "Factoryキーが必要", "secondFloorSafeChair": "2階中央", "polikhimKeycardRequired": "ポリヒムキーカードが必要", "containerCenterFloor": "コンテナ内部の中央床", "deepInsideTrainContainer": "列車コンテナの最奥", "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office keyが必要", "companyDirectorRoomKeyRequired": "Company director's room keyが必要", "dormGuardDeskKeyRequired": "Dorm guard desk keyが必要" },
+  "mapControls": { "seasonBattlePass": "シーズンバトルパス", "brandCopy": "文書の場所と収集進捗を一か所で確認できます。", "selectMap": "マップ選択", "documentType": "文書タイプ", "clearAll": "すべて解除", "selectAll": "すべて選択", "openTracker": "バトルパストラッカーを開く", "currentMap": "現在のマップ", "toolsHome": "ツールホーム", "openFilterMenu": "フィルターメニューを開く", "markerFilters": "文書マーカーフィルター", "close": "閉じる" },
   "footer": {
     "prefix": "本サイトはBattlestate Gamesとは関係のない非公式ファンサイトです。ゲームコンテンツ、スクリーンショット、アイテム画像、商標および関連素材の権利はBattlestate Gamesと各権利者に帰属します。サイト提供",
     "text": "本サイトはBattlestate Gamesとは関係のない非公式ファンサイトです。ゲームコンテンツ、スクリーンショット、アイテム画像、商標および関連素材の権利はBattlestate Gamesと各権利者に帰属します。whizs提供"
