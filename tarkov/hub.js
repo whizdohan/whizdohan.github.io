@@ -198,6 +198,21 @@ const ADDITIONAL_SEASON_QUESTS=[
     }
   },
   {
+    "name": "In the Name of Humanity...",
+    "area": "Interchange → Streets of Tarkov",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/In_the_Name_of_Humanity...",
+    "goals": {
+      "ko": "한 번의 레이드에서 인터체인지의 지정 절차를 완료하고 타르코프 시내로 트랜짓한 뒤 케이스를 설치하고 생존 탈출",
+      "en": "Complete the required Interchange sequence in one raid, transit to Streets of Tarkov, plant the case, and survive the raid",
+      "ja": "1回のレイドでInterchangeの指定手順を完了し、Streets of Tarkovへトランジットした後、ケースを設置して生還する"
+    },
+    "guides": {
+      "ko": "모든 목표를 한 번의 레이드에서 완료해야 합니다. Object #11SR 키카드와 RSP-30 신호탄(노란색)을 준비하세요. 인터체인지에서 게임 시간 20:00~08:00 사이 PMC 3명 처치 → 발전소 전원 켜기 → Burger Spot 화장실에서 #11SR로 안전실 활성화 → 안전실 내부 레버로 14번 컨테이너 열기 → 컨테이너에서 케이스 획득 → 타르코프 시내로 트랜짓 → Pinewood 호텔 3층에 케이스 설치 → 추락한 트램 근처에서 노란 신호탄 사용 → 생존 탈출. 완료 시 Historical Prospects가 해금됩니다.",
+      "en": "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate 3 PMCs between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → plant the case on the third floor of the Pinewood Hotel → fire the yellow flare near the crashed tram → extract alive. Completing the quest unlocks Historical Prospects.",
+      "ja": "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00にPMCを3人排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → Pinewood Hotelの3階にケースを設置 → 墜落した路面電車付近で黄色のフレアを使用 → 生還。完了するとHistorical Prospectsが解放されます。"
+    }
+  },
+  {
     "name": "Historical Prospects",
     "area": "Customs · Woods · Streets of Tarkov",
     "goals": {
@@ -218,7 +233,7 @@ for(const quest of ADDITIONAL_SEASON_QUESTS){
   QUESTS.push([quest.name,"등대지기",quest.goals.ko]);
   QUEST_AREAS.push(quest.area);
   QUEST_ITEMS.push([]);
-  QUEST_WIKI.push("");
+  QUEST_WIKI.push(quest.wiki||"");
   for(const lang of LANGUAGES){
     if(lang!=="ko")QUEST_GOALS[lang].push(quest.goals[lang]);
     QUEST_GUIDES[lang].push(quest.guides[lang]);
@@ -231,7 +246,9 @@ UI.ja.questDesc="シーズンクエストの目標と報酬。";
 
 const TRADERS={"등대지기":"Lightkeeper","프라퍼":"Prapor","테라피스트":"Therapist","펜스":"Fence","라그맨":"Ragman","메카닉":"Mechanic","예거":"Jaeger","BTR 운전수":"BTR Driver"};
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
+const HUMANITY_QUEST_MIGRATION_KEY="tarkov-hub:humanity-quest-index:v1";
 let allergy=read(KEYS.allergy,{}),selected=new Set(read(KEYS.modifiers,[])),questsDone=new Set(read(KEYS.questsDone,[])),seasonAchievementsDone=new Set(read(KEYS.seasonAchievementsDone,[])),otherAchievementsDone=new Set(read(KEYS.otherAchievementsDone,[])),kappaItems=new Set(read(KEYS.kappaItems,[])),kappaRequirements=new Set(read(KEYS.kappaRequirements,[])),filter="전체",query="";
+if(!localStorage.getItem(HUMANITY_QUEST_MIGRATION_KEY)){if(questsDone.has(17)){questsDone.delete(17);questsDone.add(18);localStorage.setItem(KEYS.questsDone,JSON.stringify([...questsDone]))}localStorage.setItem(HUMANITY_QUEST_MIGRATION_KEY,"1")}
 if(kappaRequirements.has("trader-ll4")){kappaRequirements.delete("trader-ll4");["trader-prapor-ll4","trader-therapist-ll4","trader-skier-ll4","trader-peacekeeper-ll4","trader-mechanic-ll4","trader-ragman-ll4","trader-jaeger-ll4"].forEach(id=>kappaRequirements.add(id));localStorage.setItem(KEYS.kappaRequirements,JSON.stringify([...kappaRequirements]))}
 EXCLUSIONS.forEach(([a,b])=>{if(selected.has(a)&&selected.has(b))selected.delete(b)});
 function closeMenu(){document.querySelector("#hub-nav").classList.remove("open");document.querySelector("#nav-backdrop").classList.remove("open")}
