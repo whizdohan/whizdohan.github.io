@@ -31,7 +31,8 @@
     "pageRequired": "REQUIRED {count}",
     "documents": "DOCUMENTS",
     "selectedDocuments": "SELECTED DOCUMENTS",
-    "rewardCount": "{count} rewards complete"
+    "rewardCount": "{count} rewards complete",
+    "documentNotice": "Required Battle Pass document types may change with game patches. Check the current requirements in game."
   },
   "exchange": { "title": "DOCUMENT EXCHANGE", "fiveCost": "5 DOCUMENTS", "fiveReward": "1 DOCUMENT OF YOUR CHOICE", "tenCost": "10 DOCUMENTS", "tenReward": "1 BLACK DIVISION CRATE", "crateName": "BLACK DIVISION CRATE", "lootExamples": "RANDOM REWARD EXAMPLES", "lootNotice": "Random rewards · not the complete drop pool" },
   "page": {

@@ -11,7 +11,7 @@
   "detail": { "collectDocuments": "文書を集めて提出してください", "markComplete": "完了にする", "markIncomplete": "完了を取り消す" },
   "documents": { "inventory": "所持文書", "remaining": "残り文書" },
   "hero": { "description": "完了した報酬を選ぶと、必要な文書数から自動的に差し引かれます。" },
-  "progress": { "title": "バトルパス進行度", "page": "ページ", "pageNumber": "{number}ページ", "pageRequired": "必要文書 {count}", "documents": "ドキュメント", "selectedDocuments": "選択したドキュメント", "rewardCount": "報酬を{count}個完了" },
+  "progress": { "title": "バトルパス進行度", "page": "ページ", "pageNumber": "{number}ページ", "pageRequired": "必要文書 {count}", "documents": "ドキュメント", "selectedDocuments": "選択したドキュメント", "rewardCount": "報酬を{count}個完了", "documentNotice": "バトルパスの必要文書はパッチによって種類が変わる場合があります。ゲーム内で必ず確認してください。" },
   "exchange": { "title": "文書交換", "fiveCost": "文書5個", "fiveReward": "好きな文書1個", "tenCost": "文書10個", "tenReward": "ブラックディビジョン箱1個", "crateName": "ブラックディビジョン箱", "lootExamples": "ランダム報酬例", "lootNotice": "ランダム報酬 · 全ドロップ一覧ではありません" },
   "page": { "summary": "ページ合計 {total} · 累計 {cumulative}", "cardHint": "報酬カードを選択して目標に追加・削除できます。", "cumulative": "累計 {count}" },
   "buttons": { "completePage": "現在のページを完了", "completeThrough": "このページまで完了", "resetCompleted": "完了報酬をリセット" },

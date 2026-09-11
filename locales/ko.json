@@ -11,7 +11,7 @@
   "detail": { "collectDocuments": "문서를 수집해 제출하세요", "markComplete": "완료 표시", "markIncomplete": "완료 취소" },
   "documents": { "inventory": "보유 문서", "remaining": "남은 문서" },
   "hero": { "description": "완료한 보상을 표시하면 필요한 문서 수에서 자동으로 차감됩니다." },
-  "progress": { "title": "배틀패스 진행도", "page": "페이지", "pageNumber": "{number}페이지", "pageRequired": "필요 문서 {count}", "documents": "문서", "selectedDocuments": "선택한 문서", "rewardCount": "보상 {count}개 완료" },
+  "progress": { "title": "배틀패스 진행도", "page": "페이지", "pageNumber": "{number}페이지", "pageRequired": "필요 문서 {count}", "documents": "문서", "selectedDocuments": "선택한 문서", "rewardCount": "보상 {count}개 완료", "documentNotice": "배틀패스 필요 문서는 패치에 따라 종류가 바뀔 수 있으니 인게임에서 꼭 확인해 주세요." },
   "exchange": { "title": "문서 교환", "fiveCost": "문서 5개", "fiveReward": "원하는 문서 1개", "tenCost": "문서 10개", "tenReward": "블랙 디비전 상자 1개", "crateName": "블랙 디비전 상자", "lootExamples": "랜덤 보상 예시", "lootNotice": "무작위 보상 · 전체 드롭 목록 아님" },
   "page": { "summary": "페이지 합계 {total} · 누적 {cumulative}", "cardHint": "보상 카드를 선택해 목표에 추가하거나 제거하세요.", "cumulative": "누적 {count}" },
   "buttons": { "completePage": "현재 페이지 완료", "completeThrough": "이 페이지까지 완료", "resetCompleted": "완료한 보상 초기화" },
