@@ -215,7 +215,6 @@ const ADDITIONAL_SEASON_QUESTS=[
 const QUEST_UNNUMBERED=new Set();
 for(const quest of ADDITIONAL_SEASON_QUESTS){
   const index=QUESTS.length;
-  QUEST_UNNUMBERED.add(index);
   QUESTS.push([quest.name,"등대지기",quest.goals.ko]);
   QUEST_AREAS.push(quest.area);
   QUEST_ITEMS.push([]);
