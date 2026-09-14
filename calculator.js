@@ -168,7 +168,7 @@ function t(key, variables = {}) {
   return Object.entries(variables).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), template);
 }
 
-async function loadLanguage(language = new URLSearchParams(location.search).get("lang") || localStorage.getItem(LANGUAGE_KEY) || (navigator.language.startsWith("en-GB") ? "en-GB" : navigator.language.slice(0, 2))) {
+async function loadLanguage(language = new URLSearchParams(location.search).get("lang") || localStorage.getItem(LANGUAGE_KEY) || "en") {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
     const response = await fetch(`locales/${currentLanguage === "en-GB" ? "en" : currentLanguage}.json?v=18`);
