@@ -461,6 +461,36 @@
         "wiki": "https://escapefromtarkov.fandom.com/wiki/Consequences_of_Our_Decisions"
       }
     ],
+    "extraLabels": {
+      "questWiki": "위키에서 자세히",
+      "complete": "완료",
+      "undo": "완료 취소",
+      "doneQuests": "완료한 퀘스트",
+      "requiredItems": "필요 아이템",
+      "side": "서브",
+      "choiceRewards": "선택지별 보상",
+      "choiceAchievement": "시즌 업적: Profit Over Principles 달성",
+      "questDogtag": "PMC 인식표",
+      "achievements": "달성 가능한 시즌 업적",
+      "otherAchievements": "그외 업적",
+      "separateRequirement": "별도 달성 조건",
+      "requirementsMet": "조건 충족",
+      "requiredModifiers": "필수 모디파이어",
+      "selectedCount": "아래 {count}개 중 {need}개 선택",
+      "imageSource": "아이템 이미지 제공: tarkov.dev",
+      "mapChange": "맵 변경",
+      "countdownActive": "시즌 종료까지 D-{days}",
+      "countdownEnded": "시즌 종료",
+      "countdownDate": "종료 예정일",
+      "lightkeeperTitle": "등대지기 해금 필요",
+      "lightkeeperDescription": "이후 시즌 퀘스트를 진행하려면 등대지기를 해금해야 합니다.",
+      "lightkeeperChain": "등대지기 해금 퀘스트 순서",
+      "lightkeeperRequirements": [
+        "스토리 챕터 Tour를 진행해 등대 직접 입장을 해금하세요.",
+        "프라퍼·테라피스트·스키어·피스키퍼·메카닉·라그맨·예거 우호도 레벨 3을 달성하세요.",
+        "메카닉에게 등대지기와 협력할 수 있는지 물어보세요."
+      ]
+    },
     "areas": [
       "Shoreline",
       "Streets · Woods",
