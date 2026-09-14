@@ -461,6 +461,36 @@
         "wiki": "https://escapefromtarkov.fandom.com/wiki/Consequences_of_Our_Decisions"
       }
     ],
+    "extraLabels": {
+      "questWiki": "Wikiで詳細を見る",
+      "complete": "完了",
+      "undo": "完了を取消",
+      "doneQuests": "完了クエスト",
+      "requiredItems": "必要アイテム",
+      "side": "サブ",
+      "choiceRewards": "ルート別報酬",
+      "choiceAchievement": "シーズン実績：Profit Over Principles 達成",
+      "questDogtag": "PMCドッグタグ",
+      "achievements": "達成可能なシーズン実績",
+      "otherAchievements": "その他の実績",
+      "separateRequirement": "別途達成条件",
+      "requirementsMet": "条件達成",
+      "requiredModifiers": "必須モディファイア",
+      "selectedCount": "以下の{count}個から{need}個選択",
+      "imageSource": "アイテム画像提供: tarkov.dev",
+      "mapChange": "マップ変更",
+      "countdownActive": "終了まで D-{days}",
+      "countdownEnded": "シーズン終了",
+      "countdownDate": "終了予定日",
+      "lightkeeperTitle": "ライトキーパー解放が必要",
+      "lightkeeperDescription": "次のシーズンクエストを進めるにはライトキーパーを解放してください。",
+      "lightkeeperChain": "ライトキーパー解放クエストの順序",
+      "lightkeeperRequirements": [
+        "ストーリー章Tourを進め、ライトハウスへの直接アクセスを解放する。",
+        "プラパー、セラピスト、スキヤー、ピースキーパー、メカニック、ラグマン、イェーガーの忠誠度レベル3に到達する。",
+        "メカニックにライトキーパーとの協力について尋ねる。"
+      ]
+    },
     "areas": [
       "Shoreline",
       "Streets · Woods",
