@@ -155,6 +155,8 @@
     "technical": "Technical"
   },
   "mapViewer": {
+    "title": "DOCUMENT MAP",
+    "mapAuthors": "Map authors: {authors}",
     "locationsVisible": "LOCATIONS VISIBLE",
     "loading": "LOADING LOCAL MAP IMAGE",
     "loadingCopy": "The local interactive map may take a moment to appear.",

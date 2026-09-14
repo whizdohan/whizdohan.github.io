@@ -128,6 +128,12 @@ const PAGES = [
   }))
 }));
 
+const REWARD_TRANSLATIONS={
+  ko:{"Dogtag":"인식표","TarCoins 50":"타르코인 50","TarCoins 100":"타르코인 100","TarCoins 150":"타르코인 150","Black Division Gear Crate":"블랙 디비전 장비 상자","Microtech Jagdkommando Knife":"Microtech Jagdkommando 나이프","Heart":"하트","Scorpion Target":"스콜피온 표적","Scorpion Upper":"스콜피온 상부","Scorpion Lower":"스콜피온 하부","Server Room":"서버실","Dome":"돔","Arch":"아치","White Accent Walls":"흰색 강조 벽","Black Wood Ceiling":"검은 목재 천장","Red Hawaii":"레드 하와이","Orange Hawaii":"오렌지 하와이"},
+  ja:{"Dogtag":"ドッグタグ","TarCoins 50":"タルコイン 50","TarCoins 100":"タルコイン 100","TarCoins 150":"タルコイン 150","Black Division Gear Crate":"ブラックディビジョン装備クレート","Microtech Jagdkommando Knife":"Microtech Jagdkommandoナイフ","Heart":"ハート","Scorpion Target":"スコーピオン・ターゲット","Scorpion Upper":"スコーピオン上部","Scorpion Lower":"スコーピオン下部","Server Room":"サーバールーム","Dome":"ドーム","Arch":"アーチ","White Accent Walls":"白いアクセント壁","Black Wood Ceiling":"黒い木製天井","Red Hawaii":"レッド・ハワイ","Orange Hawaii":"オレンジ・ハワイ"},
+  ru:{"Dogtag":"Жетон ЧВК","TarCoins 50":"Таркоины 50","TarCoins 100":"Таркоины 100","TarCoins 150":"Таркоины 150","Black Division Gear Crate":"Ящик с экипировкой Чёрного подразделения","Microtech Jagdkommando Knife":"Нож Microtech Jagdkommando","Heart":"Сердце","Scorpion Target":"Мишень Scorpion","Scorpion Upper":"Верх Scorpion","Scorpion Lower":"Низ Scorpion","Server Room":"Серверная","Dome":"Купол","Arch":"Арка","White Accent Walls":"Белые акцентные стены","Black Wood Ceiling":"Чёрный деревянный потолок","Red Hawaii":"Красный Hawaii","Orange Hawaii":"Оранжевый Hawaii"}
+};
+function localizedRewardName(name){return REWARD_TRANSLATIONS[currentLanguage]?.[name]||name}
 const SPRITE_COLUMNS = 8;
 const SPRITE_ROWS = 7;
 const REWARD_SPRITES = Object.fromEntries(PAGES.flatMap(page => page.rewards).map((reward, index) => [reward.id, {
@@ -331,7 +337,7 @@ function renderRewards() {
     return `<button type="button" class="reward-card ${selected ? "selected" : ""}" data-reward="${reward.id}" aria-pressed="${selected}">
       <span class="reward-index">${reward.id}</span>
       <span class="reward-visual has-image"><span class="reward-sprite" style="${spriteStyle(reward.id)}"></span></span>
-      <span class="reward-name">${reward.name}</span>
+      <span class="reward-name">${localizedRewardName(reward.name)}</span>
       <span class="reward-required">${t("reward.requiredDocs")}: <b>${reward.total}</b></span>
       ${rewardCostOverlay(reward)}
       <span class="selected-mark">✓ ${t("reward.complete")}</span>
