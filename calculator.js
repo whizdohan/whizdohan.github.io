@@ -149,7 +149,7 @@ PAGES.forEach(page => { runningTotal += page.total; page.cumulative = runningTot
 const STORAGE_KEY = "tarkov-document-map:v1";
 const SELECTION_KEY = "tarkov-battle-pass:selected:v2";
 const LANGUAGE_KEY = "tarkov-tools:language:v1";
-const SUPPORTED_LANGUAGES = ["en", "ko", "ja"];
+const SUPPORTED_LANGUAGES = ["en", "ko", "ja", "en-GB", "ru"];
 const MAP_VIEWER_VERSION = "20";
 const REPORT_DB_NAME = "tarkov-location-reports";
 const REPORT_STORE_NAME = "reports";
@@ -168,10 +168,10 @@ function t(key, variables = {}) {
   return Object.entries(variables).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), template);
 }
 
-async function loadLanguage(language = new URLSearchParams(location.search).get("lang") || localStorage.getItem(LANGUAGE_KEY) || navigator.language.slice(0, 2)) {
+async function loadLanguage(language = new URLSearchParams(location.search).get("lang") || localStorage.getItem(LANGUAGE_KEY) || (navigator.language.startsWith("en-GB") ? "en-GB" : navigator.language.slice(0, 2))) {
   currentLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : "en";
   try {
-    const response = await fetch(`locales/${currentLanguage}.json?v=17`);
+    const response = await fetch(`locales/${currentLanguage === "en-GB" ? "en" : currentLanguage}.json?v=18`);
     if (!response.ok) throw new Error(`Language file: ${response.status}`);
     messages = await response.json();
   } catch (error) {
