@@ -1,33 +1,486 @@
 {
-  "meta": { "title": "Tarkov Battle Pass Information", "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機" },
-  "header": { "game": "タルコフ", "season": "シーズン1", "battlePass": "バトルパス" },
-  "language": { "label": "言語" },
-  "seasonCountdown": { "active": "終了まで D-{days} · 終了予定日 2026.12.07", "ended": "シーズン終了 · 終了予定日 2026.12.07" },
-  "reports": { "externalButton": "お問い合わせ・報告", "button": "位置を報告", "eyebrow": "コミュニティマップ", "title": "報告一覧", "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。", "map": "マップ", "coordinate": "座標", "coordinatePlaceholder": "マップ上の位置をクリック", "copy": "コピー", "photo": "位置画像", "note": "説明（任意）", "notePlaceholder": "ドキュメント位置や目印を説明してください", "save": "報告を保存", "list": "報告一覧", "empty": "このブラウザに保存された報告はありません。", "delete": "報告を削除", "deleteConfirm": "このローカル報告を削除しますか？", "deleted": "報告を削除しました。", "saved": "このブラウザに報告を保存しました。", "saveFailed": "報告を保存できませんでした。", "photoRequired": "位置画像を添付してください。", "photoTooLarge": "画像は10MB以下にしてください。", "clickMapFirst": "先にマップ上の位置をクリックしてください。", "copied": "座標をコピーしました。", "coordinateReady": "座標をコピーして報告に入力しました。" },
-  "map": { "select": "マップ選択" },
-  "maps": { "customs": "カスタム", "groundZero": "グラウンドゼロ", "factory": "ファクトリー", "woods": "ウッズ", "reserve": "リザーブ", "shoreline": "ショアライン", "interchange": "インターチェンジ", "lighthouse": "ライトハウス", "streets": "ストリート・オブ・タルコフ", "laboratory": "ラボ", "icebreaker": "アイスブレーカー", "labyrinth": "ラビリンス" },
-  "nav": { "battlePass": "バトルパス", "seasonalRewards": "シーズン報酬", "leagues": "リーグ・レーティング", "map": "文書マップ", "back": "戻る" },
-  "panel": { "rewardList": "報酬一覧" },
-  "detail": { "collectDocuments": "文書を集めて提出してください", "markComplete": "完了にする", "markIncomplete": "完了を取り消す" },
-  "documents": { "inventory": "所持文書", "remaining": "残り文書" },
-  "hero": { "description": "完了した報酬を選ぶと、必要な文書数から自動的に差し引かれます。" },
-  "progress": { "title": "バトルパス進行度", "page": "ページ", "pageNumber": "{number}ページ", "pageRequired": "必要文書 {count}", "documents": "ドキュメント", "selectedDocuments": "選択したドキュメント", "rewardCount": "報酬を{count}個完了", "documentNotice": "バトルパスの必要文書はパッチによって種類が変わる場合があります。ゲーム内で必ず確認してください。" },
-  "exchange": { "title": "文書交換", "fiveCost": "文書5個", "fiveReward": "好きな文書1個", "tenCost": "文書10個", "tenReward": "ブラックディビジョン箱1個", "crateName": "ブラックディビジョン箱", "lootExamples": "ランダム報酬例", "lootNotice": "ランダム報酬 · 全ドロップ一覧ではありません" },
-  "page": { "summary": "ページ合計 {total} · 累計 {cumulative}", "cardHint": "報酬カードを選択して目標に追加・削除できます。", "cumulative": "累計 {count}" },
-  "buttons": { "completePage": "現在のページを完了", "completeThrough": "このページまで完了", "resetCompleted": "完了報酬をリセット" },
-  "calculator": { "title": "文書計算機", "selectedGoal": "選択中の目標", "remainingDocuments": "残り文書", "documents": "文書" },
-  "status": { "complete": "✓ すべての報酬を完了", "readyRemaining": "✓ 所持文書で残りの報酬をすべて解除できます", "missing": "文書があと{count}個必要です" },
-  "table": { "documentType": "文書タイプ", "required": "必要", "owned": "所持", "missing": "不足" },
-  "autosave": { "label": "自動保存", "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。" },
-  "overview": { "title": "ページ解除コスト", "total": "全12ページ · 文書501個" },
-  "reward": { "required": "必要", "requiredDocuments": "必要なドキュメント", "requiredDocs": "必要数", "total": "合計", "complete": "完了", "ready": "準備完了" },
-  "categories": { "financial": "財務", "pmc": "PMC人事", "project": "プロジェクト", "blueprints": "設計図", "test": "テスト", "user": "ユーザー", "medical": "医療", "technical": "技術" },
-  "mapViewer": { "locationsVisible": "件の位置を表示", "loading": "ローカルマップ画像を読み込み中", "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。", "unavailable": "インタラクティブマップを利用できません", "loadFailed": "マップを読み込めませんでした", "openSource": "マップ出典を開く", "photoSoon": "位置画像を準備中", "location": "ドキュメント位置", "details": "位置の詳細", "noDetails": "詳細な説明はまだありません。", "imageSoon": "画像を準備中", "coordinateCopied": "座標をコピーしました", "provider": "提供者", "comment": "コメント" },
-  "documentTitles": { "financial": "財務文書", "pmc": "PMC人事ファイル", "project": "プロジェクトファイル", "blueprints": "設計図", "test": "テスト文書", "user": "ユーザー文書", "medical": "医療文書", "technical": "技術文書" },
-  "locationComments": { "containerSecondFloor": "コンテナの2階", "factoryKeyRequired": "Factoryキーが必要", "secondFloorSafeChair": "2階中央", "polikhimKeycardRequired": "ポリヒムキーカードが必要", "containerCenterFloor": "コンテナ内部の中央床", "deepInsideTrainContainer": "列車コンテナの最奥", "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office keyが必要", "companyDirectorRoomKeyRequired": "Company director's room keyが必要", "dormGuardDeskKeyRequired": "Dorm guard desk keyが必要" },
-  "mapControls": { "seasonBattlePass": "シーズンバトルパス", "brandCopy": "文書の場所と収集進捗を一か所で確認できます。", "selectMap": "マップ選択", "documentType": "文書タイプ", "clearAll": "すべて解除", "selectAll": "すべて選択", "openTracker": "バトルパストラッカーを開く", "currentMap": "現在のマップ", "toolsHome": "ツールホーム", "openFilterMenu": "フィルターメニューを開く", "markerFilters": "文書マーカーフィルター", "close": "閉じる" },
+  "meta": {
+    "title": "Tarkov Battle Pass Information",
+    "description": "Escape from Tarkov バトルパス報酬のドキュメント計算機"
+  },
+  "header": {
+    "game": "タルコフ",
+    "season": "シーズン1",
+    "battlePass": "バトルパス"
+  },
+  "language": {
+    "label": "言語"
+  },
+  "seasonCountdown": {
+    "active": "終了まで D-{days} · 終了予定日 2026.12.07",
+    "ended": "シーズン終了 · 終了予定日 2026.12.07"
+  },
+  "reports": {
+    "externalButton": "お問い合わせ・報告",
+    "button": "位置を報告",
+    "eyebrow": "コミュニティマップ",
+    "title": "報告一覧",
+    "intro": "マップをクリックすると座標がコピーされ、自動入力されます。報告と写真はこのブラウザにのみ保存されます。",
+    "map": "マップ",
+    "coordinate": "座標",
+    "coordinatePlaceholder": "マップ上の位置をクリック",
+    "copy": "コピー",
+    "photo": "位置画像",
+    "note": "説明（任意）",
+    "notePlaceholder": "ドキュメント位置や目印を説明してください",
+    "save": "報告を保存",
+    "list": "報告一覧",
+    "empty": "このブラウザに保存された報告はありません。",
+    "delete": "報告を削除",
+    "deleteConfirm": "このローカル報告を削除しますか？",
+    "deleted": "報告を削除しました。",
+    "saved": "このブラウザに報告を保存しました。",
+    "saveFailed": "報告を保存できませんでした。",
+    "photoRequired": "位置画像を添付してください。",
+    "photoTooLarge": "画像は10MB以下にしてください。",
+    "clickMapFirst": "先にマップ上の位置をクリックしてください。",
+    "copied": "座標をコピーしました。",
+    "coordinateReady": "座標をコピーして報告に入力しました。"
+  },
+  "map": {
+    "select": "マップ選択"
+  },
+  "maps": {
+    "customs": "カスタム",
+    "groundZero": "グラウンドゼロ",
+    "factory": "ファクトリー",
+    "woods": "ウッズ",
+    "reserve": "リザーブ",
+    "shoreline": "ショアライン",
+    "interchange": "インターチェンジ",
+    "lighthouse": "ライトハウス",
+    "streets": "ストリート・オブ・タルコフ",
+    "laboratory": "ラボ",
+    "icebreaker": "アイスブレーカー",
+    "labyrinth": "ラビリンス"
+  },
+  "nav": {
+    "battlePass": "バトルパス",
+    "seasonalRewards": "シーズン報酬",
+    "leagues": "リーグ・レーティング",
+    "map": "文書マップ",
+    "back": "戻る"
+  },
+  "panel": {
+    "rewardList": "報酬一覧"
+  },
+  "detail": {
+    "collectDocuments": "文書を集めて提出してください",
+    "markComplete": "完了にする",
+    "markIncomplete": "完了を取り消す"
+  },
+  "documents": {
+    "inventory": "所持文書",
+    "remaining": "残り文書"
+  },
+  "hero": {
+    "description": "完了した報酬を選ぶと、必要な文書数から自動的に差し引かれます。"
+  },
+  "progress": {
+    "title": "バトルパス進行度",
+    "page": "ページ",
+    "pageNumber": "{number}ページ",
+    "pageRequired": "必要文書 {count}",
+    "documents": "ドキュメント",
+    "selectedDocuments": "選択したドキュメント",
+    "rewardCount": "報酬を{count}個完了",
+    "documentNotice": "バトルパスの必要文書はパッチによって種類が変わる場合があります。ゲーム内で必ず確認してください。"
+  },
+  "exchange": {
+    "title": "文書交換",
+    "fiveCost": "文書5個",
+    "fiveReward": "好きな文書1個",
+    "tenCost": "文書10個",
+    "tenReward": "ブラックディビジョン箱1個",
+    "crateName": "ブラックディビジョン箱",
+    "lootExamples": "ランダム報酬例",
+    "lootNotice": "ランダム報酬 · 全ドロップ一覧ではありません"
+  },
+  "page": {
+    "summary": "ページ合計 {total} · 累計 {cumulative}",
+    "cardHint": "報酬カードを選択して目標に追加・削除できます。",
+    "cumulative": "累計 {count}"
+  },
+  "buttons": {
+    "completePage": "現在のページを完了",
+    "completeThrough": "このページまで完了",
+    "resetCompleted": "完了報酬をリセット"
+  },
+  "calculator": {
+    "title": "文書計算機",
+    "selectedGoal": "選択中の目標",
+    "remainingDocuments": "残り文書",
+    "documents": "文書"
+  },
+  "status": {
+    "complete": "✓ すべての報酬を完了",
+    "readyRemaining": "✓ 所持文書で残りの報酬をすべて解除できます",
+    "missing": "文書があと{count}個必要です"
+  },
+  "table": {
+    "documentType": "文書タイプ",
+    "required": "必要",
+    "owned": "所持",
+    "missing": "不足"
+  },
+  "autosave": {
+    "label": "自動保存",
+    "text": "ドキュメント所持数と完了した報酬はこのブラウザに保存されます。"
+  },
+  "overview": {
+    "title": "ページ解除コスト",
+    "total": "全12ページ · 文書501個"
+  },
+  "reward": {
+    "required": "必要",
+    "requiredDocuments": "必要なドキュメント",
+    "requiredDocs": "必要数",
+    "total": "合計",
+    "complete": "完了",
+    "ready": "準備完了"
+  },
+  "categories": {
+    "financial": "財務",
+    "pmc": "PMC人事",
+    "project": "プロジェクト",
+    "blueprints": "設計図",
+    "test": "テスト",
+    "user": "ユーザー",
+    "medical": "医療",
+    "technical": "技術"
+  },
+  "mapViewer": {
+    "locationsVisible": "件の位置を表示",
+    "loading": "ローカルマップ画像を読み込み中",
+    "loadingCopy": "ローカルインタラクティブマップの表示には時間がかかる場合があります。",
+    "unavailable": "インタラクティブマップを利用できません",
+    "loadFailed": "マップを読み込めませんでした",
+    "openSource": "マップ出典を開く",
+    "photoSoon": "位置画像を準備中",
+    "location": "ドキュメント位置",
+    "details": "位置の詳細",
+    "noDetails": "詳細な説明はまだありません。",
+    "imageSoon": "画像を準備中",
+    "coordinateCopied": "座標をコピーしました",
+    "provider": "提供者",
+    "comment": "コメント"
+  },
+  "documentTitles": {
+    "financial": "財務文書",
+    "pmc": "PMC人事ファイル",
+    "project": "プロジェクトファイル",
+    "blueprints": "設計図",
+    "test": "テスト文書",
+    "user": "ユーザー文書",
+    "medical": "医療文書",
+    "technical": "技術文書"
+  },
+  "locationComments": {
+    "containerSecondFloor": "コンテナの2階",
+    "factoryKeyRequired": "Factoryキーが必要",
+    "secondFloorSafeChair": "2階中央",
+    "polikhimKeycardRequired": "ポリヒムキーカードが必要",
+    "containerCenterFloor": "コンテナ内部の中央床",
+    "deepInsideTrainContainer": "列車コンテナの最奥",
+    "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office keyが必要",
+    "companyDirectorRoomKeyRequired": "Company director's room keyが必要",
+    "dormGuardDeskKeyRequired": "Dorm guard desk keyが必要"
+  },
+  "mapControls": {
+    "seasonBattlePass": "シーズンバトルパス",
+    "brandCopy": "文書の場所と収集進捗を一か所で確認できます。",
+    "selectMap": "マップ選択",
+    "documentType": "文書タイプ",
+    "clearAll": "すべて解除",
+    "selectAll": "すべて選択",
+    "openTracker": "バトルパストラッカーを開く",
+    "currentMap": "現在のマップ",
+    "toolsHome": "ツールホーム",
+    "openFilterMenu": "フィルターメニューを開く",
+    "markerFilters": "文書マーカーフィルター",
+    "close": "閉じる"
+  },
   "footer": {
     "prefix": "本サイトはBattlestate Gamesとは関係のない非公式ファンサイトです。ゲームコンテンツ、スクリーンショット、アイテム画像、商標および関連素材の権利はBattlestate Gamesと各権利者に帰属します。サイト提供",
     "text": "本サイトはBattlestate Gamesとは関係のない非公式ファンサイトです。ゲームコンテンツ、スクリーンショット、アイテム画像、商標および関連素材の権利はBattlestate Gamesと各権利者に帰属します。whizs提供"
+  },
+  "hub": {
+    "labels": {
+      "allergy": "アレルギーチェック",
+      "battlepass": "バトルパス",
+      "documents": "文書マップ",
+      "kappa": "カッパチェックリスト",
+      "modifiers": "シーズン特性",
+      "quests": "シーズンクエスト"
+    },
+    "ui": {
+      "all": "すべて",
+      "allergic": "アレルギー",
+      "allergyDesc": "症状が出たアイテムはアレルギー、問題がなかったアイテムは安全として記録できます。状態は自動保存されます。",
+      "allergyTitle": "アレルギー特性チェックリスト",
+      "blocked": "同時選択不可",
+      "confirmReset": "アレルギー記録をすべてリセットしますか？",
+      "count": "個",
+      "global": "グローバルモディファイア",
+      "globalNote": "常に適用 · コストなし",
+      "groups": [
+        "飲料",
+        "食品",
+        "鎮痛剤 · 医薬品",
+        "刺激剤 · 注射器"
+      ],
+      "modifierDesc": "マイナス特性（＋）でポイントを獲得し、プラス特性（−）を選択します。残りポイントが0以上なら有効です。",
+      "modifierTitle": "シーズン特性（モディファイア）シミュレーター",
+      "negative": "マイナス特性 · デバフ",
+      "noResults": "検索結果がありません。",
+      "none": "特性が選択されていません。",
+      "points": "残りポイント",
+      "positive": "プラス特性 · ボーナス",
+      "questDesc": "シーズンクエストの目標と報酬。",
+      "questTitle": "シーズンクエスト進行順",
+      "random": "ランダム構成",
+      "reset": "すべてリセット",
+      "result": "判定",
+      "safe": "安全",
+      "safeChecked": "安全確認",
+      "search": "アイテム検索",
+      "selected": "選択",
+      "shortage": "不足",
+      "totalCandidates": "候補数",
+      "totalQuests": "全クエスト"
+    },
+    "kappa": {
+      "confirmReset": "カッパのチェック記録をすべてリセットしますか？",
+      "desc": "Collectorの解放条件、関連クエスト、レイド内で入手する必要があるアイテムをまとめて確認できます。進行状況は自動保存されます。",
+      "done": "完了",
+      "fir": "すべてのアイテムはFound in Raid状態で引き渡す必要があります。",
+      "found": "入手済み",
+      "imageSource": "アイテム画像提供: tarkov.dev",
+      "items": "カッパアイテム",
+      "quests": "関連クエスト",
+      "remaining": "残り",
+      "requirements": "解放条件",
+      "reset": "すべてリセット",
+      "source": "Collector Wikiで最新条件を確認",
+      "title": "カッパコンテナ・チェックリスト"
+    },
+    "maps": [
+      "ファクトリー",
+      "カスタム",
+      "リザーブ",
+      "インターチェンジ",
+      "ウッズ",
+      "ショアライン",
+      "ライトハウス",
+      "アイスブレーカー",
+      "ストリート",
+      "グラウンドゼロ",
+      "ラボ",
+      "ラビリンス"
+    ],
+    "goals": [
+      "軍用装備入りケースを発見して入手する",
+      "軍用装備入りケースを入手して引き渡す",
+      "Ground ZeroのTerraGroup事務所2階受付に手紙を設置する（1レイド）",
+      "Shoreline・Streets・Ground Zeroの指定6地点にWI-FIカメラを設置する",
+      "Black Divisionのアーマーリグを5個引き渡す",
+      "Cast the Netで設置したWI-FIカメラ6台を回収する",
+      "Black Divisionの暗号化キーを入手する",
+      "指定されたBlack Division装備10種をFound in Raid状態で引き渡す",
+      "文書入りブリーフケースを入手する",
+      "14-4 KORD SSDを3個入手する",
+      "Black Divisionリグを装備し、Shoreline・Streets・Ground Zeroで各4人を排除する",
+      "同じノートPCをFenceへ渡すか、復号してMechanicへ渡すか、どちらか一方を選択",
+      "The LabでBlack Divisionを15人排除する",
+      "Shorelineリゾート西・北・東の破損フェンスにTP-200 TNTを設置する",
+      "Customsで2台、Woodsで2台の送信機を破壊する",
+      "Black DivisionのラギッドノートPCから抽出したデータを引き渡す",
+      "1回の連続レイドでShoreline → Lighthouse → Reserve → Woodsへ移動し、他の目標を進めながらBlack Division以外を合計10人排除する",
+      "1回のレイドでInterchangeの指定手順を完了し、Streets of Tarkovへトランジットした後、ケースを設置して生還する",
+      "ゲーム内時間22:00～08:00にCustoms・Woods・Streets of TarkovでPMCを各3人排除し、各指定地点にPMCドッグタグを3個ずつ設置（合計9人・9個）"
+    ],
+    "guides": [
+      "Shorelineの候補3か所（Sordi塔横の小屋、気象観測所2階、発電所1階）のいずれかでケース1個を入手。",
+      "Part 1のケース1個をWoodsまたはStreetsのBTR停留所でBTR Driverに引き渡す。",
+      "TerraGroup本社2階受付にTherapistの手紙1通を設置。設置前後の死亡、またはEMERCOM Checkpoint・Nakatani Basement以外の脱出で失敗。",
+      "WI-FI Cameraを計6台用意。ShorelineのUralトラック・掘削機、Streetsのコンクリートミキサー・Rodina前の仮設トイレ、Ground Zeroのトラック運転席・地下の黄色いバスに各1台。",
+      "Black Divisionのプレートキャリアを種類不問で5個引き渡す。Ground Zero（Lv21以上）、Shoreline、Streets、The Lab、またはIcebreakerで入手可能。IcebreakerのThe Wedgeが装備するLV-119 MultiCam Blackも提出できる。",
+      "Cast the Netで設置した同じ6か所からカメラを回収して引き渡す。<br><span class=\"quest-reward-inline\"><b>クエスト報酬：</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">書類入りブリーフケース</a> — 後続クエストWhat's in the Bag?で提出するため保管してください。</span>",
+      "通常マップを巡回するBlack DivisionからFound in Raidの暗号鍵1個を入手して引き渡す。Icebreakerでは入手不可。",
+      "Found in Raidで各1個：Siege-R、LV-119 V1/V2、FCPC V5、Modular Pack 45 Plus、2 Day Assault Pack、NICE Frame Load Sling、M53A1、SOTR、Gatorz Specter。Black Divisionクレートから入手可能。",
+      "Found in Raidの文書入りブリーフケース1個を提出。Reverse Gear報酬、Cultist Circleでトークン5個と交換、またはBlack Divisionのレアドロップで入手。",
+      "Found in Raidの14-4 KORD SSDを3個提出。Black Divisionエリアで確率出現し、Streets・Shoreline・The Labで見つけやすい。Icebreakerを除く。",
+      "Black Divisionのプレートキャリアを装備し、Shorelineで4人、Streetsで4人、Ground Zeroで4人、合計12人を排除。",
+      "Final StretchとConsequences of Our Decisionsは排他的な選択肢です。ノートPCをFenceへ直接渡すか、Intelligence Center Lv.1で復号してMechanicへ渡します。どちらを選んでもDesperate Assaultへ進みます。",
+      "The LabでBlack Divisionを15人排除。脱出口作動後に出現する部隊も対象。",
+      "TP-200 TNTを3個用意し、Shorelineリゾート西・北・東のフェンス破損部に各1個設置。",
+      "送信機4基を破壊：Customsの工場煙突・送電塔、Woodsの山頂・通信塔に各1基。",
+      "Black Divisionからrugged laptopを入手可能（Icebreakerを除く）。Intelligence Center Lv.1で復号し、データ1個をMechanicへ提出。",
+      "Shorelineから開始し、指定のトランジット3か所を順番に利用します。同じ1回の連続レイド中に、他の目標を進めながらBlack Division以外の対象を合計10人排除する必要があります。Black Divisionとは交戦しないでください。",
+      "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00にPMCを3人排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → Pinewood Hotelの3階にケースを設置 → 墜落した路面電車付近で黄色のフレアを使用 → 生還。完了するとHistorical Prospectsが解放されます。",
+      "Customsの寮3階にあるマークド部屋へ入るにはDorm room 314 marked keyが必要です。設置するPMCドッグタグはFound in Raid状態でなくても使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
+    ],
+    "levels": [
+      "Prapor LL2",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "レベル20",
+      null,
+      null,
+      null,
+      null,
+      "どちらか1つ",
+      null,
+      null,
+      null,
+      null
+    ],
+    "achievements": [
+      [
+        "助けは要らない",
+        "プラス特性なしでレベル30到達"
+      ],
+      [
+        "計画があった",
+        "マイナス特性10個以上でレベル30到達"
+      ],
+      [
+        "遺伝子の宝くじ",
+        "指定されたマイナス特性5個でレベル30到達"
+      ],
+      [
+        "一つも良いが二つはもっと良い",
+        "カッパプロトコルを選択し、追加のカッパを入手"
+      ],
+      [
+        "我が家にはハードコアがある",
+        "破損コンテナ・フリーマーケット禁止を選び、正規にカッパを入手"
+      ],
+      [
+        "それが挑戦だって？",
+        "生存系パークを5個選び、全サバイバル任務を完了"
+      ],
+      [
+        "生まれながらの起業家",
+        "みかじめ料を選び、5億₽・100万€・100万$を同時保有"
+      ]
+    ],
+    "otherAchievements": [
+      [
+        "信奉者",
+        "シーズンキャラクターでレベル30に到達"
+      ],
+      [
+        "トップシークレット",
+        "機密文書を除く全種類のTerraGroup文書をインベントリに所持"
+      ],
+      [
+        "偽者",
+        "Black Division装備を使用してBlack Division隊員を100人排除"
+      ],
+      [
+        "新時代の夜明け",
+        "シーズンシステム導入後にKappaセキュアコンテナを獲得"
+      ],
+      [
+        "原則より利益",
+        "Season 1 KORD BREACHのFenceタスクラインを完了し、未知の施設のノートPCをMechanicまたはFenceに渡す"
+      ]
+    ],
+    "requirements": [
+      "キャラクターレベル40に到達",
+      "Fenceの評判を3.0以上にする",
+      "Praporの信頼度レベル4に到達",
+      "Therapistの信頼度レベル4に到達",
+      "Skierの信頼度レベル4に到達",
+      "Peacekeeperの信頼度レベル4に到達",
+      "Mechanicの信頼度レベル4に到達",
+      "Ragmanの信頼度レベル4に到達",
+      "Jaegerの信頼度レベル4に到達",
+      "Chemical - Part 3を完了",
+      "Sew_it_Good_-_Part_2を完了",
+      "Shooter Born in Heavenを完了",
+      "The Tarkov Shooter - Part 4を完了"
+    ],
+    "global": [
+      [
+        "保険なし",
+        "アイテムの保険加入不可"
+      ],
+      [
+        "ブラックディビジョン",
+        "特定の場所でブラックディビジョンと遭遇することがあります"
+      ],
+      [
+        "ハイドアウトのFIR免除",
+        "ハイドアウトにはFIR状態が不要です"
+      ],
+      [
+        "防弾ベスト不足",
+        "トレーダーが防弾ベスト不足に悩まされています"
+      ],
+      [
+        "万能修理工",
+        "クラフト時間が50%短縮され、クラフトスキルがレベル51から始まります"
+      ],
+      [
+        "熟練したPMC",
+        "レイド経験値が25%増加します"
+      ]
+    ],
+    "choiceRewards": [
+      {
+        "items": [
+          "経験値 35,000",
+          "300,000 ₽",
+          "書類入りブリーフケース",
+          "RB-BKマークドキー ×1"
+        ],
+        "title": "Final Stretch · Fenceルート",
+        "wiki": "https://escapefromtarkov.fandom.com/wiki/Final_Stretch"
+      },
+      {
+        "items": [
+          "経験値 35,000",
+          "300,000 ₽",
+          "書類入りブリーフケース",
+          "電動ドリル ×5",
+          "軍用COFDM無線信号送信機 ×3",
+          "Cyclon充電式バッテリー ×5",
+          "ツールセット ×5"
+        ],
+        "title": "Consequences of Our Decisions · Mechanicルート",
+        "wiki": "https://escapefromtarkov.fandom.com/wiki/Consequences_of_Our_Decisions"
+      }
+    ],
+    "areas": [
+      "Shoreline",
+      "Streets · Woods",
+      "Ground Zero",
+      "Shoreline · Streets · Ground Zero",
+      "Any location",
+      "Shoreline · Streets · Ground Zero",
+      "Black Division loot",
+      "Found in Raid equipment",
+      "Quest item",
+      "Quest item",
+      "Shoreline · Streets · Ground Zero",
+      "Streets",
+      "The Lab",
+      "Shoreline",
+      "Customs · Woods",
+      "Intelligence Center Lv. 1",
+      "Shoreline → Lighthouse → Reserve → Woods",
+      "Interchange → Streets of Tarkov",
+      "Customs · Woods · Streets of Tarkov"
+    ]
   }
 }
