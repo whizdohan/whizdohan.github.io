@@ -82,6 +82,7 @@ function locationComment(item){return item.commentKey?t(`locationComments.${item
 
 function applyTranslations(){
   const textById={
+    "brand-title":"mapViewer.title",
     "brand-eyebrow":"mapControls.seasonBattlePass",
     "brand-copy":"mapControls.brandCopy",
     "map-select-label":"mapControls.selectMap",
@@ -103,7 +104,7 @@ function prepareStaticMap(){
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
   els.mapSource.textContent=`${activeMap.sourceLabel} · ${mapName(activeMap)} 2D JPG`;
-  els.mapCredit.textContent=`Map authors: ${activeMap.credit}`;
+  els.mapCredit.textContent=t("mapViewer.mapAuthors").replace("{authors}",activeMap.credit);
   els.fallbackImage.alt=`${activeMap.name} 2D map`;
   els.fallbackImage.hidden=false;
   els.fallbackImage.onload=()=>{if(els.fallbackImage.dataset.map===activeMap.id)els.emptyState.hidden=true};
@@ -127,7 +128,7 @@ function updateMap(){
   els.mapSelect.value=activeMap.id;
   els.mapSource.href=activeMap.source;
   els.mapSource.textContent=`${activeMap.sourceLabel} · ${mapName(activeMap)} 2D JPG`;
-  els.mapCredit.textContent=`Map authors: ${activeMap.credit}`;
+  els.mapCredit.textContent=t("mapViewer.mapAuthors").replace("{authors}",activeMap.credit);
   els.mapSource.setAttribute("aria-label",`Open the ${activeMap.name} map image`);
   showLoading();
   if(imageLayer)leafletMap.removeLayer(imageLayer);
