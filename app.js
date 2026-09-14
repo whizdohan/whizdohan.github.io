@@ -27,7 +27,7 @@ const CATEGORIES={
 
 const locations=Array.isArray(window.DOCUMENT_LOCATIONS)?window.DOCUMENT_LOCATIONS:[];
 const query=new URLSearchParams(location.search);
-const supportedLanguages=["en","ko","ja"];
+const supportedLanguages=["en","ko","ja","en-GB","ru"];
 const currentLanguage=supportedLanguages.includes(query.get("lang"))?query.get("lang"):"en";
 let messages={};
 const embedded=query.get("embedded")==="1";
@@ -73,7 +73,7 @@ async function init(){
 }
 
 async function loadLanguage(){
-  try{const response=await fetch(`../locales/${currentLanguage}.json?v=8`);if(!response.ok)throw new Error(String(response.status));messages=await response.json();document.documentElement.lang=currentLanguage}catch(error){console.error("Map language file could not be loaded",error)}
+  try{const response=await fetch(`../locales/${currentLanguage === "en-GB" ? "en" : currentLanguage}.json?v=9`);if(!response.ok)throw new Error(String(response.status));messages=await response.json();document.documentElement.lang=currentLanguage}catch(error){console.error("Map language file could not be loaded",error)}
 }
 function t(key){return key.split(".").reduce((value,part)=>value?.[part],messages)||key}
 function mapName(map){return t(`maps.${MAP_TRANSLATION_KEYS[map.id]}`)||map.name}

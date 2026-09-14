@@ -1,33 +1,486 @@
 {
-  "meta": { "title": "Tarkov Battle Pass Information", "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기" },
-  "header": { "game": "타르코프", "season": "시즌 1", "battlePass": "배틀패스" },
-  "language": { "label": "언어" },
-  "seasonCountdown": { "active": "종료 예정까지 D-{days} · 종료 예정일 2026.12.07", "ended": "시즌 종료 · 종료 예정일 2026.12.07" },
-  "reports": { "externalButton": "문의 & 제보", "button": "위치 제보", "eyebrow": "커뮤니티 지도", "title": "제보 목록", "intro": "지도를 클릭하면 좌표가 복사되고 자동으로 입력됩니다. 제보와 사진은 이 브라우저에만 저장됩니다.", "map": "지도 선택", "coordinate": "좌표", "coordinatePlaceholder": "지도에서 위치를 클릭하세요", "copy": "복사", "photo": "위치 사진", "note": "설명 (선택)", "notePlaceholder": "문서 위치 또는 주변 지형을 설명해 주세요", "save": "제보 저장", "list": "제보 목록", "empty": "이 브라우저에 저장된 제보가 없습니다.", "delete": "제보 삭제", "deleteConfirm": "이 로컬 제보를 삭제할까요?", "deleted": "제보를 삭제했습니다.", "saved": "이 브라우저에 제보를 저장했습니다.", "saveFailed": "제보를 저장하지 못했습니다.", "photoRequired": "위치 사진을 첨부해 주세요.", "photoTooLarge": "사진은 10MB 이하여야 합니다.", "clickMapFirst": "먼저 지도에서 위치를 클릭하세요.", "copied": "좌표를 복사했습니다.", "coordinateReady": "좌표를 복사하고 제보에 입력했습니다." },
-  "map": { "select": "지도 선택" },
-  "maps": { "customs": "세관", "groundZero": "그라운드 제로", "factory": "공장", "woods": "삼림", "reserve": "리저브", "shoreline": "해안선", "interchange": "인터체인지", "lighthouse": "등대", "streets": "타르코프 시내", "laboratory": "연구소", "icebreaker": "쇄빙선", "labyrinth": "미궁" },
-  "nav": { "battlePass": "배틀패스", "seasonalRewards": "시즌 보상", "leagues": "리그 및 등급", "map": "문서 지도", "back": "뒤로" },
-  "panel": { "rewardList": "보상 목록" },
-  "detail": { "collectDocuments": "문서를 수집해 제출하세요", "markComplete": "완료 표시", "markIncomplete": "완료 취소" },
-  "documents": { "inventory": "보유 문서", "remaining": "남은 문서" },
-  "hero": { "description": "완료한 보상을 표시하면 필요한 문서 수에서 자동으로 차감됩니다." },
-  "progress": { "title": "배틀패스 진행도", "page": "페이지", "pageNumber": "{number}페이지", "pageRequired": "필요 문서 {count}", "documents": "문서", "selectedDocuments": "선택한 문서", "rewardCount": "보상 {count}개 완료", "documentNotice": "배틀패스 필요 문서는 패치에 따라 종류가 바뀔 수 있으니 인게임에서 꼭 확인해 주세요." },
-  "exchange": { "title": "문서 교환", "fiveCost": "문서 5개", "fiveReward": "원하는 문서 1개", "tenCost": "문서 10개", "tenReward": "블랙 디비전 상자 1개", "crateName": "블랙 디비전 상자", "lootExamples": "랜덤 보상 예시", "lootNotice": "무작위 보상 · 전체 드롭 목록 아님" },
-  "page": { "summary": "페이지 합계 {total} · 누적 {cumulative}", "cardHint": "보상 카드를 선택해 목표에 추가하거나 제거하세요.", "cumulative": "누적 {count}" },
-  "buttons": { "completePage": "현재 페이지 완료", "completeThrough": "이 페이지까지 완료", "resetCompleted": "완료한 보상 초기화" },
-  "calculator": { "title": "문서 계산기", "selectedGoal": "선택한 목표", "remainingDocuments": "남은 문서", "documents": "문서" },
-  "status": { "complete": "✓ 모든 보상 완료", "readyRemaining": "✓ 보유 문서로 남은 보상을 모두 해금할 수 있습니다", "missing": "문서 {count}개가 더 필요합니다" },
-  "table": { "documentType": "문서 종류", "required": "필요", "owned": "보유", "missing": "부족" },
-  "autosave": { "label": "자동 저장", "text": "문서 보유량과 완료한 보상은 이 브라우저에 저장됩니다." },
-  "overview": { "title": "페이지 해금 비용", "total": "총 12페이지 · 문서 501개" },
-  "reward": { "required": "필요", "requiredDocuments": "필요한 문서", "requiredDocs": "필요 문서", "total": "합계", "complete": "완료", "ready": "준비됨" },
-  "categories": { "financial": "재정", "pmc": "PMC 인사", "project": "프로젝트", "blueprints": "설계", "test": "테스트", "user": "사용자", "medical": "의료", "technical": "기술" },
-  "mapViewer": { "locationsVisible": "개 위치 표시", "loading": "로컬 지도 이미지 불러오는 중", "loadingCopy": "로컬 인터랙티브 지도를 표시하는 데 시간이 걸릴 수 있습니다.", "unavailable": "인터랙티브 지도 사용 불가", "loadFailed": "지도를 불러오지 못했습니다", "openSource": "지도 출처 열기", "photoSoon": "위치 사진 준비 중", "location": "문서 위치", "details": "위치 상세 정보", "noDetails": "상세 설명이 아직 없습니다.", "imageSoon": "이미지 준비 중", "coordinateCopied": "좌표 복사 완료", "provider": "제공자", "comment": "멘트" },
-  "documentTitles": { "financial": "재정 문서", "pmc": "PMC 인사 문서", "project": "프로젝트 문서", "blueprints": "설계도", "test": "테스트 문서", "user": "사용자 문서", "medical": "의료 문서", "technical": "기술 문서" },
-  "locationComments": { "containerSecondFloor": "컨테이너 2층", "factoryKeyRequired": "팩토리 열쇠 필요", "secondFloorSafeChair": "2층 중앙", "polikhimKeycardRequired": "폴리킴 키카드 필요", "containerCenterFloor": "컨테이너 안쪽 중앙 바닥", "deepInsideTrainContainer": "기차 컨테이너 제일 안쪽", "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office key 필요", "companyDirectorRoomKeyRequired": "Company director's room key 필요", "dormGuardDeskKeyRequired": "Dorm guard desk key 필요" },
-  "mapControls": { "seasonBattlePass": "시즌 배틀패스", "brandCopy": "문서 위치와 수집 진행도를 한곳에서 확인하세요.", "selectMap": "지도 선택", "documentType": "문서 종류", "clearAll": "전체 해제", "selectAll": "전체 선택", "openTracker": "배틀패스 추적기 열기", "currentMap": "현재 지도", "toolsHome": "도구 홈", "openFilterMenu": "필터 메뉴 열기", "markerFilters": "문서 마커 필터", "close": "닫기" },
+  "meta": {
+    "title": "Tarkov Battle Pass Information",
+    "description": "이스케이프 프롬 타르코프 배틀패스 보상 문서 계산기"
+  },
+  "header": {
+    "game": "타르코프",
+    "season": "시즌 1",
+    "battlePass": "배틀패스"
+  },
+  "language": {
+    "label": "언어"
+  },
+  "seasonCountdown": {
+    "active": "종료 예정까지 D-{days} · 종료 예정일 2026.12.07",
+    "ended": "시즌 종료 · 종료 예정일 2026.12.07"
+  },
+  "reports": {
+    "externalButton": "문의 & 제보",
+    "button": "위치 제보",
+    "eyebrow": "커뮤니티 지도",
+    "title": "제보 목록",
+    "intro": "지도를 클릭하면 좌표가 복사되고 자동으로 입력됩니다. 제보와 사진은 이 브라우저에만 저장됩니다.",
+    "map": "지도 선택",
+    "coordinate": "좌표",
+    "coordinatePlaceholder": "지도에서 위치를 클릭하세요",
+    "copy": "복사",
+    "photo": "위치 사진",
+    "note": "설명 (선택)",
+    "notePlaceholder": "문서 위치 또는 주변 지형을 설명해 주세요",
+    "save": "제보 저장",
+    "list": "제보 목록",
+    "empty": "이 브라우저에 저장된 제보가 없습니다.",
+    "delete": "제보 삭제",
+    "deleteConfirm": "이 로컬 제보를 삭제할까요?",
+    "deleted": "제보를 삭제했습니다.",
+    "saved": "이 브라우저에 제보를 저장했습니다.",
+    "saveFailed": "제보를 저장하지 못했습니다.",
+    "photoRequired": "위치 사진을 첨부해 주세요.",
+    "photoTooLarge": "사진은 10MB 이하여야 합니다.",
+    "clickMapFirst": "먼저 지도에서 위치를 클릭하세요.",
+    "copied": "좌표를 복사했습니다.",
+    "coordinateReady": "좌표를 복사하고 제보에 입력했습니다."
+  },
+  "map": {
+    "select": "지도 선택"
+  },
+  "maps": {
+    "customs": "세관",
+    "groundZero": "그라운드 제로",
+    "factory": "공장",
+    "woods": "삼림",
+    "reserve": "리저브",
+    "shoreline": "해안선",
+    "interchange": "인터체인지",
+    "lighthouse": "등대",
+    "streets": "타르코프 시내",
+    "laboratory": "연구소",
+    "icebreaker": "쇄빙선",
+    "labyrinth": "미궁"
+  },
+  "nav": {
+    "battlePass": "배틀패스",
+    "seasonalRewards": "시즌 보상",
+    "leagues": "리그 및 등급",
+    "map": "문서 지도",
+    "back": "뒤로"
+  },
+  "panel": {
+    "rewardList": "보상 목록"
+  },
+  "detail": {
+    "collectDocuments": "문서를 수집해 제출하세요",
+    "markComplete": "완료 표시",
+    "markIncomplete": "완료 취소"
+  },
+  "documents": {
+    "inventory": "보유 문서",
+    "remaining": "남은 문서"
+  },
+  "hero": {
+    "description": "완료한 보상을 표시하면 필요한 문서 수에서 자동으로 차감됩니다."
+  },
+  "progress": {
+    "title": "배틀패스 진행도",
+    "page": "페이지",
+    "pageNumber": "{number}페이지",
+    "pageRequired": "필요 문서 {count}",
+    "documents": "문서",
+    "selectedDocuments": "선택한 문서",
+    "rewardCount": "보상 {count}개 완료",
+    "documentNotice": "배틀패스 필요 문서는 패치에 따라 종류가 바뀔 수 있으니 인게임에서 꼭 확인해 주세요."
+  },
+  "exchange": {
+    "title": "문서 교환",
+    "fiveCost": "문서 5개",
+    "fiveReward": "원하는 문서 1개",
+    "tenCost": "문서 10개",
+    "tenReward": "블랙 디비전 상자 1개",
+    "crateName": "블랙 디비전 상자",
+    "lootExamples": "랜덤 보상 예시",
+    "lootNotice": "무작위 보상 · 전체 드롭 목록 아님"
+  },
+  "page": {
+    "summary": "페이지 합계 {total} · 누적 {cumulative}",
+    "cardHint": "보상 카드를 선택해 목표에 추가하거나 제거하세요.",
+    "cumulative": "누적 {count}"
+  },
+  "buttons": {
+    "completePage": "현재 페이지 완료",
+    "completeThrough": "이 페이지까지 완료",
+    "resetCompleted": "완료한 보상 초기화"
+  },
+  "calculator": {
+    "title": "문서 계산기",
+    "selectedGoal": "선택한 목표",
+    "remainingDocuments": "남은 문서",
+    "documents": "문서"
+  },
+  "status": {
+    "complete": "✓ 모든 보상 완료",
+    "readyRemaining": "✓ 보유 문서로 남은 보상을 모두 해금할 수 있습니다",
+    "missing": "문서 {count}개가 더 필요합니다"
+  },
+  "table": {
+    "documentType": "문서 종류",
+    "required": "필요",
+    "owned": "보유",
+    "missing": "부족"
+  },
+  "autosave": {
+    "label": "자동 저장",
+    "text": "문서 보유량과 완료한 보상은 이 브라우저에 저장됩니다."
+  },
+  "overview": {
+    "title": "페이지 해금 비용",
+    "total": "총 12페이지 · 문서 501개"
+  },
+  "reward": {
+    "required": "필요",
+    "requiredDocuments": "필요한 문서",
+    "requiredDocs": "필요 문서",
+    "total": "합계",
+    "complete": "완료",
+    "ready": "준비됨"
+  },
+  "categories": {
+    "financial": "재정",
+    "pmc": "PMC 인사",
+    "project": "프로젝트",
+    "blueprints": "설계",
+    "test": "테스트",
+    "user": "사용자",
+    "medical": "의료",
+    "technical": "기술"
+  },
+  "mapViewer": {
+    "locationsVisible": "개 위치 표시",
+    "loading": "로컬 지도 이미지 불러오는 중",
+    "loadingCopy": "로컬 인터랙티브 지도를 표시하는 데 시간이 걸릴 수 있습니다.",
+    "unavailable": "인터랙티브 지도 사용 불가",
+    "loadFailed": "지도를 불러오지 못했습니다",
+    "openSource": "지도 출처 열기",
+    "photoSoon": "위치 사진 준비 중",
+    "location": "문서 위치",
+    "details": "위치 상세 정보",
+    "noDetails": "상세 설명이 아직 없습니다.",
+    "imageSoon": "이미지 준비 중",
+    "coordinateCopied": "좌표 복사 완료",
+    "provider": "제공자",
+    "comment": "멘트"
+  },
+  "documentTitles": {
+    "financial": "재정 문서",
+    "pmc": "PMC 인사 문서",
+    "project": "프로젝트 문서",
+    "blueprints": "설계도",
+    "test": "테스트 문서",
+    "user": "사용자 문서",
+    "medical": "의료 문서",
+    "technical": "기술 문서"
+  },
+  "locationComments": {
+    "containerSecondFloor": "컨테이너 2층",
+    "factoryKeyRequired": "팩토리 열쇠 필요",
+    "secondFloorSafeChair": "2층 중앙",
+    "polikhimKeycardRequired": "폴리킴 키카드 필요",
+    "containerCenterFloor": "컨테이너 안쪽 중앙 바닥",
+    "deepInsideTrainContainer": "기차 컨테이너 제일 안쪽",
+    "tarconeDirectorOfficeKeyRequired": "Tarcone Director's office key 필요",
+    "companyDirectorRoomKeyRequired": "Company director's room key 필요",
+    "dormGuardDeskKeyRequired": "Dorm guard desk key 필요"
+  },
+  "mapControls": {
+    "seasonBattlePass": "시즌 배틀패스",
+    "brandCopy": "문서 위치와 수집 진행도를 한곳에서 확인하세요.",
+    "selectMap": "지도 선택",
+    "documentType": "문서 종류",
+    "clearAll": "전체 해제",
+    "selectAll": "전체 선택",
+    "openTracker": "배틀패스 추적기 열기",
+    "currentMap": "현재 지도",
+    "toolsHome": "도구 홈",
+    "openFilterMenu": "필터 메뉴 열기",
+    "markerFilters": "문서 마커 필터",
+    "close": "닫기"
+  },
   "footer": {
     "prefix": "본 사이트는 Battlestate Games와 관련 없는 비공식 팬사이트입니다. 게임 콘텐츠, 스크린샷, 아이템 이미지, 상표 및 관련 자료의 권리는 Battlestate Games와 각 권리자에게 있습니다. 사이트 제공",
     "text": "본 사이트는 Battlestate Games와 관련 없는 비공식 팬사이트입니다. 게임 콘텐츠, 스크린샷, 아이템 이미지, 상표 및 관련 자료의 권리는 Battlestate Games와 각 권리자에게 있습니다. whizs 제공"
+  },
+  "hub": {
+    "labels": {
+      "allergy": "알러지 체크",
+      "battlepass": "배틀패스",
+      "documents": "문서 위치",
+      "kappa": "카파 체크리스트",
+      "modifiers": "시즌 특성",
+      "quests": "시즌 퀘스트"
+    },
+    "ui": {
+      "all": "전체",
+      "allergic": "알러지",
+      "allergyDesc": "사용 후 증상이 발생한 아이템은 알러지, 이상이 없었던 아이템은 안전으로 기록하세요. 상태는 자동 저장됩니다.",
+      "allergyTitle": "알러지 특성 체크리스트",
+      "blocked": "동시 선택 불가",
+      "confirmReset": "알러지 체크 기록을 모두 초기화할까요?",
+      "count": "개",
+      "global": "글로벌 모디파이어",
+      "globalNote": "항상 적용 · 비용 없음",
+      "groups": [
+        "음료",
+        "식품",
+        "진통제 · 의약품",
+        "자극제 · 주사기"
+      ],
+      "modifierDesc": "부정 특성(+)으로 포인트를 벌고 긍정 특성(−)을 선택하세요. 잔여 포인트가 0 이상이면 적용 가능한 조합입니다.",
+      "modifierTitle": "시즌 특성(모디파이어) 시뮬레이터",
+      "negative": "부정 특성 · 디버프",
+      "noResults": "검색 결과가 없습니다.",
+      "none": "선택한 특성이 없습니다.",
+      "points": "잔여 포인트",
+      "positive": "긍정 특성 · 보너스",
+      "questDesc": "시즌 퀘스트 목표와 보상을 정리했습니다.",
+      "questTitle": "시즌 퀘스트 진행 순서",
+      "random": "랜덤 조합",
+      "reset": "전체 초기화",
+      "result": "판정",
+      "safe": "안전",
+      "safeChecked": "안전 확인",
+      "search": "아이템 이름 검색",
+      "selected": "선택",
+      "shortage": "부족",
+      "totalCandidates": "전체 후보",
+      "totalQuests": "전체 퀘스트"
+    },
+    "kappa": {
+      "confirmReset": "카파 체크 기록을 모두 초기화할까요?",
+      "desc": "Collector 해금 조건과 관련 퀘스트, 인레이드 획득이 필요한 아이템을 한곳에서 확인하세요. 체크 상태는 자동 저장됩니다.",
+      "done": "완료",
+      "fir": "모든 아이템은 인레이드(Found in Raid) 상태로 제출해야 합니다.",
+      "found": "획득 완료",
+      "imageSource": "아이템 이미지 제공: tarkov.dev",
+      "items": "카파 아이템",
+      "quests": "관련 퀘스트",
+      "remaining": "남음",
+      "requirements": "해금 조건",
+      "reset": "전체 초기화",
+      "source": "Collector 위키에서 최신 조건 확인",
+      "title": "카파 컨테이너 체크리스트"
+    },
+    "maps": [
+      "공장",
+      "세관",
+      "리저브",
+      "인터체인지",
+      "삼림",
+      "해안선",
+      "등대",
+      "쇄빙선",
+      "타르코프 시내",
+      "그라운드 제로",
+      "연구소",
+      "미궁"
+    ],
+    "goals": [
+      "군용 장비가 든 케이스 1개를 찾아 획득",
+      "군용 장비가 든 케이스 1개를 BTR 운전수에게 제출",
+      "그라운드 제로 테라그룹 사무실 2층 접수대에 편지 1개 설치 (한 레이드)",
+      "해안선·타르코프 시내·그라운드 제로의 지정 장소 6곳에 WI-FI 카메라 설치",
+      "블랙 디비전 플레이트 캐리어 아무 종류 5개 제출",
+      "Cast the Net에서 설치한 WI-FI 카메라 6개 회수 후 제출",
+      "블랙 디비전 암호화 키 1개를 인레이드 상태로 획득해 제출",
+      "지정된 블랙 디비전 장비 10종을 각 1개씩 인레이드 상태로 제출",
+      "문서가 든 서류가방 1개를 인레이드 상태로 제출",
+      "14-4 KORD SSD 3개를 인레이드 상태로 제출",
+      "블랙 디비전 플레이트 캐리어 착용 후 3개 지역에서 각각 4명 처치",
+      "같은 노트북을 펜스에게 제출하거나 메카닉에게 복호화해 제출하는 선택형 퀘스트",
+      "연구소에서 블랙 디비전 대원 15명 처치",
+      "해안선 리조트 담장 파손 지점 3곳에 TP-200 TNT 각 1개 설치",
+      "세관 2곳과 삼림 2곳의 송신기 총 4개 파괴",
+      "블랙 디비전 러기드 노트북을 복호화해 데이터 1개 제출",
+      "한 번의 연속 레이드에서 해안선 → 등대 → 리저브 → 우드로 트랜짓하고, 다른 목표 진행 중 블랙디비전을 제외한 대상 총 10명 처치",
+      "한 번의 레이드에서 인터체인지의 지정 절차를 완료하고 타르코프 시내로 트랜짓한 뒤 케이스를 설치하고 생존 탈출",
+      "게임 시간 22:00~08:00에 세관·우드·타르코프 시내에서 PMC를 각각 3명 처치하고, 각 지역 지정 장소에 PMC 인식표 3개씩 설치 (총 9명·9개)"
+    ],
+    "guides": [
+      "해안선의 3개 후보 지점 중 1곳에서 1개 획득: 소르디 타워 옆 오두막, 기상 관측소 2층, 발전소 1층.",
+      "Part 1에서 얻은 군용 장비 케이스 1개를 삼림 또는 타르코프 시내의 BTR 정류장에서 BTR 운전수에게 제출.",
+      "테라그룹 본사 2층 접수대에 테라피스트의 편지 1개 설치. 설치 전후 사망하거나 EMERCOM 검문소·나카타니 지하가 아닌 탈출구를 사용하면 실패.",
+      "WI-FI 카메라 총 6개 필요: 해안선 수력발전소 우랄 트럭·밀수꾼 기지 하천 굴착기, 시내 무너진 크레인 콘크리트 믹서·로디나 영화관 앞 이동식 화장실, 그제 미라 애비뉴 화물트럭 운전석·지하 노란 버스에 각 1개.",
+      "블랙 디비전 방탄 플레이트 캐리어 아무 종류 5개 제출. 그제(레벨 21+), 해안선, 시내, 연구소 또는 쇄빙선에서 획득. 쇄빙선의 웨지가 착용하는 LV-119 MultiCam Black도 제출 가능.",
+      "Cast the Net에서 설치한 카메라 6개를 같은 장소에서 각각 회수해 제출.<br><span class=\"quest-reward-inline\"><b>퀘스트 보상:</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">서류가 든 서류 가방</a> — 후속 퀘스트 What's in the Bag?에 제출해야 하므로 보관하세요.</span>",
+      "일반 지역을 순찰하는 블랙 디비전에게서 인레이드 암호화 키 1개 획득 후 제출. 쇄빙선에서는 획득 불가.",
+      "인레이드 상태로 각 1개 제출: Siege-R·LV-119 V1·LV-119 V2·FCPC V5 캐리어, Modular Pack 45 Plus·2 Day Assault Pack·NICE Frame Load Sling, M53A1 방독면·SOTR 호흡기·Gatorz Specter 안경. 블랙 디비전 상자에서 획득 가능.",
+      "문서가 든 서류가방 1개를 인레이드 상태로 제출. Reverse Gear 보상, 컬티스트 서클에서 블랙 디비전 토큰 5개 교환, 또는 블랙 디비전 희귀 드롭으로 획득.",
+      "14-4 KORD SSD 3개를 인레이드 상태로 제출. 블랙 디비전 구역에서 확률적으로 생성되며 시내·해안선·연구소에서 찾기 쉬움. 쇄빙선 제외.",
+      "블랙 디비전 플레이트 캐리어 착용 필수. 해안선 4명 + 시내 4명 + 그라운드 제로 4명, 총 12명 처치.",
+      "Final Stretch와 Consequences of Our Decisions는 상호 배타 선택지입니다. 같은 노트북을 펜스에게 바로 제출하거나, 정보센터 1레벨에서 복호화해 메카닉에게 제출하세요. 어느 쪽을 선택해도 Desperate Assault로 이어집니다.",
+      "연구소에서 블랙 디비전 대원 15명 처치. 탈출구를 작동시키면 등장하는 병력도 대상.",
+      "TP-200 TNT 3개 필요. 해안선 리조트의 서쪽·북쪽·동쪽 담장 파손 지점에 각각 1개 설치.",
+      "송신기 총 4개 파괴: 세관 미완공 건설현장 인근 공장 굴뚝·송전탑, 삼림 산 정상·통신탑에 각 1개.",
+      "블랙 디비전 러기드 노트북은 블랙 디비전에게서 획득할 수 있습니다(쇄빙선 제외). 정보센터 1레벨에서 복호화한 데이터 1개를 메카닉에게 제출.",
+      "해안선에서 시작해 지정된 트랜짓 3개를 순서대로 이용하세요. 한 번의 연속 레이드에서 다른 목표를 진행하면서 블랙 디비전을 제외한 대상을 총 10명 처치해야 합니다. 블랙 디비전과는 교전하지 마세요.",
+      "모든 목표를 한 번의 레이드에서 완료해야 합니다. Object #11SR 키카드와 RSP-30 신호탄(노란색)을 준비하세요. 인터체인지에서 게임 시간 20:00~08:00 사이 PMC 3명 처치 → 발전소 전원 켜기 → Burger Spot 화장실에서 #11SR로 안전실 활성화 → 안전실 내부 레버로 14번 컨테이너 열기 → 컨테이너에서 케이스 획득 → 타르코프 시내로 트랜짓 → Pinewood 호텔 3층에 케이스 설치 → 추락한 트램 근처에서 노란 신호탄 사용 → 생존 탈출. 완료 시 Historical Prospects가 해금됩니다.",
+      "세관 기숙사 3층 마크방에 들어가려면 Dorm room 314 marked key가 필요합니다. 설치할 PMC 인식표는 인레이드(Found in Raid) 상태가 아니어도 됩니다. 퀘스트는 여러 레이드에 걸쳐 진행할 수 있으며, 한 번의 레이드에서 모두 완료할 필요는 없습니다. 설치 장소: 세관 마크방, 우드 버려진 마을 마크 서클, 타르코프 시내 Nikitskaya St. 8 건물 2층 아파트 마크 서클. 설치 목표에는 별도 시간 제한이 표기돼 있지 않습니다."
+    ],
+    "levels": [
+      "프라퍼 우호도 2",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "레벨 20",
+      null,
+      null,
+      null,
+      null,
+      "택1",
+      null,
+      null,
+      null,
+      null
+    ],
+    "achievements": [
+      [
+        "도움 필요 없어",
+        "긍정 퍽 없이 레벨 30 달성"
+      ],
+      [
+        "계획이 있었어",
+        "부정 특성 10개 이상으로 레벨 30 달성"
+      ],
+      [
+        "유전자 복권",
+        "지정된 부정 특성 5개 선택 후 레벨 30 달성"
+      ],
+      [
+        "하나도 좋지만, 둘은 더 좋다",
+        "카파 프로토콜 선택 및 추가 카파 획득"
+      ],
+      [
+        "우리 집에는 하드코어가 있다",
+        "보안 컨테이너 파손·플리마켓 금지령 선택 후 카파 정식 획득"
+      ],
+      [
+        "그걸 도전이라고?",
+        "생존 계열 긍정 특성 중 5개 선택 후 모든 생존 경로 임무 완료"
+      ],
+      [
+        "천생 기업가",
+        "보호비 선택 후 5억₽·100만€·100만$ 동시 보유"
+      ]
+    ],
+    "otherAchievements": [
+      [
+        "신봉자",
+        "시즌 캐릭터로 레벨 30 달성"
+      ],
+      [
+        "일급비밀",
+        "기밀 문서를 제외한 모든 종류의 테라그룹 문서를 인벤토리에 보유"
+      ],
+      [
+        "사칭자",
+        "블랙 디비전 장비를 사용해 블랙 디비전 대원 100명 처치"
+      ],
+      [
+        "새로운 시대의 여명",
+        "시즌 시스템 도입 이후 카파 보안 컨테이너 획득"
+      ],
+      [
+        "원칙보다 이익",
+        "시즌 1 KORD BREACH의 펜스 퀘스트 라인을 완료하고 미확인 시설의 노트북을 메카닉 또는 펜스에게 전달"
+      ]
+    ],
+    "requirements": [
+      "캐릭터 레벨 40 달성",
+      "펜스 평판 3.0 이상 달성",
+      "프라퍼 우호도 4 달성",
+      "테라피스트 우호도 4 달성",
+      "스키어 우호도 4 달성",
+      "피스키퍼 우호도 4 달성",
+      "메카닉 우호도 4 달성",
+      "라그맨 우호도 4 달성",
+      "예거 우호도 4 달성",
+      "Chemical - Part 3 완료",
+      "Sew it Good - Part 2 완료",
+      "Shooter Born in Heaven 완료",
+      "The Tarkov Shooter - Part 4 완료"
+    ],
+    "global": [
+      [
+        "보험 불가능",
+        "레이드 시작 전에 보험을 할 수 없습니다"
+      ],
+      [
+        "블랙 디비전",
+        "특정 지역에서 블랙 디비전 대원들을 조우할 수 있습니다"
+      ],
+      [
+        "은신처 인레이드 미요구",
+        "은신처 건설 및 업그레이드 재료에 인레이드 상태가 필요하지 않습니다"
+      ],
+      [
+        "방어구 대란",
+        "타르코프 전역의 상인들이 방어구 대란을 겪습니다"
+      ],
+      [
+        "만능 재주꾼",
+        "제작 시간이 50% 감소하고 제작 스킬을 51레벨로 시작합니다"
+      ],
+      [
+        "베테랑 PMC",
+        "캐릭터의 레이드 경험치 획득량이 25% 증가합니다"
+      ]
+    ],
+    "choiceRewards": [
+      {
+        "items": [
+          "경험치 35,000",
+          "300,000 ₽",
+          "문서가 든 서류가방",
+          "RB-BK 마크방 열쇠 ×1"
+        ],
+        "title": "Final Stretch · 펜스 선택",
+        "wiki": "https://escapefromtarkov.fandom.com/wiki/Final_Stretch"
+      },
+      {
+        "items": [
+          "경험치 35,000",
+          "300,000 ₽",
+          "문서가 든 서류가방",
+          "전동 드릴 ×5",
+          "군용 COFDM 무선 신호 송신기 ×3",
+          "Cyclon 충전식 배터리 ×5",
+          "공구 세트 ×5"
+        ],
+        "title": "Consequences of Our Decisions · 메카닉 선택",
+        "wiki": "https://escapefromtarkov.fandom.com/wiki/Consequences_of_Our_Decisions"
+      }
+    ],
+    "areas": [
+      "Shoreline",
+      "Streets · Woods",
+      "Ground Zero",
+      "Shoreline · Streets · Ground Zero",
+      "Any location",
+      "Shoreline · Streets · Ground Zero",
+      "Black Division loot",
+      "Found in Raid equipment",
+      "Quest item",
+      "Quest item",
+      "Shoreline · Streets · Ground Zero",
+      "Streets",
+      "The Lab",
+      "Shoreline",
+      "Customs · Woods",
+      "Intelligence Center Lv. 1",
+      "Shoreline → Lighthouse → Reserve → Woods",
+      "Interchange → Streets of Tarkov",
+      "Customs · Woods · Streets of Tarkov"
+    ]
   }
 }

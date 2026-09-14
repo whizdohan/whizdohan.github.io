@@ -13,7 +13,7 @@
 .hub-footer a{color:#b8a26c;text-decoration:none}.hub-footer a:hover{text-decoration:underline}
 @media(max-width:900px){.hub-topbar{grid-template-columns:auto minmax(110px,1fr) auto}.topbar-controls{gap:6px}.map-control select{min-width:145px}.topbar-controls>#autosave-state{display:none}}
 @media(max-width:760px){.hub-main{grid-template-rows:auto minmax(0,1fr) auto}.hub-topbar{grid-template-columns:auto minmax(90px,1fr) auto;min-height:62px;padding:7px 9px}.top-control{padding:4px 6px}.top-control span{display:none}.top-control select{min-width:82px;max-width:120px}.map-control select{min-width:118px;max-width:150px}.hub-footer{padding:7px 10px;font-size:8px}}
-@media(max-width:480px){.view-heading small{display:none}.view-heading h1{font-size:15px}.topbar-controls{gap:4px}.language-control select{width:72px;min-width:72px}.map-control select{width:112px;min-width:112px}.hub-footer span{width:100%}}
+@media(max-width:480px){.view-heading small{display:none}.view-heading h1{font-size:15px}.topbar-controls{gap:4px}.language-control select{width:108px;min-width:108px;max-width:108px}.map-control select{width:112px;min-width:112px}.hub-footer span{width:100%}}
 .modifier-card.blocked{opacity:.32;cursor:not-allowed;filter:grayscale(1)}
 .modifier-section.global{margin-bottom:18px}.global-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.global-card{cursor:default;--accent:var(--gold)}
 .quest-wiki{display:inline-block;margin-top:9px;color:var(--gold);font-size:11px;text-decoration:none}.quest-wiki:hover{text-decoration:underline}
