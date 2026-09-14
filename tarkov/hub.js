@@ -235,9 +235,7 @@ const ADDITIONAL_SEASON_QUESTS=[
     "name": "Historical Prospects",
     "area": "Customs · Woods · Streets of Tarkov",
     "wiki": "https://escapefromtarkov.fandom.com/wiki/Historical_Prospects",
-    "items": [
-      {"name":"Dorm room 314 marked key","icon":"https://assets.tarkov.dev/5780cf7f2459777de4559322-icon.webp","qty":1}
-    ],
+    "items": [],
     "goals": {
       "ko": "게임 시간 22:00~08:00에 세관·우드·타르코프 시내에서 PMC를 각각 3명 처치하고, 각 지역 지정 장소에 PMC 인식표 3개씩 설치 (총 9명·9개)",
       "en": "Eliminate 3 PMCs each on Customs, Woods and Streets of Tarkov during 22:00–08:00 in-game, and stash 3 PMC dogtags at each designated site (9 kills and 9 dogtags total)",
@@ -328,10 +326,10 @@ function setMap(next){if(!HUB_MAPS.some(map=>map.id===next))return;currentMap=ne
 function traderIcon(trader){return trader.split("+").map(name=>{const label=language==="ko"?name:TRADERS[name],portrait=TRADER_PORTRAITS[name];return portrait?`<span class="quest-trader-icon" title="${label}" aria-label="${label}"><img src="${portrait}" alt="${label}" width="34" height="34" loading="lazy" decoding="async"></span>`:`<span class="quest-trader-icon btr-icon" title="${label}" aria-label="${label}">BTR</span>`}).join("")}
 function renderChoiceRewards(){const heading=language==="ru"?HUB_EXTRA.choiceRewards:language==="ko"?"선택지별 보상":language==="ja"?"ルート別報酬":"Rewards by route",wikiLabel=language==="ru"?HUB_EXTRA.questWiki:language==="ko"?"퀘스트 위키":language==="ja"?"クエストWiki":"Quest Wiki",achievement=language==="ru"?HUB_EXTRA.choiceAchievement:({ko:"시즌 업적: 원칙보다 이익 달성",en:"Season Achievement: Profit Over Principles unlocked",ja:"シーズン実績：原則より利益 達成"}[language]||"Season Achievement: Profit Over Principles unlocked");return `<section class="choice-rewards"><h4>${heading}</h4><div>${CHOICE_REWARDS[language].map(route=>`<article><strong>${route.title}</strong><ul>${route.items.map(item=>`<li>${item}</li>`).join("")}</ul><a href="${route.wiki}" target="_blank" rel="noopener noreferrer">${wikiLabel} ↗</a></article>`).join("")}</div><p class="choice-achievement">${achievement}</p></section>`}
 function renderHistoricalDogtags(){
-  const label=language==="ru"?HUB_EXTRA.questDogtag:({ko:"PMC 인식표",en:"PMC dogtag",ja:"PMCドッグタグ"}[language]||"PMC dogtag");
+  const label=language==="ru"?HUB_EXTRA.questDogtag:({ko:"PMC 인식표",en:"PMC dogtag",ja:"PMCドッグタグ"}[language]||"PMC dogtag"),keyLabel=language==="ru"?"Ключ от помеченной комнаты":({ko:"기숙사 314 마크방 열쇠",en:"Dorm room 314 marked key",ja:"寮314マークドキー"}[language]||"Dorm room 314 marked key"),keyIcon='<span class="quest-item" title="'+keyLabel+'"><img src="https://assets.tarkov.dev/5780cf7f2459777de4559322-icon.webp" alt="'+keyLabel+'" width="44" height="44" loading="lazy" decoding="async"></span>';
   return '<div class="quest-dogtag-groups" style="display:flex;flex-wrap:wrap;gap:16px;margin:12px 0">'+["customs","woods","streets"].map(id=>{
     const map=HUB_MAPS.find(entry=>entry.id===id);
-    return '<div><strong>'+map.name[language]+'</strong><div class="quest-items">'+Array.from({length:3},()=>'<span class="quest-item" title="'+label+'"><img src="https://assets.tarkov.dev/59f32c3b86f77472a31742f0-icon.webp" alt="'+label+'" width="44" height="44" loading="lazy" decoding="async"></span>').join("")+'</div></div>';
+    return '<div><strong>'+map.name[language]+'</strong><div class="quest-items">'+(id==="customs"?keyIcon:"")+Array.from({length:3},()=>'<span class="quest-item" title="'+label+'"><img src="https://assets.tarkov.dev/59f32c3b86f77472a31742f0-icon.webp" alt="'+label+'" width="44" height="44" loading="lazy" decoding="async"></span>').join("")+'</div></div>';
   }).join("")+'</div>';
 }
 
