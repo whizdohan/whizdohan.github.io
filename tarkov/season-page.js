@@ -15,7 +15,7 @@ document.body.innerHTML=`
     <header class="hub-topbar">
       <button id="menu-toggle" aria-label="메뉴 열기">☰</button>
       <div class="view-heading"><small id="view-kicker">SEASON 1</small><h1 id="view-title">시즌 도구</h1></div>
-      <div class="topbar-controls"><label class="top-control language-control"><span>LANGUAGE</span><select id="hub-language" aria-label="표시 언어"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option></select></label><span id="autosave-state">LOCAL AUTO SAVE</span></div>
+      <div class="topbar-controls"><label class="top-control language-control"><span>LANGUAGE</span><select id="hub-language" aria-label="표시 언어"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="en-GB">English (UK)</option><option value="ru">Русский</option></select></label><span id="autosave-state">LOCAL AUTO SAVE</span></div>
     </header>
     <section class="hub-panel" data-panel="battlepass"><iframe title="배틀패스"></iframe></section>
     <section class="hub-panel document-panel" data-panel="documents"><section class="hub-map-menu" id="hub-map-menu"><small>MAP CHANGE</small><div id="hub-map-buttons"></div></section><iframe title="문서 위치"></iframe></section>
