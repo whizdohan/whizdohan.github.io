@@ -303,7 +303,8 @@
       "Destroy two transmitters on Customs and two on Woods",
       "Hand over the data extracted from the Black Division rugged laptop",
       "Transit Shoreline → Lighthouse → Reserve → Woods in one continuous raid, and eliminate 10 targets other than Black Division while completing the other objectives",
-      "Complete the required Interchange sequence in one raid, transit to Streets of Tarkov, plant the case, and survive the raid",
+      "In one raid, eliminate 3 targets each on Interchange and Streets of Tarkov, complete the required sequence, plant the case, and survive",
+      "Report back to Lightkeeper",
       "Eliminate 3 PMCs each on Customs, Woods and Streets of Tarkov during 22:00–08:00 in-game, and stash 3 PMC dogtags at each designated site (9 kills and 9 dogtags total)"
     ],
     "guides": [
@@ -324,7 +325,8 @@
       "Destroy 4 transmitters: the factory chimney and power-line tower on Customs, plus the mountain top and cell tower on Woods.",
       "Obtain a Black Division rugged laptop from Black Division operatives (excluding Icebreaker), decrypt it at Intelligence Center level 1, and hand 1 data item to Mechanic.",
       "Start on Shoreline and use all three transits in order. During the same continuous raid, eliminate 10 targets other than Black Division while completing the other objectives. Do not engage Black Division.",
-      "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate 3 PMCs between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → plant the case on the third floor of the Pinewood Hotel → fire the yellow flare near the crashed tram → extract alive. Completing the quest unlocks Historical Prospects.",
+      "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate any 3 targets between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → eliminate any 3 targets between 20:00 and 08:00 → plant the case on the third-floor balcony of the Pinewood Hotel restaurant → fire the yellow flare near the collapsed tram → extract alive. Completing the quest automatically starts ...for the Good of the Chosen.",
+      "This quest starts automatically after completing In the Name of Humanity.... Return to Lightkeeper and report to complete it and unlock Historical Prospects.",
       "A Dorm room 314 marked key is required to enter the third-floor marked room on Customs. PMC dogtags do not need Found in Raid status. You can progress across multiple raids; the quest does not have to be completed in a single raid. Stash locations: the marked room on Customs; the abandoned village marked circle on Woods; the marked circle in the second-floor apartment at Nikitskaya St. 8 on Streets. The stash objectives do not list a time restriction."
     ],
     "levels": [
@@ -482,6 +484,7 @@
       "Intelligence Center Lv. 1",
       "Shoreline → Lighthouse → Reserve → Woods",
       "Interchange → Streets of Tarkov",
+      "Lighthouse",
       "Customs · Woods · Streets of Tarkov"
     ],
     "extraLabels": {

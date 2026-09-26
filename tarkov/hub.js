@@ -221,14 +221,30 @@ const ADDITIONAL_SEASON_QUESTS=[
       {"name":"RSP-30 reactive signal cartridge (Yellow)","icon":"https://assets.tarkov.dev/624c0b3340357b5f566e8766-icon.webp","qty":1}
     ],
     "goals": {
-      "ko": "한 번의 레이드에서 인터체인지의 지정 절차를 완료하고 타르코프 시내로 트랜짓한 뒤 케이스를 설치하고 생존 탈출",
-      "en": "Complete the required Interchange sequence in one raid, transit to Streets of Tarkov, plant the case, and survive the raid",
-      "ja": "1回のレイドでInterchangeの指定手順を完了し、Streets of Tarkovへトランジットした後、ケースを設置して生還する"
+      "ko": "한 번의 레이드에서 인터체인지와 타르코프 시내에서 아무 대상 3명씩 처치하고, 지정 절차와 케이스 설치를 완료한 뒤 생존 탈출",
+      "en": "In one raid, eliminate 3 targets each on Interchange and Streets of Tarkov, complete the required sequence, plant the case, and survive",
+      "ja": "1回のレイドでInterchangeとStreets of Tarkovの任意のターゲットを各3体排除し、指定手順とケース設置を完了して生還する"
     },
     "guides": {
-      "ko": "모든 목표를 한 번의 레이드에서 완료해야 합니다. Object #11SR 키카드와 RSP-30 신호탄(노란색)을 준비하세요. 인터체인지에서 게임 시간 20:00~08:00 사이 PMC 3명 처치 → 발전소 전원 켜기 → Burger Spot 화장실에서 #11SR로 안전실 활성화 → 안전실 내부 레버로 14번 컨테이너 열기 → 컨테이너에서 케이스 획득 → 타르코프 시내로 트랜짓 → Pinewood 호텔 3층에 케이스 설치 → 추락한 트램 근처에서 노란 신호탄 사용 → 생존 탈출. 완료 시 Historical Prospects가 해금됩니다.",
-      "en": "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate 3 PMCs between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → plant the case on the third floor of the Pinewood Hotel → fire the yellow flare near the crashed tram → extract alive. Completing the quest unlocks Historical Prospects.",
-      "ja": "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00にPMCを3人排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → Pinewood Hotelの3階にケースを設置 → 墜落した路面電車付近で黄色のフレアを使用 → 生還。完了するとHistorical Prospectsが解放されます。"
+      "ko": "모든 목표를 한 번의 레이드에서 완료해야 합니다. Object #11SR 키카드와 RSP-30 신호탄(노란색)을 준비하세요. 인터체인지에서 게임 시간 20:00~08:00 사이 아무 대상 3명 처치 → 발전소 전원 켜기 → Burger Spot 화장실에서 #11SR로 안전실 활성화 → 안전실 내부 레버로 14번 컨테이너 열기 → 컨테이너에서 케이스 획득 → 타르코프 시내로 트랜짓 → 게임 시간 20:00~08:00 사이 아무 대상 3명 처치 → Pinewood 호텔 3층에 케이스 설치 → 추락한 트램 근처에서 노란 신호탄 사용 → 생존 탈출. 완료하면 ...for the Good of the Chosen이 자동으로 시작됩니다.",
+      "en": "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate any 3 targets between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → eliminate any 3 targets between 20:00 and 08:00 → plant the case on the third-floor balcony of the Pinewood Hotel restaurant → fire the yellow flare near the collapsed tram → extract alive. Completing the quest automatically starts ...for the Good of the Chosen.",
+      "ja": "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00に任意のターゲットを3体排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → ゲーム内時間20:00～08:00に任意のターゲットを3体排除 → Pinewood Hotelレストラン3階のバルコニーにケースを設置 → 崩落した路面電車付近で黄色のフレアを使用 → 生還。完了すると...for the Good of the Chosenが自動的に開始されます。"
+    }
+  },
+  {
+    "name": "...for the Good of the Chosen",
+    "area": "Lighthouse",
+    "wiki": "https://escapefromtarkov.fandom.com/wiki/...for_the_Good_of_the_Chosen",
+    "items": [],
+    "goals": {
+      "ko": "등대지기에게 돌아가 보고",
+      "en": "Report back to Lightkeeper",
+      "ja": "Lightkeeperに戻って報告する"
+    },
+    "guides": {
+      "ko": "In the Name of Humanity... 완료 시 자동으로 시작됩니다. 등대지기에게 돌아가 보고하면 완료되며 Historical Prospects가 해금됩니다.",
+      "en": "This quest starts automatically after completing In the Name of Humanity.... Return to Lightkeeper and report to complete it and unlock Historical Prospects.",
+      "ja": "In the Name of Humanity...完了時に自動で開始されます。Lightkeeperに戻って報告すると完了し、Historical Prospectsが解放されます。"
     }
   },
   {
@@ -312,8 +328,10 @@ async function loadHubTranslation(next){
 const TRADERS={"등대지기":"Lightkeeper","프라퍼":"Prapor","테라피스트":"Therapist","펜스":"Fence","라그맨":"Ragman","메카닉":"Mechanic","예거":"Jaeger","BTR 운전수":"BTR Driver"};
 const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
 const HUMANITY_QUEST_MIGRATION_KEY="tarkov-hub:humanity-quest-index:v1";
+const GOOD_OF_CHOSEN_QUEST_MIGRATION_KEY="tarkov-hub:good-of-chosen-quest-index:v1";
 let allergy=read(KEYS.allergy,{}),selected=new Set(read(KEYS.modifiers,[])),questsDone=new Set(read(KEYS.questsDone,[])),seasonAchievementsDone=new Set(read(KEYS.seasonAchievementsDone,[])),otherAchievementsDone=new Set(read(KEYS.otherAchievementsDone,[])),kappaItems=new Set(read(KEYS.kappaItems,[])),kappaRequirements=new Set(read(KEYS.kappaRequirements,[])),filter="전체",query="";
 if(!localStorage.getItem(HUMANITY_QUEST_MIGRATION_KEY)){if(questsDone.has(17)){questsDone.delete(17);questsDone.add(18);localStorage.setItem(KEYS.questsDone,JSON.stringify([...questsDone]))}localStorage.setItem(HUMANITY_QUEST_MIGRATION_KEY,"1")}
+if(!localStorage.getItem(GOOD_OF_CHOSEN_QUEST_MIGRATION_KEY)){if(questsDone.has(18)){questsDone.delete(18);questsDone.add(19);localStorage.setItem(KEYS.questsDone,JSON.stringify([...questsDone]))}localStorage.setItem(GOOD_OF_CHOSEN_QUEST_MIGRATION_KEY,"1")}
 if(kappaRequirements.has("trader-ll4")){kappaRequirements.delete("trader-ll4");["trader-prapor-ll4","trader-therapist-ll4","trader-skier-ll4","trader-peacekeeper-ll4","trader-mechanic-ll4","trader-ragman-ll4","trader-jaeger-ll4"].forEach(id=>kappaRequirements.add(id));localStorage.setItem(KEYS.kappaRequirements,JSON.stringify([...kappaRequirements]))}
 EXCLUSIONS.forEach(([a,b])=>{if(selected.has(a)&&selected.has(b))selected.delete(b)});
 function closeMenu(){document.querySelector("#hub-nav").classList.remove("open");document.querySelector("#nav-backdrop").classList.remove("open")}
