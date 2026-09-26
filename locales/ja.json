@@ -303,7 +303,8 @@
       "Customsで2台、Woodsで2台の送信機を破壊する",
       "Black DivisionのラギッドノートPCから抽出したデータを引き渡す",
       "1回の連続レイドでShoreline → Lighthouse → Reserve → Woodsへ移動し、他の目標を進めながらBlack Division以外を合計10人排除する",
-      "1回のレイドでInterchangeの指定手順を完了し、Streets of Tarkovへトランジットした後、ケースを設置して生還する",
+      "1回のレイドでInterchangeとStreets of Tarkovの任意のターゲットを各3体排除し、指定手順とケース設置を完了して生還する",
+      "Lightkeeperに戻って報告する",
       "ゲーム内時間22:00～08:00にCustoms・Woods・Streets of TarkovでPMCを各3人排除し、各指定地点にPMCドッグタグを3個ずつ設置（合計9人・9個）"
     ],
     "guides": [
@@ -324,7 +325,8 @@
       "送信機4基を破壊：Customsの工場煙突・送電塔、Woodsの山頂・通信塔に各1基。",
       "Black Divisionからrugged laptopを入手可能（Icebreakerを除く）。Intelligence Center Lv.1で復号し、データ1個をMechanicへ提出。",
       "Shorelineから開始し、指定のトランジット3か所を順番に利用します。同じ1回の連続レイド中に、他の目標を進めながらBlack Division以外の対象を合計10人排除する必要があります。Black Divisionとは交戦しないでください。",
-      "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00にPMCを3人排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → Pinewood Hotelの3階にケースを設置 → 墜落した路面電車付近で黄色のフレアを使用 → 生還。完了するとHistorical Prospectsが解放されます。",
+      "すべての目標を1回のレイドで完了する必要があります。Object #11SRキーカードとRSP-30反応式信号弾（Yellow）を用意してください。Interchangeでゲーム内時間20:00～08:00に任意のターゲットを3体排除 → 発電所の電源を入れる → Burger Spotのトイレで#11SRを使用してセーフルームを作動 → セーフルーム内のレバーでコンテナ#14を開ける → ケースを回収 → Streets of Tarkovへトランジット → ゲーム内時間20:00～08:00に任意のターゲットを3体排除 → Pinewood Hotelレストラン3階のバルコニーにケースを設置 → 崩落した路面電車付近で黄色のフレアを使用 → 生還。完了すると...for the Good of the Chosenが自動的に開始されます。",
+      "In the Name of Humanity...完了時に自動で開始されます。Lightkeeperに戻って報告すると完了し、Historical Prospectsが解放されます。",
       "Customsの寮3階にあるマークド部屋へ入るにはDorm room 314 marked keyが必要です。設置するPMCドッグタグはFound in Raid状態でなくても使用できます。クエストは複数のレイドに分けて進められ、1回のレイドですべて完了する必要はありません。設置場所：Customsのマークド部屋、Woodsの廃村のマークドサークル、StreetsのNikitskaya St. 8の2階アパート内マークドサークル。設置目標には時間制限の記載がありません。"
     ],
     "levels": [
@@ -512,6 +514,7 @@
       "Intelligence Center Lv. 1",
       "Shoreline → Lighthouse → Reserve → Woods",
       "Interchange → Streets of Tarkov",
+      "Lighthouse",
       "Customs · Woods · Streets of Tarkov"
     ]
   }
