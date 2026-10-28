@@ -2,6 +2,29 @@
 .level-tabs button em { display: block; margin-top: 5px; color: var(--accent); font-size: 10px; font-style: normal; }
 .requirement-group { margin-top: 20px; }
 .requirement-group > h4 { margin: 0 0 9px; color: var(--accent); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.requirement-pvp, .requirement-pve { padding: 14px; border: 1px solid var(--line); background: #0a1113; }
+.requirement-pvp { border-left: 3px solid var(--accent); }
+.requirement-pve { border-left: 3px solid var(--cyan); }
+.requirement-pve > h4 { color: var(--cyan); }
+.skill-levels { margin: 18px 0; padding: 16px; border: 1px solid var(--line); background: #0a1113; }
+.skill-levels > h4, .prestige-materials > h4 { margin: 0 0 12px; color: var(--accent); font-size: 13px; }
+.skill-levels > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.skill-levels label { display: grid; grid-template-columns: 1fr 72px auto; align-items: center; gap: 8px; border: 1px solid #263438; padding: 10px; }
+.skill-levels input { width: 72px; border: 1px solid var(--line); background: #111b1e; color: var(--text); padding: 8px; font: inherit; }
+.skill-levels small { color: var(--muted); }
+.check.auto-check { cursor: default; }
+.check { position: relative; padding-right: 92px; }
+.check::before { display: grid; place-items: center; font-size: 12px; font-weight: 900; }
+.check.done::before { content: "V"; color: #07110f; background: #55d692; border-color: #55d692; box-shadow: 0 0 0 3px #55d69222; }
+.check::after { content: attr(data-state); position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 11px; font-weight: 800; }
+.check.done::after { color: #55d692; }
+.kappa-item { position: relative; padding-top: 34px; }
+.kappa-state { position: absolute; top: 8px; right: 8px; display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 10px; font-weight: 800; }
+.kappa-state i { display: grid; place-items: center; width: 16px; height: 16px; border: 1px solid #5a676a; font-size: 10px; font-style: normal; }
+.kappa-item.done { opacity: 1; background: #0d1d18; border-color: #3fa975; }
+.kappa-item.done .kappa-state { color: #55d692; }
+.kappa-item.done .kappa-state i { color: #07110f; background: #55d692; border-color: #55d692; box-shadow: 0 0 0 3px #55d69222; }
+.prestige-materials { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .hideout-total { padding: 18px; border: 1px solid var(--line); background: #0a1113; margin-bottom: 22px; }
 .hideout-total h3, #hideout > section > h3 { margin: 0 0 14px; }
@@ -26,5 +49,5 @@
 .api-note { font-size: 12px; }
 .api-error { color: #f09a91; }
 @media (max-width: 900px) { .material-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 700px) { .station-grid { grid-template-columns: 1fr; } .material-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .station-grid { grid-template-columns: 1fr; } .material-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .skill-levels > div { grid-template-columns: 1fr; } }
 @media (max-width: 430px) { .material-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .station-head { align-items: flex-start; } .station-head h4 { font-size: 15px; } }
