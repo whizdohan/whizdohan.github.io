@@ -1,5 +1,6 @@
 .hub-main{height:100vh;grid-template-rows:72px minmax(0,1fr) auto}
 .hub-tab{text-decoration:none}
+.hub-prestige-link{display:flex;align-items:center;gap:12px;margin-top:14px;padding:14px 12px;border:1px solid #c7a85c55;color:#d8c58f;text-decoration:none;background:#17150f}.hub-prestige-link i{font-style:normal;font-size:10px}.hub-prestige-link span{font-size:15px}.hub-prestige-link small{display:block;font-size:9px;color:#8f9da0;margin-top:3px}
 .hub-season-countdown{display:block;margin-top:12px;padding:9px 6px;border:1px solid rgba(212,173,96,.4);background:#17170f;color:#dfc27f;font:800 14px/1.25 ui-monospace,monospace;letter-spacing:0;text-align:center;white-space:nowrap}.hub-season-countdown small{display:block;margin-top:4px;color:#aa9360;font-size:10px;line-height:1.25}.hub-season-countdown.ended{border-color:var(--line);background:#0b1518;color:var(--muted)}
 .hub-topbar{display:grid;grid-template-columns:auto minmax(150px,1fr) auto;gap:14px;min-height:72px;padding:9px 18px}
 .view-heading{min-width:0}.view-heading h1{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
