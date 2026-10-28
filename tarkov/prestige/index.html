@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Escape from Tarkov Prestige Tracker – PvP & PvE | Tarkov Hub</title>
+  <title>Escape from Tarkov Prestige Tracker – PvP & PvE</title>
   <meta name="description" content="Escape from Tarkov Prestige tracker for PvP and PvE: requirements, story progress, hideout materials, New Beginning, Collector and Kappa items.">
   <meta name="keywords" content="Escape from Tarkov, EFT, Prestige, PvP, PvE, Kappa, Collector, hideout materials, story progress, New Beginning">
   <link rel="canonical" href="https://whizdohan.github.io/tarkov/prestige/">
@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://whizdohan.github.io/tarkov/prestige/">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="./prestige.css?v=1">
+  <link rel="stylesheet" href="./hideout.css?v=2">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ79YSJRXQ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EZ79YSJRXQ');</script>
 </head>
@@ -19,7 +20,6 @@
   <header class="topbar">
     <a class="brand" href="/tarkov/prestige/"><span>TP</span><strong>TARKOV PRESTIGE<small>PROGRESSION TRACKER</small></strong></a>
     <div class="top-actions">
-      <a href="/tarkov/season-1/battle-pass/" data-t="season">Season 1 Hub</a>
       <select id="language" aria-label="Language"><option value="en">English</option><option value="en-GB">English (UK)</option><option value="ko">한국어</option><option value="ja">日本語</option><option value="ru">Русский</option></select>
     </div>
   </header>
@@ -46,14 +46,16 @@
     </section>
 
     <section class="panel" id="hideout">
-      <header class="panel-head"><div><p class="eyebrow">HIDEOUT</p><h2 data-t="hideoutTitle">Hideout Materials</h2><p data-t="hideoutDesc">Enter required and owned quantities. Remaining materials are calculated automatically.</p></div><button class="ghost" id="add-material" data-t="addMaterial">Add material</button></header>
+      <header class="panel-head"><div><p class="eyebrow">HIDEOUT</p><h2 data-t="hideoutTitle">Hideout Materials</h2><p data-t="hideoutDesc">Set the current level of every station. Materials already used by completed levels are removed automatically.</p></div><button class="ghost" id="refresh-hideout" data-t="refreshHideout">Refresh data</button></header>
       <div class="hideout-summary" id="hideout-summary"></div>
-      <div class="material-table-wrap"><table class="material-table"><thead><tr><th data-t="facility">Facility</th><th data-t="material">Material</th><th data-t="required">Required</th><th data-t="owned">Owned</th><th data-t="remaining">Remaining</th><th></th></tr></thead><tbody id="material-list"></tbody></table></div>
+      <div id="hideout-status" class="hideout-status"></div>
+      <section class="hideout-total"><h3 data-t="allRemaining">All remaining materials</h3><div class="material-grid" id="material-total"></div></section>
+      <section><h3 data-t="stationLevels">Station levels and upgrade materials</h3><div class="station-grid" id="station-list"></div></section>
       <p class="notice" data-t="hideoutNotice">Hideout costs can change with patches. Confirm the current requirement in game.</p>
     </section>
 
     <section class="panel" id="kappa">
-      <header class="panel-head"><div><p class="eyebrow">FENCE · COLLECTOR</p><h2 data-t="kappaTitle">Kappa Item Checklist</h2><p data-t="kappaDesc">This checklist shares progress with the Season 1 Kappa page in this browser.</p></div><button class="ghost danger" id="reset-kappa" data-t="resetKappa">Reset Kappa</button></header>
+      <header class="panel-head"><div><p class="eyebrow">FENCE · COLLECTOR</p><h2 data-t="kappaTitle">Kappa Item Checklist</h2><p data-t="kappaDesc">Kappa progress is stored independently for the Prestige tracker in this browser.</p></div><button class="ghost danger" id="reset-kappa" data-t="resetKappa">Reset Kappa</button></header>
       <div class="progress-line"><span id="kappa-count"></span><i><b id="kappa-bar"></b></i></div>
       <p class="fir" data-t="fir">All items must be submitted with Found in Raid status.</p>
       <div class="kappa-grid" id="kappa-list"></div>
@@ -66,6 +68,6 @@
     </section>
   </main>
   <footer>This is an unofficial fan-made tracker. Game content and item images belong to Battlestate Games and their respective licensors. Item images: <a href="https://tarkov.dev/" target="_blank" rel="noopener noreferrer">tarkov.dev</a> · <a href="https://discord.com/users/299382568560885761" target="_blank" rel="noopener noreferrer">whizs</a></footer>
-  <script src="./prestige.js?v=1"></script>
+  <script src="./prestige.js?v=3"></script>
 </body>
 </html>

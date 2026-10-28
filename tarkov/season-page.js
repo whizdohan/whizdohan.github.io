@@ -8,7 +8,6 @@ document.body.innerHTML=`
       <a class="hub-tab" data-view="allergy" href="/tarkov/season-1/allergy/"><i>04</i><span>Allergy Check<small>ALLERGY CHECK</small></span></a>
       <a class="hub-tab" data-view="modifiers" href="/tarkov/season-1/traits/"><i>05</i><span>Season Traits<small>SEASON TRAITS</small></span></a>
       <a class="hub-tab" data-view="kappa" href="/tarkov/season-1/kappa/"><i>06</i><span>Kappa Checklist<small>KAPPA CHECKLIST</small></span></a>
-      <a class="hub-prestige-link" href="/tarkov/prestige/"><i>PX</i><span>Prestige Tracker<small>PVP · PVE</small></span></a>
     </nav>
     <footer>Unofficial fan-made tool<br>provided by whizs</footer>
   </aside>
