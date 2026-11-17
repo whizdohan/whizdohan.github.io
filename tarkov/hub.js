@@ -215,18 +215,21 @@ QUEST_GUIDES.ko[5]="이 퀘스트는 이전 퀘스트 완료 후 약 1~2시간 �
 QUEST_GUIDES.ko[9]="14-4 KORD SSD 2개 제출. 인레이드 상태가 아니어도 되며 플리마켓에서 구매한 SSD도 제출 가능. 블랙 디비전 구역에서 획득 가능.";
 QUEST_GUIDES.ko[10]="블랙 디비전 플레이트 캐리어 착용 필수. 지역 구분 없이 블랙 디비전 대원 총 8명 처치. 쇄빙선에서도 진행 가능.";
 QUEST_GUIDES.ko[12]="연구소에서 블랙 디비전 대원 8명 처치. 탈출구를 작동시키면 등장하는 병력도 대상.";
+QUEST_GUIDES.ko[15]="블랙 디비전 러기드 노트북은 인레이드 상태가 필요하지 않으며 플리마켓 구매품도 사용할 수 있습니다. 블랙 디비전에게서도 획득할 수 있으나 쇄빙선은 제외됩니다. 정보센터 1레벨에서 데이터로 복호화한 뒤 메카닉에게 제출하세요.";
 QUEST_GUIDES.en[3]="Bring 4 WI-FI Cameras: place one at each Shoreline Ural truck and excavator, and Ground Zero cargo truck cab and underground yellow bus.";
 QUEST_GUIDES.en[4]="Hand over any 3 Black Division plate carriers, obtained on Ground Zero (level 21+), Shoreline, Streets, The Lab, or Icebreaker. The LV-119 MultiCam Black worn by The Wedge on Icebreaker is also accepted.";
 QUEST_GUIDES.en[5]="This quest unlocks about 1–2 hours after completing the previous quest. Recover and hand over all 4 cameras from the same locations used in Cast the Net.<br><span class=\"quest-reward-inline\"><b>Quest reward:</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">Briefcase with documents</a> — keep it for the follow-up quest What's in the Bag?.</span>";
 QUEST_GUIDES.en[9]="Hand over 2 14-4 KORD SSDs. Found in Raid status is not required; SSDs purchased on the Flea Market are accepted. They can also be obtained in Black Division areas.";
 QUEST_GUIDES.en[10]="Wear a Black Division plate carrier and eliminate 8 Black Division operatives in total across any locations. Icebreaker also counts.";
 QUEST_GUIDES.en[12]="Eliminate 8 Black Division operatives in The Lab; operatives spawned after an extract is activated also count.";
+QUEST_GUIDES.en[15]="The Black Division rugged laptop does not need Found in Raid status, so a Flea Market purchase is accepted. It can also be looted from Black Division operatives outside Icebreaker. Decrypt it at Intelligence Center level 1 and hand the data to Mechanic.";
 QUEST_GUIDES.ja[3]="WI-FI Cameraを計4台用意。ShorelineのUralトラック・掘削機、Ground Zeroのトラック運転席・地下の黄色いバスに各1台。";
 QUEST_GUIDES.ja[4]="Black Divisionのプレートキャリアを種類不問で3個引き渡す。Ground Zero（Lv21以上）、Shoreline、Streets、The Lab、またはIcebreakerで入手可能。IcebreakerのThe Wedgeが装備するLV-119 MultiCam Blackも提出できる。";
 QUEST_GUIDES.ja[5]="このクエストは前のクエスト完了から約1～2時間後に解放されます。Cast the Netで設置した同じ4か所からカメラを回収して引き渡す。<br><span class=\"quest-reward-inline\"><b>クエスト報酬：</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">書類入りブリーフケース</a> — 後続クエストWhat's in the Bag?で提出するため保管してください。</span>";
 QUEST_GUIDES.ja[9]="14-4 KORD SSDを2個提出。Found in Raidは不要で、フリーマーケットで購入したSSDも提出可能。Black Divisionエリアでも入手可能。";
 QUEST_GUIDES.ja[10]="Black Divisionのプレートキャリアを装備し、マップを問わず合計8人を排除。Icebreakerでも進行可能。";
 QUEST_GUIDES.ja[12]="The LabでBlack Divisionを8人排除。脱出口作動後に出現する部隊も対象。";
+QUEST_GUIDES.ja[15]="Black Division rugged laptopはFound in Raid状態が不要で、フリーマーケット購入品も使用可能。Icebreaker以外のBlack Divisionからも入手できる。Intelligence Center Lv.1でデータに復号してMechanicへ提出。";
 QUEST_AREAS[3]=QUEST_AREAS[5]="Shoreline · Ground Zero"; QUEST_AREAS[10]="Any location · Icebreaker";
 QUEST_ITEMS[3][0].qty=4; QUEST_ITEMS[5][0].qty=4; QUEST_ITEMS[9].length=2;
 const ADDITIONAL_SEASON_QUESTS=[
@@ -322,13 +325,13 @@ async function loadHubTranslation(next){
   const file=next==="en-GB"?"en":next;
   let data;
   try{
-    const response=await fetch(`/locales/${file}.json?v=19`);
+    const response=await fetch(`/locales/${file}.json?v=20`);
     if(!response.ok)throw new Error(String(response.status));
     data=(await response.json()).hub;
     if(!data)throw new Error("Missing hub translations");
   }catch(error){
     console.error("Hub language file could not be loaded",error);
-    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=19");data=(await fallback.json()).hub}catch{data={}}}else data={};
+    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=20");data=(await fallback.json()).hub}catch{data={}}}else data={};
   }
   if(language!==next)return;
   const lang=next;
@@ -442,3 +445,4 @@ document.querySelector("#modifier-app").addEventListener("click",e=>{const achie
 document.querySelector("#kappa-app").addEventListener("click",e=>{const card=e.target.closest("[data-kappa-kind]");if(card){const set=card.dataset.kappaKind==="item"?kappaItems:kappaRequirements;set.has(card.dataset.kappaId)?set.delete(card.dataset.kappaId):set.add(card.dataset.kappaId);localStorage.setItem(card.dataset.kappaKind==="item"?KEYS.kappaItems:KEYS.kappaRequirements,JSON.stringify([...set]));renderKappa()}else if(e.target.closest("[data-reset-kappa]")&&confirm(KAPPA_UI[language].confirmReset)){kappaItems.clear();kappaRequirements.clear();localStorage.removeItem(KEYS.kappaItems);localStorage.removeItem(KEYS.kappaRequirements);renderKappa()}});
 document.querySelector("#hub-language").value=language;
 setLanguage(language).then(()=>setView(PAGE_VIEW,false));
+

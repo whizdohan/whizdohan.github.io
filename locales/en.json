@@ -323,7 +323,7 @@
       "Eliminate 8 Black Division operatives in The Lab; operatives spawned after an extract is activated also count.",
       "Bring 3 TP-200 TNT bricks and plant one at each west, north, and east Health Resort fence breach on Shoreline.",
       "Destroy 4 transmitters: the factory chimney and power-line tower on Customs, plus the mountain top and cell tower on Woods.",
-      "Obtain a Black Division rugged laptop from Black Division operatives (excluding Icebreaker), decrypt it at Intelligence Center level 1, and hand 1 data item to Mechanic.",
+      "The Black Division rugged laptop does not need Found in Raid status, so a Flea Market purchase is accepted. It can also be looted from Black Division operatives outside Icebreaker. Decrypt it at Intelligence Center level 1 and hand the data to Mechanic.",
       "Start on Shoreline and use all three transits in order. During the same continuous raid, eliminate 10 targets other than Black Division while completing the other objectives. Do not engage Black Division.",
       "Complete every objective in a single raid. Bring an Object #11SR keycard and an RSP-30 reactive signal cartridge (Yellow). On Interchange, eliminate any 3 targets between 20:00 and 08:00 → turn on the power at the Power Station → use #11SR in the Burger Spot bathroom to activate the saferoom → pull the lever inside the saferoom to open container #14 → retrieve the case → transit to Streets of Tarkov → eliminate any 3 targets between 20:00 and 08:00 → plant the case on the third-floor balcony of the Pinewood Hotel restaurant → fire the yellow flare near the collapsed tram → extract alive. Completing the quest automatically starts ...for the Good of the Chosen.",
       "This quest starts automatically after completing In the Name of Humanity.... Return to Lightkeeper and report to complete it and unlock Historical Prospects.",
@@ -519,3 +519,4 @@
     }
   }
 }
+
