@@ -1,10 +1,10 @@
-const VIEWS={battlepass:["SEASON 1","배틀패스"],documents:["COMMUNITY MAP","문서 위치"],quests:["KORD BREACH","시즌 퀘스트"],allergy:["PERSONAL MODIFIER","알러지 체크"],modifiers:["SEASON TRAITS","시즌 특성"],kappa:["COLLECTOR","카파 체크리스트"]};
-const VIEW_ROUTES={battlepass:"/tarkov/season-1/battle-pass/",documents:"/tarkov/season-1/documents/",quests:"/tarkov/season-1/quests/",allergy:"/tarkov/season-1/allergy/",modifiers:"/tarkov/season-1/traits/",kappa:"/tarkov/season-1/kappa/"};
+const VIEWS={battlepass:["SEASON 1","배틀패스"],quests:["KORD BREACH","시즌 퀘스트"],allergy:["PERSONAL MODIFIER","알러지 체크"],modifiers:["SEASON TRAITS","시즌 특성"],kappa:["COLLECTOR","카파 체크리스트"]};
+const VIEW_ROUTES={battlepass:"/tarkov/season-1/battle-pass/",quests:"/tarkov/season-1/quests/",allergy:"/tarkov/season-1/allergy/",modifiers:"/tarkov/season-1/traits/",kappa:"/tarkov/season-1/kappa/"};
 const PAGE_VIEW=document.body.dataset.view&&VIEWS[document.body.dataset.view]?document.body.dataset.view:"battlepass";
 const KEYS={view:"tarkov-hub:view:v1",allergy:"tarkov-hub:allergy:v1",modifiers:"tarkov-hub:modifiers:v1",questsDone:"tarkov-hub:quests-done:v1",seasonAchievementsDone:"tarkov-hub:season-achievements-done:v1",otherAchievementsDone:"tarkov-hub:other-achievements-done:v1",kappaItems:"tarkov-hub:kappa-items:v1",kappaRequirements:"tarkov-hub:kappa-requirements:v1",language:"tarkov-tools:language:v1",map:"tarkov-hub:map:v1"};
 const LANGUAGES=["ko","en","ja","en-GB","ru"];
 const HUB_SEASON_END=new Date(2026,11,7);
-const labelByLanguage={ko:{battlepass:"배틀패스",documents:"문서 위치",quests:"시즌 퀘스트",allergy:"알러지 체크",modifiers:"시즌 특성",kappa:"카파 체크리스트"},en:{battlepass:"Battle Pass",documents:"Document Map",quests:"Season Quests",allergy:"Allergy Check",modifiers:"Season Traits",kappa:"Kappa Checklist"},ja:{battlepass:"バトルパス",documents:"文書マップ",quests:"シーズンクエスト",allergy:"アレルギーチェック",modifiers:"シーズン特性",kappa:"カッパチェックリスト"}};
+const labelByLanguage={ko:{battlepass:"배틀패스",quests:"시즌 퀘스트",allergy:"알러지 체크",modifiers:"시즌 특성",kappa:"카파 체크리스트"},en:{battlepass:"Battle Pass",quests:"Season Quests",allergy:"Allergy Check",modifiers:"Season Traits",kappa:"Kappa Checklist"},ja:{battlepass:"バトルパス",quests:"シーズンクエスト",allergy:"アレルギーチェック",modifiers:"シーズン特性",kappa:"カッパチェックリスト"}};
 const HUB_MAPS=[
 {id:"factory",name:{ko:"공장",en:"Factory",ja:"ファクトリー"},docs:["project","blueprints"]},{id:"customs",name:{ko:"세관",en:"Customs",ja:"カスタム"},docs:["financial","project"]},{id:"reserve",name:{ko:"리저브",en:"Reserve",ja:"リザーブ"},docs:["pmc","project"]},{id:"interchange",name:{ko:"인터체인지",en:"Interchange",ja:"インターチェンジ"},docs:["financial","blueprints"]},{id:"woods",name:{ko:"삼림",en:"Woods",ja:"ウッズ"},docs:["test","technical"]},{id:"shoreline",name:{ko:"해안선",en:"Shoreline",ja:"ショアライン"},docs:["test","technical"]},{id:"lighthouse",name:{ko:"등대",en:"Lighthouse",ja:"ライトハウス"},docs:["pmc","technical"]},{id:"icebreaker",name:{ko:"쇄빙선",en:"Icebreaker",ja:"アイスブレーカー"},docs:["pmc","test"]},{id:"streets",name:{ko:"타르코프 시내",en:"Streets",ja:"ストリート"},docs:["financial","user"]},{id:"ground-zero",name:{ko:"그라운드 제로",en:"Ground Zero",ja:"グラウンドゼロ"},docs:["user","medical"]},{id:"laboratory",name:{ko:"연구소",en:"The Lab",ja:"ラボ"},docs:["user","medical"]},{id:"labyrinth",name:{ko:"미궁",en:"Labyrinth",ja:"ラビリンス"},docs:["blueprints","medical"]}
 ];
@@ -438,7 +438,7 @@ function renderKappa(){
   const heroCopy=document.querySelector("#kappa-app .tool-hero>div:first-child");heroCopy.classList.add("kappa-hero-copy");heroCopy.insertAdjacentHTML("afterbegin",`<span class="fence-hero-portrait"><img src="https://assets.tarkov.dev/579dc571d53a0658a154fbec.webp" alt="Fence" width="86" height="86" decoding="async" onerror="this.hidden=true"></span>`)
 }
 document.querySelector("#hub-nav").addEventListener("click",e=>{const b=e.target.closest("[data-view]");if(b){e.preventDefault();setView(b.dataset.view)}});
-document.querySelector("#hub-map-menu").addEventListener("click",e=>{const map=e.target.closest("[data-hub-map]");if(map)setMap(map.dataset.hubMap)});
+document.querySelector("#hub-map-menu")?.addEventListener("click",e=>{const map=e.target.closest("[data-hub-map]");if(map)setMap(map.dataset.hubMap)});
 document.querySelector("#menu-toggle").addEventListener("click",()=>{document.querySelector("#hub-nav").classList.add("open");document.querySelector("#nav-backdrop").classList.add("open")});
 document.querySelector("#nav-backdrop").addEventListener("click",closeMenu);
 document.querySelector("#hub-language").addEventListener("change",e=>setLanguage(e.target.value));
