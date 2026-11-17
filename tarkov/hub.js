@@ -202,6 +202,7 @@ QUESTS[0][2]="군용 장비가 든 케이스 1개를 찾아 획득";
 QUEST_LEVELS[0]=null;
 QUEST_LEVELS[8]={ko:"레벨 20",en:"LEVEL 20",ja:"レベル20",ru:"УРОВЕНЬ 20"};
 QUESTS[8][1]="펜스"; QUESTS[9][1]="펜스"; QUESTS[10][1]="펜스";
+QUESTS[6][2]="블랙 디비전 암호화 키 1개 제출 (인레이드 불필요)"; QUEST_GOALS.en[6]="Hand over one Black Division encryption key (Found in Raid not required)"; QUEST_GOALS.ja[6]="Black Divisionの暗号化キーを1個提出する（Found in Raid不要）";
 QUESTS[10][0]="Sheep in Wolf's Clothing";
 QUESTS[3][2]="해안선·그라운드 제로 지정 장소 4곳에 WI-FI 카메라 설치"; QUEST_GOALS.en[3]="Plant WI-FI cameras at four designated locations on Shoreline and Ground Zero"; QUEST_GOALS.ja[3]="Shoreline・Ground Zeroの指定4地点にWI-FIカメラを設置する";
 QUESTS[4][2]="블랙 디비전 플레이트 캐리어 아무 종류 3개 제출"; QUEST_GOALS.en[4]="Hand over any three Black Division plate carriers"; QUEST_GOALS.ja[4]="Black Divisionのプレートキャリアを種類不問で3個引き渡す";
@@ -212,6 +213,7 @@ QUESTS[12][2]="연구소에서 블랙 디비전 대원 8명 처치"; QUEST_GOALS
 QUEST_GUIDES.ko[3]="WI-FI 카메라 총 4개 필요: 해안선 수력발전소 우랄 트럭·밀수꾼 기지 하천 굴착기, 그제 미라 애비뉴 화물트럭 운전석·지하 노란 버스에 각 1개.";
 QUEST_GUIDES.ko[4]="블랙 디비전 방탄 플레이트 캐리어 아무 종류 3개 제출. 그제(레벨 21+), 해안선, 시내, 연구소 또는 쇄빙선에서 획득. 쇄빙선의 웨지가 착용하는 LV-119 MultiCam Black도 제출 가능.";
 QUEST_GUIDES.ko[5]="이 퀘스트는 이전 퀘스트 완료 후 약 1~2시간 뒤에 해금됩니다. Cast the Net에서 설치한 카메라 4개를 같은 장소에서 각각 회수해 제출.<br><span class=\"quest-reward-inline\"><b>퀘스트 보상:</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">서류가 든 서류 가방</a> — 후속 퀘스트 What's in the Bag?에 제출해야 하므로 보관하세요.</span>";
+QUEST_GUIDES.ko[6]="블랙 디비전 암호화 키 1개를 제출합니다. 인레이드 상태가 필요하지 않으며 플리마켓에서 구매한 정보파일도 제출할 수 있습니다. 블랙 디비전에게서 직접 획득할 경우 쇄빙선은 제외됩니다.";
 QUEST_GUIDES.ko[9]="14-4 KORD SSD 2개 제출. 인레이드 상태가 아니어도 되며 플리마켓에서 구매한 SSD도 제출 가능. 블랙 디비전 구역에서 획득 가능.";
 QUEST_GUIDES.ko[10]="블랙 디비전 플레이트 캐리어 착용 필수. 지역 구분 없이 블랙 디비전 대원 총 8명 처치. 쇄빙선에서도 진행 가능.";
 QUEST_GUIDES.ko[12]="연구소에서 블랙 디비전 대원 8명 처치. 탈출구를 작동시키면 등장하는 병력도 대상.";
@@ -219,6 +221,7 @@ QUEST_GUIDES.ko[15]="블랙 디비전 러기드 노트북은 인레이드 상태
 QUEST_GUIDES.en[3]="Bring 4 WI-FI Cameras: place one at each Shoreline Ural truck and excavator, and Ground Zero cargo truck cab and underground yellow bus.";
 QUEST_GUIDES.en[4]="Hand over any 3 Black Division plate carriers, obtained on Ground Zero (level 21+), Shoreline, Streets, The Lab, or Icebreaker. The LV-119 MultiCam Black worn by The Wedge on Icebreaker is also accepted.";
 QUEST_GUIDES.en[5]="This quest unlocks about 1–2 hours after completing the previous quest. Recover and hand over all 4 cameras from the same locations used in Cast the Net.<br><span class=\"quest-reward-inline\"><b>Quest reward:</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">Briefcase with documents</a> — keep it for the follow-up quest What's in the Bag?.</span>";
+QUEST_GUIDES.en[6]="Hand over 1 Black Division encryption key. Found in Raid status is not required, so a Flea Market purchase is accepted. When looting it directly from Black Division operatives, Icebreaker is excluded.";
 QUEST_GUIDES.en[9]="Hand over 2 14-4 KORD SSDs. Found in Raid status is not required; SSDs purchased on the Flea Market are accepted. They can also be obtained in Black Division areas.";
 QUEST_GUIDES.en[10]="Wear a Black Division plate carrier and eliminate 8 Black Division operatives in total across any locations. Icebreaker also counts.";
 QUEST_GUIDES.en[12]="Eliminate 8 Black Division operatives in The Lab; operatives spawned after an extract is activated also count.";
@@ -226,6 +229,7 @@ QUEST_GUIDES.en[15]="The Black Division rugged laptop does not need Found in Rai
 QUEST_GUIDES.ja[3]="WI-FI Cameraを計4台用意。ShorelineのUralトラック・掘削機、Ground Zeroのトラック運転席・地下の黄色いバスに各1台。";
 QUEST_GUIDES.ja[4]="Black Divisionのプレートキャリアを種類不問で3個引き渡す。Ground Zero（Lv21以上）、Shoreline、Streets、The Lab、またはIcebreakerで入手可能。IcebreakerのThe Wedgeが装備するLV-119 MultiCam Blackも提出できる。";
 QUEST_GUIDES.ja[5]="このクエストは前のクエスト完了から約1～2時間後に解放されます。Cast the Netで設置した同じ4か所からカメラを回収して引き渡す。<br><span class=\"quest-reward-inline\"><b>クエスト報酬：</b> <a href=\"https://escapefromtarkov.fandom.com/wiki/Briefcase_with_documents\" target=\"_blank\" rel=\"noopener noreferrer\">書類入りブリーフケース</a> — 後続クエストWhat's in the Bag?で提出するため保管してください。</span>";
+QUEST_GUIDES.ja[6]="Black Divisionの暗号化キーを1個提出。Found in Raid状態は不要で、フリーマーケット購入品も提出可能。Black Divisionから直接入手する場合、Icebreakerは対象外。";
 QUEST_GUIDES.ja[9]="14-4 KORD SSDを2個提出。Found in Raidは不要で、フリーマーケットで購入したSSDも提出可能。Black Divisionエリアでも入手可能。";
 QUEST_GUIDES.ja[10]="Black Divisionのプレートキャリアを装備し、マップを問わず合計8人を排除。Icebreakerでも進行可能。";
 QUEST_GUIDES.ja[12]="The LabでBlack Divisionを8人排除。脱出口作動後に出現する部隊も対象。";
@@ -325,13 +329,13 @@ async function loadHubTranslation(next){
   const file=next==="en-GB"?"en":next;
   let data;
   try{
-    const response=await fetch(`/locales/${file}.json?v=20`);
+    const response=await fetch(`/locales/${file}.json?v=21`);
     if(!response.ok)throw new Error(String(response.status));
     data=(await response.json()).hub;
     if(!data)throw new Error("Missing hub translations");
   }catch(error){
     console.error("Hub language file could not be loaded",error);
-    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=20");data=(await fallback.json()).hub}catch{data={}}}else data={};
+    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=21");data=(await fallback.json()).hub}catch{data={}}}else data={};
   }
   if(language!==next)return;
   const lang=next;
