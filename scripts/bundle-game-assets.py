@@ -18,8 +18,8 @@ SOURCE_FILES=[
     "tarkov/dev-item-icons.js",
     "tarkov/prestige/prestige.js",
 ]
-BASENAME=re.compile(r"^[a-zA-Z0-9-]+\\.webp$")
-ID=re.compile(r"\\b[0-9a-f]{24}\\b")
+BASENAME=re.compile(r"^[a-zA-Z0-9-]+\.webp$")
+ID=re.compile(r"\b[0-9a-f]{24}\b")
 REQ=urllib.request.Request
 def fetch(url, data=None, headers=None):
     request=REQ(url,data=data,headers={"User-Agent":"AGIT-Hub-AssetBuilder/1.0",**(headers or {})})
@@ -30,14 +30,14 @@ def main():
     paths=set()
     # Existing direct image links, including achievement art and portraits.
     for text in files.values():
-        paths.update(re.findall(r"https://assets\\.tarkov\\.dev/([A-Za-z0-9-]+\\.webp)",text))
+        paths.update(re.findall(r"https://assets\.tarkov\.dev/([A-Za-z0-9-]+\.webp)",text))
     # All mapped trait icons.
     trait=files["tarkov/trait-icons.js"]
-    paths.update(m.group(1)+".webp" for m in re.finditer(r'"[^"]+":\\s*"([0-9a-f]{24})"',trait))
+    paths.update(m.group(1)+".webp" for m in re.finditer(r'"[^"]+":\s*"([0-9a-f]{24})"',trait))
     # Build well-defined icon variants for IDs declared in the hub and tools.
     hub=files["tarkov/hub.js"]
     for block in ["ALLERGY_ITEM_IDS","KAPPA_ITEMS"]:
-        m=re.search(r"const "+block+r"=\\x60(.*?)\\x60",hub,re.S)
+        m=re.search(r"const "+block+r"=\x60(.*?)\x60",hub,re.S)
         if m: paths.update(x+"-icon.webp" for x in ID.findall(m.group(1)))
     for text in [hub,files["tarkov/prestige/prestige.js"],files["tarkov/dev-item-icons.js"]]:
         for i in set(ID.findall(text)):
@@ -47,7 +47,7 @@ def main():
         paths.add(m.group(1)+"-512.webp")
     # Find exact-name item IDs for previously dynamic seasonal icons.
     manifest=files["tarkov/dev-item-icons.js"]
-    names=re.findall(r'"([^"\\n]+)":\\s*\\[',manifest)
+    names=re.findall(r'"([^"\n]+)":\s*\[',manifest)
     names+=re.findall(r'data-dev-item="([^"]+)"',files["index.html"])
     lookups=sorted(set(names))
     matched={}
@@ -84,12 +84,12 @@ def main():
     missing=sorted(p for p,success in results.items() if not success)
     # A client-side table makes the same paths available to API-fed items.
     (ROOT/"tarkov"/"local-assets.js").write_text(
-        "window.TARKOV_LOCAL_ASSETS=new Set("+json.dumps(ok,ensure_ascii=False)+");\\n"
+        "window.TARKOV_LOCAL_ASSETS=new Set("+json.dumps(ok,ensure_ascii=False)+");\n"
         "window.tarkovLocalIcon=function(url){try{const x=new URL(url,location.origin);"
         "if(x.hostname==='assets.tarkov.dev'||x.origin===location.origin){"
         "const filename=x.pathname.split('/').pop();"
         "return window.TARKOV_LOCAL_ASSETS.has(filename)?'/assets/game/'+filename:'';}"
-        "return '';}catch{return '';}};\\n",
+        "return '';}catch{return '';}};\n",
         encoding="utf-8")
     # Transform only remote game-asset literals. The map/photo directories are never modified.
     for path,text in files.items():
@@ -102,7 +102,7 @@ def main():
     text=p.read_text(encoding="utf-8")
     for name,item_id in matched.items():
         if not re.search(r'^  '+re.escape(json.dumps(name,ensure_ascii=False))+r':',text,re.M):
-            text=text.replace("const ids={","const ids={\\n  "+json.dumps(name,ensure_ascii=False)+": "+json.dumps(item_id)+",",1)
+            text=text.replace("const ids={","const ids={\n  "+json.dumps(name,ensure_ascii=False)+": "+json.dumps(item_id)+",",1)
     text=text.replace('const validURL=s=>','const validURL=s=>')
     text=text.replace('if(u.protocol!=="https:"||u.hostname!=="assets.tarkov.dev")', 'if(u.protocol!=="https:"||u.hostname!=="assets.tarkov.dev")')
     # Never display a remote image returned by the API unless there is a local copy.
