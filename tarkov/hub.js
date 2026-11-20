@@ -210,7 +210,13 @@ ja:[
 ]};
 const QUEST_AREAS=["Shoreline","Streets · Woods · Lighthouse","Ground Zero","Shoreline · Streets · Ground Zero","Any location","Shoreline · Streets · Ground Zero","Black Division loot","Found in Raid equipment","Quest item","Quest item","Icebreaker · Woods · Shoreline · Streets · Ground Zero","Streets","The Lab","Shoreline","Customs · Woods","Intelligence Center Lv. 1"];
 // All quest-item visuals are resolved against Tarkov.dev. Legacy filenames are intentionally unused.
-const questItem=(name,file,qty=1)=>({name,icon:window.TARKOV_DEV_ITEM_ICONS?.icon(name)||"",qty});
+// Use existing verified repository artwork for seasonal laptop objectives even if
+// the optional Tarkov.dev lookup module fails or a browser has stale icon data.
+const QUEST_PINNED_ICONS={
+  "Black Division rugged laptop":"/assets/game/6a5f9c25e8c84d8b0602f22a-icon.webp",
+  "Data from Black Division laptop":"/assets/game/6a6692d4beccfa243d0bb575-icon.webp"
+};
+const questItem=(name,file,qty=1)=>({name,icon:QUEST_PINNED_ICONS[name]||window.TARKOV_DEV_ITEM_ICONS?.icon(name)||"",qty});
 const QUEST_ITEMS=[
   [questItem("Case with military equipment","case-with-military-equipment-icon.webp")],
   [questItem("Case with military equipment","case-with-military-equipment-icon.webp")],
