@@ -7,6 +7,9 @@ audit=json.loads((DIR/"quest-icon-audit.json").read_text(encoding="utf-8"))
 manifest_path=DIR/"manifest.json"
 manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
 images=set(manifest["available"])
+# Attempt a known seasonal crafting product only when the original game image exists.
+if not audit["matches"].get("Data from Black Division laptop"):
+ audit["matches"]["Data from Black Division laptop"]=[{"id":"6a6692d4beccfa243d0bb575","name":"Data from Black Division laptop"}]
 installed={}
 failed={}
 def get(url):
