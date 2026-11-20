@@ -1,0 +1,5 @@
+---
+layout: null
+permalink: /tarkov/build-revision.txt
+---
+{{ site.github.build_revision }}
