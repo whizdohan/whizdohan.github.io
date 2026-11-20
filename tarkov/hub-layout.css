@@ -139,3 +139,8 @@
  .achievement-card:has(>.achievement-image){grid-template-columns:48px minmax(0,1fr)}
  .achievement-card:has(>.achievement-image)>.achievement-complete{grid-column:2;justify-self:start}
 }
+
+/* Season achievement icon inside quest route rewards */
+.choice-achievement:has(>.achievement-image){display:flex;align-items:center;gap:11px;min-width:0}
+.choice-achievement>.achievement-image{width:48px;height:48px;flex:0 0 48px;object-fit:contain;border:1px solid #6b624b;border-radius:6px;background:#111a1b}
+.choice-achievement>span{min-width:0;line-height:1.55}
