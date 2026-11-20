@@ -5,6 +5,7 @@ on:
       - fix/season-quest-icon-coverage
     paths:
       - scripts/audit-quest-icons.py
+      - scripts/install-quest-icons.py
       - .github/workflows/quest-icon-audit.yml
   workflow_dispatch:
 permissions:
@@ -20,11 +21,13 @@ jobs:
           python-version: '3.12'
       - name: Validate available item data
         run: python scripts/audit-quest-icons.py
+      - name: Install available icon files
+        run: python scripts/install-quest-icons.py
       - name: Save analysis
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/game/quest-icon-audit.json
+          git add assets/game/quest-icon-audit.json assets/game/quest-icon-install-status.json assets/game/manifest.json assets/game/*-icon.webp tarkov/dev-item-icons.js tarkov/local-assets.js
           git diff --cached --quiet && exit 0
           git commit -m "Update seasonal icon inventory"
           git push
