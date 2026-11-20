@@ -5,6 +5,8 @@
 (function(){
 "use strict";
 const ids={
+  "Therapist's message": "6a6101b09b3e38f37a0dc67e",
+  "Case with military equipment": "6a671d87ff6f8a0b080b6bf3",
   "Object #11SR keycard": "5e42c81886f7742a01529f57",
   "RSP-30 reactive signal cartridge (Yellow)": "624c0b3340357b5f566e8766",
   "Data from Black Division laptop": "6a6692d4beccfa243d0bb575",
