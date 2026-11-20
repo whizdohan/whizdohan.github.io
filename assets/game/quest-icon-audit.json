@@ -1,0 +1,147 @@
+{
+  "endpoints": {
+    "pvp-season/items": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "pvp-season/items_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    },
+    "pvp-season/tasks": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "pvp-season/tasks_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    },
+    "pve/items": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "pve/items_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    },
+    "pve/tasks": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "pve/tasks_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    },
+    "regular/items": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "regular/items_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    },
+    "regular/tasks": {
+      "type": "dict",
+      "keys": [
+        "data",
+        "translations"
+      ],
+      "count": 2
+    },
+    "regular/tasks_en": {
+      "type": "dict",
+      "keys": [
+        "data"
+      ],
+      "count": 1
+    }
+  },
+  "matches": {
+    "Case with military equipment": [],
+    "Therapist's message": [],
+    "FCPC V5 Black Division": [
+      {
+        "name": "Ferro Concepts FCPC V5 Plate Carrier (Black Division)",
+        "id": "689479cb47e5acd1e10be986",
+        "iconLink": null,
+        "source": "regular/tasks"
+      }
+    ],
+    "LV-119 Black Division V2": [
+      {
+        "name": "Spiritus Systems LV-119 Plate Carrier (Black Division V2)",
+        "id": "689479eb30cc5ba7be00f5ff",
+        "iconLink": null,
+        "source": "regular/tasks"
+      }
+    ],
+    "LV-119 MultiCam Black": [],
+    "Black Division encryption keys": [],
+    "Modular Pack 45 Plus": [],
+    "NICE Frame Load Sling": [],
+    "SOTR respirator": [
+      {
+        "name": "Gentex Ops-Core SOTR respirator",
+        "id": "689b404db49f27df1c0873f6",
+        "iconLink": null,
+        "source": "regular/tasks"
+      }
+    ],
+    "Briefcase with documents": [],
+    "14-4 KORD SSD": [],
+    "Laptop from an unknown facility": [],
+    "Black Division rugged laptop": [],
+    "Data from Black Division laptop": []
+  },
+  "names": [
+    "Case with military equipment",
+    "Therapist's message",
+    "FCPC V5 Black Division",
+    "LV-119 Black Division V2",
+    "LV-119 MultiCam Black",
+    "Black Division encryption keys",
+    "Modular Pack 45 Plus",
+    "NICE Frame Load Sling",
+    "SOTR respirator",
+    "Briefcase with documents",
+    "14-4 KORD SSD",
+    "Laptop from an unknown facility",
+    "Black Division rugged laptop",
+    "Data from Black Division laptop"
+  ]
+}
