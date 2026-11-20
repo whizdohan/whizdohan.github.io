@@ -7,6 +7,7 @@ document.body.innerHTML=`
       <a class="hub-tab" data-view="allergy" href="/tarkov/season-1/allergy/"><i>03</i><span>Allergy Check<small>ALLERGY CHECK</small></span></a>
       <a class="hub-tab" data-view="modifiers" href="/tarkov/season-1/traits/"><i>04</i><span>Season Traits<small>SEASON TRAITS</small></span></a>
       <a class="hub-tab" data-view="kappa" href="/tarkov/season-1/kappa/"><i>05</i><span>Kappa Checklist<small>KAPPA CHECKLIST</small></span></a>
+      <a class="hub-tab" data-view="league" href="/tarkov/season-1/league/"><i>06</i><span>Leagues<small>LEAGUES</small></span></a>
     </nav>
     <footer>Unofficial fan-made tool<br>provided by whizs</footer>
   </aside>
@@ -21,6 +22,7 @@ document.body.innerHTML=`
     <section class="hub-panel content-panel" data-panel="allergy"><div id="allergy-app"></div></section>
     <section class="hub-panel content-panel" data-panel="modifiers"><div id="modifier-app"></div></section>
     <section class="hub-panel content-panel" data-panel="kappa"><div id="kappa-app"></div></section>
+    <section class="hub-panel content-panel" data-panel="league"><div id="league-app"></div></section>
     <footer class="hub-footer"><span>This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by <a href="https://discord.com/users/299382568560885761" target="_blank" rel="noopener noreferrer">whizs</a>.</span><span>Interactive maps use <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> · Map images by <a href="https://github.com/the-hideout/tarkov-dev-svg-maps" target="_blank" rel="noopener noreferrer">tarkov.dev SVG Maps contributors</a> and <a href="https://reemr.se/" target="_blank" rel="noopener noreferrer">RE3MR</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></span></footer>
   </main>
   <div class="nav-backdrop" id="nav-backdrop"></div>`;
