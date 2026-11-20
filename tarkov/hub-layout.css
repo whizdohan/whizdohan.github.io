@@ -115,3 +115,11 @@
 .lightkeeper-step-copy .lightkeeper-quest-summary{margin:5px 0 0}
 .lightkeeper-step .quest-complete{justify-self:end;min-width:83px}
 @media(max-width:600px){.lightkeeper-step{grid-template-columns:32px minmax(0,1fr);gap:8px;padding:11px}.lightkeeper-step-number{width:30px;height:30px}.lightkeeper-step .quest-complete{grid-column:2;justify-self:start}.lightkeeper-step-copy .lightkeeper-quest-summary{font-size:11px}}
+
+/* Season 1 final quest achievement */
+.season-achievement-unlock{margin:14px 0;padding:13px 16px;max-width:700px;border:1px solid #7c6841;border-radius:8px;background:linear-gradient(130deg,#272419,#171b1a)}
+.season-achievement-unlock header{display:flex;align-items:center;gap:8px;margin-bottom:9px;color:#d8bd79;font-size:12px}
+.season-achievement-unlock header span{font-size:16px}
+.season-achievement-unlock>b{display:block;color:#f1e3bf;font-size:16px}
+.season-achievement-unlock small{display:block;margin-top:3px;color:#c4b58d;font-size:11px}
+.season-achievement-unlock p{margin:9px 0 0;color:#b9c4bf;font-size:12px;line-height:1.6}
