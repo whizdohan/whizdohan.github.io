@@ -66,3 +66,33 @@
 .modifier-card .season-trait-icon{display:block;width:48px;height:48px;object-fit:contain;margin:5px 0;filter:drop-shadow(0 1px 3px #000)}
 .modifier-card.global-card .season-trait-icon{width:44px;height:44px}
 .modifier-card .season-trait-icon[hidden]{display:none}
+
+/* Season 1 permanent seasonal trader reward unlocks */
+.season-trade-summary{margin:0 0 20px;padding:15px;border:1px solid #4b5545;border-radius:8px;background:linear-gradient(135deg,#192722,#0e191d)}
+.season-trade-summary>header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.season-trade-summary>header strong{font-size:17px;color:#e8cf90}
+.season-trade-summary>header span{font-size:12px;color:#b2c2b9}
+.season-trade-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px}
+.season-trade-summary-grid article{display:flex;align-items:center;gap:10px;min-width:0;padding:10px;border:1px solid #34464b;border-radius:6px;background:#0a1519}
+.season-trade-summary-grid article.done{border-color:#58876a;background:#13271e}
+.season-trade-summary-grid img{width:48px;height:48px;flex:0 0 48px;object-fit:contain}
+.season-trade-summary-grid b,.season-trade-summary-grid small{display:block;overflow-wrap:anywhere}
+.season-trade-summary-grid b{font-size:12px;line-height:1.4}
+.season-trade-summary-grid small{margin-top:4px;font-size:10px;color:#99aeaa}
+.season-trade-summary>p{font-size:11px;line-height:1.6;color:#a6b6b4;margin:12px 0 0}
+.season-trade-summary a{color:#d4ad60}
+.season-trade-unlock{max-width:700px;margin:14px 0;padding:12px;border:1px solid #665b40;border-radius:6px;background:#1a201c}
+.season-trade-heading{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:10px}
+.season-trade-heading strong{font-size:13px;color:#e8cd89}
+.season-trade-heading span{font:800 9px ui-monospace,monospace;letter-spacing:.08em;color:#b6a77f}
+.season-trade-item{display:flex;gap:12px;align-items:center}
+.season-trade-item>img{width:68px;height:68px;flex:0 0 68px;object-fit:contain;border:1px solid #3a4947;border-radius:5px;background:#091316}
+.season-trade-item b,.season-trade-item small{display:block;overflow-wrap:anywhere}
+.season-trade-item b{font-size:13px;line-height:1.5}
+.season-trade-item small{font-size:10px;color:#91a29d;margin-top:2px}
+.season-trade-item p{font-size:12px;font-weight:800;color:#d9bf7e;margin:6px 0 0}
+.season-trade-note{color:#a6b3ad;font-size:11px;line-height:1.5;margin:10px 0 0}
+@media(max-width:540px){.season-trade-summary{padding:10px}.season-trade-summary-grid{grid-template-columns:1fr}.season-trade-item>img{width:54px;height:54px;flex-basis:54px}.season-trade-item{gap:9px}}
+
+/* Brief objective line below each Lightkeeper unlock quest link */
+.lightkeeper-quest-summary{margin:3px 0 9px;color:#aebeb8;font-size:12px;line-height:1.55;max-width:780px;overflow-wrap:anywhere}
