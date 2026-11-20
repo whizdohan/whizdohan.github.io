@@ -389,13 +389,13 @@ async function loadHubTranslation(next){
   const file=next==="en-GB"?"en":next;
   let data;
   try{
-    const response=await fetch(`/locales/${file}.json?v=21`);
+    const response=await fetch(`/locales/${file}.json?v=22`);
     if(!response.ok)throw new Error(String(response.status));
     data=(await response.json()).hub;
     if(!data)throw new Error("Missing hub translations");
   }catch(error){
     console.error("Hub language file could not be loaded",error);
-    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=21");data=(await fallback.json()).hub}catch{data={}}}else data={};
+    if(next==="ru"){try{const fallback=await fetch("/locales/en.json?v=22");data=(await fallback.json()).hub}catch{data={}}}else data={};
   }
   if(language!==next)return;
   const lang=next;
