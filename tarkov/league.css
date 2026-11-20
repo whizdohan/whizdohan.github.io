@@ -21,3 +21,7 @@
 /* Rank identifiers and rewards remain legible when no verified icon exists. */
 .league-badge-text{display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;background:var(--soft);color:var(--gold);font:800 29px ui-monospace,monospace}
 .league-reward-symbol{display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--gold);font-size:19px}
+
+.league-reward-images{display:flex;align-items:center;justify-content:center;gap:2px;flex:0 0 48px;width:48px;min-height:48px}
+.league-reward-images .league-reward-icon{width:46px;height:46px;object-fit:contain;flex-shrink:1;min-width:0}
+.league-reward-images:has(img:nth-child(2)) .league-reward-icon{width:23px;height:43px}

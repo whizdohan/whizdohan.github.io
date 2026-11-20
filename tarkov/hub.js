@@ -617,7 +617,7 @@ const LEAGUE_RANKS=[
   {name:"Ruthless",ko:"무자비",badge:"rank4-ruthless.webp",rewards:[["ruthless-bas-relief.webp","Ruthless Bas-Relief","무자비 부조 장식"],["red-accent-walls.webp","Red accent walls","붉은색 은신처 벽 스킨"]]},
   {name:"Reborn",ko:"부활",badge:"rank5-reborn.webp",rewards:[["reborn-bas-relief.webp","Reborn Bas-Relief","부활 부조 장식"],["ka-bar-usmc-fighter-knife.webp","KA-BAR USMC Fighter knife","KA-BAR USMC 전투 나이프"]]},
   {name:"Ascended",ko:"승천자",badge:"rank6-ascended.webp",rewards:[["ascended-bas-relief.webp","Ascended Bas-Relief","승천자 부조 장식"],["double-dogtag.webp","Double dogtag","이중 인식표"]]},
-  {name:"Conductor",ko:"인도자",badge:"rank7-conductor.webp",rewards:[["mc-black-shirt.webp","MC Black shirt","MC Black 상의"],["tactical-shorts.webp","Tactical shorts","전술 반바지"]]}
+  {name:"Conductor",ko:"인도자",badge:"rank7-conductor.webp",rewards:[["conductor-bas-relief.webp","Conductor Bas-Relief","인도자 부조 장식"],["mc-black-shirt.webp","MC Black shirt","MC Black 상의"],["tactical-shorts.webp","Tactical shorts","전술 반바지"]]}
 ];
 const LEAGUE_TEXT={
   ko:{title:"시즌 리그",desc:"시즌 캐릭터로 주간 경험치를 모아 50인 그룹에서 순위를 경쟁합니다. 보상은 최초 도달 시 영구 해금됩니다.",score:"집계 방식",scoreText:"PMC·스캐브·보스 처치, 퀘스트 보상, 아이템 조사 등 시즌 캐릭터 경험치. 아레나 경험치는 리그 점수에서 제외됩니다.",reset:"주간 정산",resetText:"매주 그룹 내 순위로 승급·유지·강등이 결정됩니다. 정확한 정산 요일과 시각은 인게임 리그 타이머를 확인하세요.",keep:"보상 유지",keepText:"최초 등급 도달 보상은 강등 후에도 유지되고 다른 게임 모드에서도 이용할 수 있습니다. 지급 우편은 지연될 수 있습니다.",rank:"등급",up:"승급",stay:"유지",down:"강등",reward:"등급 보상",lowest:"최하위 등급이므로 강등 없음",highest:"최고 등급이므로 추가 승급 없음",note:"등급별 주간 정산은 50인 그룹 기준입니다. 요구 경험치는 고정 수치가 아니라 경쟁자 순위에 따라 달라집니다.",source:"시즌 리그 위키",extra:"게임 데이터"},
@@ -644,10 +644,19 @@ function questMessageItemNotice(name){
   const notice=QUEST_MESSAGE_ITEM_NOTICES[name];
   return notice?'<li class="quest-guide quest-message-notice">'+(notice[language]||notice.en)+'</li>':"";
 }
+const LEAGUE_REWARD_ICONS={
+  "going-dark-poster.webp":["6a42642fef6f4bbe8c0ccd4f-icon.webp"],
+  "ka-bar-usmc-fighter-knife.webp":["6a3935772db31ca1c800fe26-icon.webp"],
+  "double-dogtag.webp":["6a3549435288a3fe6e085224-icon.webp","6a3548e72a963bcdd8098649-icon.webp"]
+};
 function renderLeague(){
   const host=document.querySelector("#league-app");if(!host)return;
   const l=LEAGUE_TEXT[language]||LEAGUE_TEXT.en,ko=language==="ko",numerals=["I","II","III","IV","V","VI","VII"];
-  const img=(file,part,alt,cls)=>part==="badges"?'<span class="league-badge league-badge-text" aria-label="'+alt+'">'+numerals[LEAGUE_RANKS.findIndex(rank=>rank.badge===file)]+'</span>':'<span class="league-reward-icon league-reward-symbol" aria-hidden="true">◆</span>';
+  const img=(file,part,alt,cls)=>{
+    if(part==="badges")return '<span class="league-badge league-badge-text" aria-label="'+alt+'">'+numerals[LEAGUE_RANKS.findIndex(rank=>rank.badge===file)]+'</span>';
+    const verified=(LEAGUE_REWARD_ICONS[file]||[]).filter(filename=>window.TARKOV_LOCAL_ASSETS?.has(filename));
+    return verified.length?'<span class="league-reward-images">'+verified.map(filename=>'<img class="'+cls+'" src="/assets/game/'+filename+'" alt="'+alt+'" loading="lazy" decoding="async" onerror="this.hidden=true">').join("")+'</span>':'<span class="league-reward-icon league-reward-symbol" aria-hidden="true">◆</span>';
+  };
   const ranks=LEAGUE_RANKS.map((r,i)=>{
     const up=i===6?l.highest:(i===4||i===5?"1–20 / 50":"1–25 / 50");
     const stay=i===0?"26–50 / 50":i===4||i===5?"21–40 / 50":i===6?"1–40 / 50":"26–40 / 50";
