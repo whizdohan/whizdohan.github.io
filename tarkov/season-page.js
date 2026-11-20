@@ -1,6 +1,6 @@
 document.body.innerHTML=`
   <aside class="hub-nav" id="hub-nav">
-    <header class="hub-brand"><small>ESCAPE FROM</small><strong>TARKOV<br><b>SEASON HUB</b></strong><span>(SEASON 1)</span><time id="hub-season-countdown" class="hub-season-countdown" datetime="2026-12-07">Calculating season countdown</time></header>
+    <header class="hub-brand"><small>ESCAPE FROM</small><strong>TARKOV<br><b>SEASON HUB</b></strong><span>(SEASON 1)</span><label class="season-picker-label" for="season-picker">SEASON</label><select id="season-picker" class="season-picker" aria-label="Select season"><option value="1">SEASON 1 · KORD BREACH</option><option value="2">SEASON 2 · UNTAR Control</option></select><time id="hub-season-countdown" class="hub-season-countdown" datetime="2026-12-07">Calculating season countdown</time></header>
     <nav aria-label="Season tools menu">
       <a class="hub-tab" data-view="battlepass" href="/tarkov/season-1/battle-pass/"><i>01</i><span>Battle Pass<small>BATTLE PASS</small></span></a>
       <a class="hub-tab" data-view="quests" href="/tarkov/season-1/quests/"><i>02</i><span>Season Quests<small>SEASON QUESTS</small></span></a>
@@ -24,3 +24,5 @@ document.body.innerHTML=`
     <footer class="hub-footer"><span>This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by <a href="https://discord.com/users/299382568560885761" target="_blank" rel="noopener noreferrer">whizs</a>.</span><span>Interactive maps use <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> · Map images by <a href="https://github.com/the-hideout/tarkov-dev-svg-maps" target="_blank" rel="noopener noreferrer">tarkov.dev SVG Maps contributors</a> and <a href="https://reemr.se/" target="_blank" rel="noopener noreferrer">RE3MR</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></span></footer>
   </main>
   <div class="nav-backdrop" id="nav-backdrop"></div>`;
+
+(function(){const select=document.getElementById('season-picker');if(!select)return;select.value='1';select.addEventListener('change',()=>{location.href=select.value==='2'?'/tarkov/season-2/traits/':'/tarkov/season-1/traits/';});})();
