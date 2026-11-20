@@ -35,7 +35,8 @@ path=ROOT/"tarkov"/"dev-item-icons.js"
 text=path.read_text(encoding="utf-8")
 for name,id in installed.items():
  pair="  "+json.dumps(name,ensure_ascii=False)+": "+json.dumps(id)+",\n"
- if not re.search(r'^\s*'+re.escape(json.dumps(name,ensure_ascii=False))+r':',text,re.M):
+ ids_part=text.split('const ids={',1)[1].split('};',1)[0]
+ if not re.search(r'^\s*'+re.escape(json.dumps(name,ensure_ascii=False))+r':',ids_part,re.M):
   text=text.replace('const ids={\n','const ids={\n'+pair,1)
 path.write_text(text,encoding="utf-8")
 # Keep the browser-side local asset manifest synchronized.
