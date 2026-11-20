@@ -479,7 +479,7 @@ function renderLightkeeperUnlockNotice(){
       "연구소의 한 레이드에서 PMC 2명 처치.",
       "인레이드 획득한 30레벨 이상 PMC 인식표 2개 제출.",
       "리저브·시내·세관 마크방에 테라그룹 블루폴더 각 1개씩 설치(총 3개).",
-      "등대에서 V3 USB 획득·제출, 정보시설 Lv2에서 DSP 송신기 재설정 후 등대 진입."
+      "등대에서 V3 USB를 획득하고, 은신처 정보센터 Lv.2에서 DSP 송신기를 재설정한 뒤 V3 USB를 제출하고 등대 건물을 방문. 정보센터 Lv.2는 퀘스트 수락 조건이 아니라 송신기 재설정(제작) 조건입니다."
     ],
     en:[
       "Plant the false-data hard drive in The Lab and extract via Ventilation Shaft in the same raid (no backpack).",
@@ -492,7 +492,7 @@ function renderLightkeeperUnlockNotice(){
       "Kill 2 PMCs in The Lab within one raid.",
       "Hand over 2 Found in Raid PMC dogtags of level 30 or higher.",
       "Plant 1 TerraGroup Blue Folder in a marked room on each of Reserve, Streets and Customs (3 total).",
-      "Find and hand over V3 flash drive on Lighthouse; reflash DSP at Intelligence Center Lv2 and access the lighthouse."
+      "Find the V3 flash drive on Lighthouse, reflash the DSP transmitter at Hideout Intelligence Center level 2, hand over the V3 flash drive and visit the lighthouse building. Level 2 is required for the reflash craft, not to accept the quest."
     ],
     ja:[
       "ラボのサーバールームに偽データ入りHDDを設置し、同じレイドで換気口から脱出（バックパック不可）。",
@@ -505,7 +505,7 @@ function renderLightkeeperUnlockNotice(){
       "ラボの1レイド内でPMC2人を倒す。",
       "レイド内入手のLv30以上のPMCドッグタグ2個を提出。",
       "リザーブ・ストリート・税関のマークド部屋に青フォルダーを1個ずつ設置。",
-      "灯台でV3 USB入手・提出、インテリジェンスセンターLv2でDSPを再設定し灯台へ進む。"
+      "灯台でV3 USBを入手し、隠れ家のIntelligence Center Lv2でDSP送信機を再設定した後、V3 USBを提出して灯台の建物を訪問。Lv2は受注条件ではなく再設定クラフトの条件です。"
     ]
   };
   const lightkeeperMessageNotice={
