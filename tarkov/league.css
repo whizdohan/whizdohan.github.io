@@ -1,0 +1,19 @@
+
+/* Season 1 League guide */
+.league-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 20px}
+.league-info article,.league-rank-card{background:var(--panel);border:1px solid var(--line);border-radius:7px}
+.league-info article{padding:17px}.league-info h3{font-size:14px;color:var(--gold);margin:0 0 10px}.league-info p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.league-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:14px}
+.league-rank-card{padding:15px;min-width:0}
+.league-rank-head{display:flex;align-items:center;gap:15px;border-bottom:1px solid var(--line);padding-bottom:13px}
+.league-rank-head h3{font-size:22px;margin:2px 0}.league-rank-head small{color:var(--gold);font:800 10px ui-monospace,monospace}.league-rank-head span{color:var(--muted);font-size:11px}
+.league-badge{width:76px;height:76px;object-fit:contain;flex-shrink:0}
+.league-positions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:15px 0}
+.league-positions>span{padding:8px 5px;border:1px solid var(--line);border-radius:4px;text-align:center;min-height:60px}
+.league-positions small{display:block;font-size:10px;margin-bottom:6px;color:var(--muted)}.league-positions strong{font-size:11px;line-height:1.4;overflow-wrap:anywhere}
+.league-positions .promote{border-color:#3d7559}.league-positions .promote strong{color:#8ed7a9}.league-positions .demote{border-color:#754546}.league-positions .demote strong{color:#db9696}
+.league-rewards h4{font-size:12px;color:var(--gold);margin:12px 0}.league-reward{display:flex;align-items:center;gap:10px;margin:7px 0;padding:7px;background:var(--soft);border-radius:4px;font-size:12px;font-weight:700}
+.league-reward-icon{width:48px;height:48px;object-fit:contain;flex-shrink:0}.league-reward small{display:block;font-size:10px;font-weight:400;color:var(--muted);margin-top:3px}
+.league-note{color:var(--muted);line-height:1.65;font-size:12px;margin:20px 0}
+@media(max-width:800px){.league-info{grid-template-columns:1fr}.league-card-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+@media(max-width:400px){.league-card-grid{grid-template-columns:1fr}}
