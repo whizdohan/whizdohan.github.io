@@ -31,6 +31,10 @@ def main():
     # Existing direct image links, including achievement art and portraits.
     for text in files.values():
         paths.update(re.findall(r"https://assets\.tarkov\.dev/([A-Za-z0-9-]+\.webp)",text))
+    # Keep already downloaded files and paths embedded in local HTML/JS during reruns.
+    paths.update(p.name for p in OUT.glob("*.webp"))
+    for source in files.values():
+        paths.update(re.findall(r"/assets/game/([A-Za-z0-9-]+\\.webp)",source))
     # All mapped trait icons.
     trait=files["tarkov/trait-icons.js"]
     paths.update(m.group(1)+".webp" for m in re.finditer(r'"[^"]+":\s*"([0-9a-f]{24})"',trait))
