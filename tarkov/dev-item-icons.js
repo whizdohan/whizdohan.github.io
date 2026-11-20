@@ -5,6 +5,7 @@
 (function(){
 "use strict";
 const ids={
+  "Data from Black Division laptop": "6a6692d4beccfa243d0bb575",
   "Black Division rugged laptop": "6a5f9c25e8c84d8b0602f22a",
   "14-4 KORD SSD": "6a5f9c49b8281c31a1062aea",
   "Briefcase with documents": "6a3563dacdaebb512e0a009c",
