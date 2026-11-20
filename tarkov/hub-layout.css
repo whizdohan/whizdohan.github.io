@@ -132,3 +132,10 @@
 .season-achievement-head .achievement-image{width:72px;height:72px;flex:0 0 72px;object-fit:contain;border:1px solid #6b624b;border-radius:6px}
 .season-achievement-head b,.season-achievement-head small{display:block}
 @media(max-width:540px){.achievement-card .achievement-image{width:48px;height:48px;flex-basis:48px}.season-achievement-head .achievement-image{width:54px;height:54px;flex-basis:54px}}
+
+/* Only achievement cards that have verified artwork use three columns. */
+.achievement-card:has(>.achievement-image){grid-template-columns:64px minmax(0,1fr) auto}
+@media(max-width:540px){
+ .achievement-card:has(>.achievement-image){grid-template-columns:48px minmax(0,1fr)}
+ .achievement-card:has(>.achievement-image)>.achievement-complete{grid-column:2;justify-self:start}
+}
