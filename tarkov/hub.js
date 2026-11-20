@@ -119,8 +119,10 @@ async function loadTarkovAchievementIcons(){
         const parsed=new URL(entry.imageLink);
         if(parsed.protocol!=="https:"||parsed.hostname!=="assets.tarkov.dev")continue;
       }catch{continue}
-      if(TARKOV_ACHIEVEMENT_ICONS[matchedName]!==entry.imageLink){
-        TARKOV_ACHIEVEMENT_ICONS[matchedName]=entry.imageLink;
+      const localImage=window.tarkovLocalIcon?.(entry.imageLink);
+      if(!localImage)continue;
+      if(TARKOV_ACHIEVEMENT_ICONS[matchedName]!==localImage){
+        TARKOV_ACHIEVEMENT_ICONS[matchedName]=localImage;
         changed=true;
       }
     }
