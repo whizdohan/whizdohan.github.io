@@ -5,6 +5,16 @@
 (function(){
 "use strict";
 const ids={
+  "Black Division rugged laptop": "6a5f9c25e8c84d8b0602f22a",
+  "14-4 KORD SSD": "6a5f9c49b8281c31a1062aea",
+  "Briefcase with documents": "6a3563dacdaebb512e0a009c",
+  "SOTR respirator": "689b404db49f27df1c0873f6",
+  "NICE Frame Load Sling": "68947ad3e4bf255d1b0ca75c",
+  "Modular Pack 45 Plus": "68947a8ce4bf255d1b0ca759",
+  "Black Division encryption keys": "6a5f9cfcc409750b6e065592",
+  "LV-119 MultiCam Black": "69e2441a18cb3157560855ec",
+  "LV-119 Black Division V2": "689479eb30cc5ba7be00f5ff",
+  "FCPC V5 Black Division": "689479cb47e5acd1e10be986",
   "WI-FI Camera": "5b4391a586f7745321235ab2",
   "TP-200 TNT brick": "60391b0fb847c71012789415",
   "Siege-R Black Division": "68947a4be4bf255d1b0ca746",
