@@ -513,10 +513,29 @@ function renderLightkeeperUnlockNotice(){
     ja:"<b>メッセージから受け取り：</b> MechanicのメッセージからHard drive with false dataを受け取り、出撃前にクエストアイテム保管庫からレイド持ち込み側へ移してください。死亡して失った場合は同じメッセージから再度受け取れます。",
     ru:"<b>Получите предмет из сообщений:</b> Получите Hard drive with false data из сообщений Механика. Перед рейдом перенесите его из хранилища квестовых предметов в рейдовый инвентарь. После потери при смерти предмет можно снова получить в том же сообщении."
   };
+  const amuletMessageNotices={
+    ko:[
+      "<b>메시지에서 목걸이 수령:</b> 메카닉의 Dangerous Ambitions 관련 메시지에서 Amulet from Lightkeeper(등대지기 부적)를 수령·확인하세요. 다음 Bite the Dust 제출에 필요한 퀘스트 아이템이므로 보관하세요.",
+      "<b>메시지에서 목걸이 수령 확인:</b> 앞 단계에서 받은 Amulet from Lightkeeper(등대지기 부적)를 피스키퍼에게 제출하세요. 없다면 메카닉의 이전 메시지와 퀘스트 아이템 보관함을 확인하세요."
+    ],
+    en:[
+      "<b>Collect the amulet from messages:</b> Claim or check the Amulet from Lightkeeper in Mechanic's Dangerous Ambitions message. Keep it for the Bite the Dust handover.",
+      "<b>Check your message item:</b> Hand over the Amulet from Lightkeeper from the preceding task to Peacekeeper. If missing, check Mechanic's earlier messages and your quest item stash."
+    ],
+    ja:[
+      "<b>メッセージから護符を受け取り：</b> MechanicのDangerous Ambitions関連メッセージでAmulet from Lightkeeperを受け取り・確認し、Bite the Dustの提出まで保管してください。",
+      "<b>メッセージのアイテムを確認：</b> 前のタスクで受け取ったAmulet from LightkeeperをPeacekeeperに提出してください。見つからない場合はMechanicの過去のメッセージとクエストアイテム保管庫を確認してください。"
+    ],
+    ru:[
+      "<b>Получите амулет из сообщений:</b> Получите или проверьте Amulet from Lightkeeper в сообщениях Механика по Dangerous Ambitions. Сохраните для сдачи в Bite the Dust.",
+      "<b>Проверьте предмет из сообщений:</b> Передайте Amulet from Lightkeeper Миротворцу. Если его нет, проверьте прошлые сообщения Механика и хранилище квестовых предметов."
+    ]
+  };
+  const amuletMessageText=amuletMessageNotices[language]||amuletMessageNotices.en;
   const lightkeeperMessageNoticeText=lightkeeperMessageNotice[language]||lightkeeperMessageNotice.en;
   const lightkeeperSummaries=lightkeeperQuestSummaries[language]||lightkeeperQuestSummaries.en;
   const chainLabel=language==="ru"?HUB_EXTRA.lightkeeperChain:({ko:"등대지기 해금 퀘스트 순서",en:"Lightkeeper unlock quest order",ja:"Lightkeeper解放クエストの順序"}[language]||"Lightkeeper unlock quest order");
-  return `<article class="quest-card lightkeeper-unlock-panel ${completed?"completed":""}"><div><header class="quest-heading"><h3>${copy.title}</h3>${traderIcon("등대지기")}</header><p class="quest-guide">${copy.description}</p><ul>${requirements.map(text=>`<li>${text}</li>`).join("")}</ul><section class="lightkeeper-checklist"><header class="lightkeeper-checklist-heading"><strong>${chainLabel}</strong><span>${progressLabel} · ${completedSteps.size} / ${questChain.length}</span></header><div class="lightkeeper-progress-track"><span style="width:${completedSteps.size/questChain.length*100}%"></span></div><div class="lightkeeper-step-grid">${questChain.map((step,index)=>`<section class="lightkeeper-step ${completedSteps.has(index)?"is-complete":""}"><span class="lightkeeper-step-number">${String(index+1).padStart(2,"0")}</span><div class="lightkeeper-step-copy">${step.map(([name,slug])=>`<a class="quest-wiki" href="https://escapefromtarkov.fandom.com/wiki/${encodeURIComponent(slug)}" target="_blank" rel="noopener noreferrer">To the Light - ${name} ↗</a>`).join(" / ")}<p class="lightkeeper-quest-summary">${lightkeeperSummaries[index]}</p>${index===0?`<p class="lightkeeper-quest-summary quest-message-notice">${lightkeeperMessageNoticeText}</p>`:""}</div><button type="button" class="quest-complete ${completedSteps.has(index)?"active":""}" data-lightkeeper-step="${index}" aria-pressed="${completedSteps.has(index)}">${action(completedSteps.has(index))}</button></section>`).join("")}</div></section></div></article>`;
+  return `<article class="quest-card lightkeeper-unlock-panel ${completed?"completed":""}"><div><header class="quest-heading"><h3>${copy.title}</h3>${traderIcon("등대지기")}</header><p class="quest-guide">${copy.description}</p><ul>${requirements.map(text=>`<li>${text}</li>`).join("")}</ul><section class="lightkeeper-checklist"><header class="lightkeeper-checklist-heading"><strong>${chainLabel}</strong><span>${progressLabel} · ${completedSteps.size} / ${questChain.length}</span></header><div class="lightkeeper-progress-track"><span style="width:${completedSteps.size/questChain.length*100}%"></span></div><div class="lightkeeper-step-grid">${questChain.map((step,index)=>`<section class="lightkeeper-step ${completedSteps.has(index)?"is-complete":""}"><span class="lightkeeper-step-number">${String(index+1).padStart(2,"0")}</span><div class="lightkeeper-step-copy">${step.map(([name,slug])=>`<a class="quest-wiki" href="https://escapefromtarkov.fandom.com/wiki/${encodeURIComponent(slug)}" target="_blank" rel="noopener noreferrer">To the Light - ${name} ↗</a>`).join(" / ")}<p class="lightkeeper-quest-summary">${lightkeeperSummaries[index]}</p>${index===0?`<p class="lightkeeper-quest-summary quest-message-notice">${lightkeeperMessageNoticeText}</p>`:index===5||index===6?`<p class="lightkeeper-quest-summary quest-message-notice">${amuletMessageText[index-5]}</p>`:""}</div><button type="button" class="quest-complete ${completedSteps.has(index)?"active":""}" data-lightkeeper-step="${index}" aria-pressed="${completedSteps.has(index)}">${action(completedSteps.has(index))}</button></section>`).join("")}</div></section></div></article>`;
 }
 
 
