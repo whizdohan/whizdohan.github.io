@@ -6,14 +6,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 10,
+            "sample": {
+              "items": {
+                "count": 5498,
+                "sample": {
+                  "5447a9cd4bdc2dbd208b4567": {
+                    "count": 44,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5447ac644bdc2d6c208b4567": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5448ba0b4bdc2d02308b456c": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  }
+                }
+              },
+              "itemCategories": {
+                "count": 112,
+                "sample": {
+                  "5447b5f14bdc2d61278b4567": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5422acb9af1c889c16000029": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "566162e44bdc2d3f298b4573": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              },
+              "handbookCategories": {
+                "count": 88,
+                "sample": {
+                  "5b5f78fc86f77409407a7f90": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b5f78dc86f77409407a7f8e": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b47574386f77428ca22b33c": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 17,
+            "first": "$.data.items.*.name"
+          }
+        }
+      }
     },
     "pvp-season/items_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 16927,
+            "sample": {
+              "5447a9cd4bdc2dbd208b4567 Name": "Colt M4A1 5.56x45 assault rifle",
+              "5447ac644bdc2d6c208b4567 Name": "5.56x45mm M855 ammo pack (50 pcs)",
+              "5448ba0b4bdc2d02308b456c Name": "Factory emergency exit key"
+            }
+          }
+        }
+      }
     },
     "pvp-season/tasks": {
       "type": "dict",
@@ -21,14 +135,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 4,
+            "sample": {
+              "tasks": {
+                "count": 462,
+                "sample": {
+                  "657315e4a6af4ab4b50f3459": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315e270bb0b8dba00cc48": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315ddab5a49b71f098853": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  }
+                }
+              },
+              "questItems": {
+                "count": 135,
+                "sample": {
+                  "5ae9a25386f7746dd946e6d9": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "5b4c81a086f77417d26be63f": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "590dde5786f77405e71908b2": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  }
+                }
+              },
+              "achievements": {
+                "count": 131,
+                "sample": {
+                  "6512ea46f7a078264a4376e4": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512eb3ddfb0ae1ee75a0376": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512f16bde333c33d5127cbc": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 33,
+            "first": "$.data.tasks.*.name"
+          }
+        }
+      }
     },
     "pvp-season/tasks_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 2540,
+            "sample": {
+              "657315e4a6af4ab4b50f3459 name": "Saving the Mole",
+              "657315e270bb0b8dba00cc48 name": "Burning Rubber",
+              "657315ddab5a49b71f098853 name": "First in Line"
+            }
+          }
+        }
+      }
     },
     "pve/items": {
       "type": "dict",
@@ -36,14 +264,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 10,
+            "sample": {
+              "items": {
+                "count": 5498,
+                "sample": {
+                  "5447a9cd4bdc2dbd208b4567": {
+                    "count": 44,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5447ac644bdc2d6c208b4567": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5448ba0b4bdc2d02308b456c": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  }
+                }
+              },
+              "itemCategories": {
+                "count": 112,
+                "sample": {
+                  "5447b5f14bdc2d61278b4567": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5422acb9af1c889c16000029": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "566162e44bdc2d3f298b4573": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              },
+              "handbookCategories": {
+                "count": 88,
+                "sample": {
+                  "5b5f78fc86f77409407a7f90": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b5f78dc86f77409407a7f8e": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b47574386f77428ca22b33c": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 17,
+            "first": "$.data.items.*.name"
+          }
+        }
+      }
     },
     "pve/items_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 16927,
+            "sample": {
+              "5447a9cd4bdc2dbd208b4567 Name": "Colt M4A1 5.56x45 assault rifle",
+              "5447ac644bdc2d6c208b4567 Name": "5.56x45mm M855 ammo pack (50 pcs)",
+              "5448ba0b4bdc2d02308b456c Name": "Factory emergency exit key"
+            }
+          }
+        }
+      }
     },
     "pve/tasks": {
       "type": "dict",
@@ -51,14 +393,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 4,
+            "sample": {
+              "tasks": {
+                "count": 499,
+                "sample": {
+                  "657315ddab5a49b71f098853": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315df034d76585f032e01": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315e270bb0b8dba00cc48": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  }
+                }
+              },
+              "questItems": {
+                "count": 138,
+                "sample": {
+                  "5937fd0086f7742bf33fc198": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "591092ef86f7747bb8703422": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "5938188786f77474f723e87f": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  }
+                }
+              },
+              "achievements": {
+                "count": 131,
+                "sample": {
+                  "6512ea46f7a078264a4376e4": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512eb3ddfb0ae1ee75a0376": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512f16bde333c33d5127cbc": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 33,
+            "first": "$.data.tasks.*.name"
+          }
+        }
+      }
     },
     "pve/tasks_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 2765,
+            "sample": {
+              "657315ddab5a49b71f098853 name": "First in Line",
+              "657315df034d76585f032e01 name": "Shooting Cans",
+              "657315e270bb0b8dba00cc48 name": "Burning Rubber"
+            }
+          }
+        }
+      }
     },
     "regular/items": {
       "type": "dict",
@@ -66,14 +522,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 10,
+            "sample": {
+              "items": {
+                "count": 5498,
+                "sample": {
+                  "5447a9cd4bdc2dbd208b4567": {
+                    "count": 44,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5447ac644bdc2d6c208b4567": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  },
+                  "5448ba0b4bdc2d02308b456c": {
+                    "count": 41,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "shortName": "str"
+                    }
+                  }
+                }
+              },
+              "itemCategories": {
+                "count": 112,
+                "sample": {
+                  "5447b5f14bdc2d61278b4567": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5422acb9af1c889c16000029": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "566162e44bdc2d3f298b4573": {
+                    "count": 5,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              },
+              "handbookCategories": {
+                "count": 88,
+                "sample": {
+                  "5b5f78fc86f77409407a7f90": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b5f78dc86f77409407a7f8e": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "5b47574386f77428ca22b33c": {
+                    "count": 7,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 17,
+            "first": "$.data.items.*.name"
+          }
+        }
+      }
     },
     "regular/items_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 16927,
+            "sample": {
+              "5447a9cd4bdc2dbd208b4567 Name": "Colt M4A1 5.56x45 assault rifle",
+              "5447ac644bdc2d6c208b4567 Name": "5.56x45mm M855 ammo pack (50 pcs)",
+              "5448ba0b4bdc2d02308b456c Name": "Factory emergency exit key"
+            }
+          }
+        }
+      }
     },
     "regular/tasks": {
       "type": "dict",
@@ -81,14 +651,128 @@
         "data",
         "translations"
       ],
-      "count": 2
+      "count": 2,
+      "shape": {
+        "count": 2,
+        "sample": {
+          "data": {
+            "count": 4,
+            "sample": {
+              "tasks": {
+                "count": 503,
+                "sample": {
+                  "657315ddab5a49b71f098853": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315df034d76585f032e01": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  },
+                  "657315e270bb0b8dba00cc48": {
+                    "count": 24,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "trader": "str"
+                    }
+                  }
+                }
+              },
+              "questItems": {
+                "count": 138,
+                "sample": {
+                  "5937fd0086f7742bf33fc198": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "591092ef86f7747bb8703422": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  },
+                  "5938188786f77474f723e87f": {
+                    "count": 13,
+                    "sample": {
+                      "id": "str",
+                      "width": "int",
+                      "height": "int"
+                    }
+                  }
+                }
+              },
+              "achievements": {
+                "count": 131,
+                "sample": {
+                  "6512ea46f7a078264a4376e4": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512eb3ddfb0ae1ee75a0376": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  },
+                  "6512f16bde333c33d5127cbc": {
+                    "count": 12,
+                    "sample": {
+                      "id": "str",
+                      "name": "str",
+                      "normalizedName": "str"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "translations": {
+            "count": 33,
+            "first": "$.data.tasks.*.name"
+          }
+        }
+      }
     },
     "regular/tasks_en": {
       "type": "dict",
       "keys": [
         "data"
       ],
-      "count": 1
+      "count": 1,
+      "shape": {
+        "count": 1,
+        "sample": {
+          "data": {
+            "count": 2808,
+            "sample": {
+              "657315ddab5a49b71f098853 name": "First in Line",
+              "657315df034d76585f032e01 name": "Shooting Cans",
+              "657315e270bb0b8dba00cc48 name": "Burning Rubber"
+            }
+          }
+        }
+      }
     }
   },
   "matches": {
@@ -98,34 +782,73 @@
       {
         "name": "Ferro Concepts FCPC V5 Plate Carrier (Black Division)",
         "id": "689479cb47e5acd1e10be986",
-        "iconLink": null,
-        "source": "regular/tasks"
+        "source": "translation"
       }
     ],
     "LV-119 Black Division V2": [
       {
         "name": "Spiritus Systems LV-119 Plate Carrier (Black Division V2)",
         "id": "689479eb30cc5ba7be00f5ff",
-        "iconLink": null,
-        "source": "regular/tasks"
+        "source": "translation"
       }
     ],
-    "LV-119 MultiCam Black": [],
-    "Black Division encryption keys": [],
-    "Modular Pack 45 Plus": [],
-    "NICE Frame Load Sling": [],
+    "LV-119 MultiCam Black": [
+      {
+        "name": "Spiritus Systems LV-119 Plate Carrier (MultiCam Black)",
+        "id": "69e2441a18cb3157560855ec",
+        "source": "translation"
+      }
+    ],
+    "Black Division encryption keys": [
+      {
+        "name": "Black Division encryption keys",
+        "id": "6a5f9cfcc409750b6e065592",
+        "source": "translation"
+      }
+    ],
+    "Modular Pack 45 Plus": [
+      {
+        "name": "Tasmanian Tiger Modular Pack 45 Plus (MultiCam Black)",
+        "id": "68947a8ce4bf255d1b0ca759",
+        "source": "translation"
+      }
+    ],
+    "NICE Frame Load Sling": [
+      {
+        "name": "Mystery Ranch NICE Frame Load Sling",
+        "id": "68947ad3e4bf255d1b0ca75c",
+        "source": "translation"
+      }
+    ],
     "SOTR respirator": [
       {
         "name": "Gentex Ops-Core SOTR respirator",
         "id": "689b404db49f27df1c0873f6",
-        "iconLink": null,
-        "source": "regular/tasks"
+        "source": "translation"
       }
     ],
-    "Briefcase with documents": [],
-    "14-4 KORD SSD": [],
+    "Briefcase with documents": [
+      {
+        "name": "Briefcase with documents",
+        "id": "6a3563dacdaebb512e0a009c",
+        "source": "translation"
+      }
+    ],
+    "14-4 KORD SSD": [
+      {
+        "name": "14-4 KORD SSD",
+        "id": "6a5f9c49b8281c31a1062aea",
+        "source": "translation"
+      }
+    ],
     "Laptop from an unknown facility": [],
-    "Black Division rugged laptop": [],
+    "Black Division rugged laptop": [
+      {
+        "name": "Black Division rugged laptop",
+        "id": "6a5f9c25e8c84d8b0602f22a",
+        "source": "translation"
+      }
+    ],
     "Data from Black Division laptop": []
   },
   "names": [
