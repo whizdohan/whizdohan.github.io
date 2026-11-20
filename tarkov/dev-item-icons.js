@@ -81,6 +81,7 @@ const aliases={
 };
 const ready={};
 let pending=null;
+const attempted=new Set();
 const norm=s=>String(s||"").toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g,"");
 const validURL=s=>{try{const u=new URL(s);return u.protocol==="https:"&&u.hostname==="assets.tarkov.dev"?u.href:null}catch{return null}};
 const icon=name=>ids[name]?"https://assets.tarkov.dev/"+ids[name]+"-icon.webp":ready[name]||"";
@@ -94,8 +95,9 @@ function paint(){
 }
 async function load(){
   if(pending)return pending;
-  const desired=[...new Set(targets().map(img=>img.dataset.devItem).filter(n=>n&&!ids[n]))];
+  const desired=[...new Set(targets().map(img=>img.dataset.devItem).filter(n=>n&&!ids[n]&&!attempted.has(n)))];
   if(!desired.length)return;
+  desired.forEach(n=>attempted.add(n));
   pending=(async()=>{
     const lookups=[];
     for(const name of desired)for(const label of [name,...(aliases[name]||[])])if(!lookups.some(x=>x.label===label))lookups.push({label});
@@ -122,7 +124,7 @@ async function load(){
   })().finally(()=>{pending=null;paint()});
   return pending;
 }
-function hydrate(){paint();if(targets().some(img=>!icon(img.dataset.devItem)))load()}
+function hydrate(){paint();if(targets().some(img=>!icon(img.dataset.devItem)&&!attempted.has(img.dataset.devItem)))load()}
 window.TARKOV_DEV_ITEM_ICONS={icon,hydrate};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",hydrate,{once:true});else hydrate();
 })();
