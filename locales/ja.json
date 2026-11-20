@@ -309,7 +309,7 @@
     ],
     "guides": [
       "Shorelineの候補3か所（Sordi塔横の小屋、気象観測所2階、発電所1階）のいずれかでケース1個を入手。",
-      "Part 1のケース1個をWoodsまたはStreetsのBTR停留所でBTR Driverに引き渡す。",
+      "Part 1のケース1個をWoods・Streets・LighthouseのいずれかのBTR停留所でBTR Driverに引き渡す。",
       "TerraGroup本社2階受付にTherapistの手紙1通を設置。設置前後の死亡、またはEMERCOM Checkpoint・Nakatani Basement以外の脱出で失敗。",
       "WI-FI Cameraを計4台用意。ShorelineのUralトラック・掘削機、Ground Zeroのトラック運転席・地下の黄色いバスに各1台。",
       "Black Divisionのプレートキャリアを種類不問で3個引き渡す。Ground Zero（Lv21以上）、Shoreline、Streets、The Lab、またはIcebreakerで入手可能。IcebreakerのThe Wedgeが装備するLV-119 MultiCam Blackも提出できる。",
@@ -497,7 +497,7 @@
     },
     "areas": [
       "Shoreline",
-      "Streets · Woods",
+      "Streets · Woods · Lighthouse",
       "Ground Zero",
       "Shoreline · Ground Zero",
       "Any location",
