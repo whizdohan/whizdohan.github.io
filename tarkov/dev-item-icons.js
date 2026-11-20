@@ -84,7 +84,7 @@ let pending=null;
 const attempted=new Set();
 const norm=s=>String(s||"").toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g,"");
 const validURL=s=>{try{const u=new URL(s);return u.protocol==="https:"&&u.hostname==="assets.tarkov.dev"?u.href:null}catch{return null}};
-const icon=name=>ids[name]?"/assets/game/"+ids[name]+"-icon.webp":window.tarkovLocalIcon?.(ready[name])||"";
+const icon=name=>ids[name]?window.tarkovLocalIcon?.("/assets/game/"+ids[name]+"-icon.webp")||"":window.tarkovLocalIcon?.(ready[name])||"";
 const targets=()=>[...document.querySelectorAll("img[data-dev-item]")];
 function paint(){
   for(const img of targets()){
