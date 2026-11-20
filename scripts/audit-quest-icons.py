@@ -20,6 +20,11 @@ def record(obj,store,prefix=""):
     if isinstance(v,(dict,list)):record(v,store,prefix)
  elif isinstance(obj,list):
   for v in obj:record(v,store,prefix)
+def shape(v,depth=0):
+ if depth>3:return type(v).__name__
+ if isinstance(v,dict):return {"count":len(v),"sample":{str(k):shape(val,depth+1) for k,val in list(v.items())[:3]}}
+ if isinstance(v,list):return {"count":len(v),"first":shape(v[0],depth+1) if v else None}
+ return str(v)[:100]
 def main():
  report={"endpoints":{},"matches":{},"names":targets}
  items=[];translations={}
@@ -28,10 +33,12 @@ def main():
    url=f"https://json.tarkov.dev/{mode}/{endpoint}"
    try:
     data=fetch(url)
-    report["endpoints"][mode+"/"+endpoint]={"type":type(data).__name__,"keys":list(data)[:14] if isinstance(data,dict) else [],"count":len(data)}
+    report["endpoints"][mode+"/"+endpoint]={"type":type(data).__name__,"keys":list(data)[:14] if isinstance(data,dict) else [],"count":len(data),"shape":shape(data)}
     if endpoint.endswith("_en"):
      if isinstance(data,dict):
-      for key,value in data.items():
+      translated=data.get("data",data)
+      if isinstance(translated,dict):
+       for key,value in translated.items():
        if isinstance(value,str) and re.search(r"[a-f0-9]{24}",key):translations[key]=value
     else:record(data,items,mode+"/"+endpoint)
    except Exception as e:report["endpoints"][mode+"/"+endpoint]={"error":str(e)[:150]}
