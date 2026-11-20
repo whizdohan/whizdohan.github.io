@@ -17,3 +17,7 @@
 .league-note{color:var(--muted);line-height:1.65;font-size:12px;margin:20px 0}
 @media(max-width:800px){.league-info{grid-template-columns:1fr}.league-card-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
 @media(max-width:400px){.league-card-grid{grid-template-columns:1fr}}
+
+/* Rank identifiers and rewards remain legible when no verified icon exists. */
+.league-badge-text{display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;background:var(--soft);color:var(--gold);font:800 29px ui-monospace,monospace}
+.league-reward-symbol{display:grid;place-items:center;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--gold);font-size:19px}
