@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bundle non-map game icons into the static site, preserving map and photo assets."""
+"""Bundle approved non-map game icons, leaving map and photo assets untouched."""
 from __future__ import annotations
 import concurrent.futures
 import json
