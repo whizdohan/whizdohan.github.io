@@ -123,3 +123,12 @@
 .season-achievement-unlock>b{display:block;color:#f1e3bf;font-size:16px}
 .season-achievement-unlock small{display:block;margin-top:3px;color:#c4b58d;font-size:11px}
 .season-achievement-unlock p{margin:9px 0 0;color:#b9c4bf;font-size:12px;line-height:1.6}
+
+/* Steam achievement artwork for Season 1 achievements */
+.achievement-card{min-width:0}
+.achievement-card .achievement-image{display:block;width:64px;height:64px;flex:0 0 64px;object-fit:contain;border:1px solid #566469;border-radius:6px;background:#121c20}
+.season-achievement-head{display:flex;align-items:center;gap:12px}
+.season-achievement-head>div{min-width:0}
+.season-achievement-head .achievement-image{width:72px;height:72px;flex:0 0 72px;object-fit:contain;border:1px solid #6b624b;border-radius:6px}
+.season-achievement-head b,.season-achievement-head small{display:block}
+@media(max-width:540px){.achievement-card .achievement-image{width:48px;height:48px;flex-basis:48px}.season-achievement-head .achievement-image{width:54px;height:54px;flex-basis:54px}}
