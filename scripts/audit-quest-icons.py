@@ -39,7 +39,7 @@ def main():
       translated=data.get("data",data)
       if isinstance(translated,dict):
        for key,value in translated.items():
-       if isinstance(value,str) and re.search(r"[a-f0-9]{24}",key):translations[key]=value
+        if isinstance(value,str) and re.search(r"[a-f0-9]{24}",key):translations[key]=value
     else:record(data,items,mode+"/"+endpoint)
    except Exception as e:report["endpoints"][mode+"/"+endpoint]={"error":str(e)[:150]}
  for name in targets:
