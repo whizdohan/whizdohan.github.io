@@ -411,7 +411,7 @@ function renderLightkeeperUnlockNotice(){
       "등대지기의 부적을 피스키퍼에게 전달하는 연계 임무.",
       "등대지기 부적(증거물)을 피스키퍼에게 제출.",
       "연구소의 한 레이드에서 PMC 2명 처치.",
-      "인레이드 획득한 30레벨 이상 PMC 인식표 3개 제출.",
+      "인레이드 획득한 30레벨 이상 PMC 인식표 2개 제출.",
       "리저브·시내·세관 마크방에 테라그룹 블루폴더 각 1개씩 설치(총 3개).",
       "등대에서 V3 USB 획득·제출, 정보시설 Lv2에서 DSP 송신기 재설정 후 등대 진입."
     ],
@@ -424,7 +424,7 @@ function renderLightkeeperUnlockNotice(){
       "Transfer the Lightkeeper amulet to Peacekeeper as part of the linked handover.",
       "Hand over the Lightkeeper amulet (evidence) to Peacekeeper.",
       "Kill 2 PMCs in The Lab within one raid.",
-      "Hand over 3 Found in Raid PMC dogtags of level 30 or higher.",
+      "Hand over 2 Found in Raid PMC dogtags of level 30 or higher.",
       "Plant 1 TerraGroup Blue Folder in a marked room on each of Reserve, Streets and Customs (3 total).",
       "Find and hand over V3 flash drive on Lighthouse; reflash DSP at Intelligence Center Lv2 and access the lighthouse."
     ],
@@ -437,7 +437,7 @@ function renderLightkeeperUnlockNotice(){
       "ライトキーパーの護符をピースキーパーに渡す関連タスク。",
       "ライトキーパーの護符（証拠）をピースキーパーに提出。",
       "ラボの1レイド内でPMC2人を倒す。",
-      "レイド内入手のLv30以上のPMCドッグタグ3個を提出。",
+      "レイド内入手のLv30以上のPMCドッグタグ2個を提出。",
       "リザーブ・ストリート・税関のマークド部屋に青フォルダーを1個ずつ設置。",
       "灯台でV3 USB入手・提出、インテリジェンスセンターLv2でDSPを再設定し灯台へ進む。"
     ]
