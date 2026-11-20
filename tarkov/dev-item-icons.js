@@ -84,7 +84,7 @@ let pending=null;
 const attempted=new Set();
 const norm=s=>String(s||"").toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g,"");
 const validURL=s=>{try{const u=new URL(s);return u.protocol==="https:"&&u.hostname==="assets.tarkov.dev"?u.href:null}catch{return null}};
-const icon=name=>ids[name]?"https://assets.tarkov.dev/"+ids[name]+"-icon.webp":ready[name]||"";
+const icon=name=>ids[name]?"/assets/game/"+ids[name]+"-icon.webp":window.tarkovLocalIcon?.(ready[name])||"";
 const targets=()=>[...document.querySelectorAll("img[data-dev-item]")];
 function paint(){
   for(const img of targets()){
@@ -113,7 +113,7 @@ async function load(){
           if(!allowed.has(norm(entry.label)))continue;
           for(const candidate of data[entry.key]||[]){
             if(!allowed.has(norm(candidate.name)))continue;
-            const url=validURL(candidate.iconLink)||(candidate.id&&/^[0-9a-f]{24}$/.test(candidate.id)?"https://assets.tarkov.dev/"+candidate.id+"-icon.webp":null);
+            const url=validURL(candidate.iconLink)||(candidate.id&&/^[0-9a-f]{24}$/.test(candidate.id)?"/assets/game/"+candidate.id+"-icon.webp":null);
             if(url){match=url;break}
           }
           if(match)break;

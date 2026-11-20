@@ -29,20 +29,20 @@ const CHECKLIST_COPY={
 };
 const KAPPA_REQUIREMENTS=[
 {id:"level-40",type:"condition",ko:"캐릭터 레벨 40 달성",en:"Reach character level 40",ja:"キャラクターレベル40に到達"},
-{id:"fence-rep-3",type:"condition",ko:"펜스 평판 3.0 이상 달성",en:"Reach Fence reputation 3.0 or higher",ja:"Fenceの評判を3.0以上にする",portrait:"https://assets.tarkov.dev/579dc571d53a0658a154fbec.webp"},
-{id:"trader-prapor-ll4",type:"condition",ko:"프라퍼 우호도 4 달성",en:"Reach Loyalty Level 4 with Prapor",ja:"Praporの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/54cb50c76803fa8b248b4571.webp"},
-{id:"trader-therapist-ll4",type:"condition",ko:"테라피스트 우호도 4 달성",en:"Reach Loyalty Level 4 with Therapist",ja:"Therapistの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/54cb57776803fa99248b456e.webp"},
-{id:"trader-skier-ll4",type:"condition",ko:"스키어 우호도 4 달성",en:"Reach Loyalty Level 4 with Skier",ja:"Skierの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/58330581ace78e27b8b10cee.webp"},
-{id:"trader-peacekeeper-ll4",type:"condition",ko:"피스키퍼 우호도 4 달성",en:"Reach Loyalty Level 4 with Peacekeeper",ja:"Peacekeeperの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/5935c25fb3acc3127c3d8cd9.webp"},
-{id:"trader-mechanic-ll4",type:"condition",ko:"메카닉 우호도 4 달성",en:"Reach Loyalty Level 4 with Mechanic",ja:"Mechanicの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/5a7c2eca46aef81a7ca2145d.webp"},
-{id:"trader-ragman-ll4",type:"condition",ko:"라그맨 우호도 4 달성",en:"Reach Loyalty Level 4 with Ragman",ja:"Ragmanの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/5ac3b934156ae10c4430e83c.webp"},
-{id:"trader-jaeger-ll4",type:"condition",ko:"예거 우호도 4 달성",en:"Reach Loyalty Level 4 with Jaeger",ja:"Jaegerの信頼度レベル4に到達",portrait:"https://assets.tarkov.dev/5c0647fdd443bc2504c2d371.webp"},
+{id:"fence-rep-3",type:"condition",ko:"펜스 평판 3.0 이상 달성",en:"Reach Fence reputation 3.0 or higher",ja:"Fenceの評判を3.0以上にする",portrait:"/assets/game/579dc571d53a0658a154fbec.webp"},
+{id:"trader-prapor-ll4",type:"condition",ko:"프라퍼 우호도 4 달성",en:"Reach Loyalty Level 4 with Prapor",ja:"Praporの信頼度レベル4に到達",portrait:"/assets/game/54cb50c76803fa8b248b4571.webp"},
+{id:"trader-therapist-ll4",type:"condition",ko:"테라피스트 우호도 4 달성",en:"Reach Loyalty Level 4 with Therapist",ja:"Therapistの信頼度レベル4に到達",portrait:"/assets/game/54cb57776803fa99248b456e.webp"},
+{id:"trader-skier-ll4",type:"condition",ko:"스키어 우호도 4 달성",en:"Reach Loyalty Level 4 with Skier",ja:"Skierの信頼度レベル4に到達",portrait:"/assets/game/58330581ace78e27b8b10cee.webp"},
+{id:"trader-peacekeeper-ll4",type:"condition",ko:"피스키퍼 우호도 4 달성",en:"Reach Loyalty Level 4 with Peacekeeper",ja:"Peacekeeperの信頼度レベル4に到達",portrait:"/assets/game/5935c25fb3acc3127c3d8cd9.webp"},
+{id:"trader-mechanic-ll4",type:"condition",ko:"메카닉 우호도 4 달성",en:"Reach Loyalty Level 4 with Mechanic",ja:"Mechanicの信頼度レベル4に到達",portrait:"/assets/game/5a7c2eca46aef81a7ca2145d.webp"},
+{id:"trader-ragman-ll4",type:"condition",ko:"라그맨 우호도 4 달성",en:"Reach Loyalty Level 4 with Ragman",ja:"Ragmanの信頼度レベル4に到達",portrait:"/assets/game/5ac3b934156ae10c4430e83c.webp"},
+{id:"trader-jaeger-ll4",type:"condition",ko:"예거 우호도 4 달성",en:"Reach Loyalty Level 4 with Jaeger",ja:"Jaegerの信頼度レベル4に到達",portrait:"/assets/game/5c0647fdd443bc2504c2d371.webp"},
 {id:"chemical-3",type:"quest",ko:"Chemical - Part 3 완료",en:"Complete Chemical - Part 3",ja:"Chemical - Part 3を完了",wiki:"Chemical_-_Part_3"},
 {id:"sew-it-good-2",type:"quest",ko:"Sew it Good - Part 2 완료",en:"Complete Sew it Good - Part 2",ja:"Sew_it_Good_-_Part_2を完了",wiki:"Sew_it_Good_-_Part_2"},
 {id:"shooter-born",type:"quest",ko:"Shooter Born in Heaven 완료",en:"Complete Shooter Born in Heaven",ja:"Shooter Born in Heavenを完了",wiki:"Shooter_Born_in_Heaven"},
 {id:"tarkov-shooter-4",type:"quest",ko:"The Tarkov Shooter - Part 4 완료",en:"Complete The Tarkov Shooter - Part 4",ja:"The Tarkov Shooter - Part 4を完了",wiki:"The_Tarkov_Shooter_-_Part_4"}
 ];
-const KAPPA_ITEMS=`#FireKlean gun lube|5bc9b355d4351e6d1509862a;42 Signature Blend English Tea|5bc9be8fd4351e00334cae6e;Antique axe|5bc9c1e2d4351e00367fbcf0;Axel parrot figurine|62a091170b9d3c46de5b6cf2;Baddie's red beard|62a09dd4621468534a797ac7;BakeEzy cook book|62a09e73af34e73a266d932a;Battered antique book|5bc9c049d4351e44f824d360;BEAR Buddy plush toy|62a08f4c4f842e1bd12d9d62;Bottle of YMXC water|6a3557f841667bc4bb00fea4;Can of Dr. Lupo's coffee beans|5e54f6af86f7742199090bf3;Can of GigaBeef meat|6a3532423ec9d7082a05d430;Can of RatCola soda|60b0f93284c20f0feb453da7;Deadlyslob's beard oil|5bc9b9ecd4351e3bac122519;DesmondPilak CD|69f9d547b98cc4120608692a;Domontovich ushanka hat|6937f02dfd6488bb27024839;DRD body armor|62a09d79de7ac81993580530;Dunduk floppy disk|69f9d60b5de6674f08060f2a;Fake mustache|5bd073a586f7747e6f135799;French bakery baguette|6a35322b81d315afe1018ef3;Gingy keychain|62a09d3bcf4a99369e262447;Glorious E lightweight armored mask|62a09e08de7ac81993580532;Golden 1GPhone smartphone|5bc9b720d4351e450201234b;Golden egg|62a09cfe4f842e1bd12da3e4;Inseq gas pipe wrench|66b37f114410565a8f6789e2;JohnB Liquid DNB glasses|62a09e410b9d3c46de5b6e78;LM KC-130 model aircraft|6a4ce086b5644e9f0a08d08a;Loot Lord plushie|60b0f7057897d47c5b04ab94;LVNDMARK's rat poison|60b0f561c4449e4cb624c1d7;Mazoni golden dumbbell|6937edb912d456a817083e82;Missam forklift key|62a09ec84f842e1bd12da3f2;Nut Sack balaclava|69398e94ca94fd2877039504;Pestily plague mask|5e54f79686f7744022011103;Press pass (issued for NoiceGuy)|62a09cb7a04c0c5c6e0a84f8;Raven figurine|5e54f62086f774219b0f1937;SheefGG piggy bank|69f9d319c906cd16da03b374;Shroud half-mask|5e54f76986f7740366043752;Silver Badge|5bc9bdb8d4351e003562b8a1;Smoke balaclava|5fd8d28367cb5e077335170f;Tamatthi kunai knife replica|66b37ea4c5d72b0277488439;Tigzresq splint|6937ecf8628ee476240c07cb;Veritas guitar pick|5f745ee30acaeb0d490d8c5b;Video cassette with the Cyborg Killer movie|62a09e974f842e1bd12da3f0;Viibiin sneaker|66b37eb4acff495a29492407;WZ Wallet|60b0f6c058e0b0481a09ad11`.split(";").map(entry=>{const [name,itemId]=entry.split("|");return{name,itemId,id:name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),icon:`https://assets.tarkov.dev/${itemId}-icon.webp`}});
+const KAPPA_ITEMS=`#FireKlean gun lube|5bc9b355d4351e6d1509862a;42 Signature Blend English Tea|5bc9be8fd4351e00334cae6e;Antique axe|5bc9c1e2d4351e00367fbcf0;Axel parrot figurine|62a091170b9d3c46de5b6cf2;Baddie's red beard|62a09dd4621468534a797ac7;BakeEzy cook book|62a09e73af34e73a266d932a;Battered antique book|5bc9c049d4351e44f824d360;BEAR Buddy plush toy|62a08f4c4f842e1bd12d9d62;Bottle of YMXC water|6a3557f841667bc4bb00fea4;Can of Dr. Lupo's coffee beans|5e54f6af86f7742199090bf3;Can of GigaBeef meat|6a3532423ec9d7082a05d430;Can of RatCola soda|60b0f93284c20f0feb453da7;Deadlyslob's beard oil|5bc9b9ecd4351e3bac122519;DesmondPilak CD|69f9d547b98cc4120608692a;Domontovich ushanka hat|6937f02dfd6488bb27024839;DRD body armor|62a09d79de7ac81993580530;Dunduk floppy disk|69f9d60b5de6674f08060f2a;Fake mustache|5bd073a586f7747e6f135799;French bakery baguette|6a35322b81d315afe1018ef3;Gingy keychain|62a09d3bcf4a99369e262447;Glorious E lightweight armored mask|62a09e08de7ac81993580532;Golden 1GPhone smartphone|5bc9b720d4351e450201234b;Golden egg|62a09cfe4f842e1bd12da3e4;Inseq gas pipe wrench|66b37f114410565a8f6789e2;JohnB Liquid DNB glasses|62a09e410b9d3c46de5b6e78;LM KC-130 model aircraft|6a4ce086b5644e9f0a08d08a;Loot Lord plushie|60b0f7057897d47c5b04ab94;LVNDMARK's rat poison|60b0f561c4449e4cb624c1d7;Mazoni golden dumbbell|6937edb912d456a817083e82;Missam forklift key|62a09ec84f842e1bd12da3f2;Nut Sack balaclava|69398e94ca94fd2877039504;Pestily plague mask|5e54f79686f7744022011103;Press pass (issued for NoiceGuy)|62a09cb7a04c0c5c6e0a84f8;Raven figurine|5e54f62086f774219b0f1937;SheefGG piggy bank|69f9d319c906cd16da03b374;Shroud half-mask|5e54f76986f7740366043752;Silver Badge|5bc9bdb8d4351e003562b8a1;Smoke balaclava|5fd8d28367cb5e077335170f;Tamatthi kunai knife replica|66b37ea4c5d72b0277488439;Tigzresq splint|6937ecf8628ee476240c07cb;Veritas guitar pick|5f745ee30acaeb0d490d8c5b;Video cassette with the Cyborg Killer movie|62a09e974f842e1bd12da3f0;Viibiin sneaker|66b37eb4acff495a29492407;WZ Wallet|60b0f6c058e0b0481a09ad11`.split(";").map(entry=>{const [name,itemId]=entry.split("|");return{name,itemId,id:name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""),icon:`/assets/game/${itemId}-icon.webp`}});
 /* Official item names are kept as the English fallback, while localized labels cover
    the translated wiki terminology used by the checklist pages. */
 const ITEM_TRANSLATIONS={
@@ -78,21 +78,21 @@ const EXCLUSIONS=[["thrombo","hemophilia"],["bones","osteoporosis"],["hypodipsia
 
 // Verified Steam achievement artwork (no substitute image for unknown achievements).
 const TARKOV_ACHIEVEMENT_ICONS={
-  "Entrepreneur Born in Heaven": "https://assets.tarkov.dev/achievement-6a5dfed95c12f0b8a80c4545-icon.webp",
-  "You Call That a Challenge?": "https://assets.tarkov.dev/achievement-6a5dfd8653ab08ce0d093aa6-icon.webp",
-  "We Have Hardcore at Home": "https://assets.tarkov.dev/achievement-6a5dfd7b5c12f0b8a80c453c-icon.webp",
-  "One Is Good, Two Is Better": "https://assets.tarkov.dev/achievement-6a5df6b0c901d2199d017048-icon.webp",
-  "Don't Need Any Help": "https://assets.tarkov.dev/achievement-6a59f63cacaee8fa5d013981-icon.webp",
-  "I Had a Plan": "https://assets.tarkov.dev/achievement-6a5df324129316dcbe0da3da-icon.webp",
-  "Genetic Lottery": "https://assets.tarkov.dev/achievement-6a5df752accb14ca770ccb07-icon.webp",
-  "Believer": "https://assets.tarkov.dev/achievement-6a59f64965aa8755e000b95c-icon.webp",
-  "Dawn of a New Era": "https://assets.tarkov.dev/achievement-6a60f75f1a1222ee000baf0d-icon.webp",
-  "Imposter": "https://assets.tarkov.dev/achievement-6a59f64174b4c1a38702a8a6-icon.webp",
-  "Top Secret": "https://assets.tarkov.dev/achievement-6a5e2d53e88fae7c180232f8-icon.webp",
-  "Profit Over Principles": "https://assets.tarkov.dev/achievement-6a6870b6e37edc03f00a678d-icon.webp",
-  "Among Strangers": "https://assets.tarkov.dev/achievement-6a6871871f135181ee0aff56-icon.webp",
-  "First Step": "https://assets.tarkov.dev/achievement-6a59f6fb65aa8755e000b95f-icon.webp",
-  "Reach the Summit": "https://assets.tarkov.dev/achievement-6a59f777625222137906a5c5-icon.webp",
+  "Entrepreneur Born in Heaven": "/assets/game/achievement-6a5dfed95c12f0b8a80c4545-icon.webp",
+  "You Call That a Challenge?": "/assets/game/achievement-6a5dfd8653ab08ce0d093aa6-icon.webp",
+  "We Have Hardcore at Home": "/assets/game/achievement-6a5dfd7b5c12f0b8a80c453c-icon.webp",
+  "One Is Good, Two Is Better": "/assets/game/achievement-6a5df6b0c901d2199d017048-icon.webp",
+  "Don't Need Any Help": "/assets/game/achievement-6a59f63cacaee8fa5d013981-icon.webp",
+  "I Had a Plan": "/assets/game/achievement-6a5df324129316dcbe0da3da-icon.webp",
+  "Genetic Lottery": "/assets/game/achievement-6a5df752accb14ca770ccb07-icon.webp",
+  "Believer": "/assets/game/achievement-6a59f64965aa8755e000b95c-icon.webp",
+  "Dawn of a New Era": "/assets/game/achievement-6a60f75f1a1222ee000baf0d-icon.webp",
+  "Imposter": "/assets/game/achievement-6a59f64174b4c1a38702a8a6-icon.webp",
+  "Top Secret": "/assets/game/achievement-6a5e2d53e88fae7c180232f8-icon.webp",
+  "Profit Over Principles": "/assets/game/achievement-6a6870b6e37edc03f00a678d-icon.webp",
+  "Among Strangers": "/assets/game/achievement-6a6871871f135181ee0aff56-icon.webp",
+  "First Step": "/assets/game/achievement-6a59f6fb65aa8755e000b95f-icon.webp",
+  "Reach the Summit": "/assets/game/achievement-6a59f777625222137906a5c5-icon.webp",
 };
 const VERIFIED_SEASON_ACHIEVEMENT_ICONS=new Set(["Don't Need Any Help","I Had a Plan","Genetic Lottery","One Is Good, Two Is Better","We Have Hardcore at Home","You Call That a Challenge?","Entrepreneur Born in Heaven","Believer","Dawn of a New Era","Imposter","Top Secret","Profit Over Principles","Among Strangers"]);
 const tarkovAchievementIcon=name=>TARKOV_ACHIEVEMENT_ICONS[name]||"";
@@ -154,12 +154,12 @@ const QUEST_LEVELS=[
   {ko:"레벨 20",en:"LEVEL 20",ja:"レベル20"},null,null,null,null,null,null,null,null,null
 ];
 const TRADER_PORTRAITS={
-  "프라퍼":"https://assets.tarkov.dev/54cb50c76803fa8b248b4571.webp",
-  "테라피스트":"https://assets.tarkov.dev/54cb57776803fa99248b456e.webp",
-  "펜스":"https://assets.tarkov.dev/579dc571d53a0658a154fbec.webp",
-  "라그맨":"https://assets.tarkov.dev/5ac3b934156ae10c4430e83c.webp",
-  "메카닉":"https://assets.tarkov.dev/5a7c2eca46aef81a7ca2145d.webp",
-  "예거":"https://assets.tarkov.dev/5c0647fdd443bc2504c2d371.webp"
+  "프라퍼":"/assets/game/54cb50c76803fa8b248b4571.webp",
+  "테라피스트":"/assets/game/54cb57776803fa99248b456e.webp",
+  "펜스":"/assets/game/579dc571d53a0658a154fbec.webp",
+  "라그맨":"/assets/game/5ac3b934156ae10c4430e83c.webp",
+  "메카닉":"/assets/game/5a7c2eca46aef81a7ca2145d.webp",
+  "예거":"/assets/game/5c0647fdd443bc2504c2d371.webp"
 };
 function questDisplayNumber(index){return QUESTS.slice(0,index+1).filter((_,candidate)=>!QUEST_SUBQUESTS.has(candidate)).length}
 const QUESTS=[
@@ -314,8 +314,8 @@ const ADDITIONAL_SEASON_QUESTS=[
     "area": "Interchange → Streets of Tarkov",
     "wiki": "https://escapefromtarkov.fandom.com/wiki/In_the_Name_of_Humanity...",
     "items": [
-      {"name":"Object #11SR keycard","icon":"https://assets.tarkov.dev/5e42c81886f7742a01529f57-icon.webp","qty":1},
-      {"name":"RSP-30 reactive signal cartridge (Yellow)","icon":"https://assets.tarkov.dev/624c0b3340357b5f566e8766-icon.webp","qty":1}
+      {"name":"Object #11SR keycard","icon":"/assets/game/5e42c81886f7742a01529f57-icon.webp","qty":1},
+      {"name":"RSP-30 reactive signal cartridge (Yellow)","icon":"/assets/game/624c0b3340357b5f566e8766-icon.webp","qty":1}
     ],
     "goals": {
       "ko": "한 번의 레이드에서 인터체인지와 타르코프 시내에서 아무 대상 3명씩 처치하고, 지정 절차와 케이스 설치를 완료한 뒤 생존 탈출",
@@ -373,7 +373,7 @@ for(const quest of ADDITIONAL_SEASON_QUESTS){
     QUEST_GUIDES[lang].push(quest.guides[lang]);
   }
 }
-TRADER_PORTRAITS["등대지기"]="https://assets.tarkov.dev/638f541a29ffd1183d187f57.webp";
+TRADER_PORTRAITS["등대지기"]="/assets/game/638f541a29ffd1183d187f57.webp";
 UI.ko.questDesc="시즌 퀘스트 목표와 보상을 정리했습니다.";
 UI.en.questDesc="Season quest objectives and rewards.";
 UI.ja.questDesc="シーズンクエストの目標と報酬。";
@@ -442,10 +442,10 @@ function setMap(next){if(!HUB_MAPS.some(map=>map.id===next))return;currentMap=ne
 function traderIcon(trader){return trader.split("+").map(name=>{const label=language==="ko"?name:TRADERS[name],portrait=TRADER_PORTRAITS[name];return portrait?`<span class="quest-trader-icon" title="${label}" aria-label="${label}"><img src="${portrait}" alt="${label}" width="34" height="34" loading="lazy" decoding="async"></span>`:`<span class="quest-trader-icon btr-icon" title="${label}" aria-label="${label}">BTR</span>`}).join("")}
 function renderChoiceRewards(){const heading=language==="ru"?HUB_EXTRA.choiceRewards:language==="ko"?"선택지별 보상":language==="ja"?"ルート別報酬":"Rewards by route",wikiLabel=language==="ru"?HUB_EXTRA.questWiki:language==="ko"?"퀘스트 위키":language==="ja"?"クエストWiki":"Quest Wiki",achievement=language==="ru"?HUB_EXTRA.choiceAchievement:({ko:"시즌 업적: 원칙보다 이익 달성",en:"Season Achievement: Profit Over Principles unlocked",ja:"シーズン実績：原則より利益 達成"}[language]||"Season Achievement: Profit Over Principles unlocked");return `<section class="choice-rewards"><h4>${heading}</h4><div>${CHOICE_REWARDS[language].map(route=>`<article><strong>${route.title}</strong><ul>${route.items.map(item=>`<li>${item}</li>`).join("")}</ul><a href="${route.wiki}" target="_blank" rel="noopener noreferrer">${wikiLabel} ↗</a></article>`).join("")}</div><p class="choice-achievement">${tarkovAchievementIcon("Profit Over Principles")?`<img class="achievement-image" src="${tarkovAchievementIcon("Profit Over Principles")}" alt="Profit Over Principles" width="48" height="48" loading="lazy" decoding="async" onerror="this.hidden=true">`:""}<span>${achievement}</span></p></section>`}
 function renderHistoricalDogtags(){
-  const label=language==="ru"?HUB_EXTRA.questDogtag:({ko:"PMC 인식표",en:"PMC dogtag",ja:"PMCドッグタグ"}[language]||"PMC dogtag"),keyLabel=language==="ru"?"Ключ от помеченной комнаты":({ko:"기숙사 314 마크방 열쇠",en:"Dorm room 314 marked key",ja:"寮314マークドキー"}[language]||"Dorm room 314 marked key"),keyIcon='<span class="quest-item" title="'+keyLabel+'"><img src="https://assets.tarkov.dev/5780cf7f2459777de4559322-icon.webp" alt="'+keyLabel+'" width="44" height="44" loading="lazy" decoding="async"></span>';
+  const label=language==="ru"?HUB_EXTRA.questDogtag:({ko:"PMC 인식표",en:"PMC dogtag",ja:"PMCドッグタグ"}[language]||"PMC dogtag"),keyLabel=language==="ru"?"Ключ от помеченной комнаты":({ko:"기숙사 314 마크방 열쇠",en:"Dorm room 314 marked key",ja:"寮314マークドキー"}[language]||"Dorm room 314 marked key"),keyIcon='<span class="quest-item" title="'+keyLabel+'"><img src="/assets/game/5780cf7f2459777de4559322-icon.webp" alt="'+keyLabel+'" width="44" height="44" loading="lazy" decoding="async"></span>';
   return '<div class="quest-dogtag-groups" style="display:flex;flex-wrap:wrap;gap:16px;margin:12px 0">'+["customs","woods","streets"].map(id=>{
     const map=HUB_MAPS.find(entry=>entry.id===id);
-    return '<div><strong>'+map.name[language]+'</strong><div class="quest-items">'+(id==="customs"?keyIcon:"")+Array.from({length:3},()=>'<span class="quest-item" title="'+label+'"><img src="https://assets.tarkov.dev/59f32c3b86f77472a31742f0-icon.webp" alt="'+label+'" width="44" height="44" loading="lazy" decoding="async"></span>').join("")+'</div></div>';
+    return '<div><strong>'+map.name[language]+'</strong><div class="quest-items">'+(id==="customs"?keyIcon:"")+Array.from({length:3},()=>'<span class="quest-item" title="'+label+'"><img src="/assets/game/59f32c3b86f77472a31742f0-icon.webp" alt="'+label+'" width="44" height="44" loading="lazy" decoding="async"></span>').join("")+'</div></div>';
   }).join("")+'</div>';
 }
 
@@ -534,11 +534,11 @@ function seasonUnlockLabels(){
 function renderSeasonTradeUnlock(reward){
   const t=seasonUnlockLabels();
   const name=language==="ko"?reward.ko:reward.name;
-  return `<section class="season-trade-unlock"><div class="season-trade-heading"><strong>${t.header}</strong><span>TRADE OFFER</span></div><div class="season-trade-item"><img src="https://assets.tarkov.dev/${reward.itemId}-512.webp" alt="${reward.name}" loading="lazy" decoding="async" width="68" height="68"><div><b>${name}</b><small>${reward.name}</small><p>${reward.trader[language]||reward.trader.en}${reward.level?` · ${t.level} ${reward.level}+`:""}</p></div></div><p class="season-trade-note">${t.note}</p></section>`;
+  return `<section class="season-trade-unlock"><div class="season-trade-heading"><strong>${t.header}</strong><span>TRADE OFFER</span></div><div class="season-trade-item"><img src="/assets/game/${reward.itemId}-512.webp" alt="${reward.name}" loading="lazy" decoding="async" width="68" height="68"><div><b>${name}</b><small>${reward.name}</small><p>${reward.trader[language]||reward.trader.en}${reward.level?` · ${t.level} ${reward.level}+`:""}</p></div></div><p class="season-trade-note">${t.note}</p></section>`;
 }
 function renderSeasonTradeSummary(){
   const t=seasonUnlockLabels(),completed=SEASON_TRADE_UNLOCKS.filter(reward=>{const i=QUESTS.findIndex(q=>q[0]===reward.quest);return i>=0&&questsDone.has(i)}).length;
-  return `<section class="season-trade-summary"><header><strong>${t.summary}</strong><span>${completed} / ${SEASON_TRADE_UNLOCKS.length} · ${t.progress}</span></header><div class="season-trade-summary-grid">${SEASON_TRADE_UNLOCKS.map(reward=>{const idx=QUESTS.findIndex(q=>q[0]===reward.quest),done=idx>=0&&questsDone.has(idx),name=language==="ko"?reward.ko:reward.name;return `<article class="${done?"done":""}"><img src="https://assets.tarkov.dev/${reward.itemId}-512.webp" alt="${reward.name}" width="48" height="48" loading="lazy" decoding="async"><div><b>${name}</b><small>${reward.quest}</small><small>${reward.trader[language]||reward.trader.en}${reward.level?` · Lv${reward.level}+`:""}</small></div></article>`}).join("")}</div><p>${t.footer}</p></section>`;
+  return `<section class="season-trade-summary"><header><strong>${t.summary}</strong><span>${completed} / ${SEASON_TRADE_UNLOCKS.length} · ${t.progress}</span></header><div class="season-trade-summary-grid">${SEASON_TRADE_UNLOCKS.map(reward=>{const idx=QUESTS.findIndex(q=>q[0]===reward.quest),done=idx>=0&&questsDone.has(idx),name=language==="ko"?reward.ko:reward.name;return `<article class="${done?"done":""}"><img src="/assets/game/${reward.itemId}-512.webp" alt="${reward.name}" width="48" height="48" loading="lazy" decoding="async"><div><b>${name}</b><small>${reward.quest}</small><small>${reward.trader[language]||reward.trader.en}${reward.level?` · Lv${reward.level}+`:""}</small></div></article>`}).join("")}</div><p>${t.footer}</p></section>`;
 }
 
 
@@ -550,7 +550,7 @@ function renderFinalSeasonAchievement(){
 }
 
 function renderQuests(){const u=UI[language],wikiLabel=language==="ru"?HUB_EXTRA.questWiki:language==="ko"?"위키에서 자세히":language==="ja"?"Wikiで詳細を見る":"View on Wiki",completeLabel=language==="ru"?HUB_EXTRA.complete:language==="ko"?"완료":language==="ja"?"完了":"COMPLETE",undoLabel=language==="ru"?HUB_EXTRA.undo:language==="ko"?"완료 취소":language==="ja"?"完了を取消":"UNDO",doneLabel=language==="ru"?HUB_EXTRA.doneQuests:language==="ko"?"완료한 퀘스트":language==="ja"?"完了クエスト":"Completed quests",itemLabel=language==="ru"?HUB_EXTRA.requiredItems:language==="ko"?"필요 아이템":language==="ja"?"必要アイテム":"Required items",subQuestLabel=language==="ru"?HUB_EXTRA.side:language==="ko"?"서브":language==="ja"?"サブ":"SIDE";document.querySelector("#quest-app").innerHTML=`<div class="tool-wrap"><header class="tool-hero"><div><small>KORD BREACH · SEASON 1</small><h2>${u.questTitle}</h2><p>${u.questDesc}</p></div><div class="tool-summary"><span class="summary-chip"><small>${doneLabel}</small><b>${questsDone.size} / ${QUESTS.length}</b></span></div></header>${renderSeasonTradeSummary()}<div class="quest-list">${QUESTS.map((q,i)=>{const isSubQuest=QUEST_SUBQUESTS.has(i),marker=QUEST_UNNUMBERED.has(i)?"":isSubQuest?subQuestLabel:(questsDone.has(i)?"✓":String(questDisplayNumber(i)).padStart(2,"0")),level=QUEST_LEVELS[i];return `<article class="quest-card ${isSubQuest?"subquest":""} ${questsDone.has(i)?"completed":""}"><span class="quest-no ${isSubQuest?"subquest-label":""}">${marker}</span><div><header class="quest-heading"><h3>${q[0]}</h3>${level?`<span class="quest-level">${level[language]}</span>`:""}${traderIcon(q[1])}<span class="trader">${QUEST_AREAS[i]}</span></header>${QUEST_ITEMS[i].length?`<div class="quest-items" aria-label="${itemLabel}">${QUEST_ITEMS[i].map(item=>`<span class="quest-item" title="${item.name}${item.qty?` ×${item.qty}`:""}"><img data-dev-item="${item.name}" ${item.icon?`src="${item.icon}"`:"hidden"} alt="${item.name}" width="44" height="44" loading="lazy" decoding="async"><span class="dev-item-missing" aria-hidden="true">?</span></span>`).join("")}</div>`:""}${q[0]==="Historical Prospects"?renderHistoricalDogtags():""}<ul><li>${language==="ko"?q[2]:QUEST_GOALS[language][i]}</li><li class="quest-guide">${QUEST_GUIDES[language][i]}</li></ul>${i===11?renderChoiceRewards():""}${SEASON_TRADE_UNLOCKS.filter(reward=>reward.quest===q[0]).map(renderSeasonTradeUnlock).join("")}${q[0]==="Historical Prospects"?renderFinalSeasonAchievement():""}${QUEST_WIKI[i]?`<a class="quest-wiki" href="${QUEST_WIKI[i]}" target="_blank" rel="noopener noreferrer">${wikiLabel} ↗</a>`:""}</div><button type="button" class="quest-complete ${questsDone.has(i)?"active":""}" data-quest-complete="${i}" aria-pressed="${questsDone.has(i)}">${questsDone.has(i)?undoLabel:completeLabel}</button></article>${q[0]==="Digital Puzzle"?renderLightkeeperUnlockNotice():""}`}).join("")}</div></div>`;window.TARKOV_DEV_ITEM_ICONS?.hydrate()}
-function entries(){let index=0;return ALLERGY.flatMap(([group,items])=>items.map(([ko,en])=>{const itemId=ALLERGY_ITEM_IDS[index++];return{id:en.toLowerCase().replace(/[^a-z0-9]+/g,"-"),group,ko,en,label:language==="ko"?ko:language==="en"||language==="en-GB"?en:localizedItemName(en),icon:`https://assets.tarkov.dev/${itemId}-icon.webp`}}))}
+function entries(){let index=0;return ALLERGY.flatMap(([group,items])=>items.map(([ko,en])=>{const itemId=ALLERGY_ITEM_IDS[index++];return{id:en.toLowerCase().replace(/[^a-z0-9]+/g,"-"),group,ko,en,label:language==="ko"?ko:language==="en"||language==="en-GB"?en:localizedItemName(en),icon:`/assets/game/${itemId}-icon.webp`}}))}
 function renderAllergy(){
   const u=UI[language],all=entries(),counts=Object.values(allergy).reduce((a,v)=>(v==="allergic"&&a.a++,v==="safe"&&a.s++,a),{a:0,s:0});
   const groups=ALLERGY.map(([group,items],i)=>[group,u.groups[i],items.map(([ko,en])=>all.find(x=>x.en===en)).filter(x=>(filter==="전체"||filter===group)&&`${x.ko} ${x.en}`.toLowerCase().includes(query))]).filter(x=>x[2].length);
@@ -579,7 +579,7 @@ function renderKappa(){
   const requirementCards=items=>items.map(x=>`<article class="check-card ${x.portrait?"trader-check":""} ${kappaRequirements.has(x.id)?"checked":""}"><button type="button" data-kappa-kind="requirement" data-kappa-id="${x.id}" aria-pressed="${kappaRequirements.has(x.id)}"><span class="check-mark">${kappaRequirements.has(x.id)?"✓":""}</span>${x.portrait?`<span class="trader-portrait"><img src="${x.portrait}" alt="" width="54" height="54" loading="lazy" decoding="async" onerror="this.hidden=true"></span>`:""}<strong>${x[language]}</strong></button>${x.wiki?`<a href="https://escapefromtarkov.fandom.com/wiki/${x.wiki}" target="_blank" rel="noopener noreferrer">WIKI ↗</a>`:""}</article>`).join("");
   document.querySelector("#kappa-app").innerHTML=`<div class="tool-wrap"><header class="tool-hero"><div><small>FENCE · COLLECTOR</small><h2>${u.title}</h2><p>${u.desc}</p></div><div class="tool-summary"><span class="summary-chip"><small>${u.items}</small><b>${itemDone} / ${KAPPA_ITEMS.length}</b></span><span class="summary-chip"><small>${u.quests}</small><b>${questDone} / ${quests.length}</b></span><span class="summary-chip"><small>${u.remaining}</small><b>${KAPPA_ITEMS.length-itemDone}</b></span></div></header><div class="toolbar kappa-toolbar"><span class="kappa-fir-notice">${u.fir}</span><button data-reset-kappa>${u.reset}</button></div><section class="kappa-section"><header class="section-title"><h3>${u.requirements}</h3><span>${conditions.filter(x=>kappaRequirements.has(x.id)).length} / ${conditions.length}</span></header><div class="check-grid requirements-grid">${requirementCards(conditions)}</div></section><section class="kappa-section"><header class="section-title"><h3>${u.quests}</h3><span>${questDone} / ${quests.length}</span></header><div class="check-grid quest-check-grid">${requirementCards(quests)}</div></section><section class="kappa-section"><header class="section-title"><h3>${u.items}</h3><span>${itemDone} / ${KAPPA_ITEMS.length}</span></header><div class="kappa-progress" aria-label="${u.items} ${itemDone} / ${KAPPA_ITEMS.length}"><i style="width:${itemDone/KAPPA_ITEMS.length*100}%"></i></div><div class="check-grid item-check-grid">${KAPPA_ITEMS.map(x=>`<button type="button" class="check-card item-check ${kappaItems.has(x.id)?"checked":""}" data-kappa-kind="item" data-kappa-id="${x.id}" aria-pressed="${kappaItems.has(x.id)}"><span class="kappa-item-icon"><img src="${x.icon}" alt="" width="52" height="52" loading="lazy" decoding="async" onerror="this.hidden=true"></span><strong>${localizedItemName(x.name)}</strong>${language==="ko"||language==="en"?`<small>${language==="ko"?x.name:u.found}</small>`:""}<small>${kappaItems.has(x.id)?u.found:u.remaining}</small></button>`).join("")}</div></section><p class="source-note"><a href="https://escapefromtarkov.fandom.com/wiki/Collector" target="_blank" rel="noopener noreferrer">${u.source} ↗</a><span> · </span><a href="https://tarkov.dev/" target="_blank" rel="noopener noreferrer">${u.imageSource} ↗</a></p></div>`
   if(language==="en")document.querySelectorAll("#kappa-app .item-check strong+small").forEach((node,index)=>{if(node.textContent===u.found)node.remove()});
-  const heroCopy=document.querySelector("#kappa-app .tool-hero>div:first-child");heroCopy.classList.add("kappa-hero-copy");heroCopy.insertAdjacentHTML("afterbegin",`<span class="fence-hero-portrait"><img src="https://assets.tarkov.dev/579dc571d53a0658a154fbec.webp" alt="Fence" width="86" height="86" decoding="async" onerror="this.hidden=true"></span>`)
+  const heroCopy=document.querySelector("#kappa-app .tool-hero>div:first-child");heroCopy.classList.add("kappa-hero-copy");heroCopy.insertAdjacentHTML("afterbegin",`<span class="fence-hero-portrait"><img src="/assets/game/579dc571d53a0658a154fbec.webp" alt="Fence" width="86" height="86" decoding="async" onerror="this.hidden=true"></span>`)
 }
 
 const LEAGUE_RANKS=[
