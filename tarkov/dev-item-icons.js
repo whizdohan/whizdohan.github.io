@@ -5,6 +5,8 @@
 (function(){
 "use strict";
 const ids={
+  "WI-FI Camera": "5b4391a586f7745321235ab2",
+  "TP-200 TNT brick": "60391b0fb847c71012789415",
   "Siege-R Black Division": "68947a4be4bf255d1b0ca746",
   "LV-119 Black Division V1": "689479a4a733b1602007e2eb",
   "2 Day Assault Pack": "68947ab5a733b1602007e2fe",
