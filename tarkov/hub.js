@@ -91,6 +91,8 @@ const TARKOV_ACHIEVEMENT_ICONS={
   "Top Secret": "https://assets.tarkov.dev/achievement-6a5e2d53e88fae7c180232f8-icon.webp",
   "Profit Over Principles": "https://assets.tarkov.dev/achievement-6a6870b6e37edc03f00a678d-icon.webp",
   "Among Strangers": "https://assets.tarkov.dev/achievement-6a6871871f135181ee0aff56-icon.webp",
+  "First Step": "https://assets.tarkov.dev/achievement-6a59f6fb65aa8755e000b95f-icon.webp",
+  "Reach the Summit": "https://assets.tarkov.dev/achievement-6a59f777625222137906a5c5-icon.webp",
 };
 const VERIFIED_SEASON_ACHIEVEMENT_ICONS=new Set(["Don't Need Any Help","I Had a Plan","Genetic Lottery","One Is Good, Two Is Better","We Have Hardcore at Home","You Call That a Challenge?","Entrepreneur Born in Heaven","Believer","Dawn of a New Era","Imposter","Top Secret","Profit Over Principles","Among Strangers"]);
 const tarkovAchievementIcon=name=>TARKOV_ACHIEVEMENT_ICONS[name]||"";
