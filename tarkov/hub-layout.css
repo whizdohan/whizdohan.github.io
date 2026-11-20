@@ -96,3 +96,22 @@
 
 /* Brief objective line below each Lightkeeper unlock quest link */
 .lightkeeper-quest-summary{margin:3px 0 9px;color:#aebeb8;font-size:12px;line-height:1.55;max-width:780px;overflow-wrap:anywhere}
+
+/* Lightkeeper unlock chain: independent quest cards */
+.lightkeeper-unlock-panel{display:block}
+.lightkeeper-unlock-panel>div{min-width:0}
+.lightkeeper-checklist{margin-top:18px}
+.lightkeeper-checklist-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.lightkeeper-checklist-heading strong{font-size:15px}
+.lightkeeper-checklist-heading span{font-size:12px;color:var(--gold);font-weight:800}
+.lightkeeper-progress-track{height:7px;background:#17282c;border-radius:999px;overflow:hidden;margin-bottom:14px;border:1px solid var(--line)}
+.lightkeeper-progress-track>span{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .2s ease}
+.lightkeeper-step-grid{display:grid;gap:10px}
+.lightkeeper-step{display:grid;grid-template-columns:38px minmax(0,1fr) auto;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:6px;background:#101b20;min-width:0}
+.lightkeeper-step.is-complete{border-color:#50765d;background:#10231c}
+.lightkeeper-step-number{display:grid;place-items:center;width:36px;height:36px;border:1px solid #496269;color:var(--gold);font:900 13px ui-monospace,monospace}
+.lightkeeper-step.is-complete .lightkeeper-step-number{border-color:var(--green);color:var(--green)}
+.lightkeeper-step-copy{min-width:0}.lightkeeper-step-copy .quest-wiki{display:inline-block;max-width:100%;margin:0;overflow-wrap:anywhere;font-weight:800}
+.lightkeeper-step-copy .lightkeeper-quest-summary{margin:5px 0 0}
+.lightkeeper-step .quest-complete{justify-self:end;min-width:83px}
+@media(max-width:600px){.lightkeeper-step{grid-template-columns:32px minmax(0,1fr);gap:8px;padding:11px}.lightkeeper-step-number{width:30px;height:30px}.lightkeeper-step .quest-complete{grid-column:2;justify-self:start}.lightkeeper-step-copy .lightkeeper-quest-summary{font-size:11px}}
