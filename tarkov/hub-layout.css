@@ -159,5 +159,5 @@
 
 /* Unmatched seasonal item icons never fall back to unrelated external images. */
 .quest-item img[data-dev-item][hidden]{display:none!important}
-.quest-item .dev-item-missing{display:grid;place-items:center;color:#78908f;font:700 16px ui-monospace,monospace}
+.quest-item .dev-item-missing{display:grid;place-items:center;width:44px;max-height:44px;padding:2px;text-align:center;overflow:hidden;overflow-wrap:anywhere;color:#a2b6b1;font:700 9px/1.15 ui-monospace,monospace}
 .quest-item img[data-dev-item]:not([hidden])~.dev-item-missing{display:none}
