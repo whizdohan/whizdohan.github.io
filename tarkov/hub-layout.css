@@ -144,3 +144,15 @@
 .choice-achievement:has(>.achievement-image){display:flex;align-items:center;gap:11px;min-width:0}
 .choice-achievement>.achievement-image{width:48px;height:48px;flex:0 0 48px;object-fit:contain;border:1px solid #6b624b;border-radius:6px;background:#111a1b}
 .choice-achievement>span{min-width:0;line-height:1.55}
+
+/* Compact and consistent season achievement icons */
+.achievement-card:has(>.achievement-image){grid-template-columns:42px minmax(0,1fr) auto;gap:10px}
+.achievement-card>.achievement-image{width:42px;height:42px;min-width:0;flex:0 0 42px;object-fit:contain}
+.season-achievement-head>.achievement-image{width:44px;height:44px;flex:0 0 44px;object-fit:contain}
+.choice-achievement>.achievement-image{width:40px;height:40px;flex:0 0 40px;object-fit:contain}
+@media(max-width:540px){
+ .achievement-card:has(>.achievement-image){grid-template-columns:36px minmax(0,1fr);gap:9px}
+ .achievement-card>.achievement-image{width:36px;height:36px;flex-basis:36px}
+ .season-achievement-head>.achievement-image{width:40px;height:40px;flex-basis:40px}
+ .choice-achievement>.achievement-image{width:36px;height:36px;flex-basis:36px}
+}
