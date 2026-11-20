@@ -4,6 +4,14 @@
  */
 (function(){
 "use strict";
+// The unknown-facility laptop is a seasonal quest-only item, not present in
+// the normal item-ID inventory. Use its verified quest icon directly.
+const questIconSources={
+  "Laptop from an unknown facility":[
+    "https://static.wikia.nocookie.net/escapefromtarkov_gamepedia/images/e/ee/Laptop_from_an_unknown_facility_icon.png/revision/latest?cb=20260812194032",
+    "https://tarkov101.com/img/season/laptop-from-an-unknown-facility-icon.webp"
+  ]
+};
 const ids={
   "Therapist's message": "6a6101b09b3e38f37a0dc67e",
   "Case with military equipment": "6a671d87ff6f8a0b080b6bf3",
@@ -101,12 +109,16 @@ let pending=null;
 const attempted=new Set();
 const norm=s=>String(s||"").toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g,"");
 const validURL=s=>{try{const u=new URL(s);return u.protocol==="https:"&&u.hostname==="assets.tarkov.dev"?u.href:null}catch{return null}};
-const icon=name=>ids[name]?window.tarkovLocalIcon?.("/assets/game/"+ids[name]+"-icon.webp")||"":window.tarkovLocalIcon?.(ready[name])||"";
+const icon=name=>questIconSources[name]?.[0]||(ids[name]?window.tarkovLocalIcon?.("/assets/game/"+ids[name]+"-icon.webp")||"":window.tarkovLocalIcon?.(ready[name])||"");
 const targets=()=>[...document.querySelectorAll("img[data-dev-item]")];
 function paint(){
   for(const img of targets()){
     const url=icon(img.dataset.devItem);
-    if(url&&img.getAttribute("src")!==url){img.src=url;img.hidden=false;img.onerror=()=>{img.hidden=true;img.removeAttribute("src")};}
+    if(url&&img.getAttribute("src")!==url){img.src=url;img.hidden=false;img.onerror=()=>{
+      const sources=questIconSources[img.dataset.devItem];
+      if(sources&&img.src!==sources[1]){img.src=sources[1];return}
+      img.hidden=true;img.removeAttribute("src");
+    };}
     else if(!url){img.hidden=true;img.removeAttribute("src")}
   }
 }
