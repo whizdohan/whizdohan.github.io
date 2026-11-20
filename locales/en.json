@@ -208,8 +208,8 @@
     "close": "Close"
   },
   "footer": {
-    "prefix": "This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by",
-    "text": "This is an unofficial fan-made site and is not affiliated with Battlestate Games. Game content, screenshots, item images, trademarks, and related assets are the property of Battlestate Games and their respective licensors. Site provided by whizs"
+    "prefix": "This unofficial fan site uses item, achievement, and trait imagery from Tarkov.dev and Escape from Tarkov game assets. All game-related images and trademarks remain the property of Battlestate Games and their respective rights holders. Site provided by",
+    "text": "This unofficial fan site uses item, achievement, and trait imagery from Tarkov.dev and Escape from Tarkov game assets. All game-related images and trademarks remain the property of Battlestate Games and their respective rights holders. Site provided by whizs"
   },
   "hub": {
     "labels": {
