@@ -228,3 +228,6 @@ select:focus { border-color: var(--accent); }
   .progress-row { grid-template-columns: 8px 1fr 68px; }
   .progress-row output { grid-column: 2 / 4; }
 }
+
+/* Ignore hidden DEV item images that are not verified by the API. */
+.exchange-loot-icons img[hidden]{display:none!important}
