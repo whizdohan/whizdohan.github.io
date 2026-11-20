@@ -93,3 +93,6 @@
 .season-trade-item p{font-size:12px;font-weight:800;color:#d9bf7e;margin:6px 0 0}
 .season-trade-note{color:#a6b3ad;font-size:11px;line-height:1.5;margin:10px 0 0}
 @media(max-width:540px){.season-trade-summary{padding:10px}.season-trade-summary-grid{grid-template-columns:1fr}.season-trade-item>img{width:54px;height:54px;flex-basis:54px}.season-trade-item{gap:9px}}
+
+/* Brief objective line below each Lightkeeper unlock quest link */
+.lightkeeper-quest-summary{margin:3px 0 9px;color:#aebeb8;font-size:12px;line-height:1.55;max-width:780px;overflow-wrap:anywhere}
