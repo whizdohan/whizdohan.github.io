@@ -43,4 +43,4 @@ window.TARKOV_TRAIT_ICONS={
   "AVERAGE": "69ce64064e0a1c7ca20781d3",
   "KAPPA PROTOCOL": "69ce64fe6e199f4bbe0ab1a1"
 };
-window.tarkovTraitIcon=function(name){const key=String(name||'').trim().toUpperCase();const id=window.TARKOV_TRAIT_ICONS[key];return id?'https://assets.tarkov.dev/'+id+'.webp':null;};
+window.tarkovTraitIcon=function(name){const key=String(name||'').trim().toUpperCase();const id=window.TARKOV_TRAIT_ICONS[key];return id?'/assets/game/'+id+'.webp':null;};
