@@ -78,21 +78,24 @@ const EXCLUSIONS=[["thrombo","hemophilia"],["bones","osteoporosis"],["hypodipsia
 
 // Verified Steam achievement artwork (no substitute image for unknown achievements).
 const TARKOV_ACHIEVEMENT_ICONS={
-  "Don't Need Any Help": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/c5dccbc91e090956e6248973da1a2c992e2946ed.jpg",
-  "I Had a Plan": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/4bc9139e9a123fbbd6b6995a3dca372524212f4c.jpg",
-  "Genetic Lottery": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/1bcb28e179a3bdbf650848f2053ecbf658573c8c.jpg",
-  "Believer": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/8049d165fdacc4d20b6547824d6c5ebab634d393.jpg",
-  "Dawn of a New Era": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/95c3fb1a50cec968536bd01bcc2aace0ef343681.jpg",
-  "Imposter": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/d04753dbe194dc75a375ef115fc4d3868dd0609f.jpg",
-  "Top Secret": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/ce68fb6e474b833e29b207c1743bf9984e32e82b.jpg",
-  "Profit Over Principles": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/e8b30fee41722d6e37d9341b5310156ba3e239c2.jpg",
-  "Among Strangers": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/c2e91b5d620b6a0cfa0953ad98914b623d474d2b.jpg",
-  "First Step": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/1f30082abff4b8a101c8851a1cc807b408785014.jpg",
-  "Reach the Summit": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/c8d508822c8016e344209e139442af11d439bf5f.jpg"
+  "Entrepreneur Born in Heaven": "https://assets.tarkov.dev/achievement-6a5dfed95c12f0b8a80c4545-icon.webp",
+  "You Call That a Challenge?": "https://assets.tarkov.dev/achievement-6a5dfd8653ab08ce0d093aa6-icon.webp",
+  "We Have Hardcore at Home": "https://assets.tarkov.dev/achievement-6a5dfd7b5c12f0b8a80c453c-icon.webp",
+  "One Is Good, Two Is Better": "https://assets.tarkov.dev/achievement-6a5df6b0c901d2199d017048-icon.webp",
+  "Don't Need Any Help": "https://assets.tarkov.dev/achievement-6a59f63cacaee8fa5d013981-icon.webp",
+  "I Had a Plan": "https://assets.tarkov.dev/achievement-6a5df324129316dcbe0da3da-icon.webp",
+  "Genetic Lottery": "https://assets.tarkov.dev/achievement-6a5df752accb14ca770ccb07-icon.webp",
+  "Believer": "https://assets.tarkov.dev/achievement-6a59f64965aa8755e000b95c-icon.webp",
+  "Dawn of a New Era": "https://assets.tarkov.dev/achievement-6a60f75f1a1222ee000baf0d-icon.webp",
+  "Imposter": "https://assets.tarkov.dev/achievement-6a59f64174b4c1a38702a8a6-icon.webp",
+  "Top Secret": "https://assets.tarkov.dev/achievement-6a5e2d53e88fae7c180232f8-icon.webp",
+  "Profit Over Principles": "https://assets.tarkov.dev/achievement-6a6870b6e37edc03f00a678d-icon.webp",
+  "Among Strangers": "https://assets.tarkov.dev/achievement-6a6871871f135181ee0aff56-icon.webp",
 };
+const VERIFIED_SEASON_ACHIEVEMENT_ICONS=new Set(["Don't Need Any Help","I Had a Plan","Genetic Lottery","One Is Good, Two Is Better","We Have Hardcore at Home","You Call That a Challenge?","Entrepreneur Born in Heaven","Believer","Dawn of a New Era","Imposter","Top Secret","Profit Over Principles","Among Strangers"]);
 const tarkovAchievementIcon=name=>TARKOV_ACHIEVEMENT_ICONS[name]||"";
-/* Load exact achievement art from tarkov.dev, using verified Steam URLs as fallback.
- * API-provided icons are matched by the full English achievement name only.
+/* Achievement artwork must come from Tarkov.dev only.
+ * Verified asset URLs are retained; other achievements load only exact name-matched API image links.
  */
 async function loadTarkovAchievementIcons(){
   try{
@@ -112,15 +115,16 @@ async function loadTarkovAchievementIcons(){
       if(!matchedName)continue;
       try{
         const parsed=new URL(entry.imageLink);
-        if(parsed.protocol!=="https:")continue;
+        if(parsed.protocol!=="https:"||parsed.hostname!=="assets.tarkov.dev")continue;
       }catch{continue}
+      if(VERIFIED_SEASON_ACHIEVEMENT_ICONS.has(matchedName))continue;
       if(TARKOV_ACHIEVEMENT_ICONS[matchedName]!==entry.imageLink){
         TARKOV_ACHIEVEMENT_ICONS[matchedName]=entry.imageLink;
         changed=true;
       }
     }
     if(changed){renderModifiers();renderQuests()}
-  }catch{/* Existing verified Steam icon URLs remain available. */}
+  }catch{/* Keep the already verified Tarkov.dev assets; do not use third-party fallbacks. */}
 }
 
 
