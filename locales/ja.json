@@ -497,7 +497,7 @@
     },
     "areas": [
       "Shoreline",
-      "Streets · Woods · Lighthouse",
+      "Streets of Tarkov · Woods · Lighthouse",
       "Ground Zero",
       "Shoreline · Ground Zero",
       "Any location",
@@ -507,7 +507,7 @@
       "Quest item",
       "Quest item",
       "Any location · Icebreaker",
-      "Streets",
+      "Streets of Tarkov",
       "The Lab",
       "Shoreline",
       "Customs · Woods",
@@ -519,4 +519,3 @@
     ]
   }
 }
-
