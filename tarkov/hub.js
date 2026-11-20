@@ -415,7 +415,7 @@ const SEASON_TRADE_UNLOCKS=[
   {quest:"Reverse Gear",name:"Gatorz Specter MILSPEC ballistic glasses",ko:"Gatorz Specter MILSPEC 방탄 안경",itemId:"689b3fffa1295e322207a677",trader:{ko:"피스키퍼 LL1",en:"Peacekeeper LL1",ja:"Peacekeeper LL1"},level:0},
   {quest:"Forbidden Knowledge",name:"Avon M53A1 gas mask",ko:"Avon M53A1 방독면",itemId:"689b880fff8b4adc420f5b56",trader:{ko:"피스키퍼 LL2",en:"Peacekeeper LL2",ja:"Peacekeeper LL2"},level:0},
   {quest:"Sheep in Wolf's Clothing",name:"Mystery Ranch 2 Day Assault Pack (Black)",ko:"Mystery Ranch 2 Day Assault Pack (Black) 배낭",itemId:"68947ab5a733b1602007e2fe",trader:{ko:"라그맨 LL3",en:"Ragman LL3",ja:"Ragman LL3"},level:25},
-  {quest:"Digital Puzzle",name:"Spiritus Systems LV-119 Plate Carrier (Black Division V1)",ko:"Spiritus Systems LV-119 플레이트 캐리어 (블랙 디비전 V1)",itemId:"689479a4a733b1602007e2eb",trader:{ko:"피스키퍼 LL4",en:"Peacekeeper LL4",ja:"Peacekeeper LL4"},level:30},
+  {quest:"Digital Puzzle",name:"Spiritus Systems LV-119 Plate Carrier (Black Division V1)",ko:"Spiritus Systems LV-119 V1 (흰색 블랙 디비전 방탄복)",itemId:"689479a4a733b1602007e2eb",trader:{ko:"피스키퍼 LL4",en:"Peacekeeper LL4",ja:"Peacekeeper LL4"},level:30},
   {quest:"Historical Prospects",name:"First Spear Siege-R Optimized M.A.S.S. Plate Carrier (Black Division)",ko:"First Spear Siege-R 방탄 플레이트 캐리어 (블랙 디비전)",itemId:"68947a4be4bf255d1b0ca746",trader:{ko:"피스키퍼 LL4",en:"Peacekeeper LL4",ja:"Peacekeeper LL4"},level:30}
 ];
 function seasonUnlockLabels(){
