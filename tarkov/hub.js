@@ -401,8 +401,50 @@ function renderLightkeeperUnlockNotice(){
   }[language]||(language==="ru"?{title:HUB_EXTRA.lightkeeperTitle,description:HUB_EXTRA.lightkeeperDescription}:{title:"Unlock Lightkeeper",description:"Unlock Lightkeeper to continue with the following season quests."});
   const requirements={"ko":["스토리 챕터 Tour를 진행해 등대 직접 입장을 해금하세요.","프라퍼·테라피스트·스키어·피스키퍼·메카닉·라그맨·예거의 충성도를 모두 3레벨로 올리세요.","메카닉에게 등대지기와 함께 일할 수 있는지 문의하세요."],"en":["Progress through the Tour story chapter to unlock direct access to Lighthouse.","Reach Loyalty Level 3 with Prapor, Therapist, Skier, Peacekeeper, Mechanic, Ragman, and Jaeger.","Ask Mechanic about working with Lightkeeper."],"ja":["ストーリーチャプターTourを進め、Lighthouseへの直接入場を解放してください。","Prapor・Therapist・Skier・Peacekeeper・Mechanic・Ragman・Jaeger全員のロイヤリティレベルを3にしてください。","Lightkeeperと協力できるかMechanicに尋ねてください。"]}[language]||HUB_EXTRA.lightkeeperRequirements||["Progress through the Tour story chapter to unlock direct access to Lighthouse.","Reach Loyalty Level 3 with Prapor, Therapist, Skier, Peacekeeper, Mechanic, Ragman, and Jaeger.","Ask Mechanic about working with Lightkeeper."];
   const questChain=[[["Trust but Verify","To_the_Light_-_Trust_but_Verify"]],[["False Call","To_the_Light_-_False_Call"]],[["Someone Called?","To_the_Light_-_Someone_Called?"]],[["Clip Their Wings","To_the_Light_-_Clip_Their_Wings"]],[["Fallen Bird","To_the_Light_-_Fallen_Bird"]],[["Dangerous Ambitions","To_the_Light_-_Dangerous_Ambitions"]],[["Bite the Dust","To_the_Light_-_Bite_the_Dust"]],[["A Time to Throw Stones","To_the_Light_-_A_Time_to_Throw_Stones"]],[["A Time to Gather Stones","To_the_Light_-_A_Time_to_Gather_Stones"]],[["The Other Side","To_the_Light_-_The_Other_Side"]],[["Getting Acquainted","To_the_Light_-_Getting_Acquainted"]]];
+  const lightkeeperQuestSummaries={
+    ko:[
+      "연구소 서버실에 가짜 데이터 하드드라이브 설치 후 같은 레이드에서 환기구 탈출(배낭 불가).",
+      "세관에서 21:00~06:00 스캐브 5명·PMC 1명 처치, WI-FI 카메라 설치와 노란 조명탄 사용(한 레이드).",
+      "False Call 완료 후 은신처로 복귀해 후속 보고 완료(별도 전투 없음).",
+      "삼림→세관→해안선 이동 중 신호 방해기 4개 설치. 지정 경유 이동과 설치를 이어서 진행.",
+      "Clip Their Wings 완료 후 은신처로 돌아가 보고.",
+      "등대지기의 부적을 피스키퍼에게 전달하는 연계 임무.",
+      "등대지기 부적(증거물)을 피스키퍼에게 제출.",
+      "연구소의 한 레이드에서 PMC 2명 처치.",
+      "인레이드 획득한 30레벨 이상 PMC 인식표 3개 제출.",
+      "리저브·시내·세관 마크방에 테라그룹 블루폴더 각 1개씩 설치(총 3개).",
+      "등대에서 V3 USB 획득·제출, 정보시설 Lv2에서 DSP 송신기 재설정 후 등대 진입."
+    ],
+    en:[
+      "Plant the false-data hard drive in The Lab and extract via Ventilation Shaft in the same raid (no backpack).",
+      "On Customs at 21:00–06:00, kill 5 Scavs and 1 PMC, plant a WI-FI camera and fire a yellow flare in one raid.",
+      "Return to the Hideout after False Call; this is a follow-up report, not another combat objective.",
+      "Plant 4 signal jammers while transiting Woods → Customs → Shoreline as required.",
+      "Return to the Hideout after Clip Their Wings.",
+      "Transfer the Lightkeeper amulet to Peacekeeper as part of the linked handover.",
+      "Hand over the Lightkeeper amulet (evidence) to Peacekeeper.",
+      "Kill 2 PMCs in The Lab within one raid.",
+      "Hand over 3 Found in Raid PMC dogtags of level 30 or higher.",
+      "Plant 1 TerraGroup Blue Folder in a marked room on each of Reserve, Streets and Customs (3 total).",
+      "Find and hand over V3 flash drive on Lighthouse; reflash DSP at Intelligence Center Lv2 and access the lighthouse."
+    ],
+    ja:[
+      "ラボのサーバールームに偽データ入りHDDを設置し、同じレイドで換気口から脱出（バックパック不可）。",
+      "税関の21:00～06:00にSCAV5人・PMC1人を倒し、カメラ設置と黄色フレア使用を1レイドで完了。",
+      "False Call後にハイドアウトに戻り、報告を完了。",
+      "ウッズ→税関→ショアラインを移動しながら妨害装置4個を指定位置に設置。",
+      "Clip Their Wings後にハイドアウトへ戻る。",
+      "ライトキーパーの護符をピースキーパーに渡す関連タスク。",
+      "ライトキーパーの護符（証拠）をピースキーパーに提出。",
+      "ラボの1レイド内でPMC2人を倒す。",
+      "レイド内入手のLv30以上のPMCドッグタグ3個を提出。",
+      "リザーブ・ストリート・税関のマークド部屋に青フォルダーを1個ずつ設置。",
+      "灯台でV3 USB入手・提出、インテリジェンスセンターLv2でDSPを再設定し灯台へ進む。"
+    ]
+  };
+  const lightkeeperSummaries=lightkeeperQuestSummaries[language]||lightkeeperQuestSummaries.en;
   const chainLabel=language==="ru"?HUB_EXTRA.lightkeeperChain:({ko:"등대지기 해금 퀘스트 순서",en:"Lightkeeper unlock quest order",ja:"Lightkeeper解放クエストの順序"}[language]||"Lightkeeper unlock quest order");
-  return `<article class="quest-card ${completed?"completed":""}" style="grid-template-columns:minmax(0,1fr) auto"><div><header class="quest-heading"><h3>${copy.title}</h3>${traderIcon("등대지기")}</header><p class="quest-guide">${copy.description}</p><ul>${requirements.map(text=>`<li>${text}</li>`).join("")}</ul><section style="margin-top:16px"><strong>${chainLabel}</strong><ol style="margin:8px 0 0;padding-left:22px;line-height:1.7">${questChain.map(step=>`<li>${step.map(([name,slug])=>`<a class="quest-wiki" style="margin-top:4px;font-size:inherit;overflow-wrap:anywhere" href="https://escapefromtarkov.fandom.com/wiki/${encodeURIComponent(slug)}" target="_blank" rel="noopener noreferrer">To the Light - ${name} ↗</a>`).join(" / ")}</li>`).join("")}</ol></section></div><button type="button" class="quest-complete ${completed?"active":""}" style="grid-column:auto" data-lightkeeper-complete aria-pressed="${completed}">${buttonLabel}</button></article>`;
+  return `<article class="quest-card ${completed?"completed":""}" style="grid-template-columns:minmax(0,1fr) auto"><div><header class="quest-heading"><h3>${copy.title}</h3>${traderIcon("등대지기")}</header><p class="quest-guide">${copy.description}</p><ul>${requirements.map(text=>`<li>${text}</li>`).join("")}</ul><section style="margin-top:16px"><strong>${chainLabel}</strong><ol style="margin:8px 0 0;padding-left:22px;line-height:1.7">${questChain.map((step,index)=>`<li>${step.map(([name,slug])=>`<a class="quest-wiki" style="margin-top:4px;font-size:inherit;overflow-wrap:anywhere" href="https://escapefromtarkov.fandom.com/wiki/${encodeURIComponent(slug)}" target="_blank" rel="noopener noreferrer">To the Light - ${name} ↗</a>`).join(" / ")}<p class="lightkeeper-quest-summary">${lightkeeperSummaries[index]}</p></li>`).join("")}</ol></section></div><button type="button" class="quest-complete ${completed?"active":""}" style="grid-column:auto" data-lightkeeper-complete aria-pressed="${completed}">${buttonLabel}</button></article>`;
 }
 
 
