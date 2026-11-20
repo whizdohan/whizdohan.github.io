@@ -164,3 +164,9 @@
 
 .quest-message-notice{margin-top:7px;padding:9px 11px;border-left:3px solid var(--gold);background:var(--soft);color:var(--text);line-height:1.65}
 .quest-message-notice b{color:var(--gold)}
+
+/* Keep Lighthouse step labels inside their badges, including on narrow phones. */
+.lightkeeper-step-number{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;height:auto;padding:7px 4px;white-space:normal;text-align:center;line-height:1.2;overflow-wrap:anywhere}
+.lightkeeper-step-label,.lightkeeper-step-index{display:block;width:100%;line-height:1.2}
+.lightkeeper-step-index{font-size:14px}
+@media(max-width:600px){.lightkeeper-step{grid-template-columns:44px minmax(0,1fr)}.lightkeeper-step-number{width:42px;min-height:52px;height:auto;padding:7px 3px;font-size:10px}.lightkeeper-step-index{font-size:13px}}
