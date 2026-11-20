@@ -280,7 +280,7 @@
       "해안선",
       "등대",
       "쇄빙선",
-      "타르코프 시내",
+      "스오타",
       "그라운드 제로",
       "연구소",
       "미궁"
@@ -496,27 +496,26 @@
       ]
     },
     "areas": [
-      "Shoreline",
-      "Streets · Woods · Lighthouse",
-      "Ground Zero",
-      "Shoreline · Ground Zero",
-      "Any location",
-      "Shoreline · Ground Zero",
+      "해안선",
+      "스오타 · 삼림 · 등대",
+      "그라운드 제로",
+      "해안선 · 그라운드 제로",
+      "모든지역",
+      "해안선 · 그라운드 제로",
       "Black Division loot",
       "Found in Raid equipment",
       "Quest item",
       "Quest item",
-      "Any location · Icebreaker",
-      "Streets",
-      "The Lab",
-      "Shoreline",
-      "Customs · Woods",
-      "Intelligence Center Lv. 1",
-      "Shoreline → Lighthouse → Reserve → Woods",
-      "Interchange → Streets of Tarkov",
-      "Lighthouse",
-      "Customs · Woods · Streets of Tarkov"
+      "모든지역 · 쇄빙선",
+      "스오타",
+      "연구소",
+      "해안선",
+      "세관 · 삼림",
+      "은신처 정보센터 Lv. 1",
+      "해안선 → 등대 → 리저브 → 삼림",
+      "인터체인지 → 스오타",
+      "등대",
+      "세관 · 삼림 · 스오타"
     ]
   }
 }
-
