@@ -117,13 +117,12 @@ async function loadTarkovAchievementIcons(){
         const parsed=new URL(entry.imageLink);
         if(parsed.protocol!=="https:"||parsed.hostname!=="assets.tarkov.dev")continue;
       }catch{continue}
-      if(VERIFIED_SEASON_ACHIEVEMENT_ICONS.has(matchedName))continue;
       if(TARKOV_ACHIEVEMENT_ICONS[matchedName]!==entry.imageLink){
         TARKOV_ACHIEVEMENT_ICONS[matchedName]=entry.imageLink;
         changed=true;
       }
     }
-    if(changed){renderModifiers();renderQuests()}
+    if(changed){if(document.querySelector("#modifier-app"))renderModifiers();if(document.querySelector("#quest-app"))renderQuests()}
   }catch{/* Keep the already verified Tarkov.dev assets; do not use third-party fallbacks. */}
 }
 
