@@ -89,6 +89,34 @@ const TARKOV_ACHIEVEMENT_ICONS={
   "Reach the Summit": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/c8d508822c8016e344209e139442af11d439bf5f.jpg"
 };
 const tarkovAchievementIcon=name=>TARKOV_ACHIEVEMENT_ICONS[name]||"";
+/* Load exact achievement art from tarkov.dev, using verified Steam URLs as fallback.
+ * API-provided icons are matched by the full English achievement name only.
+ */
+async function loadTarkovAchievementIcons(){
+  try{
+    const response=await fetch("https://api.tarkov.dev/graphql",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({query:"query SeasonAchievementIcons { achievements { name imageLink } }"})
+    });
+    if(!response.ok)return;
+    const json=await response.json();
+    const expected=new Set([...ACHIEVEMENTS,...OTHER_SEASON_ACHIEVEMENTS].map(item=>item.name.en));
+    let changed=false;
+    for(const entry of json?.data?.achievements||[]){
+      if(!expected.has(entry.name)||typeof entry.imageLink!=="string")continue;
+      try{
+        const parsed=new URL(entry.imageLink);
+        if(parsed.protocol!=="https:")continue;
+      }catch{continue}
+      if(TARKOV_ACHIEVEMENT_ICONS[entry.name]!==entry.imageLink){
+        TARKOV_ACHIEVEMENT_ICONS[entry.name]=entry.imageLink;
+        changed=true;
+      }
+    }
+    if(changed){renderModifiers();renderQuests()}
+  }catch{/* Existing verified Steam icon URLs remain available. */}
+}
+
 
 const ACHIEVEMENTS=[
 {name:{ko:"도움 필요 없어",en:"Don't Need Any Help",ja:"助けは要らない"},check:()=>POS.every(x=>!selected.has(x[0])),note:{ko:"긍정 퍽 없이 레벨 30 달성",en:"Reach level 30 with no positive perks",ja:"プラス特性なしでレベル30到達"}},
@@ -106,8 +134,8 @@ const OTHER_SEASON_ACHIEVEMENTS=[
 {name:{ko:"새로운 시대의 여명",en:"Dawn of a New Era",ja:"新時代の夜明け"},note:{ko:"시즌 시스템 도입 이후 카파 보안 컨테이너 획득",en:"Obtain Secure container Kappa after the Seasons system was introduced",ja:"シーズンシステム導入後にKappaセキュアコンテナを獲得"}},
 {name:{ko:"원칙보다 이익",en:"Profit Over Principles",ja:"原則より利益"},note:{ko:"시즌 1 KORD BREACH의 펜스 퀘스트 라인을 완료하고 미확인 시설의 노트북을 메카닉 또는 펜스에게 전달",en:"Complete Fence's KORD BREACH task line and hand the unknown-facility laptop to Mechanic or Fence",ja:"Season 1 KORD BREACHのFenceタスクラインを完了し、未知の施設のノートPCをMechanicまたはFenceに渡す"}},
 {name:{ko:"낯선 이들 사이에서",en:"Among Strangers",ja:"見知らぬ者たちの中で",ru:"Среди незнакомцев"},note:{ko:"시즌 1 KORD BREACH의 등대지기 퀘스트 라인 완료 (마지막 퀘스트: Historical Prospects)",en:"Complete Lightkeeper's quest line in Season 1 KORD BREACH (final quest: Historical Prospects)",ja:"シーズン1 KORD BREACHのLightkeeperクエストラインを完了（最後のクエスト：Historical Prospects）",ru:"Завершите цепочку заданий Смотрителя в сезоне 1 KORD BREACH (последнее задание: Historical Prospects)"}},
-{name:{ko:"첫걸음",en:"First Step",ja:"最初の一歩",ru:"Первый шаг"},note:{ko:"아레나 리그에서 Survivor 등급 달성",en:"Reach the Survivor league rank in Arena",ja:"ArenaリーグのSurvivorランクに到達",ru:"Достигните ранга Survivor в лиге Арены"}},
-{name:{ko:"정상에 도달하다",en:"Reach the Summit",ja:"頂点に到達",ru:"На вершину"},note:{ko:"아레나 리그에서 최종 Conductor 등급 달성",en:"Reach the final Conductor league rank in Arena",ja:"Arenaリーグの最終ランクConductorに到達",ru:"Достигните финального ранга Conductor в лиге Арены"}}
+{name:{ko:"첫걸음",en:"First Step",ja:"最初の一歩",ru:"Первый шаг"},note:{ko:"리그에서 Survivor 등급 달성",en:"Reach the Survivor rank in League",ja:"リーグでSurvivorランクに到達",ru:"Достигните ранга Survivor в лиге"}},
+{name:{ko:"정상에 도달하다",en:"Reach the Summit",ja:"頂点に到達",ru:"На вершину"},note:{ko:"리그에서 최종 Conductor 등급 달성",en:"Reach the final Conductor rank in League",ja:"リーグで最終ランクConductorに到達",ru:"Достигните финального ранга Conductor в лиге"}}
 ];
 const QUEST_SUBQUESTS=new Set([2,7,13]);
 const QUEST_LEVELS=[
@@ -553,4 +581,5 @@ document.querySelector("#modifier-app").addEventListener("click",e=>{const achie
 document.querySelector("#kappa-app").addEventListener("click",e=>{const card=e.target.closest("[data-kappa-kind]");if(card){const set=card.dataset.kappaKind==="item"?kappaItems:kappaRequirements;set.has(card.dataset.kappaId)?set.delete(card.dataset.kappaId):set.add(card.dataset.kappaId);localStorage.setItem(card.dataset.kappaKind==="item"?KEYS.kappaItems:KEYS.kappaRequirements,JSON.stringify([...set]));renderKappa()}else if(e.target.closest("[data-reset-kappa]")&&confirm(KAPPA_UI[language].confirmReset)){kappaItems.clear();kappaRequirements.clear();localStorage.removeItem(KEYS.kappaItems);localStorage.removeItem(KEYS.kappaRequirements);renderKappa()}});
 document.querySelector("#hub-language").value=language;
 setLanguage(language).then(()=>setView(PAGE_VIEW,false));
+loadTarkovAchievementIcons();
 
