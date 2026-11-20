@@ -309,7 +309,7 @@
     ],
     "guides": [
       "Find 1 case at one of three Shoreline spawns: the shack by Sordi tower, Weather Station second floor, or Power Station first floor.",
-      "Take the case from Part 1 to a BTR stop on Woods or Streets and hand 1 case to the BTR Driver.",
+      "Take the case from Part 1 to a BTR stop on Woods, Streets of Tarkov, or Lighthouse and hand 1 case to the BTR Driver.",
       "Plant Therapist's letter at the TerraGroup HQ second-floor reception. Dying or using an extract other than EMERCOM Checkpoint or Nakatani Basement fails the task.",
       "Bring 4 WI-FI Cameras: place one at each Shoreline Ural truck and excavator, and Ground Zero cargo truck cab and underground yellow bus.",
       "Hand over any 3 Black Division plate carriers, obtained on Ground Zero (level 21+), Shoreline, Streets, The Lab, or Icebreaker. The LV-119 MultiCam Black worn by The Wedge on Icebreaker is also accepted.",
@@ -467,7 +467,7 @@
     ],
     "areas": [
       "Shoreline",
-      "Streets · Woods",
+      "Streets · Woods · Lighthouse",
       "Ground Zero",
       "Shoreline · Ground Zero",
       "Any location",
