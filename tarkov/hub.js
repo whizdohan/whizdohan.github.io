@@ -79,6 +79,8 @@ const EXCLUSIONS=[["thrombo","hemophilia"],["bones","osteoporosis"],["hypodipsia
 // Verified Steam achievement artwork (no substitute image for unknown achievements).
 const TARKOV_ACHIEVEMENT_ICONS={
   "Don't Need Any Help": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/c5dccbc91e090956e6248973da1a2c992e2946ed.jpg",
+  "I Had a Plan": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/4bc9139e9a123fbbd6b6995a3dca372524212f4c.jpg",
+  "Genetic Lottery": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/1bcb28e179a3bdbf650848f2053ecbf658573c8c.jpg",
   "Believer": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/8049d165fdacc4d20b6547824d6c5ebab634d393.jpg",
   "Dawn of a New Era": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/95c3fb1a50cec968536bd01bcc2aace0ef343681.jpg",
   "Imposter": "https://shared.fastly.steamstatic.com/community_assets/images/apps/3932890/d04753dbe194dc75a375ef115fc4d3868dd0609f.jpg",
@@ -100,16 +102,20 @@ async function loadTarkovAchievementIcons(){
     });
     if(!response.ok)return;
     const json=await response.json();
-    const expected=new Set([...ACHIEVEMENTS,...OTHER_SEASON_ACHIEVEMENTS].map(item=>item.name.en));
+    const normalize=name=>name.toLowerCase().normalize("NFKC").replace(/[^a-z0-9]+/g,"");
+    const expectedNames=[...ACHIEVEMENTS,...OTHER_SEASON_ACHIEVEMENTS].map(item=>item.name.en);
+    const namesByKey=new Map(expectedNames.map(name=>[normalize(name),name]));
     let changed=false;
     for(const entry of json?.data?.achievements||[]){
-      if(!expected.has(entry.name)||typeof entry.imageLink!=="string")continue;
+      if(typeof entry.name!=="string"||typeof entry.imageLink!=="string")continue;
+      const matchedName=namesByKey.get(normalize(entry.name));
+      if(!matchedName)continue;
       try{
         const parsed=new URL(entry.imageLink);
         if(parsed.protocol!=="https:")continue;
       }catch{continue}
-      if(TARKOV_ACHIEVEMENT_ICONS[entry.name]!==entry.imageLink){
-        TARKOV_ACHIEVEMENT_ICONS[entry.name]=entry.imageLink;
+      if(TARKOV_ACHIEVEMENT_ICONS[matchedName]!==entry.imageLink){
+        TARKOV_ACHIEVEMENT_ICONS[matchedName]=entry.imageLink;
         changed=true;
       }
     }
