@@ -156,3 +156,8 @@
  .season-achievement-head>.achievement-image{width:40px;height:40px;flex-basis:40px}
  .choice-achievement>.achievement-image{width:36px;height:36px;flex-basis:36px}
 }
+
+/* Unmatched seasonal item icons never fall back to unrelated external images. */
+.quest-item img[data-dev-item][hidden]{display:none!important}
+.quest-item .dev-item-missing{display:grid;place-items:center;color:#78908f;font:700 16px ui-monospace,monospace}
+.quest-item img[data-dev-item]:not([hidden])~.dev-item-missing{display:none}
