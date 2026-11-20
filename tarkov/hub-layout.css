@@ -57,3 +57,7 @@
 
 /* Modifier requirements for selected season achievements. */
 .achievement-requirements{display:grid;gap:6px;margin-top:5px;padding-top:9px;border-top:1px solid #2c4147}.achievement-requirements>b{color:var(--gold);font-size:10px}.achievement-requirements>div{display:flex;gap:5px;flex-wrap:wrap}.achievement-requirements span{padding:4px 7px;border:1px solid #334b52;background:#091417;color:#9aadaa;font-size:10px;font-weight:800}.achievement-requirements span.selected{border-color:var(--green);background:#17372c;color:#d7ffea}
+
+/* Season switcher shared across season pages */
+.hub-brand .season-picker-label{display:block;margin:12px 0 5px;color:var(--gold);font:800 10px ui-monospace,monospace;letter-spacing:.12em}
+.hub-brand .season-picker{width:100%;min-width:0;padding:10px 6px;background:#091317;color:var(--text);border:1px solid #50656a;border-radius:4px;font-size:11px;font-weight:800;cursor:pointer}
