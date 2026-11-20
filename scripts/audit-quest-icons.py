@@ -47,7 +47,7 @@ def main():
   keys={norm(s) for s in aliasesFor}
   entries=[x for x in items if norm(x["name"]) in keys]
   for key,value in translations.items():
-   if not (key.endswith(" Name") or key.endswith(" ShortName")) or norm(value) not in keys:continue
+   if not (key.lower().endswith(" name") or key.lower().endswith(" shortname")) or norm(value) not in keys:continue
    itemid=key[:24]
    if re.fullmatch(r"[a-f0-9]{24}",itemid):
     entries.append({"name":value,"id":itemid,"source":"translation"})
